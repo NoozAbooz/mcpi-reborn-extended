@@ -1,0 +1,44 @@
+Package: mcpi-proxy
+Version: 0.3.3
+Architecture: all
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: python3
+Filename: ./debs/mcpi-proxy_0.3.3.deb
+Size: 2252
+MD5sum: e2ad8e9900e931ce398f7255edc11c58
+SHA1: 65793cdff0ecb9746fb9ee466485f5823482a9eb
+SHA256: d484d52a97d99f8c47b57666aa0283385238c2ff066b84e83229ba557b4fdf88
+Priority: optional
+Homepage: https://mcpi.tk
+Description: Minecraft Pi Proxy to allow players to connect to remote servers.
+Vcs-Browser: https://github.com/MCPI-Devs/proxy
+Vcs-Git: https://github.com/MCPI-Devs/proxy.git
+
+Package: mcpil
+Version: 0.1.9
+Architecture: all
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: python3, python3-tk, minecraft-pi-reborn-virgl | minecraft-pi-reborn-native
+Filename: ./debs/mcpil_0.1.9_all.deb
+Size: 23556
+MD5sum: 10b8a427fd76275001c573f969494abb
+SHA1: 92250ea594cbeb931e5d16a0de4a9aef73960a10
+SHA256: 1775bc2adad054da3b7f7b92fcfa8d342374c41519c6e40b8e2e683ece02feb7
+Homepage: https://mcpi.tk
+Description: Minecraft Pi Launcher
+
+Package: minecraft-pi-reborn-native
+Version: 1.0.0.20210218.2342
+Architecture: all
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: docker.io (>=19.03) | docker-ce (>=19.03), libseccomp2 (>=2.4.2), docker-compose, binfmt-support, zenity, x11-xserver-utils, login, policykit-1, passwd
+Recommends: qemu-user-static, zenity, x11-xserver-utils, login, policykit-1, passwd
+Conflicts: minecraft-pi, minecraft-pi-reborn-virgl
+Filename: ./debs/minecraft-pi-reborn-native_1.0.0.20210218.2342_all.deb
+Size: 80619008
+MD5sum: 2a019d8b9081b6201fb0b3585a2400b8
+SHA1: 4200afab448a2e625ffc3cdb8237ddc341ed1594
+SHA256: 67d5c84053e82f05a7e928866d965ab4f0dd26e95afc286a77db26fb7c00f761
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
