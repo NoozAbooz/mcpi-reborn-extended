@@ -27,3 +27,18 @@ SHA256: 1775bc2adad054da3b7f7b92fcfa8d342374c41519c6e40b8e2e683ece02feb7
 Homepage: https://mcpi.tk
 Description: Minecraft Pi Launcher
 
+Package: minecraft-pi-reborn-native
+Version: 1.0.0.20210218.2342
+Architecture: all
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: docker.io (>=19.03) | docker-ce (>=19.03), libseccomp2 (>=2.4.2), docker-compose, binfmt-support, zenity, x11-xserver-utils, login, policykit-1, passwd
+Recommends: qemu-user-static, zenity, x11-xserver-utils, login, policykit-1, passwd
+Conflicts: minecraft-pi, minecraft-pi-reborn-virgl
+Filename: ./minecraft-pi-reborn-native_1.0.0.20210218.2342_all.deb
+Size: 80619008
+MD5sum: 2a019d8b9081b6201fb0b3585a2400b8
+SHA1: 4200afab448a2e625ffc3cdb8237ddc341ed1594
+SHA256: 67d5c84053e82f05a7e928866d965ab4f0dd26e95afc286a77db26fb7c00f761
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
