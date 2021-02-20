@@ -1,0 +1,13 @@
+Package: mcpil
+Version: 0.1.9
+Architecture: all
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: python3, python3-tk, minecraft-pi-reborn-virgl | minecraft-pi-reborn-native
+Filename: ./mcpil_0.1.9_all.deb
+Size: 23556
+MD5sum: 10b8a427fd76275001c573f969494abb
+SHA1: 92250ea594cbeb931e5d16a0de4a9aef73960a10
+SHA256: 1775bc2adad054da3b7f7b92fcfa8d342374c41519c6e40b8e2e683ece02feb7
+Homepage: https://mcpi.tk
+Description: Minecraft Pi Launcher
+
