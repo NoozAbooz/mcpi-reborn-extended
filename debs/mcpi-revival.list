@@ -1,1 +1,1 @@
-deb [trusted=yes] https://mcpirevival.tk/mcpi-packages/debs/ /
+deb https://mcpirevival.tk/mcpi-packages/debs/ ./
