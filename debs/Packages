@@ -27,6 +27,35 @@ SHA256: 1775bc2adad054da3b7f7b92fcfa8d342374c41519c6e40b8e2e683ece02feb7
 Homepage: https://mcpi.tk
 Description: Minecraft Pi Launcher
 
+Package: mcpil
+Version: 0.3.0-rc1
+Architecture: all
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: openjdk-11-jre, minecraft-pi-reborn-virgl | minecraft-pi-reborn-native
+Filename: ./jmcpil_0.3.0-rc1_all.deb
+Size: 714956
+MD5sum: 6cc2bd214b135d879ed0718cdb8a0f0e
+SHA1: 84cea62bf9cee61eb626aa477b45f73e03755c39
+SHA256: 20ab2f70900313e6d7efddc3c9555b79c5f6052cf5694211217cdecdf52247d5
+Homepage: https://mcpi.tk
+Description: Minecraft Pi Launcher
+
+Package: mcpil
+Version: 0.9.0-rc1
+Architecture: armhf
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: minecraft-pi-reborn-native | minecraft-pi-reborn-virgl | mcpirdl, libgtk-3-0
+Filename: ./gmcpil_0.9.0-rc1.deb
+Size: 30404
+MD5sum: 1bd42b37a280ee015968670993a9e843
+SHA1: 8a3d18ef51980bdab5b48e57f75c139138d5adfb
+SHA256: aae476fab7e248a5c0426253a144b1507fb9c0d191f83e84eedc01940cdc18d0
+Priority: optional
+Homepage: https://mcpi.tk
+Description: Simple launcher for Minecraft: Pi Edition - GTK+ Edition.
+Vcs-Browser: https://github.com/MCPI-Revival/gMCPIL
+Vcs-Git: https://github.com/MCPI-Revival/gMCPIL.git
+
 Package: mcpirdl
 Version: 0.1.0
 Architecture: armhf
