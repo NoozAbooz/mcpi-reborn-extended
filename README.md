@@ -9,3 +9,4 @@ wget -qO- https://raw.githubusercontent.com/MCPI-Revival/mcpi-packages/master/in
 Currently the only debs available are:
 - `virgl`, `native` and `server` versions of `mcpi-reborn`
 - `MCPIL`
+- `mcpirdl` (beta dockerless mcpi-reborn)
