@@ -10,3 +10,5 @@ Currently the only debs available are:
 - `virgl`, `native` and `server` versions of `mcpi-reborn`
 - `MCPIL`
 - `mcpirdl` (beta dockerless mcpi-reborn)
+- `gmcpil`
+- `jmcpil`
