@@ -1,3 +1,19 @@
+Package: mcpi-proxy
+Version: 0.3.3
+Architecture: all
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: python3
+Filename: ./mcpi-proxy_0.3.3.deb
+Size: 2252
+MD5sum: e2ad8e9900e931ce398f7255edc11c58
+SHA1: 65793cdff0ecb9746fb9ee466485f5823482a9eb
+SHA256: d484d52a97d99f8c47b57666aa0283385238c2ff066b84e83229ba557b4fdf88
+Priority: optional
+Homepage: https://mcpi.tk
+Description: Minecraft Pi Proxy to allow players to connect to remote servers.
+Vcs-Browser: https://github.com/MCPI-Devs/proxy
+Vcs-Git: https://github.com/MCPI-Devs/proxy.git
+
 Package: mcpil
 Version: 0.1.9
 Architecture: all
@@ -22,7 +38,7 @@ Size: 1244468
 MD5sum: c2fc3ed0df275d3ae3059234dedb0c9d
 SHA1: bced80a3639c06525c16eaa68ed5d9896084c991
 SHA256: 3e0b79439faac29f60738243a847504dedb7bb7eb5da39714886308583f17340
-Description: MCPI-Reborn Dockerless build. Unsupported.
+Description: MCPI-Rebron Dockerless build. Unsupported.
 
 Package: minecraft-pi-reborn-native
 Version: 1.0.0.20210307.1929
