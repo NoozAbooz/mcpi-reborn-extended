@@ -9,8 +9,8 @@ MD5sum: e2ad8e9900e931ce398f7255edc11c58
 SHA1: 65793cdff0ecb9746fb9ee466485f5823482a9eb
 SHA256: d484d52a97d99f8c47b57666aa0283385238c2ff066b84e83229ba557b4fdf88
 Priority: optional
-Homepage: https://mcpi.tk
-Description: Minecraft Pi Proxy to allow players to connect to remote servers.
+Homepage: https://mcpirevival.tk
+Description: Allow players to connect to remote Minecraft Pi servers.
 Vcs-Browser: https://github.com/MCPI-Devs/proxy
 Vcs-Git: https://github.com/MCPI-Devs/proxy.git
 
@@ -24,10 +24,10 @@ Size: 23556
 MD5sum: 10b8a427fd76275001c573f969494abb
 SHA1: 92250ea594cbeb931e5d16a0de4a9aef73960a10
 SHA256: 1775bc2adad054da3b7f7b92fcfa8d342374c41519c6e40b8e2e683ece02feb7
-Homepage: https://mcpi.tk
-Description: Minecraft Pi Launcher
+Homepage: https://mcpirevival.tk
+Description: Minecraft Pi: Reborn Launcher
 
-Package: mcpil
+Package: jmcpil
 Version: 0.3.0-rc1
 Architecture: all
 Maintainer: TheBrokenRail <connor24nolan@live.com>
@@ -37,10 +37,10 @@ Size: 714956
 MD5sum: 6cc2bd214b135d879ed0718cdb8a0f0e
 SHA1: 84cea62bf9cee61eb626aa477b45f73e03755c39
 SHA256: 20ab2f70900313e6d7efddc3c9555b79c5f6052cf5694211217cdecdf52247d5
-Homepage: https://mcpi.tk
-Description: Minecraft Pi Launcher
+Homepage: https://mcpirevival.tk
+Description: Minecraft Pi: Reborn Launcher rewritten in Java
 
-Package: mcpil
+Package: gmcpil
 Version: 0.9.0-rc1
 Architecture: armhf
 Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
@@ -51,15 +51,15 @@ MD5sum: 1bd42b37a280ee015968670993a9e843
 SHA1: 8a3d18ef51980bdab5b48e57f75c139138d5adfb
 SHA256: aae476fab7e248a5c0426253a144b1507fb9c0d191f83e84eedc01940cdc18d0
 Priority: optional
-Homepage: https://mcpi.tk
-Description: Simple launcher for Minecraft: Pi Edition - GTK+ Edition.
+Homepage: https://mcpirevival.tk
+Description: Minecraft Pi: Reborn Launcher rewritten in C
 Vcs-Browser: https://github.com/MCPI-Revival/gMCPIL
 Vcs-Git: https://github.com/MCPI-Revival/gMCPIL.git
 
 Package: mcpirdl
 Version: 0.1.0
 Architecture: armhf
-Maintainer: No One <noone@example.com>
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
 Depends: libgles1, libx11-6, zlib1g, libfreeimage3, libglfw3, libxfixes3, libpng12-0, tk
 Conflicts: minecraft-pi, minecraft-pi-reborn-virgl
 Filename: ./mcpirdl-unsupported.deb
@@ -81,8 +81,8 @@ Size: 77543056
 MD5sum: ec2aab6f3b419928f5ab41875e279aa9
 SHA1: 4b217c6253036774d0f36eba1691ce1202ca778e
 SHA256: 1525a7bbd7f0f35614af17a3bc8ec472f7b0b01434061956974ee9c528d34edd
-Homepage: https://www.minecraft.net/en-us/edition/pi
-Description: Fun with Blocks
+Homepage: https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn
+Description: Minecraft: Pi Edition Modding project
 
 Package: minecraft-pi-reborn-server
 Version: 1.0.0.20210307.1929
@@ -95,8 +95,8 @@ Size: 77437656
 MD5sum: 580b837f2a83e57ccd9bfa112ea5e709
 SHA1: a11bdc6f3b485f0c3fca845ddc717fe6fb05c7c2
 SHA256: d290fa0c212784081799473e7210ed4e48a99ec55d78f6016d9a94a3da4dac0e
-Homepage: https://www.minecraft.net/en-us/edition/pi
-Description: Fun with Blocks
+Homepage: https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn
+Description: Minecraft: Pi Edition Server
 
 Package: minecraft-pi-reborn-virgl
 Version: 1.0.0.20210307.1929
@@ -110,6 +110,6 @@ Size: 77543060
 MD5sum: caf97909f83d32b2cf908ed00d906778
 SHA1: 744d0afc40f9ab40e7fd0600baf7d27592f659c6
 SHA256: e5539d182c0f4c8b33981ef2f162e40611e37d61a64ccdf29884bf1326db4040
-Homepage: https://www.minecraft.net/en-us/edition/pi
-Description: Fun with Blocks
+Homepage: https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn
+Description: Minecraft: Pi Edition Modding project for x86
 
