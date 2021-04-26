@@ -1,3 +1,32 @@
+Package: gmcpil
+Version: 0.9.0-rc1
+Architecture: armhf
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: minecraft-pi-reborn-native | minecraft-pi-reborn-virgl | mcpirdl, libgtk-3-0
+Filename: ./gmcpil_0.9.0-rc1.deb
+Size: 30296
+MD5sum: 9765da96d96b8762d3c6eeafce4296fc
+SHA1: 4cfcdae1c50a4cb6a06d04791769f6f2f3efe069
+SHA256: 425b7c11fe42d8a20f066b957d8eff1d2743cafe973a690493c1069755cafba7
+Priority: optional
+Homepage: https://mcpirevival.tk
+Description: Simple launcher for Minecraft: Pi Edition - GTK+ Edition.
+Vcs-Browser: https://github.com/MCPI-Revival/gMCPIL
+Vcs-Git: https://github.com/MCPI-Revival/gMCPIL.git
+
+Package: jmcpil
+Version: 0.3.0-rc1-dirty
+Architecture: all
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: openjdk-11-jre, minecraft-pi-reborn-virgl | minecraft-pi-reborn-native
+Filename: ./jmcpil_0.3.0-rc1-dirty_all.deb
+Size: 715028
+MD5sum: 3e654aea70fd8de7a3883571f875b73c
+SHA1: 833f2c67293a83af7df63828365f5e2b1bb9c269
+SHA256: 8c3d4c3417de0f03f0160650498b747a5b8a137b0c8c85cb45d6decc43f26bba
+Homepage: https://mcpirevival.tk
+Description: Minecraft Pi Launcher
+
 Package: mcpi-proxy
 Version: 0.3.3
 Architecture: all
