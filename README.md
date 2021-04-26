@@ -6,6 +6,11 @@ This is a apt repo for various important MCPI Revival projects like [mcpi-reborn
 wget -qO- https://raw.githubusercontent.com/MCPI-Revival/mcpi-packages/master/install.sh | bash
 ```
 
+#### Uninstall
+```bash
+wget -qO- https://raw.githubusercontent.com/MCPI-Revival/mcpi-packages/master/uninstall.sh | bash
+```
+
 Currently the only debs available are:
 - `virgl`, `native` and `server` versions of `mcpi-reborn`
 - `MCPIL`
