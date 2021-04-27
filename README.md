@@ -17,3 +17,8 @@ Currently the only debs available are:
 - `mcpirdl` (beta dockerless mcpi-reborn)
 - `gmcpil`
 - `jmcpil`
+
+### Submit your MCPI mod
+This repo isn't just for MCPI Revival projects! If YOU have a cool python mod/program for mcpi, just package it up as a .deb file and make a issue to submit it so it can be added to our apt repo!
+
+We reccomend following https://stackoverflow.com/a/26083895 for instructions on how to package a .py into a deb. Make sure that you use the format of `mcpi-<packagename>` in the name field of the CONTROL file when packaging to .deb!
