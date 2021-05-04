@@ -59,6 +59,67 @@ SHA256: 8c3d4c3417de0f03f0160650498b747a5b8a137b0c8c85cb45d6decc43f26bba
 Homepage: https://mcpirevival.tk
 Description: Minecraft Pi Launcher
 
+Package: libmcpi
+Version: 0.1.0
+Architecture: armhf
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Filename: ./libmcpi_0.1.0-1.deb
+Size: 3476
+MD5sum: c162167f8637a2df65ed983223d89522
+SHA1: 6d7e6f4f0eb5d403bc1e010d33836095fb341e68
+SHA256: 49a9e3e5122cff4374da8a07b460594db06812ea744337e1dbd0c4b23fb427c6
+Priority: optional
+Homepage: https://mcpi.tk
+Description: A C library for interacting with and extending the Minecraft Pi Protocol.
+
+Package: libmodpi
+Version: 0.4.0
+Architecture: armhf
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: libmcpi, python3
+Filename: ./libmodpi_0.4.0-1.deb
+Size: 7544
+MD5sum: 72394862c8255cecf538327b386cd5ca
+SHA1: 094700fe60896f590d694e67c82ee14173350903
+SHA256: e363584e06ac76de673344f191480de1ba6124aeb448387d5d47f7176c70c276
+Priority: optional
+Homepage: https://mcpi.tk
+Description: Extensions for the Minecraft Pi API.
+Vcs-Browser: https://github.com/MCPI-Devs/modpi
+Vcs-Git: https://github.com/MCPI-Devs/modpi.git
+
+Package: mcpi-central
+Version: 0.2.1
+Architecture: armhf
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: python3
+Filename: ./mcpi-central_0.2.1-1_buster.deb
+Size: 3980
+MD5sum: 6797f04a891e9ccba7d503016edd8b25
+SHA1: 367cb34a67c7e9289c90ae5e6a7914d624cb0439
+SHA256: 0b71faf45375f992ceb1aaf18eddf7fe51020532fa8eac263c67f02cbb1928b6
+Priority: optional
+Homepage: https://mcpi.tk
+Description: MCPI centralized API.
+Vcs-Browser: https://github.com/MCPI-Devs/mcpi-central
+Vcs-Git: https://github.com/MCPI-Devs/mcpi-central.git
+
+Package: mcpi-central
+Version: 0.2.1
+Architecture: armhf
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: python3
+Filename: ./mcpi-central_0.2.1-1_stretch.deb
+Size: 3996
+MD5sum: d6f172d72a78116690823231437cf819
+SHA1: 71e3df5538d2d6395d6431a7405b85e1e0245bf0
+SHA256: bab35a4ac2367c73ce47e4a2522c53c8de66e734f7c7a9e3f8014e7c8b9aeba7
+Priority: optional
+Homepage: https://mcpi.tk
+Description: MCPI centralized API.
+Vcs-Browser: https://github.com/MCPI-Devs/mcpi-central
+Vcs-Git: https://github.com/MCPI-Devs/mcpi-central.git
+
 Package: mcpi-proxy
 Version: 0.3.3
 Architecture: all
