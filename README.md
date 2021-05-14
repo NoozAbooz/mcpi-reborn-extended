@@ -1,5 +1,5 @@
 # mcpi-packages
-This is a apt repo for various important MCPI Revival projects like [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn) and [mcpil](https://github.com/MCPI-Revival/MCPIL). All the apt repo stuff is stored in the [debs](debs/) folder.
+This is a apt repo for various important MCPI Revival projects like [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn) and [mcpil](https://github.com/MCPI-Revival/MCPIL). The apt packages and package lists is stored in the [debs](debs/) folder.
 
 ### APT Repo Installation (for x86 and arm)
 ```bash
