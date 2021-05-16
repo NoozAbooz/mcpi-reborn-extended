@@ -30,7 +30,7 @@
 	"config": {
 		"files": "{\"motd\":\"{{server.build.env.MCPIRS_MOTD}}\",\"show-minecon-badge\":\"{{server.build.env.MCPIRS_SMB}}\",\"game-mode\":\"{{server.build.env.MCPIRS_GM}}\",\"seed\":\"{{server.build.env.MCPIRS_SEED}}\",\"mob-spawning\":\"{{server.build.env.MCPIRS_MS}}\",\"peaceful-mode\":\"{{server.build.env.MCPIRS_PM}}\",\"world-name\":\"{{server.build.env.MCPIRS_WN}}\",\"max-players\":\"{{server.build.env.MCPIRS_MP}}\",\"whitelist\":\"{{server.build.env.MCPIRS_WL}}\",\"port\":\"{{server.build.default.port}}\"}",
 		"startup": "{\r\n\"done\": \"Status: Ready\"\r\n}",
-		"logs": "{\r\n\"custom\": false,\r\n\"location\": \"\/tmp\/minecraft-pi\/main.log\"\r\n}",
+		"logs": "{\r\n\"custom\": false,\r\n\"location\": \"\/mnt\/server\/main.log\"\r\n}",
 		"stop": "stop"
 	},
 	"scripts": {
