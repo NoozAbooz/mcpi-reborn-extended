@@ -10,6 +10,7 @@
 	"images": [
 		"arm32v7/debian:bullseye"
 	],
+	"file_denylist": [],
 	"server.properties": {
 		"parser": "properties",
 		"find": {
@@ -25,7 +26,7 @@
 			"port": "{{server.build.default.port}}"
 		}
 	},
-	"startup": "\/usr\/bin\/bash \/app\/minecraft-pi\/run.sh",
+	"startup": "\/usr\/bin\/bash \/mnt/\/server\/run.sh",
 	"config": {
 		"files": "{\"motd\":\"{{server.build.env.MCPIRS_MOTD}}\",\"show-minecon-badge\":\"{{server.build.env.MCPIRS_SMB}}\",\"game-mode\":\"{{server.build.env.MCPIRS_GM}}\",\"seed\":\"{{server.build.env.MCPIRS_SEED}}\",\"mob-spawning\":\"{{server.build.env.MCPIRS_MS}}\",\"peaceful-mode\":\"{{server.build.env.MCPIRS_PM}}\",\"world-name\":\"{{server.build.env.MCPIRS_WN}}\",\"max-players\":\"{{server.build.env.MCPIRS_MP}}\",\"whitelist\":\"{{server.build.env.MCPIRS_WL}}\",\"port\":\"{{server.build.default.port}}\"}",
 		"startup": "{\r\n\"done\": \"Status: Ready\"\r\n}",
@@ -34,7 +35,7 @@
 	},
 	"scripts": {
 		"installation": {
-			"script": "#!\/bin\/bash\r\n\r\nset -e\r\nexport DEBIAN_FRONTEND=\"noninteractive\"\r\n\r\napt-get update\r\napt-get install -y --no-install-recommends libgles1 libx11-6 zlib1g libfreeimage3 libglfw3 xinput libxfixes3 gosu tk unzip wget ca-certificates\r\napt clean && apt clean && rm -rf \/var\/lib\/apt\/lists\/*\r\n\r\nmkdir -p \/home\/$USER\/.minecraft-pi && chmod -R a+rw \/home\r\nmkdir -p \/app\/minecraft-pi\r\n\r\ncd \/app\/minecraft-pi\r\n\r\nwget https:\/\/github.com\/MCPI-Revival\/mcpi-packages\/blob\/main\/ptero-server.zip?raw=true -O mcpi.zip\r\nunzip mcpi.zip && rm mcpi.zip\r\nchmod a+x .\/run.sh\r\n",
+			"script": "#!\/bin\/bash\r\n\r\nset -e\r\nexport DEBIAN_FRONTEND=\"noninteractive\"\r\n\r\napt-get update\r\napt-get install -y --no-install-recommends libgles1 libx11-6 zlib1g libfreeimage3 libglfw3 xinput libxfixes3 gosu tk unzip wget ca-certificates\r\napt clean && apt clean && rm -rf \/var\/lib\/apt\/lists\/*\r\n\r\nmkdir -p \/mnt\/server\r\n\r\ncd \/mnt\/server\r\n\r\nwget https:\/\/github.com\/MCPI-Revival\/mcpi-packages\/blob\/main\/ptero-server.zip?raw=true -O mcpi.zip\r\nunzip mcpi.zip && rm mcpi.zip\r\nchmod a+x .\/run.sh\r\n",
 			"container": "arm32v7/debian:bullseye",
 			"entrypoint": "bash"
 		}
