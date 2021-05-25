@@ -149,22 +149,6 @@ SHA256: 1775bc2adad054da3b7f7b92fcfa8d342374c41519c6e40b8e2e683ece02feb7
 Homepage: https://mcpi.tk
 Description: Minecraft Pi Launcher
 
-Package: mcpil
-Version: 0.9.0-rc2
-Architecture: armhf
-Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
-Depends: minecraft-pi-reborn-native | minecraft-pi-reborn-virgl | mcpirdl, libgtk-3-0
-Filename: ./gmcpil_0.9.0-rc2.deb
-Size: 30380
-MD5sum: 16c65d3acde9d357cf80e369026fbcb5
-SHA1: 7aaf3ca679fe396b683700bf1b2b025dba12afd8
-SHA256: 34e9f37161849cd39ca0958c757db2cdb70f7a9d32992eafe9f8c3508e649706
-Priority: optional
-Homepage: https://mcpi.tk
-Description: Simple launcher for Minecraft: Pi Edition - GTK+ Edition.
-Vcs-Browser: https://github.com/MCPI-Revival/gMCPIL
-Vcs-Git: https://github.com/MCPI-Revival/gMCPIL.git
-
 Package: mcpirdl
 Version: 0.1.0
 Architecture: armhf
