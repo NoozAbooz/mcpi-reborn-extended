@@ -2,12 +2,12 @@ Package: gmcpil
 Version: 0.9.0-rc4
 Architecture: armhf
 Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
-Depends: minecraft-pi-reborn-native | minecraft-pi-reborn-virgl | mcpirdl, libgtk-3-0, libjson-glib-1.0-0
+Depends: minecraft-pi-reborn-native | minecraft-pi-reborn-virgl | mcpirdl, libgtk-3-0
 Filename: ./gmcpil_0.9.0-rc4.deb
-Size: 70756
-MD5sum: 3a53ec5d83cd9967f7df7c9fca75c0e1
-SHA1: 13555e26c613b22bf5d78503d2bd8dc774e6cf13
-SHA256: 54eebe06415d41c1643dabc1284b1b3581f6e7d7d689d2232f0a0b8e68632114
+Size: 68136
+MD5sum: 402ac81037cdae1172d8fd39a24c1370
+SHA1: 26a6ce47e73365732141d56f73b41e6855931836
+SHA256: 1552cc006bb9c396ab422683beedf3f6cac4655dcdc0dd53f0809bf83203bd76
 Priority: optional
 Homepage: https://mcpirevival.tk
 Description: Simple launcher for Minecraft: Pi Edition - GTK+ Edition.
