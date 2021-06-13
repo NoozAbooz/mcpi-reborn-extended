@@ -117,19 +117,6 @@ SHA256: 1775bc2adad054da3b7f7b92fcfa8d342374c41519c6e40b8e2e683ece02feb7
 Homepage: https://mcpi.tk
 Description: Minecraft Pi Launcher
 
-Package: mcpirdl
-Version: 0.1.0
-Architecture: armhf
-Maintainer: No One <noone@example.com>
-Depends: libgles1, libx11-6, zlib1g, libfreeimage3, libglfw3, libxfixes3, libpng12-0, tk
-Conflicts: minecraft-pi, minecraft-pi-reborn-virgl
-Filename: ./mcpirdl-unsupported.deb
-Size: 1244468
-MD5sum: c2fc3ed0df275d3ae3059234dedb0c9d
-SHA1: bced80a3639c06525c16eaa68ed5d9896084c991
-SHA256: 3e0b79439faac29f60738243a847504dedb7bb7eb5da39714886308583f17340
-Description: MCPI-Rebron Dockerless build. Unsupported.
-
 Package: minecraft-pi-reborn-native
 Version: 1.0.0.20210307.1929
 Architecture: all
