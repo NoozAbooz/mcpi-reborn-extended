@@ -1,4 +1,23 @@
 Package: gmcpil
+Version: 0.10.0
+Architecture: armhf
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: libc6 (>= 2.28), minecraft-pi-reborn-client (>= 2.0), libgtk-3-0, libjson-glib-1.0-0
+Filename: ./gmcpil_0.10.0_armhf.deb
+Size: 51160
+MD5sum: fe9f4ff42c19f969c081fc973cdc0c96
+SHA1: b5ccec49673a4bcf879fde7f42d90078cb092cc7
+SHA256: 5365b6e5514c803f505c74d6f4586a91227d0d75be1147515018e0ab250eb754
+Section: contrib/misc
+Priority: optional
+Homepage: https://mcpirevival.tk
+Description: Simple launcher for Minecraft: Pi Edition - GTK+ Edition.
+ Simple GUI launcher for Minecraft: Pi Edition and MCPI-Reborn,
+ rewritten in C using GTK+ 3.
+Vcs-Browser: https://github.com/MCPI-Revival/gMCPIL
+Vcs-Git: https://github.com/MCPI-Revival/gMCPIL.git
+
+Package: gmcpil
 Version: 0.9.0-rc4
 Architecture: armhf
 Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
@@ -116,48 +135,4 @@ SHA1: 92250ea594cbeb931e5d16a0de4a9aef73960a10
 SHA256: 1775bc2adad054da3b7f7b92fcfa8d342374c41519c6e40b8e2e683ece02feb7
 Homepage: https://mcpi.tk
 Description: Minecraft Pi Launcher
-
-Package: minecraft-pi-reborn-native
-Version: 1.0.0.20210307.1929
-Architecture: all
-Maintainer: TheBrokenRail <connor24nolan@live.com>
-Depends: docker.io (>=19.03) | docker-ce (>=19.03), libseccomp2 (>=2.4.2), docker-compose, binfmt-support, zenity, login, policykit-1, passwd
-Recommends: qemu-user-static, zenity, login, policykit-1, passwd
-Conflicts: minecraft-pi, minecraft-pi-reborn-virgl
-Filename: ./minecraft-pi-reborn-native_1.0.0.20210307.1929_all.deb
-Size: 77543056
-MD5sum: ec2aab6f3b419928f5ab41875e279aa9
-SHA1: 4b217c6253036774d0f36eba1691ce1202ca778e
-SHA256: 1525a7bbd7f0f35614af17a3bc8ec472f7b0b01434061956974ee9c528d34edd
-Homepage: https://www.minecraft.net/en-us/edition/pi
-Description: Fun with Blocks
-
-Package: minecraft-pi-reborn-server
-Version: 1.0.0.20210307.1929
-Architecture: all
-Maintainer: TheBrokenRail <connor24nolan@live.com>
-Depends: docker.io (>=19.03) | docker-ce (>=19.03), libseccomp2 (>=2.4.2), docker-compose, binfmt-support
-Recommends: qemu-user-static
-Filename: ./minecraft-pi-reborn-server_1.0.0.20210307.1929_all.deb
-Size: 77437656
-MD5sum: 580b837f2a83e57ccd9bfa112ea5e709
-SHA1: a11bdc6f3b485f0c3fca845ddc717fe6fb05c7c2
-SHA256: d290fa0c212784081799473e7210ed4e48a99ec55d78f6016d9a94a3da4dac0e
-Homepage: https://www.minecraft.net/en-us/edition/pi
-Description: Fun with Blocks
-
-Package: minecraft-pi-reborn-virgl
-Version: 1.0.0.20210307.1929
-Architecture: all
-Maintainer: TheBrokenRail <connor24nolan@live.com>
-Depends: docker.io (>=19.03) | docker-ce (>=19.03), libseccomp2 (>=2.4.2), docker-compose, binfmt-support, zenity, login, policykit-1, passwd, virgl-server
-Recommends: qemu-user-static, zenity, login, policykit-1, passwd
-Conflicts: minecraft-pi, minecraft-pi-reborn-native
-Filename: ./minecraft-pi-reborn-virgl_1.0.0.20210307.1929_all.deb
-Size: 77543060
-MD5sum: caf97909f83d32b2cf908ed00d906778
-SHA1: 744d0afc40f9ab40e7fd0600baf7d27592f659c6
-SHA256: e5539d182c0f4c8b33981ef2f162e40611e37d61a64ccdf29884bf1326db4040
-Homepage: https://www.minecraft.net/en-us/edition/pi
-Description: Fun with Blocks
 
