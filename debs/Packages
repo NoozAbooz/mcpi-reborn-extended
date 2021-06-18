@@ -1,13 +1,13 @@
 Package: gmcpil
-Version: 0.10.0
+Version: 0.10.1
 Architecture: armhf
 Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
 Depends: libc6 (>= 2.28), minecraft-pi-reborn-client (>= 2.0), libgtk-3-0, libjson-glib-1.0-0
-Filename: ./gmcpil_0.10.0_armhf.deb
-Size: 51160
-MD5sum: fe9f4ff42c19f969c081fc973cdc0c96
-SHA1: b5ccec49673a4bcf879fde7f42d90078cb092cc7
-SHA256: 5365b6e5514c803f505c74d6f4586a91227d0d75be1147515018e0ab250eb754
+Filename: ./gmcpil_0.10.1_armhf.deb
+Size: 51492
+MD5sum: 4a1b6950e6fe159afd66060845115f87
+SHA1: 03aee104e7dfe1af69ba0a29f3a817589ccb0fa2
+SHA256: f0c7d7bae1239c9a5f1cd77b4f5e50429d3878a5a3ac2fba10d0102f91d7c282
 Section: contrib/misc
 Priority: optional
 Homepage: https://mcpirevival.tk
