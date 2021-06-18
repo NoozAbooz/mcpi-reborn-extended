@@ -46,19 +46,6 @@ SHA256: bc5bf5a53e0a58af36cfd7b00f4de48842eb0d51352a167f78cddb2fc0d36aee
 Homepage: https://mcpirevival.tk
 Description: Minecraft Pi: Reborn Launcher written in Java
 
-Package: jmcpil
-Version: 0.3.0-rc1-dirty
-Architecture: all
-Maintainer: TheBrokenRail <connor24nolan@live.com>
-Depends: openjdk-11-jre, minecraft-pi-reborn-virgl | minecraft-pi-reborn-native
-Filename: ./jmcpil_0.3.0-rc1-dirty_all.deb
-Size: 715028
-MD5sum: 3e654aea70fd8de7a3883571f875b73c
-SHA1: 833f2c67293a83af7df63828365f5e2b1bb9c269
-SHA256: 8c3d4c3417de0f03f0160650498b747a5b8a137b0c8c85cb45d6decc43f26bba
-Homepage: https://mcpirevival.tk
-Description: Minecraft Pi Launcher
-
 Package: libmcpi
 Version: 0.1.0
 Architecture: armhf
