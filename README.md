@@ -12,11 +12,11 @@ wget -qO- https://raw.githubusercontent.com/MCPI-Revival/mcpi-packages/master/un
 ```
 
 Currently the only debs available are:
-- `virgl`, `native` and `server` versions of `mcpi-reborn`
-- `MCPIL`
-- `mcpirdl` (beta dockerless mcpi-reborn)
+- x86 and arm versions of `client` and `server` for `mcpi-reborn`
+- `MCPIL` (legacy, not supported)
 - `gmcpil`
 - `jmcpil`
+- 
 
 ### Submit your MCPI mod
 This repo isn't just for MCPI Revival projects! If YOU have a cool python mod/program for mcpi, just package it up as a .deb file and make a issue to submit it so it can be added to our apt repo!
