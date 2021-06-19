@@ -137,53 +137,53 @@ Homepage: https://mcpi.tk
 Description: Minecraft Pi Launcher
 
 Package: minecraft-pi-reborn-client
-Version: 2.0.1~buster
+Version: 2.0.2~buster
 Architecture: armhf
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3
-Filename: ./minecraft-pi-reborn-client_2.0.1~buster_armhf.deb
-Size: 1423920
-MD5sum: 0960042d866723713a970e38a4bf6636
-SHA1: 27c3a8c0ad1b280c91b6a47424aa22e4176e5a26
-SHA256: f5bdd4b79dcdcaaf2aaa556010a211ade3a7d62033aabb4f6975c5b5c4f6436f
+Filename: ./minecraft-pi-reborn-client_2.0.2~buster_armhf.deb
+Size: 1424792
+MD5sum: 2350400f1a73f6ffda4930e1e17e5236
+SHA1: e4b953fe32d07a55800987d0ee0e5f0bbdca78d3
+SHA256: f616e86862e472633541d4a47e66e581d488259af2f7db2e05f52097dd7cb768
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
 Package: minecraft-pi-reborn-client
-Version: 2.0.1~buster
+Version: 2.0.2~buster
 Architecture: amd64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user-static
-Filename: ./minecraft-pi-reborn-client_2.0.1~buster_amd64.deb
-Size: 1440520
-MD5sum: be795a0f83f3f33f383ca9d4714a517c
-SHA1: ee4aea1237daf4c90284acbe4cd3e82c371126bc
-SHA256: 41eed9573db7b4da5ee8dde826f4646d01fe463482bc2d09f6008ea7881dfcf1
+Filename: ./minecraft-pi-reborn-client_2.0.2~buster_amd64.deb
+Size: 1441228
+MD5sum: c3b8c32820e68ce664f797bf8074a679
+SHA1: f00b251a1e4cef44c236f746394a71bbe472ff76
+SHA256: 3936b0084fa256bcfe9a1b21f5882d03fb1192bd1c0e9a6b5e45b55bfb2658c3
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
 Package: minecraft-pi-reborn-server
-Version: 2.0.1~buster
-Architecture: armhf
-Maintainer: TheBrokenRail <connor24nolan@live.com>
-Filename: ./minecraft-pi-reborn-server_2.0.1~buster_armhf.deb
-Size: 1325092
-MD5sum: 5e44e18a58226c6868d1915391fef58e
-SHA1: c286d5cb07440eae85442ca7647411d68ec68711
-SHA256: 37cee397c9aa46f99d58b298e0f0f1cfe910839c9052f186bb927372f00dd92e
-Homepage: https://www.minecraft.net/en-us/edition/pi
-Description: Fun with Blocks
-
-Package: minecraft-pi-reborn-server
-Version: 2.0.1~buster
+Version: 2.0.2~buster
 Architecture: amd64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user-static
-Filename: ./minecraft-pi-reborn-server_2.0.1~buster_amd64.deb
-Size: 1326404
-MD5sum: b118ade02d176ef26d35d07d42e63d72
-SHA1: d1b1f7bbc8dbffe38125f6463566149abf0647ce
-SHA256: 55b0260fa45c68f04190fc7adfad06faa7757d087a01edd10f7feb0d3f1f3c87
+Filename: ./minecraft-pi-reborn-server_2.0.2~buster_amd64.deb
+Size: 1327208
+MD5sum: 22e47760ddabce7a94e6a6cc5a4ec0f8
+SHA1: fd810008dd4323c946d6870ca2709efd92236a44
+SHA256: c8f8f9a622539c1b3d3591e9db0eb89909c7852321682c43121c039263f595a3
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
+Package: minecraft-pi-reborn-server
+Version: 2.0.2~buster
+Architecture: armhf
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Filename: ./minecraft-pi-reborn-server_2.0.2~buster_armhf.deb
+Size: 1325872
+MD5sum: b0896fa9da9b5fdd01dff9f0a02496eb
+SHA1: 437d1f8a484f73ba64dc335f7e7cf3c90bfc75fb
+SHA256: f8e659b057572b8b7e590f87a05f227e423e52a224dbf9d353e7f9ca739ece41
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
