@@ -59,6 +59,21 @@ Priority: optional
 Homepage: https://mcpi.tk
 Description: A C library for interacting with and extending the Minecraft Pi Protocol.
 
+Package: libmcpi
+Version: 0.2.0
+Architecture: armhf
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Filename: ./libmcpi_0.2.0-1.deb
+Size: 3544
+MD5sum: 5a9dde53c61e364091671189a41bcaee
+SHA1: 312b952dc928e120d24a89149eb8a3f9d6994f87
+SHA256: ee3b7b41b4696acfa91a98e31d8a7b4ab90ddf491e4c597b4c4769bde7c8635b
+Priority: optional
+Homepage: https://mcpirevival.tk
+Description: C library for interacting with and extending the Minecraft Pi Protocol.
+Vcs-Browser: https://github.com/MCPI-Devs/libmcpi
+Vcs-Git: https://github.com/MCPI-Devs/libmcpi.git
+
 Package: libmodpi
 Version: 0.4.0
 Architecture: armhf
