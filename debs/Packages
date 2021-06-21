@@ -22,11 +22,11 @@ Version: 0.10.1
 Architecture: amd64
 Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
 Depends: libc6 (>= 2.28), minecraft-pi-reborn-client (>= 2.0), libgtk-3-0, libjson-glib-1.0-0
-Filename: ./gmcpil_0.10.1-amd64.deb
-Size: 53268
-MD5sum: d57b3dc4f3260f92b4d7efef6a3dde3e
-SHA1: 410c63b001b7e1b21f991cd1915ef8fede107684
-SHA256: b9733f19d4c6368c0eab26b67fecf665b5b91f03eab4b7195817a13150131cb8
+Filename: ./gmcpil_0.10.1_amd64.deb
+Size: 53940
+MD5sum: cd0bf742c892a1d9db1f365bfb9da32e
+SHA1: ad2b565ec5c9fcf46bf21f9192c324ec1266cedd
+SHA256: 534478fe9b1fa9a183f3bd323a5056bc45e8f5a87f62789b052b1e94ca892287
 Section: contrib/misc
 Priority: optional
 Homepage: https://mcpirevival.tk
