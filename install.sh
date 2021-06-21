@@ -23,8 +23,14 @@ then
   sudo wget https://mcpirevival.tk/mcpi-packages/bullseye-debs/mcpi-revival.list -O /etc/apt/sources.list.d/mcpi-revival.list || error "Failed to download 'mcpi-revival.list'!"
 fi
 
+source /etc/os-release
+if [[ "$ID" == "ubuntu" ]]; then
+     wget -qO- https://mcpirevival.tk/mcpi-packages/bullseye-debs/KEY.gpg | sudo apt-key add - || error "Failed to download and add key!"
+     sudo wget https://mcpirevival.tk/mcpi-packages/bullseye-debs/mcpi-revival.list -O /etc/apt/sources.list.d/mcpi-revival.list || error "Failed to download 'mcpi-revival.list'!"
+fi
+
 sudo apt update || warning "Failed to run 'sudo apt update'! Please run that command manually"
 
-if [[ "$(lsb_release -cs)" != "buster" && "$(lsb_release -cs)" != "bullseye" && "$(lsb_release -cs)" != "sid" ]]; then
-  error "Unsupported OS Version! Your OS version is $(lsb_release -cs), but supported versions are Buster, Bullseye, or Sid. Consider searching how to upgrade your version to Buster/Bullseye!"
+if [[ "$(lsb_release -cs)" != "buster" && "$(lsb_release -cs)" != "bullseye" && "$(lsb_release -cs)" != "sid" && "$ID" != "ubuntu" ]]; then
+  error "Unsupported OS Version! Your OS version is $(lsb_release -cs), but supported versions are Buster, Bullseye, or Sid. Consider searching how to upgrade your version to Buster/Bullseye! You may also be getting this if you are on a non-debian based OS!"
 fi
