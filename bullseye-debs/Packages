@@ -1,0 +1,77 @@
+Package: minecraft-pi-reborn-client
+Version: 2.0.4~bullseye
+Architecture: amd64
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user-static
+Filename: ./minecraft-pi-reborn-client_2.0.4~bullseye_amd64.deb
+Size: 1442996
+MD5sum: f6af5255158719a5a7fa4d00f26f0304
+SHA1: 06c9100bca3bcafedf120991c5643513b4af7281
+SHA256: a32444dee88819b85e9908e224a719c5a1bf4c3fa2eb3d933f29609e4452b35f
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
+Package: minecraft-pi-reborn-client
+Version: 2.0.4~bullseye
+Architecture: arm64
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libc6-armhf-cross, libstdc++6-armhf-cross
+Filename: ./minecraft-pi-reborn-client_2.0.4~bullseye_arm64.deb
+Size: 1444808
+MD5sum: 6321a2960e5a5fd4a960b9b18b5c1c97
+SHA1: 8b8b61416e725d552bb0b3bba093943ba5d4bb9c
+SHA256: 406a3257f5bc2b746af687a28336608e7704ed8519789b29737ab04744f4183f
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
+Package: minecraft-pi-reborn-client
+Version: 2.0.4~bullseye
+Architecture: armhf
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3
+Filename: ./minecraft-pi-reborn-client_2.0.4~bullseye_armhf.deb
+Size: 1424796
+MD5sum: 989063f48d4c6e03419b4ccf63300f2f
+SHA1: 11a3c3422ac52b0a5643ac525acae94d0773da79
+SHA256: 8ecd90e3111467bf7d9c5f125104e7018c4f864de3fc9e1ff1198c7ad53e9b95
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
+Package: minecraft-pi-reborn-server
+Version: 2.0.4~bullseye
+Architecture: armhf
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Filename: ./minecraft-pi-reborn-server_2.0.4~bullseye_armhf.deb
+Size: 1327504
+MD5sum: be3e2cabc0babd63031c117f5a599150
+SHA1: 03059d6124f755449b6d15076010fac5a408ae1a
+SHA256: 1db5c72030f9cbecfe5323374a4caf32d3c275147e0e8e1a82067c56448011e3
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
+Package: minecraft-pi-reborn-server
+Version: 2.0.4~bullseye
+Architecture: arm64
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: libc6-armhf-cross, libstdc++6-armhf-cross
+Filename: ./minecraft-pi-reborn-server_2.0.4~bullseye_arm64.deb
+Size: 1328868
+MD5sum: 56abbc46b608fca48008f4f3bfb9d9a5
+SHA1: bd3f9bdf9b2b7ae39e23cf76574659012de8bbaa
+SHA256: 461aca37bd9979135b2ee149885689c3d7732a37af455464c50859f3b9444667
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
+Package: minecraft-pi-reborn-server
+Version: 2.0.4~bullseye
+Architecture: amd64
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user-static
+Filename: ./minecraft-pi-reborn-server_2.0.4~bullseye_amd64.deb
+Size: 1328776
+MD5sum: 24e44b0b8bbb561b5045fcd1a37b9c52
+SHA1: 01b789c1ecd7195ec26d329c4ac866bd2d054f9c
+SHA256: af1317410397b7568c6a77ba9ddf3915c7819cc0ccbb217e83d9eaac6c282768
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
