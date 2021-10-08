@@ -3,7 +3,7 @@ Version: 2.2.6
 Architecture: amd64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, qemu-user-static
-Filename: ./minecraft-pi-reborn-client_2.2.6_amd64.deb
+Filename: ./debs/minecraft-pi-reborn-client_2.2.6_amd64.deb
 Size: 1476864
 MD5sum: d9a70b7274f1a2a4f1e14c9a0de098e9
 SHA1: 29164301af50f6f9bb0b02f65e83020e30a13dc7
@@ -16,7 +16,7 @@ Version: 2.2.6
 Architecture: armhf
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1
-Filename: ./minecraft-pi-reborn-client_2.2.6_armhf.deb
+Filename: ./debs/minecraft-pi-reborn-client_2.2.6_armhf.deb
 Size: 1455172
 MD5sum: 78cee937e5a9b8fe996f932cb385d705
 SHA1: e7fa3c091e3f1b0a4940d03db8a8a465417ea7b1
@@ -29,7 +29,7 @@ Version: 2.2.6
 Architecture: arm64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1
-Filename: ./minecraft-pi-reborn-client_2.2.6_arm64.deb
+Filename: ./debs/minecraft-pi-reborn-client_2.2.6_arm64.deb
 Size: 1475508
 MD5sum: fd5ced7589b7382c7bb97e6a66a4e371
 SHA1: eedfed834af4d7e50ce7f8333bede07ec58dab4a
@@ -42,7 +42,7 @@ Version: 2.2.6
 Architecture: amd64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user-static
-Filename: ./minecraft-pi-reborn-server_2.2.6_amd64.deb
+Filename: ./debs/minecraft-pi-reborn-server_2.2.6_amd64.deb
 Size: 1310420
 MD5sum: 947b430216f995fc362c0657ae0bee35
 SHA1: de27e2555139bc65f1417d30ada8a6b5df36b3cd
@@ -55,7 +55,7 @@ Version: 2.2.6
 Architecture: arm64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf
-Filename: ./minecraft-pi-reborn-server_2.2.6_arm64.deb
+Filename: ./debs/minecraft-pi-reborn-server_2.2.6_arm64.deb
 Size: 1310204
 MD5sum: ca55a49b4ed4d7b0599bcb5327a559b0
 SHA1: a4f815855916a5c73bb76240cebcce4c8acb1f53
@@ -68,7 +68,7 @@ Version: 2.2.6
 Architecture: armhf
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6
-Filename: ./minecraft-pi-reborn-server_2.2.6_armhf.deb
+Filename: ./debs/minecraft-pi-reborn-server_2.2.6_armhf.deb
 Size: 1309300
 MD5sum: 4244943e43a7ed2d37b7d9b63e7fa5ff
 SHA1: a9e19d68f0e5c11773b7e5dacb5f8bac9a45a74a
