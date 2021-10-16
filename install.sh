@@ -11,8 +11,8 @@ function warning() {
   true
 }
 
-#install wget if not already installed
-if ! command -v wget >/dev/null;then
+# Install wget if not already installed
+if ! command -v wget > /dev/null;then
   
   if [ -f /usr/bin/apt ];then
     sudo apt install -y wget || error "Failed to install wget package!"
@@ -22,6 +22,12 @@ if ! command -v wget >/dev/null;then
 fi
 
 wget -qO- https://github.com/mobilegmYT/mcpi-packages-buster/raw/main/debs/KEY.gpg | sudo apt-key add - || error "Failed to download and add key!"
-echo "deb [trusted=yes] https://mobilegmyt.github.io/mcpi-packages-buster/debs/ /" | sudo tee /etc/apt/sources.list.d/mcpi-packages-buster.list || error "Failed to download 'mcpi-revival.list'!"
+wget -qO- https://github.com/mobilegmYT/mcpi-packages-buster/raw/main/debs/mcpi-revival.list | sudo tee /etc/apt/sources.list.d/mcpi-packages-buster.list || error "Failed to download 'mcpi-revival.list'!"
 
 sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt update'! Please run that command manually"
+
+# Nuke bullseye reborn if installed
+if command -v minecraft-pi-reborn-client > /dev/null;then
+  sudo apt remove -y minecraft-pi-reborn-client
+  sudo apt install -y minecraft-pi-reborn-client
+fi
