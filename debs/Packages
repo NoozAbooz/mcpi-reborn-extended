@@ -4,10 +4,10 @@ Architecture: arm64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1
 Filename: ./minecraft-pi-reborn-client_2.2.7_arm64.deb
-Size: 1472620
-MD5sum: 715c3579a64600ad12384cabb1601f19
-SHA1: 3bc2fb5b91974a2b5b6348715d43a0b281a7a410
-SHA256: 24cabca483d3ddec68a20e09446459382fa6f8b2ad40fc9f068ef0f59718d8a1
+Size: 1472596
+MD5sum: 2326e318712ce3b99c3ceddced398252
+SHA1: 8e6f38a20b80bfcf03cf01ff6ed944e0a908c188
+SHA256: b29a164486349e2003f4d8caa05f1755ed2f2cfb22c5a1fdea97e5d46bbe3fc7
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -17,10 +17,10 @@ Architecture: amd64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, qemu-user-static
 Filename: ./minecraft-pi-reborn-client_2.2.7_amd64.deb
-Size: 1475480
-MD5sum: 520a7435ea073a6214810d5b91a69a38
-SHA1: 36b0175ac142ae72c16934b1fa4dd85fab0949c6
-SHA256: 62efa6f2815bb69c3aaef53c2107f307565e259d93589d94ab951aa0b23c3d39
+Size: 1477440
+MD5sum: 41489c0f1c4d49608482a2607bb74eb9
+SHA1: a4454f1870c041305471eed6c968c9d28caccde7
+SHA256: c5fd70bc087102efdb17764dbbbca7f2b6d225228af912ebb810b991653a2050
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -30,10 +30,10 @@ Architecture: armhf
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1
 Filename: ./minecraft-pi-reborn-client_2.2.7_armhf.deb
-Size: 1453888
-MD5sum: c9b8cea0efff9bea590ceed5049ce21e
-SHA1: 06bec6663c2d171f0fcca5b209c5a59630023160
-SHA256: 1a4bac0c569ccea9a604f99e9cd420f071caf8dcc013a72a5e9cc76e6b6191c2
+Size: 1453852
+MD5sum: 80f171e0671de026a8942c5c9fc4b358
+SHA1: 11a337971c0d3ecb07a481df75da9d75d33884f8
+SHA256: cbfaf9f2870bb8dc3ad8174bda486ae77aa2c3c1f3ee3826e643a9799b178bc5
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -43,10 +43,10 @@ Architecture: arm64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf
 Filename: ./minecraft-pi-reborn-server_2.2.7_arm64.deb
-Size: 1309112
-MD5sum: 5438a6b94ff0dbec8de0cb367d752431
-SHA1: 5a722294e674d78d540a56ef113e2380250d295a
-SHA256: cae42552405518efe6c7cf762b883d8eff8af8c1a235bc2660fd787b8798c2ed
+Size: 1309132
+MD5sum: 5e2df34343f7453cffa28a60ca99ca20
+SHA1: 641f0ea05c30d9f1eb6d1a5c53c7d881cf80ea23
+SHA256: adb623e97559a5035b48e3c2253097c729e78265ecb31c80d2b1aaa02d8bfd23
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -56,10 +56,10 @@ Architecture: amd64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user-static
 Filename: ./minecraft-pi-reborn-server_2.2.7_amd64.deb
-Size: 1309172
-MD5sum: f9955736c9d1e2224125915832333550
-SHA1: b02be737b1dd02fb884bdf945e0dd3fee055f3fc
-SHA256: 823dc8367b2d544e281204687e37cea43f0ac1754c7aa86104a2373f393b4554
+Size: 1309136
+MD5sum: 791bc8b8b8c9928df73f51c82fb638c7
+SHA1: 9b4189d38a940a61fa2c95c75b4caa5f36382a7c
+SHA256: b7e2923d3b8cdc89a9a5d0f39ef51e71a12e6c07178f13bce2bd03923bb6b509
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -69,10 +69,10 @@ Architecture: armhf
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6
 Filename: ./minecraft-pi-reborn-server_2.2.7_armhf.deb
-Size: 1309580
-MD5sum: 9134c50074d3e27338048dad417b4890
-SHA1: 261f4e625a9149e14af0749e09ca5ce4a088b4be
-SHA256: 0cdb1bab93cfd8d36251a2d65ce0f776ad505ce622122d3ea58aa896d1f217d0
+Size: 1307968
+MD5sum: 3a92d057db3ede50d47dfb1bcbec7195
+SHA1: 25c07f4d9b6d41ee57313a242d54fb50c8320a58
+SHA256: 90865e2c7cdc64c9c7b84031f9954f4b0c313408065ffc220fb50695e8651369
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
