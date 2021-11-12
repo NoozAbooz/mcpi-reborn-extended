@@ -15,11 +15,11 @@ if [ ! -z "${ARM_PACKAGES_SUPPORTED}" ]; then
 fi
 
 # Update APT
-sudo apt-get update
-sudo apt-get dist-upgrade -y
+sudo apt update
+sudo apt dist-upgrade -y
 
 # Install
-sudo apt-get install --no-install-recommends -y \
+sudo apt install --no-install-recommends -y \
     ca-certificates \
     lsb-release \
     dpkg-dev \
@@ -37,7 +37,7 @@ sudo apt-get install --no-install-recommends -y \
 
 # Install ARM Dependencies
 if [ ! -z "${ARM_PACKAGES_SUPPORTED}" ]; then
-    sudo apt-get install --no-install-recommends -y \
+    sudo apt install --no-install-recommends -y \
         libglfw3:armhf libglfw3-dev:armhf \
         libfreeimage3:armhf \
         libopenal-dev:armhf \
@@ -46,4 +46,3 @@ if [ ! -z "${ARM_PACKAGES_SUPPORTED}" ]; then
         libopenal-dev:arm64 \
         crossbuild-essential-arm64
 fi
-
