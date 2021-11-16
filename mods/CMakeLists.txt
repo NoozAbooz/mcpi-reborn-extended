@@ -25,7 +25,7 @@ if(MCPI_SERVER_MODE)
     add_library(server SHARED src/server/server.cpp src/server/server_properties.cpp)
     target_link_libraries(server reborn symbols feature home misc compat dl media-layer-core pthread)
 else()
-    target_link_libraries(compat input sign chat home dl)
+    target_link_libraries(compat input sign chat home misc dl)
 
     target_link_libraries(chat input)
 

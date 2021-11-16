@@ -18,8 +18,8 @@ echo '==== Building ===='
 ./scripts/build-all.sh
 
 # Test
-echo '==== Testing ===='
-./scripts/test.sh
+#echo '==== Testing ===='
+#./scripts/test.sh
 
 # Package
 echo '==== Packaging ===='

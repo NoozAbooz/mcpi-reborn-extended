@@ -57,9 +57,20 @@ static SDLKey glfw_key_to_sdl_key(int key) {
             return SDLK_d;
         case GLFW_KEY_SPACE:
             return SDLK_SPACE;
+        // Sneak
         case GLFW_KEY_LEFT_SHIFT:
             return SDLK_LSHIFT;
         case GLFW_KEY_RIGHT_SHIFT:
+            return SDLK_RSHIFT;
+        // Sprint
+        case GLFW_KEY_LEFT_CONTROL:
+            return SDLK_LCTRL;
+        case GLFW_KEY_RIGHT_CONTROL:
+            return SDLK_RCTRL;
+        // Alternative sprint
+        case GLFW_KEY_LEFT_ALT:
+            return SDLK_LSHIFT;
+        case GLFW_KEY_RIGHT_ALT:
             return SDLK_RSHIFT;
         // Inventory
         case GLFW_KEY_E:
@@ -411,7 +422,9 @@ static void update_cursor() {
             // Handle Cursor Lock/Unlock
             if ((new_mode == GLFW_CURSOR_DISABLED && old_mode != GLFW_CURSOR_DISABLED) || (new_mode != GLFW_CURSOR_DISABLED && old_mode == GLFW_CURSOR_DISABLED)) {
                 // Use Raw Mouse Motion
+#ifdef GLFW_RAW_MOUSE_MOTION
                 glfwSetInputMode(glfw_window, GLFW_RAW_MOUSE_MOTION, new_mode == GLFW_CURSOR_DISABLED ? GLFW_TRUE : GLFW_FALSE);
+#endif
             }
 
             // Reset Mouse Position When Unlocking

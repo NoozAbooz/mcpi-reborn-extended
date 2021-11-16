@@ -12,6 +12,8 @@ void Level_saveLevelData_injection(unsigned char *level);
 __attribute__((visibility("internal"))) void _init_misc_cpp();
 __attribute__((visibility("internal"))) void _init_misc_logging();
 
+void misc_set_sprinting(int enable);
+
 #ifdef __cplusplus
 }
 #endif

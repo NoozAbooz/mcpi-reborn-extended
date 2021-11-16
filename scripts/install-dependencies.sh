@@ -1,5 +1,4 @@
 #!/bin/sh
-
 set -e
 
 # This Script Assumes An x86_64 Host
@@ -15,11 +14,11 @@ if [ ! -z "${ARM_PACKAGES_SUPPORTED}" ]; then
 fi
 
 # Update APT
-sudo apt update
-sudo apt dist-upgrade -y
+sudo apt-get update
+sudo apt-get dist-upgrade -y
 
 # Install
-sudo apt install --no-install-recommends -y \
+sudo apt-get install --no-install-recommends -y \
     ca-certificates \
     lsb-release \
     dpkg-dev \
@@ -37,7 +36,7 @@ sudo apt install --no-install-recommends -y \
 
 # Install ARM Dependencies
 if [ ! -z "${ARM_PACKAGES_SUPPORTED}" ]; then
-    sudo apt install --no-install-recommends -y \
+    sudo apt-get install --no-install-recommends -y \
         libglfw3:armhf libglfw3-dev:armhf \
         libfreeimage3:armhf \
         libopenal-dev:armhf \

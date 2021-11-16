@@ -135,6 +135,28 @@ static unsigned char *RakNetInstance_injection(unsigned char *rak_net_instance) 
     return result;
 }
 
+// Increase Player Speed
+static int is_sprinting = 0;
+void misc_set_sprinting(int enable) {
+    is_sprinting = enable;
+}
+static float get_sprint_speed() {
+    static float speed;
+    static int speed_set = 0;
+    if (!speed_set) {
+        char *speed_str = getenv("MCPI_SPEED_HACK");
+        if (speed_str == NULL) {
+            speed_str = "1.5";
+        }
+        speed = strtof(speed_str, NULL);
+        speed_set = 1;
+    }
+    return speed;
+}
+static float Player_getWalkingSpeedModifier_injection(__attribute__((unused)) unsigned char *player) {
+    return is_sprinting ? get_sprint_speed() : 1; // Default Is 1
+}
+
 // Init
 void init_misc() {
     if (feature_has("Remove Invalid Item Background", 0)) {
@@ -161,6 +183,9 @@ void init_misc() {
 
     // Fix Bug Where RakNetInstance Starts Pinging Potential Servers Before The "Join Game" Screen Is Opened
     overwrite_calls((void *) RakNetInstance, (void *) RakNetInstance_injection);
+
+    // Increase Player Speed
+    overwrite((void *) Player_getWalkingSpeedModifier, (void *) Player_getWalkingSpeedModifier_injection);
 
     // Init C++ And Logging
     _init_misc_cpp();
