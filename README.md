@@ -1,9 +1,3 @@
-<p align="center">
-    <img alt="Start Screen" src="images/start.png">
-</p>
+# mcpi-packages-buster source code
 
-# Minecraft: Pi Edition: Reborn
-Minecraft: Pi Edition Modding Project
-
-## Documentation
-[View Documentation](docs/README.md)
+The main branch is for the apt repo and debs themselves. This branch is for the source code I use to compile the custom buster debs.
