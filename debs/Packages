@@ -4,10 +4,10 @@ Architecture: armhf
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1
 Filename: ./minecraft-pi-reborn-client_2.2.8_armhf.deb
-Size: 1450936
-MD5sum: 7ac3e2f8f54171c4dc8e096ca0d8af97
-SHA1: 6348fec69e5b96aefed4262bf8cb2878982ab5ad
-SHA256: 4ff5fb4d2fb4063467c5224516957fed4cb21618031882862ae01d5ec1703767
+Size: 1450488
+MD5sum: d01f17cb7e8d1d5da57e96a69043518a
+SHA1: 07f0658f8b0b8ac9cdec7bd629b507ba901f129f
+SHA256: cd7c887386281f0447f392939a4f926ad3028340798971a71ab12bcf7fac23bb
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -17,10 +17,10 @@ Architecture: amd64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, qemu-user-static
 Filename: ./minecraft-pi-reborn-client_2.2.8_amd64.deb
-Size: 1471960
-MD5sum: 6255ae6ff9db79a8d4d811822b87ec18
-SHA1: 4c8db2a95e3069a68cb51ea34fb116ceef431eb0
-SHA256: b82f88fe7754bdebe638e326b2b28c12a71b5f2c9a7e970dd6b6a8252bcaf1ae
+Size: 1471912
+MD5sum: e2653534667b1b76405f919d20e47cb5
+SHA1: b00ac3d880ef99dd6b7b91ded63efa8db8129d33
+SHA256: 90f32ea5df1df7241d444d737572a707d57ce8bb1a62ed954aeeace610b2a288
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -30,10 +30,10 @@ Architecture: armhf
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6
 Filename: ./minecraft-pi-reborn-server_2.2.8_armhf.deb
-Size: 1299440
-MD5sum: 529ea7f81a5443c55ac98a0eb373946c
-SHA1: d8d94236a824fb855ef543b4085e1b248dc619d9
-SHA256: 58723633cadc43d7ba6dda314d5cc99b4d98fbfbba6e18ccad7331b32b3b8b98
+Size: 1301152
+MD5sum: 424df02394509f2a4fbe6de36f92605f
+SHA1: 0d98599d8f4d5719045d13bf84cb553cf0b3d24d
+SHA256: 864c73267365d461c4103149e3a140d01a7e5afb834667b783d4a71e5afcf325
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -43,10 +43,10 @@ Architecture: amd64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user-static
 Filename: ./minecraft-pi-reborn-server_2.2.8_amd64.deb
-Size: 1300688
-MD5sum: 79466806d67d29f1d5618062a140f0a3
-SHA1: 5db1eb43f92570f919951ee0f1f42307e1e502f6
-SHA256: 3d4e0494276c18d25a58a12310f716ef53a172ccb655ce47c5ade33843f8a826
+Size: 1301080
+MD5sum: a4b9555317f9e7ca46fe82794923b987
+SHA1: a1dcdc254bc742be6a39995d6b67426490d5b343
+SHA256: f5da8219436f2faae84156f8f6cd72a082648d5d131fe93ef96423d5af52a3c3
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
