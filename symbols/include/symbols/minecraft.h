@@ -343,7 +343,7 @@ static Textures_tick_t Textures_tick = (Textures_tick_t) 0x531c4;
 
 // GameMode Constructors
 
-#define CREATOR_MODE_SIZE 0x18
+#define CREATOR_MODE_SIZE 0x1c
 static void *CreatorMode = (void *) 0x1a044;
 #define SURVIVAL_MODE_SIZE 0x24
 static void *SurvivalMode = (void *) 0x1b7d8;
@@ -548,7 +548,7 @@ static uint32_t Inventory_selectedSlot_property_offset = 0x28; // int32_t
 
 // TripodCameraRenderer
 
-#define TRIPOD_CAMERA_RENDERER_SIZE 0x193
+#define TRIPOD_CAMERA_RENDERER_SIZE 0x128
 
 typedef unsigned char *(*TripodCameraRenderer_t)(unsigned char *renderer);
 static TripodCameraRenderer_t TripodCameraRenderer = (TripodCameraRenderer_t) 0x6583c;
