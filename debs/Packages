@@ -1,0 +1,52 @@
+Package: minecraft-pi-reborn-client
+Version: 2.2.8
+Architecture: armhf
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: libc6, libstdc++6, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1
+Filename: ./minecraft-pi-reborn-client_2.2.8_armhf.deb
+Size: 1452024
+MD5sum: c5ffbec2f43214fa2fe2bd7c8b77a4de
+SHA1: 704a7fa702c25dc70d8f0775430be1c048190cc5
+SHA256: ec6cf5d1b15919b0372005062319eff0e746efb41f33e8e928e77286ea1f6612
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
+Package: minecraft-pi-reborn-client
+Version: 2.2.8
+Architecture: amd64
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, qemu-user-static
+Filename: ./minecraft-pi-reborn-client_2.2.8_amd64.deb
+Size: 1472060
+MD5sum: 6667d7e3fda7cadd1e744d0f27ef3286
+SHA1: c1966d8746ed13abbcaa5cda4138cad41221ac23
+SHA256: b7f3cbe663ff6fe482c9778c3b10b8f04df25a8934ba87e235b647c1daf2617e
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
+Package: minecraft-pi-reborn-server
+Version: 2.2.8
+Architecture: armhf
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: libc6, libstdc++6
+Filename: ./minecraft-pi-reborn-server_2.2.8_armhf.deb
+Size: 1299548
+MD5sum: c293b5e555f2b6cc443244c3485f538b
+SHA1: 83ba5aaa2ab8cfcd7215d186080638904cf4acac
+SHA256: 030fe96da4f3b1f6c38f9cb6fe87e896f1f94f822ebd7053273b23766362af47
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
+Package: minecraft-pi-reborn-server
+Version: 2.2.8
+Architecture: amd64
+Maintainer: TheBrokenRail <connor24nolan@live.com>
+Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user-static
+Filename: ./minecraft-pi-reborn-server_2.2.8_amd64.deb
+Size: 1300872
+MD5sum: ca375f8ababaa22a1cbe6ba654f1084c
+SHA1: 4773595b7083f2963355dfe33980394becd48b36
+SHA256: 8752c685729e51ec1287679fb91f55280031a1df6a234c371d4146563f7ac260
+Homepage: https://www.minecraft.net/en-us/edition/pi
+Description: Fun with Blocks
+
