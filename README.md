@@ -14,3 +14,5 @@ wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-packages-buster/main
 Currently the only packages available are:
 - `minecraft-pi-reborn-client (for ARM and x86_64)`
 - `minecraft-pi-reborn-server (for ARM and x86_64)`
+
+Go to the master branch for source code!
