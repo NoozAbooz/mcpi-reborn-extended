@@ -1,13 +1,70 @@
+Package: gmcpil
+Version: 0.13.3
+Architecture: amd64
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: libc6 (>= 2.28), minecraft-pi-reborn-client (>= 2.2.9), libgtk-3-0, libjson-glib-1.0-0, libharfbuzz-gobject0
+Filename: ./gmcpil_0.13.3_amd64.deb
+Size: 59576
+MD5sum: 975dd4d5515bbe924c12294c73004967
+SHA1: 7fa1095bf2f1ad23760d982fa3d1735b144e12b1
+SHA256: fbfa161e9b814affc492c57a46aea7593a756c4d8bb5d249bc6af9b6f648f6a9
+Section: contrib/misc
+Priority: optional
+Homepage: https://mcpirevival.tk
+Description: Simple launcher for Minecraft: Pi Edition - GTK+ Edition.
+ Simple GUI launcher for Minecraft: Pi Edition and MCPI-Reborn,
+ rewritten in Vala using GTK+ 3.
+Vcs-Browser: https://github.com/MCPI-Revival/gMCPIL
+Vcs-Git: https://github.com/MCPI-Revival/gMCPIL.git
+
+Package: gmcpil
+Version: 0.13.3
+Architecture: arm64
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: libc6 (>= 2.28), minecraft-pi-reborn-client (>= 2.2.9), libgtk-3-0, libjson-glib-1.0-0, libharfbuzz-gobject0
+Filename: ./gmcpil_0.13.3_arm64.deb
+Size: 58440
+MD5sum: 727e9912022ec5298a4ea1c15c59dec4
+SHA1: 39316deaa97ddde238177a2f96ff40135da82b29
+SHA256: efade2fcb48099e425d13a2cfb296a0585092aef7b76e210e21a62f4bab8116a
+Section: contrib/misc
+Priority: optional
+Homepage: https://mcpirevival.tk
+Description: Simple launcher for Minecraft: Pi Edition - GTK+ Edition.
+ Simple GUI launcher for Minecraft: Pi Edition and MCPI-Reborn,
+ rewritten in Vala using GTK+ 3.
+Vcs-Browser: https://github.com/MCPI-Revival/gMCPIL
+Vcs-Git: https://github.com/MCPI-Revival/gMCPIL.git
+
+Package: gmcpil
+Version: 0.13.3
+Architecture: armhf
+Maintainer: Alvarito050506 <donfrutosgomez@gmail.com>
+Depends: libc6 (>= 2.28), minecraft-pi-reborn-client (>= 2.2.9), libgtk-3-0, libjson-glib-1.0-0, libharfbuzz-gobject0
+Filename: ./gmcpil_0.13.3_armhf.deb
+Size: 56580
+MD5sum: 132a2e523a74ac76cb3fdf648b3c49eb
+SHA1: 17569e1d43d0e3d605e0747053bcf7f803b1d9bc
+SHA256: d41b955914b6c4f34c0eb6de3727887713c52e5fef6ef7e9084a18178c0d7676
+Section: contrib/misc
+Priority: optional
+Homepage: https://mcpirevival.tk
+Description: Simple launcher for Minecraft: Pi Edition - GTK+ Edition.
+ Simple GUI launcher for Minecraft: Pi Edition and MCPI-Reborn,
+ rewritten in Vala using GTK+ 3.
+Vcs-Browser: https://github.com/MCPI-Revival/gMCPIL
+Vcs-Git: https://github.com/MCPI-Revival/gMCPIL.git
+
 Package: minecraft-pi-reborn-client
 Version: 2.2.9
 Architecture: armhf
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1
 Filename: ./minecraft-pi-reborn-client_2.2.9_armhf.deb
-Size: 1450836
-MD5sum: 04c76b0f759fd28021397929a7b14145
-SHA1: f79acd40a9a4b76422d1b0d740515a935df45010
-SHA256: 81aa38da3e12bee90958dd046e1386e65856ed15bbcc2c1a2f73d2ef41b4c1ce
+Size: 1450744
+MD5sum: ed640115d8f80bfcb01f4d4d776bb91b
+SHA1: 30d8e5f54e6a8902bed2789a1c56c617625e4e8e
+SHA256: d057eda7e796caa362eb175a5725b2dc50fb8f1eb39079063b7297498e2923bc
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -17,10 +74,10 @@ Architecture: amd64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, zenity, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, qemu-user
 Filename: ./minecraft-pi-reborn-client_2.2.9_amd64.deb
-Size: 1472264
-MD5sum: 575b2b239d36a7c53f16b5e6c2cd09ea
-SHA1: ff823c7d6b75ddbb1aa72f02b683a8a4f6336a66
-SHA256: 33c31d3045af26f0c75d33a48ecdbbaf62ae63fbe7dc57e66924f018e4b1196d
+Size: 1472268
+MD5sum: 501b3b082b41fb46432ffa2334215e3e
+SHA1: 200039e866923c9d982a80e026a4ccc13aa18591
+SHA256: e7db8bc4f6c6347c636e7575011a56705776f9dbd6324ffadca2b870199d771a
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -30,10 +87,10 @@ Architecture: amd64
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user
 Filename: ./minecraft-pi-reborn-server_2.2.9_amd64.deb
-Size: 1301248
-MD5sum: b1f3504ef62259bc027f3b1aa0f3724d
-SHA1: 12abd116bdf0ce59c3a0b5177af71a76e88c55b8
-SHA256: 5a4cc6ba0fe6c3af79e2961f8df7bac1f06c931d32ea594171dd16e080ccb7ad
+Size: 1303008
+MD5sum: 0f5e61eb1d064f75dd0d93f6ca4fb803
+SHA1: 66b8407f4e7138c7804dc236e5a50a54e87e7f13
+SHA256: 821bcd98dae8b2b15e11b0a418846174ec29e64d488133ceb04bb14ef3eecd18
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
@@ -43,10 +100,10 @@ Architecture: armhf
 Maintainer: TheBrokenRail <connor24nolan@live.com>
 Depends: libc6, libstdc++6
 Filename: ./minecraft-pi-reborn-server_2.2.9_armhf.deb
-Size: 1301800
-MD5sum: 7094002ef0e2093bdec7a902eb01202a
-SHA1: 5a1bdecea6bc9779af31f8e2457dc55a764cd0ac
-SHA256: bf556e281463215bbadde46d5184b62769a6cd580bcc1ecc0ed0326726cd4fea
+Size: 1301376
+MD5sum: f7ca4c45e34499cff7f7511bd6b7ff58
+SHA1: 515b627de2859c753952e16bfad6f65d7adb182f
+SHA256: cf3dfb60c8d3fae205f1b69c44af041d64bb7bc4da356629c2b0595a4ed4ed19
 Homepage: https://www.minecraft.net/en-us/edition/pi
 Description: Fun with Blocks
 
