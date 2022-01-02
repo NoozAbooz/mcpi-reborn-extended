@@ -268,9 +268,6 @@ static ItemInstance_constructor_extra_t ItemInstance_constructor_item_extra = (I
 
 // Entity
 
-typedef void (*Entity_die_t)(unsigned char *entity, unsigned char *cause);
-static uint32_t Entity_die_vtable_offset = 0x130;
-
 static uint32_t Entity_x_property_offset = 0x4; // float
 static uint32_t Entity_y_property_offset = 0x8; // float
 static uint32_t Entity_z_property_offset = 0xc; // float
@@ -287,6 +284,9 @@ static Mob_actuallyHurt_t Mob_actuallyHurt = (Mob_actuallyHurt_t) 0x7f11c;
 static uint32_t Mob_actuallyHurt_vtable_offset = 0x16c;
 
 typedef float (*Mob_getWalkingSpeedModifier_t)(unsigned char *entity);
+
+typedef void (*Mob_die_t)(unsigned char *entity, unsigned char *cause);
+static uint32_t Mob_die_vtable_offset = 0x130;
 
 static uint32_t Mob_health_property_offset = 0xec; // int32_t
 
@@ -309,6 +309,9 @@ static Mob_actuallyHurt_t LocalPlayer_actuallyHurt = (Mob_actuallyHurt_t) 0x4401
 static void *LocalPlayer_actuallyHurt_vtable_addr = (void *) 0x10639c;
 
 static void *LocalPlayer_openTextEdit_vtable_addr = (void *) 0x106460;
+
+static Mob_die_t LocalPlayer_die = (Mob_die_t) 0x45078;
+static void *LocalPlayer_die_vtable_addr = (void *) 0x106360;
 
 static uint32_t LocalPlayer_minecraft_property_offset = 0xc90; // Minecraft *
 
@@ -567,10 +570,13 @@ static uint32_t TileEntity_id_property_offset = 0x18; // int32_t
 
 // ItemRenderer
 
-typedef float (*ItemRenderer_renderGuiItem_t)(unsigned char *font, unsigned char *textures, ItemInstance *item_instance, float param_1, float param_2, bool param_3);
-static ItemRenderer_renderGuiItem_t ItemRenderer_renderGuiItem = (ItemRenderer_renderGuiItem_t) 0x63e58;
+typedef void (*ItemRenderer_renderGuiItem_one_t)(unsigned char *font, unsigned char *textures, ItemInstance *item_instance, float param_1, float param_2, bool param_3);
+static ItemRenderer_renderGuiItem_one_t ItemRenderer_renderGuiItem_one = (ItemRenderer_renderGuiItem_one_t) 0x63e58;
 
-typedef float (*ItemRenderer_renderGuiItemCorrect_t)(unsigned char *font, unsigned char *textures, ItemInstance *item_instance, int32_t param_1, int32_t param_2);
+typedef void (*ItemRenderer_renderGuiItem_two_t)(unsigned char *font, unsigned char *textures, ItemInstance *item_instance, float param_1, float param_2, float param_3, float param_4, bool param_5);
+static ItemRenderer_renderGuiItem_two_t ItemRenderer_renderGuiItem_two = (ItemRenderer_renderGuiItem_two_t) 0x63be0;
+
+typedef void (*ItemRenderer_renderGuiItemCorrect_t)(unsigned char *font, unsigned char *textures, ItemInstance *item_instance, int32_t param_1, int32_t param_2);
 static ItemRenderer_renderGuiItemCorrect_t ItemRenderer_renderGuiItemCorrect = (ItemRenderer_renderGuiItemCorrect_t) 0x639a0;
 
 // Tesselator

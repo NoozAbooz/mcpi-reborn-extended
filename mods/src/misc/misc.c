@@ -155,12 +155,21 @@ static float get_sprint_speed() {
 }
 static float Player_getWalkingSpeedModifier_injection(__attribute__((unused)) unsigned char *player) {
     return is_sprinting ? get_sprint_speed() : 1; // Default Is 1
+
+// Close Current Screen On Death To Prevent Bugs
+static void LocalPlayer_die_injection(unsigned char *entity, unsigned char *cause) {
+    // Close Screen
+    unsigned char *minecraft = *(unsigned char **) (entity + LocalPlayer_minecraft_property_offset);
+    (*Minecraft_setScreen)(minecraft, NULL);
+
+    // Call Original Method
+    (*LocalPlayer_die)(entity, cause);
 }
 
 // Init
 void init_misc() {
+    // Remove Invalid Item Background (A Red Background That Appears For Items That Are Not Included In The gui_blocks Atlas)
     if (feature_has("Remove Invalid Item Background", 0)) {
-        // Remove Invalid Item Background (A Red Background That Appears For Items That Are Not Included In The gui_blocks Atlas)
         unsigned char invalid_item_background_patch[4] = {0x00, 0xf0, 0x20, 0xe3}; // "nop"
         patch((void *) 0x63c98, invalid_item_background_patch);
     }
@@ -186,6 +195,11 @@ void init_misc() {
 
     // Increase Player Speed
     overwrite((void *) Player_getWalkingSpeedModifier, (void *) Player_getWalkingSpeedModifier_injection);
+
+    // Close Current Screen On Death To Prevent Bugs
+    if (feature_has("Close Current Screen On Death", 0)) {
+        patch_address(LocalPlayer_die_vtable_addr, (void *) LocalPlayer_die_injection);
+    }
 
     // Init C++ And Logging
     _init_misc_cpp();
