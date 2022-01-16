@@ -21,6 +21,8 @@ if ! command -v wget > /dev/null;then
   fi
 fi
 
+sudo apt install gnupg2 -y
+
 wget -qO- https://github.com/mobilegmYT/mcpi-packages-buster/raw/main/debs/KEY.gpg | sudo apt-key add - || error "Failed to download and add key!"
 wget -qO- https://github.com/mobilegmYT/mcpi-packages-buster/raw/main/debs/mcpi-revival.list | sudo tee /etc/apt/sources.list.d/mcpi-packages-buster.list || error "Failed to download 'mcpi-revival.list'!"
 
