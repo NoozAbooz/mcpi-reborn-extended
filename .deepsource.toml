@@ -2,4 +2,4 @@ version = 1
 
 [[analyzers]]
 name = "shell"
-enabled = true
+enabled = false
