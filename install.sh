@@ -35,7 +35,7 @@ function install-api() {
 }
 
 # Install depends if not already installed
-read -p "Install depends 'wget' and 'gnupg'? (y/n)" choice
+read -p "Install depends wget and gnupg2 (y/n)?" choice
 case "$choice" in 
   y|Y ) install-depends;;
   n|N ) echo "Need depends to install! Exiting..." && exit 1;;
@@ -55,7 +55,7 @@ then
 fi
 
 # Install modified python lib
-read -p "Install MCPI python API? (y/n)" choice
+read -p "Install MCPI python API (y/n)?" choice
 case "$choice" in 
   y|Y ) install-api;;
   n|N ) break;;
