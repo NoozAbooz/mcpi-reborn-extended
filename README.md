@@ -22,5 +22,5 @@ Feature list:
 - Full sound support
 
 Credits
-- Maintained by https://github.com/mobilegmYT
-- Patches/mods by https://github.com/bigjango13 and https://github.com/TheBrokenRail
+- Maintained by [mobilegmYT](https://github.com/mobilegmYT).
+- Patches/mods by [bigjango13](https://github.com/bigjango13) and [TheBrokenRail](https://github.com/TheBrokenRail).
