@@ -71,4 +71,8 @@ then
   install-api()
 fi
 
+wget https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so || warning "Failed to download sound files!"
+mkdir -p ~/.minecraft-pi/overrides
+mv libminecraftpe06+08.so ~/.minecraft-pi/overrides/libminecraftpe.so
+
 echo "Installation success! Enjoy the game!"
