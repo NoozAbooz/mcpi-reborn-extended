@@ -15,19 +15,19 @@ function warning() {
 function install-depends() {
   if [ $(dpkg-query -W -f='${Status}' wget 2>/dev/null | grep -c "ok installed") -eq 0 ];
   then
-    sudo apt-get install -y wget;
+    sudo apt-get install -y wget
   fi
 
   if [ $(dpkg-query -W -f='${Status}' gnupg2 2>/dev/null | grep -c "ok installed") -eq 0 ];
   then
-    sudo apt-get install gnupg2;
+    sudo apt-get install gnupg2
   fi
 }
 
 function install-api() {
   if [ $(dpkg-query -W -f='${Status}' python3-minecraftpi 2>/dev/null | grep -c "ok installed") -eq 0 ];
   then
-    sudo apt-get install -y python3-minecraftpi;
+    sudo apt-get install -y python3-minecraftpi
   fi
   
   wget https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py
