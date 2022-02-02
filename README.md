@@ -1,20 +1,26 @@
-# mcpi-packages-buster
-This is a apt repo for various important MCPI Revival projects like [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn). The apt packages and package lists is stored in the [debs](debs/) folder. The repo is designed to serve only UNOFFICIAL mcpi-reborn buster debs, and support will only be provided by me, not MCPI Revival.
+# mcpi-reborn-extended
+This is a fork of [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn) by MCPI Revival, with custom features added in by the community. The apt packages and package lists are stored in the [debs](debs/) folder. The project is UNOFFICIAL from mcpi-reborn, and support wll not be provided by MCPI Revival.
 
-Source code in the [source](https://github.com/mobilegmYT/mcpi-packages-buster/tree/source) branch.
+Source code is in the [source](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/source) branch.
 
 ### APT Repo Installation (for both x86 and arm)
 ```bash
-wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-packages-buster/main/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/mobilegmYTmcpi-reborn-extended/main/install.sh | bash
 ```
 
 #### Uninstall
 ```bash
-wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-packages-buster/main/uninstall.sh | bash
+wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/uninstall.sh | bash
 ```
 
-Currently the only packages available are:
-- `minecraft-pi-reborn-client (for ARM and x86_64)`
-- `minecraft-pi-reborn-server (for ARM and x86_64)`
+Feature list:
+- Full support for Debian buster and bullseye, as well as distros based on them
+- Ability to look around via arrow keys instead of mouse
+- Extended creative inventory
+- Sprinting via `CTRL` key
+- Sneaking via both the `Shift` and `Alt` keys
+- Full sound support
 
-Go to the master branch for source code!
+Credits
+- Maintained by https://github.com/mobilegmYT
+- Patches/mods by https://github.com/bigjango13 and https://github.com/TheBrokenRail
