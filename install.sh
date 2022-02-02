@@ -30,15 +30,8 @@ function install-api() {
     sudo apt-get install -y python3-minecraftpi;
   fi
   
-  sudo sed -i -e '332d' /usr/lib/python3/dist-packages/mcpi/minecraft.py
-  sudo sed -i '/def getPlayerEntityId(self, name):/i \
-          if not len(ids) == 0:\
-              return list(map(int, ids.split("|")))\
-          else:\
-              return []\
-
-  ' minecraft.py
-  sudo sed -i -e '332d' /usr/lib/python3/dist-packages/mcpi/minecraft.py
+  wget https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py
+  sudo mv minecraft.py /usr/lib/python3/dist-packages/mcpi/minecraft.py
 }
 
 # Install depends if not already installed
