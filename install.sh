@@ -42,14 +42,12 @@ function install-api() {
 }
 
 # Install depends if not already installed
-read -p "Install depends 'wget' and 'gnupg'? (y/n) " -n 1 -r
-
-echo    # (optional) move to a new line
-if [[ $REPLY =~ ^[Yy]$ ]]
+read -r -p "Install dependencies wget and gnupg2? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
-  install-depends()
+    install-depends()
 else
-  echo "Need depends to install! Exiting..." && exit 1
+    echo "Need depends to install! Exiting..." && exit 1
 fi
 
 # Install repo
@@ -65,11 +63,17 @@ then
 fi
 
 # Install modified python lib
-read -p "Install MCPI python API? (y/n) " -n 1 -r
+read -p " (y/n) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
   install-api()
+fi
+
+read -r -p "Install MCPI python API? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+    install-api()
 fi
 
 wget https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so || warning "Failed to download sound files!"
