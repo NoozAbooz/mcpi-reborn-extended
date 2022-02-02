@@ -5,7 +5,7 @@ Source code and documentation is in the [source](https://github.com/mobilegmYT/m
 
 ### APT Repo Installation (for both x86 and arm)
 ```bash
-wget https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/install.sh && bash install.sh && rm install.sh
+wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/install.sh | bash
 ```
 
 #### Uninstall
