@@ -32,8 +32,10 @@ sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt u
 # Nuke vanilla reborn if installed
 if [ $(dpkg-query -W -f='${Status}' minecraft-pi-reborn-client 2>/dev/null | grep -c "ok installed") -eq 1 ];
 then
-  sudo apt-get remove -y minecraft-pi-reborn-client && sudo apt-get install -y minecraft-pi-reborn-client || warning "Could not reinstall reborn to switch to extended version! Please do it manually."
+  sudo apt-get remove -y minecraft-pi-reborn-client || warning "Could not reinstall reborn to switch to extended version! Please do it manually."
 fi
+
+sudo apt-get install -y minecraft-pi-reborn-client
 
 # Install Python API
 if [ $(dpkg-query -W -f='${Status}' python3-minecraftpi 2>/dev/null | grep -c "ok installed") -eq 0 ];
@@ -49,4 +51,4 @@ wget https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so |
 mkdir -p ~/.minecraft-pi/overrides
 mv libminecraftpe06+08.so ~/.minecraft-pi/overrides/libminecraftpe.so
 
-echo "Installation success! Enjoy the game!"
+echo "Installation success! Launch it with 'minecraft-pi-reborn-client' and enjoy!"
