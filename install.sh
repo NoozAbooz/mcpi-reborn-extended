@@ -26,6 +26,7 @@ fi
 # Install repo
 sudo wget -q -O /etc/apt/trusted.gpg.d/mcpi-reborn-extended.gpg https://github.com/mobilegmYT/mcpi-packages-extended/raw/main/debs/KEY.gpg
 sudo wget -q -O /etc/apt/sources.list.d/mcpi-reborn-extended.list https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list
+sudo apt-key add /etc/apt/trusted.gpg.d/mcpi-reborn-extended.gpg
 
 sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt update'! Please run that command manually"
 
