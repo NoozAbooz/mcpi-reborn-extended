@@ -35,13 +35,7 @@ function install-api() {
 }
 
 # Install depends if not already installed
-read -r -p "Install dependencies wget and gnupg2? [y/N] " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
-then
-    install-depends()
-else
-    echo "Need depends to install! Exiting..." && exit 1
-fi
+install-depends()
 
 # Install repo
 wget -qO- https://github.com/mobilegmYT/mcpi-packages-extended/raw/main/debs/KEY.gpg | sudo apt-key add - || error "Failed to download and add key!"
@@ -52,7 +46,7 @@ sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt u
 # Nuke vanilla reborn if installed
 if [ $(dpkg-query -W -f='${Status}' minecraft-pi-reborn-client 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
-  sudo apt-get uninstall -y minecraft-pi-reborn-client && sudo apt-get uninstall -t minecraft-pi-reborn-client; || warning "Could not reinstall reborn to switch to extended version! Please do it manually."
+  sudo apt-get uninstall -y minecraft-pi-reborn-client && sudo apt-get install minecraft-pi-reborn-client || warning "Could not reinstall reborn to switch to extended version! Please do it manually."
 fi
 
 # Install modified python lib
