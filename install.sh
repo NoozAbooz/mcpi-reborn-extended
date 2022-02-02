@@ -36,7 +36,7 @@ function install-api() {
 
 # Install depends if not already installed
 read -p "Install depends wget and gnupg2 (y/n)?" choice
-case "$choice" in 
+case "$choice" in
   y|Y ) install-depends;;
   n|N ) echo "Need depends to install! Exiting..." && exit 1;;
   * ) echo "invalid";;
