@@ -43,7 +43,7 @@ case "$choice" in
 esac
 
 # Install repo
-sudo wget -q -O /etc/apt/trusted.gpg.d/mcpi-reborn-extended.gpg https://github.com/mobilegmYT/mcpi-packages-extended/raw/main/debs/KEY.gpg || error "Failed to download and add key!"
+sudo wget -q -O /etc/apt/trusted.gpg.d/mcpi-reborn-extended.gpg https://github.com/mobilegmYT/mcpi-packages-extended/raw/main/debs/KEY.gpg
 wget -qO- https://github.com/mobilegmYT/mcpi-packages-extended/raw/main/debs/mcpi-revival.list | sudo tee /etc/apt/sources.list.d/mcpi-reborn-extended.list || error "Failed to download 'mcpi-revival.list'!"
 
 sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt update'! Please run that command manually"
