@@ -12,7 +12,7 @@
 #include "misc.h"
 
 // Maximum Username Length
-#define MAX_USERNAME_LENGTH 16
+#define MAX_USERNAME_LENGTH 32
 
 // Additional GUI Rendering
 static int hide_chat_messages = 0;
@@ -77,7 +77,7 @@ static void LoginPacket_read_injection(unsigned char *packet, unsigned char *bit
     ALLOC_CHECK(new_username);
     sanitize_string(&new_username, MAX_USERNAME_LENGTH, 0);
     // Set New Username
-    (*RakNet_RakString_Assign)(rak_string, new_username);
+    (*RakNet_RakString_Assign)(rak_string, strdup(c_str));
     // Free
     free(new_username);
 }
@@ -155,6 +155,7 @@ static float get_sprint_speed() {
 }
 static float Player_getWalkingSpeedModifier_injection(__attribute__((unused)) unsigned char *player) {
     return is_sprinting ? get_sprint_speed() : 1; // Default Is 1
+}
 
 // Close Current Screen On Death To Prevent Bugs
 static void LocalPlayer_die_injection(unsigned char *entity, unsigned char *cause) {
