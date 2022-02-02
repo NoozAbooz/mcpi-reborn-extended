@@ -1,1 +1,1 @@
-deb http://community-debs.mcpirevival.tk/debs/
+deb [trusted=yes] https://community-debs.mcpirevival.tk/debs/ /
