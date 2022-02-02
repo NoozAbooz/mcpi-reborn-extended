@@ -43,6 +43,7 @@ function install-api() {
 
 # Install depends if not already installed
 read -p "Install depends 'wget' and 'gnupg'? (y/n) " -n 1 -r
+
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
