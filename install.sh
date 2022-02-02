@@ -42,12 +42,14 @@ function install-api() {
 }
 
 # Install depends if not already installed
-read -p "Install depends 'wget' and 'gnupg'? (y/n)" choice
-case "$choice" in 
-  y|Y ) install-depends();;
-  n|N ) echo "Need depends to install! Exiting..." && exit 1;;
-  * ) echo "invalid";;
-esac
+read -p "Install depends 'wget' and 'gnupg'? (y/n) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  install-depends()
+else
+  echo "Need depends to install! Exiting..." && exit 1
+fi
 
 # Install repo
 wget -qO- https://github.com/mobilegmYT/mcpi-packages-extended/raw/main/debs/KEY.gpg | sudo apt-key add - || error "Failed to download and add key!"
@@ -62,11 +64,11 @@ then
 fi
 
 # Install modified python lib
-read -p "Install MCPI python API? (y/n)" choice
-case "$choice" in 
-  y|Y ) install-api();;
-  n|N ) break;;
-  * ) echo "invalid";;
-esac
+read -p "Install MCPI python API? (y/n) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  install-api()
+fi
 
 echo "Installation success! Enjoy the game!"
