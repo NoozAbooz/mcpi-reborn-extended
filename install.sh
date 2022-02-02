@@ -35,7 +35,13 @@ function install-api() {
 }
 
 # Install depends if not already installed
-install-depends()
+read -r -p "Install dependencies wget and gnupg2? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+  install-depends
+else
+  echo "Need depends to install! Exiting..." && exit 1
+fi
 
 # Install repo
 wget -qO- https://github.com/mobilegmYT/mcpi-packages-extended/raw/main/debs/KEY.gpg | sudo apt-key add - || error "Failed to download and add key!"
@@ -54,7 +60,7 @@ read -p " (y/n) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-  install-api()
+  install-api
 fi
 
 read -r -p "Install MCPI python API? [y/N] " response
