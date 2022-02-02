@@ -13,38 +13,31 @@ function warning() {
 }
 
 function install-depends() {
-  if [ $(dpkg-query -W -f='${Status}' wget 2>/dev/null | grep -c "ok installed") -eq 0 ];
+  if [ $(dpkg-query -W -f='${Status}' wget 2>/dev/null | grep -c "ok installed") -eq 0 ]; 
   then
-    sudo apt-get install -y wget;
-  fi
-
+    sudo apt-get install -y wget
+  fi 
+  
   if [ $(dpkg-query -W -f='${Status}' gnupg2 2>/dev/null | grep -c "ok installed") -eq 0 ];
   then
-    sudo apt-get install gnupg2;
+    sudo apt-get install gnupg2
   fi
 }
 
 function install-api() {
   if [ $(dpkg-query -W -f='${Status}' python3-minecraftpi 2>/dev/null | grep -c "ok installed") -eq 0 ];
   then
-    sudo apt-get install -y python3-minecraftpi;
-  fi
+    sudo apt-get install -y python3-minecraftpi
+  fi 
   
-  sudo sed -i -e '332d' /usr/lib/python3/dist-packages/mcpi/minecraft.py
-  sudo sed -i '/def getPlayerEntityId(self, name):/i \
-          if not len(ids) == 0:\
-              return list(map(int, ids.split("|")))\
-          else:\
-              return []\
-
-  ' minecraft.py
-  sudo sed -i -e '332d' /usr/lib/python3/dist-packages/mcpi/minecraft.py
+  wget https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py
+  sudo mv minecraft.py /usr/lib/python3/dist-packages/mcpi/minecraft.py
 }
 
 # Install depends if not already installed
-read -p "Install depends 'wget' and 'gnupg'? (y/n)" choice
+read -p "Install depends wget and gnupg2? (y/n) -> " choice
 case "$choice" in 
-  y|Y ) install-depends();;
+  y|Y ) install-depends;;
   n|N ) echo "Need depends to install! Exiting..." && exit 1;;
   * ) echo "invalid";;
 esac
@@ -58,15 +51,20 @@ sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt u
 # Nuke vanilla reborn if installed
 if [ $(dpkg-query -W -f='${Status}' minecraft-pi-reborn-client 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
-  sudo apt-get uninstall -y minecraft-pi-reborn-client && sudo apt-get uninstall -t minecraft-pi-reborn-client; || warning "Could not reinstall reborn to switch to extended version! Please do it manually."
+  sudo apt-get uninstall -y minecraft-pi-reborn-client && sudo apt-get install minecraft-pi-reborn-client || warning "Could not reinstall reborn to switch to extended version! Please do it manually."
 fi
 
 # Install modified python lib
-read -p "Install MCPI python API? (y/n)" choice
+read -p "Install MCPI python API? (y/n) -> " choice
 case "$choice" in 
-  y|Y ) install-api();;
+  y|Y ) install-api;;
   n|N ) break;;
   * ) echo "invalid";;
 esac
+
+# Install sound
+wget https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so || warning "Failed to download sound files!"
+mkdir -p ~/.minecraft-pi/overrides
+mv libminecraftpe06+08.so ~/.minecraft-pi/overrides/libminecraftpe.so
 
 echo "Installation success! Enjoy the game!"
