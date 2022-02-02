@@ -1,7 +1,7 @@
 # mcpi-reborn-extended
 This is a fork of [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn) by MCPI Revival, with custom features added in by the community. The apt packages and package lists are stored in the [debs](debs/) folder. The project is UNOFFICIAL from mcpi-reborn, and support wll not be provided by MCPI Revival.
 
-Source code is in the [source](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/source) branch.
+Source code and documentation is in the [source](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/source) branch.
 
 ### APT Repo Installation (for both x86 and arm)
 ```bash
