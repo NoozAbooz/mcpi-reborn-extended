@@ -137,5 +137,5 @@ To load your mod you will need to move it to the mod folder throught the followi
 ```bash
 sudo mv lib<MODFILE>.so /usr/lib/minecraft-pi-reborn-client/mods/lib<MODFILE>.so
 ```
-For both, you will need to replace "<MODFILE>" with the name of the file you made.
+For both, you will need to replace "\<MODFILE>" with the name of the file you made.
 If you are making a server-side mod instead of a client-side mod you will need to change `minecraft-pi-reborn-client` to `minecraft-pi-reborn-server`.
