@@ -9,7 +9,7 @@ char *version_get() {
     static char *version = NULL;
     // Load
     if (version == NULL) {
-        safe_asprintf(&version, "%s / Reborn v" VERSION, *minecraft_pi_version);
+        safe_asprintf(&version, "%s / Reborn v%s Extended", *minecraft_pi_version, VERSION);
     }
     // Return
     return version;
