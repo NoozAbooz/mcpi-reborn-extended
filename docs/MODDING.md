@@ -1,4 +1,4 @@
-~/# Modding
+# Modding
 Modding Minecraft: Pi Edition is possible by patching the binary at runtime. To make this easier ``minecraft-pi-reborn`` includes a library called ``libreborn.so`` which provides several functions to help you patch the game.
 
 ## Hex Addresses
