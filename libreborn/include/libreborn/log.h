@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 // Logging
-#define INFO(format, ...) { fprintf(stderr, "[INFO]: " format "\n", __VA_ARGS__); }
-#define WARN(format, ...) { fprintf(stderr, "[WARN]: " format "\n", __VA_ARGS__); }
-#define ERR(format, ...) { fprintf(stderr, "[ERR]: (%s:%i): " format "\n", __FILE__, __LINE__, __VA_ARGS__); exit(EXIT_FAILURE); }
-#define IMPOSSIBLE() ERR("%s", "This Should Never Be Called")
+#define INFO(format, ...) { fprintf(stderr, "\033[96m[INFO]:\x1b[0m " format "\n", __VA_ARGS__); }
+#define WARN(format, ...) { fprintf(stderr, "\x1b[33m[WARN]:\x1b[0m " format "\n", __VA_ARGS__); }
+#define ERR(format, ...) { fprintf(stderr, "\x1b[33m[ERR]: (%s:%i):\x1b[0m " format "\n", __FILE__, __LINE__, __VA_ARGS__); exit(EXIT_FAILURE); }
+#define IMPOSSIBLE() ERR("%s", "\x1b[31mThis Should Never Be Call'\x1b[0m")
