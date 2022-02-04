@@ -18,7 +18,7 @@ and then use this command each time you compile:
 
 `./scripts/build.sh <client|server> <amd64|arm64|armhf> && ./scripts/package.sh`
 
-You will need to choose your architecture and if you want to build the client or the server
+You will need to choose your architecture and if you want to build the client or the server, click [here](https://github.com/mobilegmYT/mcpi-reborn-extended/blob/source/docs/INSTALL.md#picking-a-package) for more info
 
 ### Building for Debian Buster
 We encourage you to use Debian Bullseye instead of Buster, but support is still provided for it. Your host OS can be either Bullseye or Buster for this, but it also needs to be x86_64.
