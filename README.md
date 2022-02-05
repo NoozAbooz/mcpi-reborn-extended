@@ -20,6 +20,8 @@ Feature list:
 - Sprinting via `CTRL` key
 - Sneaking via both the `Shift` and `Alt` keys
 - Full sound support
+- Colored terminal output
+- Basic Vim keybindings for movement (hjkl)
 
 Credits
 - Maintained by [mobilegmYT](https://github.com/mobilegmYT).
