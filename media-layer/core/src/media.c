@@ -131,6 +131,15 @@ static SDLKey glfw_key_to_sdl_key(int key) {
         // Chat
         case GLFW_KEY_T:
             return SDLK_t;
+        // Vim
+        case GLFW_KEY_K:
+            return SDLK_w;
+        case GLFW_KEY_H:
+            return SDLK_a;
+        case GLFW_KEY_J:
+            return SDLK_s;
+        case GLFW_KEY_L:
+            return SDLK_d;
         // Unknown
         default:
             return SDLK_UNKNOWN;
