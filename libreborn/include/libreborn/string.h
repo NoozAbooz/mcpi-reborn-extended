@@ -28,7 +28,7 @@
 
 // Sanitize String
 #define MINIMUM_SAFE_CHARACTER 32
-#define MAXIMUM_SAFE_CHARACTER 252
+#define MAXIMUM_SAFE_CHARACTER 126
 static inline void sanitize_string(char **str, int max_length, unsigned int allow_newlines) {
     // Store Message Length
     int length = strlen(*str);
