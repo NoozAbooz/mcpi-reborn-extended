@@ -12,6 +12,18 @@ To find out what a function does, you can find its equivalent in [MCPE 0.6.1](ht
 ## C++ Strings
 Minecraft: Pi Edition was compiled with an old version of GCC, so when interacting with C++ strings, make sure you set ``-D_GLIBCXX_USE_CXX11_ABI=0``.
 
+## ``__attribute__((constructor)) static void init() { }``
+You will see this a lot in the docs, it is the MCPI-Reborn equivlent of `int main() {}`.
+When a mod is loaded the code inside of it will be executed, for example:
+```cpp
+#include <stdio.h>
+
+__attribute__((constructor)) static void init() {
+    printf("Helloworld\n");
+}
+```
+This code will print "Helloworld" when loaded by MCPI-Reborn.
+
 ## ``libreborn.so`` API
 Header files and the shared library can be download from [Jenkins](https://jenkins.thebrokenrail.com/job/minecraft-pi-reborn/job/master/lastSuccessfulBuild/artifact/out/lib).
 
