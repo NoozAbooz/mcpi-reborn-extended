@@ -29,7 +29,8 @@ sudo wget -q -O /etc/apt/sources.list.d/mcpi-reborn-extended.list https://github
 # Install GPG key
 sudo wget https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/KEY.gpg
 sudo apt-key add KEY.gpg
-sudo mv KEY.gpg /etc/apt/trusted.gpg.d/mcpi-reborn-extended.gpg
+sudo rm KEY.gpg
+#sudo mv KEY.gpg /etc/apt/trusted.gpg.d/mcpi-reborn-extended.gpg
 
 sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt update'! Please run that command manually"
 
