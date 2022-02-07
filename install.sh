@@ -27,7 +27,7 @@ fi
 sudo wget -q -O /etc/apt/sources.list.d/mcpi-reborn-extended.list https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list
 
 # Install GPG key
-wget https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/KEY.gpg
+sudo wget https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/KEY.gpg
 sudo apt-key add KEY.gpg
 sudo mv KEY.gpg /etc/apt/trusted.gpg.d/mcpi-reborn-extended.gpg
 
