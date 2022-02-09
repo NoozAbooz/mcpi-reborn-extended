@@ -12,7 +12,7 @@
 #include "misc.h"
 
 // Maximum Username Length
-#define MAX_USERNAME_LENGTH 32
+#define MAX_USERNAME_LENGTH 16
 
 // Additional GUI Rendering
 static int hide_chat_messages = 0;
@@ -77,7 +77,7 @@ static void LoginPacket_read_injection(unsigned char *packet, unsigned char *bit
     ALLOC_CHECK(new_username);
     sanitize_string(&new_username, MAX_USERNAME_LENGTH, 0);
     // Set New Username
-    (*RakNet_RakString_Assign)(rak_string, strdup(c_str));
+    (*RakNet_RakString_Assign)(rak_string, new_username);
     // Free
     free(new_username);
 }
