@@ -18,7 +18,7 @@
 int _chat_enabled = 0;
 
 // Message Limitations
-#define MAX_CHAT_MESSAGE_LENGTH 1024
+#define MAX_CHAT_MESSAGE_LENGTH 512
 
 // Send API Command
 #ifndef MCPI_SERVER_MODE
