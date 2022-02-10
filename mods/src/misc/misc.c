@@ -12,7 +12,7 @@
 #include "misc.h"
 
 // Maximum Username Length
-#define MAX_USERNAME_LENGTH 16
+#define MAX_USERNAME_LENGTH 24
 
 // Additional GUI Rendering
 static int hide_chat_messages = 0;
