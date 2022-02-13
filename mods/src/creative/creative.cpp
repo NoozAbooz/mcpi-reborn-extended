@@ -3,6 +3,7 @@
 
 #include "../init/init.h"
 #include "../feature/feature.h"
+#include "../my-tile/my-tile.h"
 #include "creative.h"
 
 // Add Item To Inventory
@@ -48,6 +49,7 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     inventory_add_item(filling_container, *Tile_bedrock, true);
     inventory_add_item(filling_container, *Tile_info_updateGame1, true);
     inventory_add_item(filling_container, *Tile_info_updateGame2, true);
+    inventory_add_item(filling_container, my_tile, true);
 
     // Add EVERYTHING
     ItemInstance *diamondSword_instance = new ItemInstance;
