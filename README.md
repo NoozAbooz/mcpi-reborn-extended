@@ -14,14 +14,15 @@ wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main
 ```
 
 Feature list:
-- Full support for Debian buster and bullseye, as well as distros based on them
-- Ability to look around via arrow keys instead of mouse (useful if mouse is glitched or if using REPLIT)
-- Extended creative inventory
-- Sprinting via `CTRL` key
-- Sneaking via both the `Shift` and `Alt` keys
-- Full sound support
-- Colored terminal output
-- Basic Vim keybindings for movement (hjkl)
+- Full support for Debian buster and bullseye, as well as distros based on them.
+- Ability to look around via arrow keys instead of mouse (useful if mouse is glitched or if using REPLIT).
+- Extended creative inventory.
+- Sprinting via `CTRL` key.
+- Sneaking via both the `Shift` and `Alt` keys.
+- Full sound support.
+- Colored terminal output.
+- Basic Vim keybindings for movement (hjkl).
+- A custom block called "cursed chest".
 
 Credits
 - Maintained by [mobilegmYT](https://github.com/mobilegmYT).
