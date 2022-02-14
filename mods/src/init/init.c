@@ -26,7 +26,7 @@ __attribute__((constructor)) static void init() {
     init_options();
     init_chat();
     init_home();
-    init_my_tile();
+    init_chest();
 #if !defined(MCPI_SERVER_MODE) && !defined(MCPI_HEADLESS_MODE)
     init_benchmark();
 #endif

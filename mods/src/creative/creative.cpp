@@ -3,7 +3,7 @@
 
 #include "../init/init.h"
 #include "../feature/feature.h"
-#include "../my-tile/my-tile.h"
+#include "../chest/chest.h"
 #include "creative.h"
 
 // Add Item To Inventory
