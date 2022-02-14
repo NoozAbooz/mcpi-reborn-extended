@@ -49,7 +49,7 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     inventory_add_item(filling_container, *Tile_bedrock, true);
     inventory_add_item(filling_container, *Tile_info_updateGame1, true);
     inventory_add_item(filling_container, *Tile_info_updateGame2, true);
-    inventory_add_item(filling_container, my_tile, true);
+    inventory_add_item(filling_container, cursedChest, true);
 
     // Add EVERYTHING
     ItemInstance *diamondSword_instance = new ItemInstance;
