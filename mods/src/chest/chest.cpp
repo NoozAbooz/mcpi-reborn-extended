@@ -55,7 +55,7 @@ static void Tile_initTiles_injection() {
     (*Tile_init)(chest);
     (*Tile_setDestroyTime)(chest, 2.0f);
     (*Tile_setExplodeable)(chest, 10.0f);
-    (*Tile_setSoundType)(chest, SOUND_WOOD);
+    (*Tile_setSoundType)(chest, SOUND_STONE);
     *(int32_t *) (chest + Tile_category_property_offset) = 1;
     (*Tile_setDescriptionId)(chest, "cursedChest");
 
