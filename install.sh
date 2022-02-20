@@ -23,6 +23,11 @@ then
   sudo apt-get install gnupg2
 fi
 
+if [ $(dpkg-query -W -f='${Status}' unzip 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+  sudo apt-get install unzip
+fi
+
 # Install repo
 sudo wget -q -O /etc/apt/sources.list.d/mcpi-reborn-extended.list https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list
 
@@ -55,5 +60,14 @@ sudo mv minecraft.py /usr/lib/python3/dist-packages/mcpi/minecraft.py
 wget https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so || warning "Failed to download sound files!"
 mkdir -p ~/.minecraft-pi/overrides
 mv libminecraftpe06+08.so ~/.minecraft-pi/overrides/libminecraftpe.so
+
+# Install 1.18 textures
+echo "The script will install a texturepack that updates the textures to MC Java 1.18! If you don't want this, run 'rm -rf ~/.minecraft-pi/overrides/images' after installation."
+sleep 5
+wget https://cdn.discordapp.com/attachments/740287938453045401/944751207644278864/converted.zip
+unzip converted.zip
+mkdir -p ~/.minecraft-pi/overrides/images
+mv converted/* ~/.minecraft-pi/overrides/images/
+rm -rf converted/ converted.zip
 
 echo "Installation success! Launch it with 'minecraft-pi-reborn-client' and enjoy!"
