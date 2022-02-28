@@ -3,7 +3,7 @@ This is a fork of [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/mi
 
 Source code and documentation is in the [source](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/source) branch.
 
-## Installation ([compatibility list](https://github.com/mobilegmYT/mcpi-reborn-extended/main/README.md#compatibility))
+## Installation ([compatibility list](https://github.com/mobilegmYT/mcpi-reborn-extended#compatibility))
 ```bash
 wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/install.sh | bash
 ```
