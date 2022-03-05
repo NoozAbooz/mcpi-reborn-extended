@@ -1,6 +1,6 @@
-# mcpi-reborn-extended source code
+# MCPI++ Source Code
 
-The main branch is for the apt repo and debs. This branch is for the source code I use to compile the modded debs.
+The `main` branch is for hosting the apt repo and debs. This branch is for the source code used to compile the modded debs.
 
 ## Compiling
 ### Depends
