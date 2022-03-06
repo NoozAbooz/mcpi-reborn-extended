@@ -86,6 +86,7 @@ function convert_skin {
   cp $skinpath ~/.minecraft-pi/skin-mcpi.png
   mkdir -p ~/.minecraft-pi/overrides/images/mob
   
+  echo "Applying texture size patch..."
   wget https://bitbucket.org/MattHawkinsUK/rpispy-misc/raw/master/minecraft/minecraft_skin_fixer.py
   sed -i "s|/opt/minecraft-pi/data/images/mob/char.png|~/.minecraft-pi/skin-mcpi.png|g" minecraft_skin_fixer.py
   python3 minecraft_skin_fixer.py
