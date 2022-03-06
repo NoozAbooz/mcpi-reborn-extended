@@ -13,21 +13,24 @@ wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main
 wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/uninstall.sh | bash
 ```
 
-## Feature List
+## Feature List (in order of awesomeness)
 - Full support for Debian Buster/Bullseye, as well as most distros based on them
-- Ability to look around via arrow keys instead of mouse (useful if mouse is glitched)
+- Sound support
 - Extended creative inventory
 - Sprinting via `CTRL` key
+- 1.18 textures
+- Custom skins
 - Sneaking via both the `Shift` and `Alt` keys
-- Full sound support
+- A custom "Cursed Chest" block 
+- Ability to look around via arrow keys instead of mouse (useful if mouse is glitched)
 - Colored terminal output
 - Use basic Vim keybindings for movement (hjkl)
-- A custom "Cursed Chest" block
 
 ## Compatibility
 MCPI++ has been tested with the following:
 - Raspberry Pi 3/4 running RPI OS Buster/Bullseye
-- Windows 10/11 via WSL2 and GWSL
+- Windows 10/11 via WSL2 and GWSL (instructions [here](https://www.youtube.com/watch?v=3l-m8O13LYk))
+- x64 PC running Debian/Ubuntu
 
 ## Credits
 - Maintained by [mobilegmYT](https://github.com/mobilegmYT).
