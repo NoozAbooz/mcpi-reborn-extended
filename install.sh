@@ -21,7 +21,7 @@ fi
 
 # Install repo
 echo -e "\e[4m\e[21m\e[5mInstalling APT repository...\e[0m\e[97m"
-sudo wget -qO- /etc/apt/sources.list.d/mcpi-reborn-extended.list https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list
+sudo wget /etc/apt/sources.list.d/mcpi-reborn-extended.list https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list
 
 # Install GPG key
 sudo wget https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/KEY.gpg
