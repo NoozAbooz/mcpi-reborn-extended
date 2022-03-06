@@ -45,7 +45,7 @@ then
   echo "[OPTIONAL] Install Python API? (press '1' or '2' and then press [Enter] to select)"
   select yn in "Yes" "No"; do
     case $yn in
-      Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing Python API...\e[0m\e[97m" && sudo apt install -y python3-minecraftpi || warning "Could not install Python API" && wget https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py && sudo mv minecraft.py /usr/lib/python3/dist-packages/mcpi/minecraft.py;;
+      Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing Python API...\e[0m\e[97m" && sudo apt install -y python3-minecraftpi || warning "Could not install Python API" && wget https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py && sudo mv minecraft.py /usr/lib/python3/dist-packages/mcpi/minecraft.py && break;;
       No ) break;;
     esac
   done
@@ -55,7 +55,7 @@ fi
 echo "[OPTIONAL] Enable sound?"
 select yn in "Yes" "No"; do
   case $yn in
-    Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing sound files...\e[0m\e[97m" && wget https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so && mkdir -p ~/.minecraft-pi/overrides && mv "libminecraftpe06+08.so" ~/.minecraft-pi/overrides/libminecraftpe.so;;
+    Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing sound files...\e[0m\e[97m" && wget https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so && mkdir -p ~/.minecraft-pi/overrides && mv "libminecraftpe06+08.so" ~/.minecraft-pi/overrides/libminecraftpe.so && break;;
     No ) break;;
   esac
 done
@@ -72,7 +72,7 @@ function install_updated_textures {
 echo "[OPTIONAL] Install MC 1.18 texturepack?"
 select yn in "Yes" "No"; do
   case $yn in
-    Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing 1.18 texturepack...\e[0m\e[97m" && install_updated_textures;;
+    Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing 1.18 texturepack...\e[0m\e[97m" && install_updated_textures && break;;
     No ) break;;
   esac
 done
@@ -98,7 +98,7 @@ function convert_skin {
 echo "[OPTIONAL] Use custom skin?"
 select yn in "Yes" "No"; do
   case $yn in
-    Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Adding custom skin...\e[0m\e[97m" && install_updated_textures;;
+    Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Adding custom skin...\e[0m\e[97m" && install_updated_textures && break;;
     No ) break;;
   esac
 done
