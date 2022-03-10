@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "This script will REMOVE the MCPI++ APT REPO! Press [Enter] to continue, or [Ctrl+C] to exit"
-read -p
+read -p ""
 
 sudo rm /etc/apt/sources.list.d/mcpi-reborn-extended.list
 sudo rm /etc/apt/trusted.gpg.d/mcpi-reborn-extended.gpg
