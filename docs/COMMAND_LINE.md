@@ -26,9 +26,9 @@ Here are avilable variables:
 
 Here is an example:
 ```bash
-MCPI_FEATURE_FLAGS = 'Touch GUI|Fix Bow & Arrow|Fix Attacking|Fancy Graphics|Disable Autojump By Default|Display Nametags By Default|Fix Sign Placement|Show Block Outlines|Expand Creative Inventory|Remove Creative Mode Restrictions|Animated Water|Remove Invalid Item Background|Disable "gui_blocks" Atlas|Smooth Lighting|Fix Camera Rendering|Implement Chat|Implement Death Messages|Implement Game-Mode Switching|Allow Joining Survival Servers|Miscellaneous Input Fixes|Bind "Q" Key To Item Dropping|Bind Common Toggleable Options To Function Keys|Render Selected Item Text|External Server Support|Load Language Files|Implement Sound Engine|Hide Death Messages'
-MCPI_RENDER_DISTANCE='Normal'
-MCPI_USERNAME = 'AlexPi'
-MCPI_SPEED_HACK = 3
+export MCPI_FEATURE_FLAGS = 'Touch GUI|Fix Bow & Arrow|Fix Attacking|Fancy Graphics|Disable Autojump By Default|Display Nametags By Default|Fix Sign Placement|Show Block Outlines|Expand Creative Inventory|Remove Creative Mode Restrictions|Animated Water|Remove Invalid Item Background|Disable "gui_blocks" Atlas|Smooth Lighting|Fix Camera Rendering|Implement Chat|Implement Death Messages|Implement Game-Mode Switching|Allow Joining Survival Servers|Miscellaneous Input Fixes|Bind "Q" Key To Item Dropping|Bind Common Toggleable Options To Function Keys|Render Selected Item Text|External Server Support|Load Language Files|Implement Sound Engine|Hide Death Messages'
+export MCPI_RENDER_DISTANCE='Normal'
+export MCPI_USERNAME = 'AlexPi'
+export MCPI_SPEED_HACK = 3
 minecraft-pi-reborn-client
 ```
