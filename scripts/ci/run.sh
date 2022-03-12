@@ -2,25 +2,12 @@
 
 set -e
 
-# Install sudo
-apt-get update
-apt-get install -y sudo
+ARM_PACKAGES_SUPPORTED=1 ./scripts/install-dependencies.sh
 
-# Prepare
-export ARM_PACKAGES_SUPPORTED=1
-
-# Install Dependencies
-echo '==== Installing Dependencies ===='
-./scripts/install-dependencies.sh
-
-# Build
-echo '==== Building ===='
-./scripts/build-all.sh
+# Build/Package
+echo '==== Building & Packaging ===='
+./scripts/package-all.sh
 
 # Test
 echo '==== Testing ===='
 ./scripts/test.sh
-
-# Package
-echo '==== Packaging ===='
-./scripts/package.sh

@@ -31,14 +31,16 @@ static void trim(char **value) {
         *value = &(*value)[1];
     }
 }
-static void set_and_print_env(const char *name, char *value) {
+void set_and_print_env(const char *name, char *value) {
     // Set Variable With No Trailing Colon
-    trim(&value);
+    static const char *unmodified_name_prefix = "MCPI_";
+    if (strncmp(unmodified_name_prefix, name, strlen(unmodified_name_prefix)) != 0) {
+        trim(&value);
+    }
 
-#ifdef DEBUG
     // Print New Value
-    INFO("Set %s = %s", name, value);
-#endif
+    DEBUG("Set %s = %s", name, value);
+
     // Set The Value
     setenv(name, value, 1);
 }
@@ -134,71 +136,27 @@ static void load(char **ld_preload, char *folder) {
     }
 }
 
-#define MCPI_NAME "minecraft-pi"
+#define MCPI_BINARY "minecraft-pi"
+#define QEMU_BINARY "qemu-arm"
 
-// Bootstrap
-void bootstrap(int argc, char *argv[]) {
-    INFO("%s", "Configuring Game...");
+// Pre-Bootstrap
+void pre_bootstrap() {
+    // AppImage
+#ifdef MCPI_IS_APPIMAGE_BUILD
+    char *owd = getenv("OWD");
+    if (owd != NULL && chdir(owd) != 0) {
+        ERR("AppImage: Unable To Fix Current Directory: %s", strerror(errno));
+    }
+#endif
 
     // Get Binary Directory
     char *binary_directory = get_binary_directory();
-
-    // Configure LD_LIBRARY_PATH
-    {
-        PRESERVE_ENVIRONMENTAL_VARIABLE("LD_LIBRARY_PATH");
-        // Add Library Directory
-        char *new_ld_path;
-        safe_asprintf(&new_ld_path, "%s/lib", binary_directory);
-        // Add Existing LD_LIBRARY_PATH
-        {
-            char *value = get_env_safe("LD_LIBRARY_PATH");
-            if (strlen(value) > 0) {
-                string_append(&new_ld_path, ":%s", value);
-            }
-        }
-        // Load ARM Libraries
-#ifdef __ARM_ARCH
-        string_append(&new_ld_path, "%s", ":/usr/lib/arm-linux-gnueabihf:/usr/arm-linux-gnueabihf/lib");
-#endif
-        // Add Full Library Search Path
-        {
-            char *value = get_full_library_search_path();
-            if (strlen(value) > 0) {
-                string_append(&new_ld_path, ":%s", value);
-            }
-            free(value);
-        }
-        // Add Fallback Library Directory
-        string_append(&new_ld_path, ":%s/fallback-lib", binary_directory);
-        // Set And Free
-        set_and_print_env("LD_LIBRARY_PATH", new_ld_path);
-        free(new_ld_path);
-    }
-
-    // Configure LD_PRELOAD
-    {
-        PRESERVE_ENVIRONMENTAL_VARIABLE("LD_PRELOAD");
-        char *new_ld_preload = NULL;
-        safe_asprintf(&new_ld_preload, "%s", get_env_safe("LD_PRELOAD"));
-
-        // Get Mods Folder
-        char *mods_folder = NULL;
-        safe_asprintf(&mods_folder, "%s/mods/", binary_directory);
-        // Load Mods From ./mods
-        load(&new_ld_preload, mods_folder);
-        // Free Mods Folder
-        free(mods_folder);
-
-        // Set LD_PRELOAD
-        set_and_print_env("LD_PRELOAD", new_ld_preload);
-        free(new_ld_preload);
-    }
 
     // Configure PATH
     {
         // Add Library Directory
         char *new_path;
-        safe_asprintf(&new_path, "%s/lib", binary_directory);
+        safe_asprintf(&new_path, "%s/bin", binary_directory);
         // Add Existing PATH
         {
             char *value = get_env_safe("PATH");
@@ -211,40 +169,181 @@ void bootstrap(int argc, char *argv[]) {
         free(new_path);
     }
 
-    // Start Game
-    INFO("%s", "Starting Game...");
+    // Free Binary Directory
+    free(binary_directory);
+}
 
-    // Use Correct LibC
-#ifndef __ARM_ARCH
-    setenv("QEMU_LD_PREFIX", "/usr/arm-linux-gnueabihf", 1);
+// Bootstrap
+void bootstrap(int argc, char *argv[]) {
+    INFO("%s", "Configuring Game...");
+
+    // Get Binary Directory
+    char *binary_directory = get_binary_directory();
+
+    // Handle AppImage
+    char *usr_prefix = NULL;
+#ifdef MCPI_IS_APPIMAGE_BUILD
+    usr_prefix = getenv("APPDIR");
+#endif
+    if (usr_prefix == NULL) {
+        usr_prefix = "";
+    }
+
+    // Configure LD_LIBRARY_PATH
+    {
+        // Preserve
+        PRESERVE_ENVIRONMENTAL_VARIABLE("LD_LIBRARY_PATH");
+        char *new_ld_path = NULL;
+
+        // Add Library Directory
+        safe_asprintf(&new_ld_path, "%s/lib", binary_directory);
+
+        // Add MCPI_LD_LIBRARY_PATH
+        {
+            char *value = get_env_safe("MCPI_LD_LIBRARY_PATH");
+            if (strlen(value) > 0) {
+                string_append(&new_ld_path, ":%s", value);
+            }
+        }
+
+        // Add LD_LIBRARY_PATH (ARM32 Only)
+#ifdef __arm__
+        {
+            char *value = get_env_safe("LD_LIBRARY_PATH");
+            if (strlen(value) > 0) {
+                string_append(&new_ld_path, ":%s", value);
+            }
+        }
 #endif
 
-    // Create Full Path
-    char *full_path = NULL;
-    safe_asprintf(&full_path, "%s/" MCPI_NAME, binary_directory);
+        // Load ARM Libraries (Ensure Priority)
+        string_append(&new_ld_path, ":%s/usr/lib/arm-linux-gnueabihf:%s/usr/arm-linux-gnueabihf/lib", usr_prefix, usr_prefix);
+
+        // Add Full Library Search Path
+        {
+            char *value = get_full_library_search_path();
+            if (strlen(value) > 0) {
+                string_append(&new_ld_path, ":%s", value);
+            }
+            free(value);
+        }
+
+        // Add Fallback Library Directory
+        string_append(&new_ld_path, ":%s/fallback-lib", binary_directory);
+
+        // Set And Free
+        set_and_print_env("LD_LIBRARY_PATH", new_ld_path);
+        free(new_ld_path);
+    }
+
+    // Configure LD_PRELOAD
+    {
+        // Preserve
+        PRESERVE_ENVIRONMENTAL_VARIABLE("LD_PRELOAD");
+        char *new_ld_preload = NULL;
+
+        // Built-In Mods
+        {
+            // Get Mods Folder
+            char *mods_folder = NULL;
+            safe_asprintf(&mods_folder, "%s/mods/", binary_directory);
+            // Load Mods From ./mods
+            load(&new_ld_preload, mods_folder);
+            // Free Mods Folder
+            free(mods_folder);
+        }
+
+        // ~/.minecraft-pi/mods
+        {
+            // Get Mods Folder
+            char *mods_folder = NULL;
+            safe_asprintf(&mods_folder, "%s" HOME_SUBDIRECTORY_FOR_GAME_DATA "/mods/", getenv("HOME"));
+            // Load Mods From ./mods
+            load(&new_ld_preload, mods_folder);
+            // Free Mods Folder
+            free(mods_folder);
+        }
+
+        // Add MCPI_LD_PRELOAD
+        {
+            char *value = get_env_safe("MCPI_LD_PRELOAD");
+            if (strlen(value) > 0) {
+                string_append(&new_ld_preload, ":%s", value);
+            }
+        }
+
+        // Add LD_PRELOAD (ARM32 Only)
+#ifdef __arm__
+        {
+            char *value = get_env_safe("MCPI_LD_PRELOAD");
+            if (strlen(value) > 0) {
+                string_append(&new_ld_preload, ":%s", value);
+            }
+        }
+#endif
+
+        // Set LD_PRELOAD
+        set_and_print_env("LD_PRELOAD", new_ld_preload);
+        free(new_ld_preload);
+    }
+
+    // Resolve Binary Path & Set MCPI_DIRECTORY
+    {
+        // Resolve Full Binary Path
+        char *full_path = NULL;
+        safe_asprintf(&full_path, "%s/" MCPI_BINARY, binary_directory);
+        char *resolved_path = realpath(full_path, NULL);
+        ALLOC_CHECK(resolved_path);
+        free(full_path);
+
+        // Set MCPI_EXECUTABLE_PATH
+        set_and_print_env("MCPI_EXECUTABLE_PATH", resolved_path);
+
+        // Set MCPI_DIRECTORY
+        chop_last_component(&resolved_path);
+        set_and_print_env("MCPI_DIRECTORY", resolved_path);
+        free(resolved_path);
+    }
 
     // Free Binary Directory
     free(binary_directory);
 
-#ifdef __ARM_ARCH
-    // Mark argc As Used
-    (void) argc;
-    // Run
-    safe_execvpe(full_path, argv, environ);
-#else
+    // Start Game
+    INFO("%s", "Starting Game...");
+
+    // Arguments
+    int argv_start = 2; // argv = &new_args[argv_start]
+    char *new_args[argv_start /* 2 Potential Prefix Arguments (QEMU And Linker) */ + argc + 1 /* NULL-Terminator */]; //
+
+    // Copy Existing Arguments
+    for (int i = 1; i < argc; i++) {
+        new_args[i + argv_start] = argv[i];
+    }
+    // NULL-Terminator
+    new_args[argv_start + argc] = NULL;
+
+    // Set Executable Argument
+    new_args[argv_start] = getenv("MCPI_EXECUTABLE_PATH");
+
+    // Non-ARM32 Systems Need Manually Specified Linker
+#ifndef __arm__
+    argv_start--;
+    char *linker = NULL;
+    safe_asprintf(&linker, "%s/usr/arm-linux-gnueabihf/lib/ld-linux-armhf.so.3", usr_prefix);
+    new_args[argv_start] = linker;
+
+    // Non-ARM Systems Need QEMU
+#ifndef __ARM_ARCH
+    argv_start--;
+    new_args[argv_start] = QEMU_BINARY;
+
     // Prevent QEMU From Being Modded
     PASS_ENVIRONMENTAL_VARIABLE_TO_QEMU("LD_LIBRARY_PATH");
     PASS_ENVIRONMENTAL_VARIABLE_TO_QEMU("LD_PRELOAD");
-    // Use QEMU
-#define EXE_INTERPRETER "qemu-arm"
-    // Create Arguments List
-    char *new_argv[argc + 2];
-    for (int i = 1; i <= argc; i++) {
-        new_argv[i + 1] = argv[i];
-    }
-    new_argv[0] = NULL; // Updated By safe_execvpe()
-    new_argv[1] = full_path; // Path To MCPI
-    // Run
-    safe_execvpe(EXE_INTERPRETER, new_argv, environ);
 #endif
+#endif
+
+    // Run
+    char **new_argv = &new_args[argv_start];
+    safe_execvpe(new_argv[0], new_argv, environ);
 }

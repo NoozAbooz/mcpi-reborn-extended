@@ -4,7 +4,7 @@
 extern "C" {
 #endif
 
-extern unsigned char *cursedChest;
+extern unsigned char *my_tile;
 
 #ifdef __cplusplus
 }

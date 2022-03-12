@@ -63,7 +63,7 @@ struct AABB {
 };
 
 struct LevelSettings {
-    unsigned long seed;
+    int32_t seed;
     int32_t game_type;
 };
 
@@ -243,6 +243,7 @@ static uint32_t Options_third_person_property_offset = 0xed; // unsigned char / 
 static uint32_t Options_render_distance_property_offset = 0x10; // int32_t
 static uint32_t Options_sound_property_offset = 0x4; // int32_t
 static uint32_t Options_debug_property_offset = 0xee; // unsigned char / bool
+static uint32_t Options_server_visible_property_offset = 0x104; // unsigned char / bool
 
 // MouseBuildInput
 
@@ -400,6 +401,18 @@ static ProgressScreen_t ProgressScreen = (ProgressScreen_t) 0x37044;
 // OptionsScreen
 
 static void *OptionsScreen_handleBackEvent_vtable_addr = (void *) 0x10499c;
+
+// FurnaceScreen
+
+typedef int32_t (*FurnaceScreen_handleAddItem_t)(unsigned char *furnace_screen, int32_t slot, ItemInstance const *item);
+static FurnaceScreen_handleAddItem_t FurnaceScreen_handleAddItem = (FurnaceScreen_handleAddItem_t) 0x327a0;
+
+static uint32_t FurnaceScreen_tile_entity_property_offset = 0x1d0; // FurnaceTileEntity *
+
+// FurnaceTileEntity
+
+typedef ItemInstance *(*FurnaceTileEntity_getItem_t)(unsigned char *furnace_tile_entity, int32_t slot);
+static uint32_t FurnaceTileEntity_getItem_vtable_offset = 0x2c;
 
 // Screen
 
@@ -637,7 +650,7 @@ static AppPlatform_readAssetFile_t AppPlatform_readAssetFile = (AppPlatform_read
 
 // Minecraft
 
-typedef void (*Minecraft_selectLevel_t)(unsigned char *minecraft, std::string const& level_dir, std::string const& level_name, LevelSettings const& vsettings);
+typedef void (*Minecraft_selectLevel_t)(unsigned char *minecraft, std::string const& level_dir, std::string const& level_name, LevelSettings const& settings);
 static Minecraft_selectLevel_t Minecraft_selectLevel = (Minecraft_selectLevel_t) 0x16f38;
 
 // ExternalFileLevelStorageSource

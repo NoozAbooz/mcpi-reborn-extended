@@ -1,7 +1,7 @@
-Package: minecraft-pi-reborn-server
+Package: minecraft-pi-reborn-client
 Version: ${VERSION}
-Maintainer: TheBrokenRail <connor24nolan@live.com>
-Description: Fun with Blocks
-Homepage: https://www.minecraft.net/en-us/edition/pi
+Maintainer: Nooz <zhengm58@gmail.com>
+Description: Modded server for Minecraft Pi Edition
+Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
 Architecture: arm64
 Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf
