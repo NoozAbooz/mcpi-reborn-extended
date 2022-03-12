@@ -33,6 +33,11 @@ MCPI++ has been tested with the following:
 - Windows 10/11 via WSL2 and GWSL (instructions [here](https://www.youtube.com/watch?v=3l-m8O13LYk))
 - x64 PC running Debian/Ubuntu
 
+## Troubleshooting
+- My mouse sensetivity is really high
+- - If on WSL --> Follow this [tutorial](https://www.youtube.com/watch?v=3l-m8O13LYk)
+- - If on bare metal Linux --> Uncheck `Disable Raw Mouse Motion` launch flag
+
 ## Credits
 - Maintained by [mobilegmYT](https://github.com/mobilegmYT).
 - Patches/mods by [bigjango13](https://github.com/bigjango13) and [TheBrokenRail](https://github.com/TheBrokenRail).
