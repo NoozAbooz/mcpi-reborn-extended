@@ -14,3 +14,21 @@ If you run MCPI-Reborn with ``--only-generate``, it will immediately exit once w
 If you run MCPI-Reborn with ``--benchmark``, it will enter a simple benchmark mode. This means automatically loading a newly generated world, then rotating the camera for a period of time. When it has finished, it will then exit and print the average FPS while the world was loaded. In this mode, all user input is blocked. However you can still modify rendering settings by changing feature flags.
 
 The world used will always be re-created on start and uses a hard-coded seed.
+
+## Launching with environment variables (Client Mode Only)
+If you want to launch MCPI-Reborn directly without the launcher you can use environment variables to skip it.
+
+Here are avilable variables:
+- MCPI\_FEATURE\_FLAGS A pipe ("|") separated list of enabled features. (Don't include disabled features)
+- MCPI\_RENDER\_DISTENCE Can be set to "Far", "Normal", "Short", or "Tiny".
+- MCPI_USERNAME Your players username
+- MCPI\_SPEED\_HACK (MCPI++ Only) How much speed is increased by the speed hack (Screen flips over 3)
+
+Here is an example:
+```bash
+MCPI_FEATURE_FLAGS = 'Touch GUI|Fix Bow & Arrow|Fix Attacking|Fancy Graphics|Disable Autojump By Default|Display Nametags By Default|Fix Sign Placement|Show Block Outlines|Expand Creative Inventory|Remove Creative Mode Restrictions|Animated Water|Remove Invalid Item Background|Disable "gui_blocks" Atlas|Smooth Lighting|Fix Camera Rendering|Implement Chat|Implement Death Messages|Implement Game-Mode Switching|Allow Joining Survival Servers|Miscellaneous Input Fixes|Bind "Q" Key To Item Dropping|Bind Common Toggleable Options To Function Keys|Render Selected Item Text|External Server Support|Load Language Files|Implement Sound Engine|Hide Death Messages'
+MCPI_RENDER_DISTANCE='Normal'
+MCPI_USERNAME = 'AlexPi'
+MCPI_SPEED_HACK = 3
+minecraft-pi-reborn-client
+```
