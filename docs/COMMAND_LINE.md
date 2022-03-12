@@ -36,3 +36,22 @@ This is the render distance. The possible values are: ``Far``, ``Normal``, ``Sho
 
 ### ``MCPI_USERNAME``
 This is the username.
+
+## Launching with environment variables (Client Mode Only)
+If you want to launch MCPI-Reborn directly without the launcher you can use environment variables to skip it.
+
+Here are avilable variables:
+- MCPI\_FEATURE\_FLAGS A pipe ("|") separated list of enabled features. (Don't include disabled features)
+- MCPI\_RENDER\_DISTENCE Can be set to "Far", "Normal", "Short", or "Tiny".
+- MCPI_USERNAME Your players username
+- MCPI\_SPEED\_HACK (MCPI++ Only) How much speed is increased by the speed hack (Screen flips over 3)
+
+Here is an example:
+```bash
+export MCPI_FEATURE_FLAGS = 'Touch GUI|Fix Bow & Arrow|Fix Attacking|Fancy Graphics|Disable Autojump By Default|Display Nametags By Default|Fix Sign Placement|Show Block Outlines|Expand Creative Inventory|Remove Creative Mode Restrictions|Animated Water|Remove Invalid Item Background|Disable "gui_blocks" Atlas|Smooth Lighting|Fix Camera Rendering|Implement Chat|Implement Death Messages|Implement Game-Mode Switching|Allow Joining Survival Servers|Miscellaneous Input Fixes|Bind "Q" Key To Item Dropping|Bind Common Toggleable Options To Function Keys|Render Selected Item Text|External Server Support|Load Language Files|Implement Sound Engine|Hide Death Messages'
+export MCPI_RENDER_DISTANCE='Normal'
+export MCPI_USERNAME = 'AlexPi'
+export MCPI_SPEED_HACK = 3
+minecraft-pi-reborn-client
+```
+
