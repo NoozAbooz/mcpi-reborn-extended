@@ -6,6 +6,10 @@ if (process.argv.length < 4) {
 const mode = process.argv[2];
 const arch = process.argv[3];
 
+// Version
+const fs = require('fs');
+const version = fs.readFileSync('VERSION', 'utf8').trim();
+
 // Data
 const id = `com.thebrokenrail.MCPIReborn${mode === 'server' ? 'Server' : ''}`;
 const name = `minecraft-pi-reborn-${mode}`;
@@ -14,10 +18,6 @@ const updateURL = `https://github.com/mobilegmYT/mcpi-reborn-extended/releases/d
 // APT Data
 const apt_distribution = 'bullseye';
 const apt_key_url = 'https://ftp-master.debian.org/keys/archive-key-11.asc';
-
-// Version
-const fs = require('fs');
-const version = fs.readFileSync('VERSION', 'utf8').trim();
 
 // Packages/Dependencies
 const packages = [
