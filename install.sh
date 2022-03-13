@@ -41,6 +41,7 @@ fi
 
 # Install Python API
 if [ $(dpkg-query -W -f='${Status}' python3-minecraftpi 2>/dev/null | grep -c "ok installed") -eq 0 ]
+then
   echo  -e "\033[33;5mInstalling Python API...\033[0m"
   sudo apt install -y python3-minecraftpi || warning "Could not install Python API"
   wget https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py
