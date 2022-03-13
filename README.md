@@ -1,6 +1,8 @@
 # MCPI++ (mcpi-reborn-extended)
 This is a fork of [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn) by MCPI Revival, with custom features added by community members. The apt packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from mcpi-reborn. If you like MCPI or MCPI-Reborn, you'll probably like this too!
 
+![](screenshot.png)
+
 Source code and documentation is in the [source](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/source) branch.
 
 ## Installation ([compatibility list](https://github.com/mobilegmYT/mcpi-reborn-extended#compatibility))
@@ -31,6 +33,7 @@ MCPI++ has been tested with the following:
 - Raspberry Pi 3/4 running RPI OS Buster/Bullseye
 - Windows 10/11 via WSL2 and GWSL (instructions [here](https://www.youtube.com/watch?v=3l-m8O13LYk))
 - x64 PC running Debian/Ubuntu
+- - MCPI++ should also support i386, but it is not tested
 
 ## Credits
 - Maintained by [mobilegmYT](https://github.com/mobilegmYT).
