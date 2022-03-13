@@ -42,65 +42,96 @@ fi
 # Install Python API
 if [ $(dpkg-query -W -f='${Status}' python3-minecraftpi 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
-  echo "[OPTIONAL] Install Python API? (press '1' or '2' and then press [Enter] to select)"
-  select yn in "Yes" "No"; do
-    case $yn in
-      Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing Python API...\e[0m\e[97m" && sudo apt install -y python3-minecraftpi || warning "Could not install Python API" && wget https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py && sudo mv minecraft.py /usr/lib/python3/dist-packages/mcpi/minecraft.py && break;;
-      No ) break;;
-    esac
-  done
+  read -n1 -p "[OPTIONAL] Install Python API? (y/N) `echo $'\n> '`" yn
+  echo -e "\n\n"
+
+  case $yn in
+    y)
+      echo  -e "\033[33;5mInstalling Python API...\033[0m"
+      sudo apt install -y python3-minecraftpi || warning "Could not install Python API"
+      wget https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py
+      sudo mv minecraft.py /usr/lib/python3/dist-packages/mcpi/minecraft.py
+      ;;
+
+    n)
+      ;;
+
+    *)
+      echo -e "\nInvalid option! Please choose 'y' or 'n' \n"
+      ;;
+  esac
 fi
 
 # Install sound
-echo "[OPTIONAL] Enable sound?"
-select yn in "Yes" "No"; do
-  case $yn in
-    Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing sound files...\e[0m\e[97m" && wget https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so && mkdir -p ~/.minecraft-pi/overrides && mv "libminecraftpe06+08.so" ~/.minecraft-pi/overrides/libminecraftpe.so && break;;
-    No ) break;;
-  esac
-fi
+read -n1 -p "[OPTIONAL] Enable sound? (y/N) `echo $'\n> '`" yn
+echo -e "\n"
+
+case $yn in
+  y)
+    echo  -e "\033[33;5mInstalling sound files...\033[0m"
+    wget https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so
+    mkdir -p ~/.minecraft-pi/overrides
+    mv "libminecraftpe06+08.so" ~/.minecraft-pi/overrides/libminecraftpe.so
+    ;;
+
+  n)
+    ;;
+
+  *)
+    echo -e "\nInvalid option! Please choose 'y' or 'n' \n"
+    ;;
+esac
 
 # Install 1.18 textures
-function install_updated_textures {
-  wget https://cdn.discordapp.com/attachments/740287938453045401/944751207644278864/converted.zip
-  unzip converted.zip
-  mkdir -p ~/.minecraft-pi/overrides/images/
-  mv converted/* ~/.minecraft-pi/overrides/images/
-  rm -rf converted/ converted.zip
-}
+read -n1 -p "[OPTIONAL] Use 1.18 textures? (y/N) `echo $'\n> '`" yn
+echo -e "\n"
 
-echo "[OPTIONAL] Install MC 1.18 texturepack?"
-select yn in "Yes" "No"; do
-  case $yn in
-    Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing 1.18 texturepack...\e[0m\e[97m" && install_updated_textures && break;;
-    No ) break;;
-  esac
-fi
+case $yn in
+  y)
+    wget https://cdn.discordapp.com/attachments/740287938453045401/944751207644278864/converted.zip
+    unzip converted.zip
+    mkdir -p ~/.minecraft-pi/overrides/images
+    mv converted/* ~/.minecraft-pi/overrides/images/
+    rm -rf converted/ converted.zip
+    ;;
+
+  n)
+    ;;
+
+  *)
+    echo -e "\nInvalid option! Please choose 'y' or 'n' \n"
+    ;;
+esac
 
 # Add custom skin
-function convert_skin {
-  pip install pillow
-  skinpath=$(zenity --file-selection --title='Select your custom Java/Bedrock skin file (must be 4px)' --file-filter='Picture files (png) | *.png' --file-filter='All files | *')
-  echo "Using image:" $skinpath
-  
-  cp $skinpath ~/.minecraft-pi/skin-mcpi.png
-  mkdir -p ~/.minecraft-pi/overrides/images/mob/
-  
-  echo "Applying texture size patch..."
-  wget https://bitbucket.org/MattHawkinsUK/rpispy-misc/raw/master/minecraft/minecraft_skin_fixer.py
-  sed -i "s|/opt/minecraft-pi/data/images/mob/char.png|~/.minecraft-pi/skin-mcpi.png|g" minecraft_skin_fixer.py
-  python3 minecraft_skin_fixer.py
-  
-  mv ~/.minecraft-pi/skin-mcpi.png ~/.minecraft-pi/overrides/images/mob/char.png
-  rm minecraft_skin_fixer.py
-}
+read -n1 -p "[OPTIONAL] Add custom skin? (y/N) `echo $'\n> '`" yn
+echo -e "\n"
 
-echo "[OPTIONAL] Use custom skin?"
-select yn in "Yes" "No"; do
-  case $yn in
-    Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Adding custom skin...\e[0m\e[97m" && install_updated_textures && break;;
-    No ) break;;
-  esac
-fi
+case $yn in
+  y)
+    pip install pillow
+    pip3 install pillow
+    skinpath=$(zenity --file-selection --title='Select your custom Java/Bedrock skin file (must be 4px)' --file-filter='Picture files (png) | *.png' --file-filter='All files | *')
+    echo "Using skin located at:" $skinpath
+    
+    cp $skinpath ~/.minecraft-pi/skin-mcpi.png
+    mkdir -p ~/.minecraft-pi/overrides/images/mob
+    
+    echo "Applying texture size patch..."
+    wget https://bitbucket.org/MattHawkinsUK/rpispy-misc/raw/master/minecraft/minecraft_skin_fixer.py
+    sed -i "s|/opt/minecraft-pi/data/images/mob/char.png|~/.minecraft-pi/skin-mcpi.png|g" minecraft_skin_fixer.py
+    python3 minecraft_skin_fixer.py
+    
+    mv ~/.minecraft-pi/skin-mcpi.png ~/.minecraft-pi/overrides/images/mob/char.png
+    rm minecraft_skin_fixer.py
+    ;;
 
-echo "Installation success! Launch it with 'minecraft-pi-reborn-client' and enjoy!"
+  n)
+    ;;
+
+  *)
+    echo -e "\nInvalid option! Please choose 'y' or 'n' \n"
+    ;;
+esac
+
+
