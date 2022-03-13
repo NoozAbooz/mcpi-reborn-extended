@@ -22,6 +22,7 @@ wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main
 - Sprinting via `CTRL` key
 - 1.18 textures
 - Custom skins
+- Add item names for some hidden items (like the camera)
 - Sneaking via both the `Shift` and `Alt` keys
 - A custom "[Cursed Chest](https://media.discordapp.net/attachments/761048906242981948/903080546182242344/2021-10-27_20.39.05.png)" block 
 - Ability to look around via arrow keys instead of mouse (useful if mouse is glitched)
@@ -34,6 +35,11 @@ MCPI++ has been tested with the following:
 - Windows 10/11 via WSL2 and GWSL (instructions [here](https://www.youtube.com/watch?v=3l-m8O13LYk))
 - x64 PC running Debian/Ubuntu
 - - MCPI++ should also support i386, but it is not tested
+
+## Troubleshooting
+- My mouse sensetivity is really high
+- - If on WSL --> Follow this [tutorial](https://www.youtube.com/watch?v=3l-m8O13LYk)
+- - If on bare metal Linux --> Uncheck `Disable Raw Mouse Motion` launch flag
 
 ## Credits
 - Maintained by [mobilegmYT](https://github.com/mobilegmYT).
