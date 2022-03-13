@@ -24,11 +24,11 @@ If you are doing a lot of testing are you don't want to take the time to build e
 
 and then use this command each time you compile:
 
-`./scripts/build.sh <client|server> <amd64|i386|arm64|armhf>`
+`./scripts/build.sh <client|server> <amd64|arm64|armhf>`
 
 package your built binaries with:
 
-`./scripts/package.sh <client|server> <amd64|i386|arm64|armhf>`
+`./scripts/package.sh <client|server> <amd64|arm64|armhf>`
 
 You will need to choose your architecture and if you want to build the client or the server, click [here](https://github.com/mobilegmYT/mcpi-reborn-extended/blob/source/docs/INSTALL.md#picking-a-package) for more information.
 
