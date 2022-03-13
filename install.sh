@@ -32,7 +32,7 @@ sudo rm KEY.gpg
 sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt update'! Please run that command manually"
 
 # Nuke vanilla reborn if installed
-if [ $(dpkg-query -W -f='${Status}' minecraft-pi-reborn-client 2>/dev/null | grep -c "ok installed") -eq 1 ];
+if [ $(dpkg-query -W -f='${Status}' minecraft-pi-reborn-client 2>/dev/null | grep -c "ok installed") -eq 1 ]
 then
   echo -e "\e[4m\e[21m\e[5mRemoving vanilla reborn to resolve conflicts...\e[0m\e[97m"
   sudo apt-get remove -y minecraft-pi-reborn-client || warning "Could not reinstall reborn to switch to extended version! Please do it manually"
@@ -40,7 +40,7 @@ then
 fi
 
 # Install Python API
-if [ $(dpkg-query -W -f='${Status}' python3-minecraftpi 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' python3-minecraftpi 2>/dev/null | grep -c "ok installed") -eq 0 ]
   echo  -e "\033[33;5mInstalling Python API...\033[0m"
   sudo apt install -y python3-minecraftpi || warning "Could not install Python API"
   wget https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py
