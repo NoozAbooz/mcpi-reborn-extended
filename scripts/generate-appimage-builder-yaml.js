@@ -13,7 +13,7 @@ const version = fs.readFileSync('VERSION', 'utf8').trim();
 
 // Data
 const id = `com.thebrokenrail.MCPIReborn${mode === 'server' ? 'Server' : ''}`;
-const name = `minecraft-pi-reborn-extended-${mode}`;
+const name = `minecraft-pi-reborn-${mode}`;
 const updateURL = `https://github.com/mobilegmYT/mcpi-reborn-extended/releases/download/${version}/${name}-${version}-${arch}.AppImage.zsync`;
 
 // APT Data
