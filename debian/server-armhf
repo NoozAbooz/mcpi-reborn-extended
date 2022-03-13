@@ -1,4 +1,4 @@
-Package: minecraft-pi-reborn-client
+Package: minecraft-pi-reborn-server
 Version: ${VERSION}
 Maintainer: Nooz <zhengm58@gmail.com>
 Description: Modded server for Minecraft Pi Edition
