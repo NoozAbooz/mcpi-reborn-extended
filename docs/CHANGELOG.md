@@ -1,5 +1,8 @@
 # Changelog
 
+### **2.3.0-2 Hotfix**
+* Fixed mouse movement on Buster and WSL
+
 ### **2.3.0-1 Hotfix**
 * Fix ``armhf`` Support
 * Fix Crashing On Execution In ``zenity`` dependency
