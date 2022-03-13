@@ -15,7 +15,7 @@ FALSE This Flag Is Off By Default
 If you run MCPI-Reborn with ``--only-generate``, it will immediately exit once world generation has completed. This is mainly used for testing if the game works during the automatic build process.
 
 ### ``--benchmark`` (Client Mode Only)
-If you run MCPI-Reborn with ``--benchmark``, it will enter a simple benchmark mode. This means automatically loading a newly generated world, then rotating the camera for a period of time. When it has finished, it will then exit and print the average FPS while the world was loaded. In this mode, all user input is blocked. However you can still modify rendering settings by changing feature flags.
+If you run MCPI-Reborn with ``--benchmark``, it will enter a simple benchmark mode. This means automatically loading a newly generated world, then rotating the camera for a period of time. When it has finished, it will then exit and print the average FPS while the world was loaded in terminal. In this mode, all user input is blocked. However you can still modify rendering settings by changing feature flags.
 
 The world used will always be re-created on start and uses a hard-coded seed.
 
@@ -25,17 +25,18 @@ The world used will always be re-created on start and uses a hard-coded seed.
 This enables debug logging if you set it to any non-zero-length value.
 
 ### Client Mode Only
-If a value isn't set for any of the following variables, a GUI will open that allows you to select one.
+If a value isn't set for any of the following variables, a GUI will open and let you manually set it. These flags are intended for launchers
 
-### ``MCPI_FEATURE_FLAGS``
-This corresponds to ``--print-available-feature-flags``. This is just a list of all enabled feature flags separated by ``|``.
+#### ``MCPI_FEATURE_FLAGS``
+This is related to ``--print-available-feature-flags``. You set it to all the features you want to enable, separated by ``|``.
 For instance, the string ``Feature A|Feature B`` would enable both ``Feature A`` and ``Feature B`` and *disable every other available feature flag*.
 
-### ``MCPI_RENDER_DISTANCE``
+#### ``MCPI_RENDER_DISTANCE``
 This is the render distance. The possible values are: ``Far``, ``Normal``, ``Short``, and ``Tiny``.
+![](https://media.discordapp.net/attachments/743580797872767066/805646584809390130/Screenshot_from_2021-01-31_22-51-01.png)
 
-### ``MCPI_USERNAME``
-This is the username.
+#### ``MCPI_USERNAME``
+This is the username (only shown on multiplayer).
 
 ## Launching with environment variables (Client Mode Only)
 If you want to launch MCPI-Reborn directly without the launcher you can use environment variables to skip it.
