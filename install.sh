@@ -58,13 +58,13 @@ select yn in "Yes" "No"; do
     Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing sound files...\e[0m\e[97m" && wget https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so && mkdir -p ~/.minecraft-pi/overrides && mv "libminecraftpe06+08.so" ~/.minecraft-pi/overrides/libminecraftpe.so && break;;
     No ) break;;
   esac
-done
+fi
 
 # Install 1.18 textures
 function install_updated_textures {
   wget https://cdn.discordapp.com/attachments/740287938453045401/944751207644278864/converted.zip
   unzip converted.zip
-  mkdir -p ~/.minecraft-pi/overrides/images
+  mkdir -p ~/.minecraft-pi/overrides/images/
   mv converted/* ~/.minecraft-pi/overrides/images/
   rm -rf converted/ converted.zip
 }
@@ -75,7 +75,7 @@ select yn in "Yes" "No"; do
     Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Installing 1.18 texturepack...\e[0m\e[97m" && install_updated_textures && break;;
     No ) break;;
   esac
-done
+fi
 
 # Add custom skin
 function convert_skin {
@@ -84,7 +84,7 @@ function convert_skin {
   echo "Using image:" $skinpath
   
   cp $skinpath ~/.minecraft-pi/skin-mcpi.png
-  mkdir -p ~/.minecraft-pi/overrides/images/mob
+  mkdir -p ~/.minecraft-pi/overrides/images/mob/
   
   echo "Applying texture size patch..."
   wget https://bitbucket.org/MattHawkinsUK/rpispy-misc/raw/master/minecraft/minecraft_skin_fixer.py
@@ -101,6 +101,6 @@ select yn in "Yes" "No"; do
     Yes ) echo -e "\e[4m\e[21m\e[5m[OPTIONAL] Adding custom skin...\e[0m\e[97m" && install_updated_textures && break;;
     No ) break;;
   esac
-done
+fi
 
 echo "Installation success! Launch it with 'minecraft-pi-reborn-client' and enjoy!"
