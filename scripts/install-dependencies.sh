@@ -90,6 +90,7 @@ queue_pkg \
 queue_pkg \
     python3-pip \
     python3-setuptools \
+    python3-wheel \
     patchelf \
     desktop-file-utils \
     libgdk-pixbuf2.0-dev \
@@ -118,5 +119,4 @@ sudo rm -f /usr/local/bin/appimagetool
 sudo ln -s /opt/appimagetool.AppDir/AppRun /usr/local/bin/appimagetool
 
 # Install appimage-builder
-sudo pip3 install wheel
 sudo pip3 install 'git+https://github.com/TheBrokenRail/appimage-builder.git@combined'

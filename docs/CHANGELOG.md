@@ -1,5 +1,20 @@
 # Changelog
 
+### **2.3.0-1**
+* Fix ``armhf`` Support
+* Fix Crashing On Execution In ``zenity`` dependency
+
+### **2.3.0**
+* Publish Both Debs And AppImages
+* Prevent OpenAL From Crashing When Out Of Memory
+* Vendor GLFW & Zenity
+  * Seamless Wayland Support
+* Add ``MCPI_DEBUG`` Environmental Variable
+* Add ``Disable Hosting LAN Worlds`` Feature Flag (Disabled By Default)
+* Add ``Fix Furnace Not Checking Item Auxiliary`` Feature Flag (Enabled By Default)
+* Add ``Disable Raw Mouse Motion (Not Recommended)`` Feature Flag (Enabled By Default) For Ubuntu Users
+* Added Back `~/.minecraft-pi/mods` Mod Loading Support
+
 ### **2.2.11**
 * Add "Close Current Screen On Death" Feature Flag (Enabled By Default) To Prevent Bugs
 * Fix More Furnace UI Bugs When Using "Disable 'gui_blocks' Atlas"
@@ -117,4 +132,4 @@
 * Fix Blank Screen On Twister OS
 
 ### **2.0.0**
-* Major Rewrite to remove Docker dependency
+* Major Rewrite To Remove Docker Dependency
