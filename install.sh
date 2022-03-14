@@ -36,7 +36,7 @@ if [ $(dpkg-query -W -f='${Status}' minecraft-pi-reborn-client 2>/dev/null | gre
 then
   echo -e "\e[4m\e[21m\e[5mRemoving vanilla reborn to resolve conflicts...\e[0m\e[97m"
   sudo apt-get remove -y minecraft-pi-reborn-client || warning "Could not reinstall reborn to switch to extended version! Please do it manually"
-  sudo apt-get install -y minecraft-pi-reborn-client
+  sudo apt-get install -y minecraft-pi-reborn-client gmcpil
 fi
 
 # Install Python API
