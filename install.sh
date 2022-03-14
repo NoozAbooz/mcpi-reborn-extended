@@ -21,7 +21,7 @@ fi
 
 # Install repo
 echo -e "\e[4m\e[21m\e[5mInstalling APT repository...\e[0m\e[97m"
-sudo wget /etc/apt/sources.list.d/mcpi-reborn-extended.list https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list
+sudo wget -O /etc/apt/sources.list.d/mcpi-reborn-extended.list https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list
 
 # Install GPG key
 sudo wget https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/KEY.gpg
@@ -36,7 +36,7 @@ if [ $(dpkg-query -W -f='${Status}' minecraft-pi-reborn-client 2>/dev/null | gre
 then
   echo -e "\e[4m\e[21m\e[5mRemoving vanilla reborn to resolve conflicts...\e[0m\e[97m"
   sudo apt-get remove -y minecraft-pi-reborn-client || warning "Could not reinstall reborn to switch to extended version! Please do it manually"
-  sudo apt-get install -y minecraft-pi-reborn-client
+  sudo apt-get install -y minecraft-pi-reborn-client gmcpil
 fi
 
 # Install Python API
@@ -74,7 +74,7 @@ mkdir -p ~/.minecraft-pi/overrides/images/mob
 echo "Applying texture size patch..."
 wget https://bitbucket.org/MattHawkinsUK/rpispy-misc/raw/master/minecraft/minecraft_skin_fixer.py
 sed -i "s|/opt/minecraft-pi/data/images/mob/char.png|~/.minecraft-pi/skin-mcpi.png|g" minecraft_skin_fixer.py
-python3 minecraft_skin_fixer.py
+sudo python3 minecraft_skin_fixer.py
     
 mv ~/.minecraft-pi/skin-mcpi.png ~/.minecraft-pi/overrides/images/mob/char.png
 rm minecraft_skin_fixer.py
