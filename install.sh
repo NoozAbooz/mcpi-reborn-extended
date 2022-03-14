@@ -64,7 +64,7 @@ rm -rf converted/ converted.zip
 
 # Add custom skin
 echo  -e "\033[33;5mEnabling custom skins...\033[0m"
-pip install pillow
+pip3 install pillow
 skinpath=$(zenity --file-selection --title='Select your custom Java/Bedrock skin file (must be 4px). If you want to use the default skin, click cancel' --file-filter='Picture files (png) | *.png' --file-filter='All files | *')
 echo "Using skin located at:" $skinpath
     
