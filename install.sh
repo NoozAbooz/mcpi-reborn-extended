@@ -74,7 +74,7 @@ mkdir -p ~/.minecraft-pi/overrides/images/mob
 echo "Applying texture size patch..."
 wget https://bitbucket.org/MattHawkinsUK/rpispy-misc/raw/master/minecraft/minecraft_skin_fixer.py
 sed -i "s|/opt/minecraft-pi/data/images/mob/char.png|~/.minecraft-pi/skin-mcpi.png|g" minecraft_skin_fixer.py
-python3 minecraft_skin_fixer.py
+sudo python3 minecraft_skin_fixer.py
     
 mv ~/.minecraft-pi/skin-mcpi.png ~/.minecraft-pi/overrides/images/mob/char.png
 rm minecraft_skin_fixer.py
