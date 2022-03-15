@@ -1,9 +1,10 @@
 # Changelog
 
-**2.3.1**
+**2.3.0-3 Hotfix**
 * Internal Refactor Of ``libreborn``
 * Remove Use Of ``/bin/sh``
-* Attempt to fully fix mouse movement on WSL
+* Attempt to fully fix mouse movement on WS
+* Load Custom Mods First
 
 ### **2.3.0-2 Hotfix**
 * Fixed mouse movement on Buster and WSL
