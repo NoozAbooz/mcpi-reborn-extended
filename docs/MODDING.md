@@ -141,13 +141,10 @@ chat_enabled = feature_has("Implement Chat", 1);
 To compile your mod use the following code:
 ```bash
 arm-linux-gnueabihf-g++ -shared -fPIC -DREBORN_HAS_COMPILED_CODE <MODFILE>.cpp -o lib<MODFILE>.so
-sudo chmod 644 lib<MODFILE>.so
-sudo chown root lib<MODFILE>.so
-sudo chgrp root lib<MODFILE>.so
 ```
 To load your mod you will need to move it to the mod folder throught the following snippet:
 ```bash
-sudo mv lib<MODFILE>.so /usr/lib/minecraft-pi-reborn-client/mods/lib<MODFILE>.so
+sudo mv lib<MODFILE>.so ~/.minecraft-pi/mods/lib<MODFILE>.so
 ```
 For both, you will need to replace "\<MODFILE>" with the name of the file you made.
 If you are making a server-side mod instead of a client-side mod you will need to change `minecraft-pi-reborn-client` to `minecraft-pi-reborn-server`.
