@@ -5,6 +5,8 @@
 * Remove Use Of ``/bin/sh``
 * Attempt to fully fix mouse movement on WSL
 * Load Custom Mods First
+* Use Zenity Dark Mode
+* Add ``Improved Cursor Rendering`` Feature Flag (Enabled By Default)
 
 ### **2.3.0-2 Hotfix**
 * Fixed mouse movement on Buster and WSL

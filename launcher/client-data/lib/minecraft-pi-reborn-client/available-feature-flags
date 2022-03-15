@@ -30,3 +30,4 @@ TRUE Load Language Files
 TRUE Implement Sound Engine
 TRUE Fix Furnace Not Checking Item Auxiliary
 FALSE Disable Hosting LAN Worlds
+TRUE Improved Cursor Rendering
