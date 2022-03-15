@@ -246,7 +246,7 @@ void bootstrap(int argc, char *argv[]) {
         {
             // Get Mods Folder
             char *mods_folder = NULL;
-            safe_asprintf(&mods_folder, "%s/mods/", binary_directory);
+            safe_asprintf(&mods_folder, "%s" HOME_SUBDIRECTORY_FOR_GAME_DATA "/mods/", getenv("HOME"));
             // Load Mods From ./mods
             load(&new_ld_preload, mods_folder);
             // Free Mods Folder
