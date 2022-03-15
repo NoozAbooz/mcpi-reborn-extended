@@ -47,9 +47,4 @@ void init_input() {
 
     // Allow Attacking Mobs
     _init_attack();
-
-    // Disable Raw Mouse Motion
-    if (feature_has("Disable Raw Mouse Motion (Not Recommended)", 9)) {
-        media_set_raw_mouse_motion_enabled(0);
-    }
 }

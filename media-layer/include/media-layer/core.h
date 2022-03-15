@@ -17,7 +17,6 @@ void media_cleanup();
 void media_get_framebuffer_size(int *width, int *height);
 void media_set_interactable(int is_interactable);
 void media_disable_vsync();
-void media_set_raw_mouse_motion_enabled(int enabled);
 
 #ifdef __cplusplus
 }

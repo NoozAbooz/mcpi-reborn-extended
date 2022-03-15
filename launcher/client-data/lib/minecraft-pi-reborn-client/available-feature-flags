@@ -28,6 +28,5 @@ TRUE Render Selected Item Text
 TRUE External Server Support
 TRUE Load Language Files
 TRUE Implement Sound Engine
-TRUE Disable Raw Mouse Motion
 TRUE Fix Furnace Not Checking Item Auxiliary
 FALSE Disable Hosting LAN Worlds

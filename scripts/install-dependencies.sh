@@ -40,7 +40,9 @@ queue_pkg \
 queue_pkg \
     libfreeimage3 libfreeimage-dev \
     libopenal-dev \
-    qemu-user
+    qemu-user \
+    libglfw3 \
+    libglfw3-dev
 
 # GLFW Dependencies
 queue_pkg \
@@ -68,7 +70,9 @@ queue_pkg \
 # Dependencies
 queue_pkg \
     libfreeimage3:armhf libfreeimage3:arm64 \
-    libopenal-dev:armhf libopenal-dev:arm64
+    libopenal-dev:armhf libopenal-dev:arm64 \
+    libglfw3:armhf libglfw3:arm64 \
+    libglfw3-dev:armhf libglfw3-dev:arm64
 
 # GLFW Dependencies
 queue_pkg \

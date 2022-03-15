@@ -20,8 +20,10 @@ endif()
 # Configure Media Layer Core If Built
 if(TARGET media-layer-core)
     # Link
-    target_link_libraries(media-layer-core media-layer-headers reborn-headers pthread dl)
+    target_link_libraries(media-layer-core media-layer-headers reborn-util pthread dl)
     if(NOT MCPI_HEADLESS_MODE)
+        # Find GLFW
+        find_package(glfw3 3.2 REQUIRED)
         # Find FreeImage
         find_library(FREEIMAGE_LIBRARY NAMES freeimage libfreeimage.so.3 REQUIRED)
         # OpenAL

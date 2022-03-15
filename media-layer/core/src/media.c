@@ -6,7 +6,7 @@
 #ifndef MCPI_HEADLESS_MODE
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
 
 #include <libreborn/libreborn.h>
 #include <media-layer/core.h>
@@ -14,7 +14,7 @@
 
 #ifndef MCPI_HEADLESS_MODE
 #include "audio/engine.h"
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
 
 // Allow Disabling Interaction
 static void update_cursor();
@@ -27,7 +27,7 @@ void media_set_interactable(int toggle) {
 // GLFW Code Not Needed In Headless Mode
 #ifndef MCPI_HEADLESS_MODE
 
-static GLFWwindow *glfw_window = NULL;
+static GLFWwindow *glfw_window;
 
 // Handle GLFW Error
 static void glfw_error(__attribute__((unused)) int error, const char *description) {
@@ -266,24 +266,10 @@ static void glfw_scroll(__attribute__((unused)) GLFWwindow *window, __attribute_
     }
 }
 
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
 
 // Track Media Layer State
 static int is_running = 0;
-
-// Track If Raw Mouse Motion Is Enabled
-static int raw_mouse_motion_enabled = 1;
-void media_set_raw_mouse_motion_enabled(int enabled) {
-    raw_mouse_motion_enabled = enabled;
-#ifndef MCPI_HEADLESS_MODE
-    if (is_running) {
-        glfwSetInputMode(glfw_window, GLFW_RAW_MOUSE_MOTION, GLFW_FALSE);
-    }
-#endif // #ifndef MCPI_HEADLESS_MODE
-    if (!raw_mouse_motion_enabled) {
-        WARN("%s", "Raw mouse motion has been DISABLED, this IS NOT recommended, and should only ever be used on systems that don't support or have broken raw mouse motion.");
-    }
-}
 
 // Disable V-Sync
 static int disable_vsync = 0;
@@ -293,7 +279,7 @@ void media_disable_vsync() {
     if (is_running) {
         glfwSwapInterval(0);
     }
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
 }
 
 // Init Media Layer
@@ -333,9 +319,9 @@ void SDL_WM_SetCaption(const char *title, __attribute__((unused)) const char *ic
 
     // Init OpenAL
     _media_audio_init();
-#else // #ifndef MCPI_HEADLESS_MODE
+#else
     (void) title; // Mark As Used
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
 
     // Set State
     is_running = 1;
@@ -351,7 +337,7 @@ void media_swap_buffers() {
 #ifndef MCPI_HEADLESS_MODE
     // Don't Swap Buffers In A Context-Less Window
     glfwSwapBuffers(glfw_window);
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
 }
 
 // Fullscreen Not Needed In Headless Mode
@@ -384,10 +370,10 @@ void media_toggle_fullscreen() {
     }
     is_fullscreen = !is_fullscreen;
 }
-#else // #ifndef MCPI_HEADLESS_MODE
+#else
 void media_toggle_fullscreen() {
 }
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
 
 // Intercept SDL Events
 void _media_handle_SDL_PollEvent() {
@@ -403,7 +389,7 @@ void _media_handle_SDL_PollEvent() {
         SDL_PushEvent(&event);
         glfwSetWindowShouldClose(glfw_window, GLFW_FALSE);
     }
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
 }
 
 // Cleanup Media Layer
@@ -420,7 +406,7 @@ void media_cleanup() {
 
         // Cleanup OpenAL
         _media_audio_cleanup();
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
 
         // Update State
         is_running = 0;
@@ -467,7 +453,7 @@ static void update_cursor() {
             glfwSetInputMode(glfw_window, GLFW_CURSOR, new_mode);
 
             // Handle Cursor Lock/Unlock
-            if (raw_mouse_motion_enabled && ((new_mode == GLFW_CURSOR_DISABLED && old_mode != GLFW_CURSOR_DISABLED) || (new_mode != GLFW_CURSOR_DISABLED && old_mode == GLFW_CURSOR_DISABLED))) {
+            if ((new_mode == GLFW_CURSOR_DISABLED && old_mode != GLFW_CURSOR_DISABLED) || (new_mode != GLFW_CURSOR_DISABLED && old_mode == GLFW_CURSOR_DISABLED)) {
                 // Use Raw Mouse Motion
 #ifdef GLFW_RAW_MOUSE_MOTION
                 glfwSetInputMode(glfw_window, GLFW_RAW_MOUSE_MOTION, new_mode == GLFW_CURSOR_DISABLED ? GLFW_TRUE : GLFW_FALSE);
@@ -483,7 +469,7 @@ static void update_cursor() {
             }
         }
     }
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
 }
 
 // Fix SDL Cursor Visibility/Grabbing
@@ -529,7 +515,7 @@ void media_get_framebuffer_size(int *width, int *height) {
         glfwGetFramebufferSize(glfw_window, width, height);
         return;
     }
-#endif // #ifndef MCPI_HEADLESS_MODE
+#endif
     *width = DEFAULT_WIDTH;
     *height = DEFAULT_HEIGHT;
 }
