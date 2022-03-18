@@ -39,7 +39,7 @@ priv_wget() {
 
 skin_dialog() {
   zenity --file-selection --file-filter="Picture files (png) | *.png" --file-filter="All files | *" \
-    --title="Select your custom Java/Bedrock skin file (must be 4px). If you want to use the default skin, click cancel."
+    --title="Select your custom Java/Bedrock skin file (must be 4px). If you want to use the default Steve skin, close this window"
 }
 
 # Install depends
