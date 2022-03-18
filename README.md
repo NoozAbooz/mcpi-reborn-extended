@@ -36,6 +36,19 @@ MCPI++ has been tested with the following:
 - x64 PC running Debian/Ubuntu
 - - MCPI++ should also support i386, but it is not tested
 
+## User guide
+### Controls
+Once you are in a world, you will be able to move with WASD and Space.
+You can look around with the mouse and arrow keys.
+To look in your inventory use the "E" and to scroll use the mouse to drag.
+To exit press Esc.
+To shift press Shift or Alt.
+To sprint hold W, A, S, or D and also hold Ctrl.
+
+### Installing extra mods.
+MCPI mods are compiled into shared objects (also called "so files") to add them move them to `~/.minecraft-pi/mods/lib<modname>.so`.
+If you are interested in making your own mods documentation can be found [here](https://github.com/mobilegmYT/mcpi-reborn-extended/blob/source/docs/MODDING.md).
+
 ## Troubleshooting
 - My mouse sensetivity is really high
 - - If on WSL --> Follow this [tutorial](https://www.youtube.com/watch?v=3l-m8O13LYk)
