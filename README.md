@@ -37,17 +37,27 @@ MCPI++ has been tested with the following:
 - - MCPI++ should also support i386, but it is not tested
 
 ## User guide
+
+### Starting the gane
+Type `gmcpil` into terminal or find it from your start menu. You will be greeted with the launcher, from which you can configure settings like username, control which mods are enabled, and add servers. Once you are done, hit "Launch" and start the game!
+
 ### Controls
-Once you are in a world, you will be able to move with WASD and Space.
-You can look around with the mouse and arrow keys.
-To look in your inventory use the "E" and to scroll use the mouse to drag.
-To exit press Esc.
-To shift press Shift or Alt.
-To sprint hold W, A, S, or D and also hold Ctrl.
+Once you are in a world, you will be able to move with WASD and Space.  
+You can look around with the mouse or arrow keys.  
+To look in your inventory use the "E" and to scroll use the mouse to drag.  
+To pause the game press Esc.  
+To sneak press Shift or Alt.  
+To sprint hold Ctrl and move.  
+
+### Entering a game
+Press "Start Game", then click "Create new" to make a new world. Once you load in, you can play around and do whatever. Pause the game with ESC and you can mute sounds or return to the main menu. To enter that world again, click "Start Game" and click on the picture for that world. 
+
+#### Joining a server
+Press "Join Game", and you will be greeted with a list of available servers. Click on one and it will connect. Playing on servers is the exact same as playing on multiplayer, except pausing won't pause the game for other people online and of course, there will be other players online who will all have the same skin as you.
 
 ### Installing extra mods.
 MCPI mods are compiled into shared objects (also called "so files") to add them move them to `~/.minecraft-pi/mods/lib<modname>.so`.
-If you are interested in making your own mods documentation can be found [here](https://github.com/mobilegmYT/mcpi-reborn-extended/blob/source/docs/MODDING.md).
+If you are interested in making your own mods, documentation can be found [here](https://github.com/mobilegmYT/mcpi-reborn-extended/blob/source/docs/MODDING.md).
 
 ## Troubleshooting
 - My mouse sensetivity is really high
