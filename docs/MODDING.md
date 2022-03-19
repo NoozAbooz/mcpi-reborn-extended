@@ -7,15 +7,15 @@ Hex addresses can be found using tools like [Ghidra](https://ghidra-sre.org) or 
 To find out what a function does, you can find its equivalent in [MCPE 0.6.1](https://archive.org/download/MinecraftPE0.1.0/Minecraft%20PE%200.6.1.apk) and use its name for reference because it includes [export symbols](https://stackoverflow.com/a/10903784/14798541).
 
 ## Loading Directories
-``minecraft-pi-reborn`` loads mods from `/usr/lib/minecraft-pi-reborn-client/mods`.
+``minecraft-pi-reborn`` loads mods from `/usr/lib/minecraft-pi-reborn-client/mods` and `~/.minecraft-pi/mods`.
 
 ## C++ Strings
 Minecraft: Pi Edition was compiled with an old version of GCC, so when interacting with C++ strings, make sure you set ``-D_GLIBCXX_USE_CXX11_ABI=0``.
 
 ## ``__attribute__((constructor)) static void init() { }``
-You will see this a lot in the docs, it is the MCPI-Reborn equivlent of `int main() {}`.
+You will see this a lot in the docs, it is the MCPI-Reborn equivalent of `int main() {}`.
 When a mod is loaded the code inside of it will be executed, for example:
-```cpp
+```c
 #include <stdio.h>
 
 __attribute__((constructor)) static void init() {
@@ -25,7 +25,7 @@ __attribute__((constructor)) static void init() {
 This code will print "Helloworld" when loaded by MCPI-Reborn.
 
 ## ``libreborn.so`` API
-Header files and the shared library can be download from [Jenkins](https://jenkins.thebrokenrail.com/job/minecraft-pi-reborn/job/master/lastSuccessfulBuild/artifact/out/lib).
+Header files can be download from [Github](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/source/libreborn/include/libreborn).
 
 ### ``void overwrite(void *start, void *target)``
 This method replaces a function with another function.
@@ -71,6 +71,7 @@ static func_t func = (func_t) 0xabcde;
 static void *func_original = NULL;
 
 static int func_injection(int a, int b) {
+    // Call Original Method
     (*func)(a, b);
 
     return a + 4;
@@ -129,25 +130,25 @@ __attribute__((constructor)) static void init() {
 }
 ```
 
-## Interacting with user options.
+## ``feature.so``
+### ``int feature_has(const char *name, int server_default);``
 You may want a mod to only ativate if the user has selected a certain options.
-This can be achived by including the feature mod and using the `feature_has` function.
-It returns a bool.
-Here is an example:
+Example:
 ```c
 chat_enabled = feature_has("Implement Chat", 1);
 ```
 ## Using custom/modified mods
-To compile your mod use the following code:
+To compile your mod use the following code for C++:
 ```bash
 arm-linux-gnueabihf-g++ -shared -fPIC -DREBORN_HAS_COMPILED_CODE <MODFILE>.cpp -o lib<MODFILE>.so
-sudo chmod 644 lib<MODFILE>.so
-sudo chown root lib<MODFILE>.so
-sudo chgrp root lib<MODFILE>.so
+```
+And this for C:
+```bash
+arm-linux-gnueabihf-gcc -shared -fPIC -DREBORN_HAS_COMPILED_CODE <MODFILE>.c -o lib<MODFILE>.so
 ```
 To load your mod you will need to move it to the mod folder throught the following snippet:
 ```bash
-sudo mv lib<MODFILE>.so /usr/lib/minecraft-pi-reborn-client/mods/lib<MODFILE>.so
+sudo mv lib<MODFILE>.so ~/.minecraft-pi/mods/lib<MODFILE>.so
 ```
 For both, you will need to replace "\<MODFILE>" with the name of the file you made.
 If you are making a server-side mod instead of a client-side mod you will need to change `minecraft-pi-reborn-client` to `minecraft-pi-reborn-server`.

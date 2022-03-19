@@ -29,7 +29,7 @@ int feature_has(const char *name, int server_default) {
         tok = strtok(NULL, "|");
     }
     free(features);
-    
+
     // Log
     DEBUG("Feature: %s: %s", name, ret ? "Enabled" : "Disabled");
 
