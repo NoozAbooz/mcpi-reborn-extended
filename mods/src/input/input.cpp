@@ -2,7 +2,6 @@
 
 #include <libreborn/libreborn.h>
 #include <symbols/minecraft.h>
-#include <media-layer/core.h>
 
 #include "../feature/feature.h"
 #include "../init/init.h"

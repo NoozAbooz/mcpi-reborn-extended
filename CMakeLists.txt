@@ -79,8 +79,10 @@ set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
 # Fast Math
 add_compile_options(-ffast-math)
 
-# Buld Dependencies
-add_subdirectory(dependencies)
+# Buld LibPNG + ZLib + Download Minecraft: Pi Edition
+if(BUILD_ARM_COMPONENTS)
+    add_subdirectory(dependencies)
+endif()
 
 # Warnings
 add_compile_options(-Wall -Wextra -Werror -Wpointer-arith -Wshadow -Wnull-dereference)

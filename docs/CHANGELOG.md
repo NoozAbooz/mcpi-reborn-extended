@@ -1,15 +1,15 @@
 # Changelog
 
-**2.3.0-3 Hotfix**
+### **2.3.2**
+* Fully Remove AppImage Builds Due To Broken Mouse Support
 * Internal Refactor Of ``libreborn``
 * Remove Use Of ``/bin/sh``
-* Attempt to fully fix mouse movement on WSL
+* Attempt To Fully Fix Mouse Movement On WSL
 * Load Custom Mods First
+* Use Zenity Dark Mode
+* Add ``Improved Cursor Rendering`` Feature Flag (Enabled By Default)
 
-### **2.3.0-2 Hotfix**
-* Fixed mouse movement on Buster and WSL
-
-### **2.3.0-1 Hotfix**
+### **2.3.1**
 * Fix ``armhf`` Support
 * Fix Crashing On Execution In ``zenity`` dependency
 
