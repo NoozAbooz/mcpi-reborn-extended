@@ -117,7 +117,7 @@ HOOK(SDL_PollEvent, int, (SDL_Event *event)) {
 
     return ret;
 }
-#endif
+#endif // #ifndef MCPI_SERVER_MODE
 
 // Exit Handler
 static void exit_handler(__attribute__((unused)) int data) {

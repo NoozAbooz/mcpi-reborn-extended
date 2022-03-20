@@ -74,4 +74,4 @@ void chat_open() {
         pthread_create(&thread, NULL, chat_thread, NULL);
     }
 }
-#endif
+#endif // #ifndef MCPI_SERVER_MODE

@@ -30,7 +30,7 @@ static int get_render_distance() {
         ERR("Invalid Render Distance: %s", distance_str);
     }
 }
-#endif
+#endif // #ifndef MCPI_SERVER_MODE
 
 // Get Custom Username
 static char *get_username() {
@@ -47,7 +47,6 @@ static int anaglyph;
 static int smooth_lighting;
 static int render_distance;
 static int server_visible;
-
 // Configure Options
 static void Minecraft_init_injection(unsigned char *this) {
     // Call Original Method
@@ -89,7 +88,8 @@ void init_options() {
     INFO("Setting Render Distance: %i", render_distance);
 #else // #ifndef MCPI_SERVER_MODE
     render_distance = 3;
-#endif
+#endif // #ifndef MCPI_SERVER_MODE
+
     // Server Visible
     server_visible = !feature_has("Disable Hosting LAN Worlds", 0);
 
@@ -100,7 +100,7 @@ void init_options() {
     const char *username = get_username();
 #ifndef MCPI_SERVER_MODE
     INFO("Setting Username: %s", username);
-#endif
+#endif // #ifndef MCPI_SERVER_MODE
     if (strcmp(*default_username, "StevePi") != 0) {
         ERR("%s", "Default Username Is Invalid");
     }

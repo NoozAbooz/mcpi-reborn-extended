@@ -11,4 +11,4 @@ To use, install and run ``minecraft-pi-reborn-server``. It will generate the wor
 ## Server Limitations
 * Player data is not saved because of limitations with MCPE LAN worlds
   * An easy workaround is to place your inventory in a chest before logging off
-* Survival Mode servers are incompatible with unmodded MCPI (not unmodded MCPE though!)
+* Survival Mode servers are incompatible with unmodded MCPI and unmodded MCPE though

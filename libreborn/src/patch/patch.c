@@ -79,7 +79,9 @@ static void update_code_block(void *target) {
         if (code_block == MAP_FAILED) {
             ERR("Unable To Allocate Code Block: %s", strerror(errno));
         }
-        DEBUG("Code Block Allocated At: 0x%08x", (uint32_t) code_block);
+#ifdef DEBUG
+        INFO("Code Block Allocated At: 0x%08x", (uint32_t) code_block);
+#endif
     }
     if (code_block_remaining < CODE_SIZE) {
         ERR("%s", "Maximum Amount Of overwrite_calls() Uses Reached");
@@ -136,7 +138,11 @@ void _overwrite(const char *file, int line, void *start, void *target) {
 }
 
 // Print Patch Debug Data
-#define PATCH_PRINTF(file, line, start, str) if (file != NULL) DEBUG("(%s:%i): Patching (0x%08x) - " str ": 0x%02x 0x%02x 0x%02x 0x%02x", file, line, (uint32_t) start, data[0], data[1], data[2], data[3]);
+#ifdef DEBUG
+#define PATCH_PRINTF(file, line, start, str) if (file != NULL) fprintf(stderr, "[PATCH]: (%s:%i) Patching (0x%08x) - "str": 0x%02x 0x%02x 0x%02x 0x%02x\n", file, line, (uint32_t) start, data[0], data[1], data[2], data[3]);
+#else
+#define PATCH_PRINTF(file, line, start, str) { (void) file; (void) line; (void) start; (void) str; } // Mark As Used
+#endif
 
 // Patch Instruction
 void _patch(const char *file, int line, void *start, unsigned char patch[4]) {

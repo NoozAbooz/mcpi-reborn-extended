@@ -8,11 +8,11 @@ if [ "$(uname -m)" != "x86_64" ]; then
     exit 1
 fi
 
+
 # Update APT
 apt-get update
-apt-get dist-upgrade -y
-
 apt-get install -y sudo
+sudo apt-get dist-upgrade -y
 
 # Add ARM Repository
 sudo dpkg --add-architecture armhf
@@ -28,99 +28,36 @@ sudo apt update
 
 # Build Tools
 queue_pkg \
-    git \
+    ca-certificates \
+    lsb-release \
+    dpkg-dev \
+    clang \
+    lld \
     cmake \
-    ninja-build \
+    make \
+    libglfw3 libglfw3-dev \
+    libfreeimage3 libfreeimage-dev \
     crossbuild-essential-armhf \
     gcc g++ \
-    nodejs \
-    wget
-
-# Dependencies
-queue_pkg \
-    libfreeimage3 libfreeimage-dev \
     libopenal-dev \
-    qemu-user \
-    libglfw3 \
-    libglfw3-dev
-
-# GLFW Dependencies
-queue_pkg \
-    libwayland-dev \
-    libxkbcommon-dev \
-    wayland-protocols \
-    libx11-dev \
-    libxcursor-dev \
-    libxi-dev \
-    libxinerama-dev \
-    libxrandr-dev \
-    libxext-dev
-
-# Zenity Dependencies
-queue_pkg \
-    libgtk-3-dev \
-    libglib2.0-dev
+    qemu-user
 
 # ARM Packages
 
-# Build Tools
+## armhf
 queue_pkg \
+    libglfw3:armhf \
+    libglfw3-dev:armhf \
+    libfreeimage3:armhf \
+    libopenal-dev:armhf \
+
+## arm64
+queue_pkg \
+    libglfw3:arm64 \
+    libglfw3-dev:arm64 \
+    libfreeimage3:arm64 \
+    libopenal-dev:arm64 \
     crossbuild-essential-arm64
-
-# Dependencies
-queue_pkg \
-    libfreeimage3:armhf libfreeimage3:arm64 \
-    libopenal-dev:armhf libopenal-dev:arm64 \
-    libglfw3:armhf libglfw3:arm64 \
-    libglfw3-dev:armhf libglfw3-dev:arm64
-
-# GLFW Dependencies
-queue_pkg \
-    libwayland-dev:armhf libwayland-dev:arm64 \
-    libxkbcommon-dev:armhf libxkbcommon-dev:arm64 \
-    libx11-dev:armhf libx11-dev:arm64 \
-    libxcursor-dev:armhf libxcursor-dev:arm64 \
-    libxi-dev:armhf libxi-dev:arm64 \
-    libxinerama-dev:armhf libxinerama-dev:arm64 \
-    libxrandr-dev:armhf libxrandr-dev:arm64 \
-    libxext-dev:armhf libxext-dev:arm64
-
-# Zenity Dependencies
-queue_pkg \
-    libgtk-3-dev:armhf libgtk-3-dev:arm64 \
-    libglib2.0-dev:armhf libglib2.0-dev:arm64
     
-# Install appimagetool & appimage-builder Dependencies
-queue_pkg \
-    python3-pip \
-    python3-setuptools \
-    python3-wheel \
-    patchelf \
-    desktop-file-utils \
-    libgdk-pixbuf2.0-dev \
-    fakeroot \
-    strace \
-    fuse \
-    gtk-update-icon-cache \
-    shared-mime-info \
-    sed
-
 # Install Queue
 sudo apt-get install --no-install-recommends -y ${PKG_QUEUE}
-
-# Download appimagetool
-sudo mkdir -p /opt
-sudo wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -O /opt/appimagetool
-sudo chmod +x /opt/appimagetool
-# Workaround AppImage Issues With Docker
-cd /opt
-sudo sed -i '0,/AI\x02/{s|AI\x02|\x00\x00\x00|}' ./appimagetool
-sudo rm -rf /opt/squashfs-root /opt/appimagetool.AppDir
-sudo ./appimagetool --appimage-extract
-sudo rm -f ./appimagetool
-sudo mv /opt/squashfs-root /opt/appimagetool.AppDir
-sudo rm -f /usr/local/bin/appimagetool
-sudo ln -s /opt/appimagetool.AppDir/AppRun /usr/local/bin/appimagetool
-
-# Install appimage-builder
-sudo pip3 install 'git+https://github.com/TheBrokenRail/appimage-builder.git@combined'

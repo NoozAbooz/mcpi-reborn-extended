@@ -52,6 +52,8 @@ static void run_command_and_set_env(const char *env_name, const char *command[])
             }
             // Set
             set_and_print_env(env_name, output);
+            // Free
+            free(output);
         }
         // Check Return Code
         if (return_code != 0) {
@@ -80,10 +82,6 @@ static void run_zenity_and_set_env(const char *env_name, std::vector<std::string
 
 // Launch
 int main(int argc, char *argv[]) {
-    
-    // Pre-Bootstrap
-    pre_bootstrap();
-    
     // Print Features
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--print-available-feature-flags") == 0) {
@@ -97,6 +95,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Create ~/.minecraft-pi If Needed
+    // Minecraft Folder
     {
         char *minecraft_folder = NULL;
         safe_asprintf(&minecraft_folder, "%s/.minecraft-pi", getenv("HOME"));

@@ -122,8 +122,8 @@ __attribute__((constructor)) static void init() {
     FreeImage_Initialise(0);
 }
 
-#else 
+#else // #ifndef MCPI_HEADLESS_MODE
 void media_take_screenshot() {
     // NOP
 }
-#endif
+#endif // #ifndef MCPI_HEADLESS_MODE

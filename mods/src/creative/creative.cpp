@@ -52,6 +52,14 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     inventory_add_item(filling_container, my_tile, true);
 
     // Add EVERYTHING
+    ItemInstance *cursedChest_instance = new ItemInstance;
+    ALLOC_CHECK(cursedChest_instance);
+    cursedChest_instance->count = 255;
+    cursedChest_instance->auxiliary = 0;
+    cursedChest_instance->id = 282;
+    (*FillingContainer_addItem)(filling_container, cursedChest_instance);
+
+
     ItemInstance *diamondSword_instance = new ItemInstance;
     ALLOC_CHECK(diamondSword_instance);
     diamondSword_instance->count = 255;

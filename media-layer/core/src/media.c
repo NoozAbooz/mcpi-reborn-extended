@@ -62,16 +62,16 @@ static SDLKey glfw_key_to_sdl_key(int key) {
             return SDLK_LSHIFT;
         case GLFW_KEY_RIGHT_SHIFT:
             return SDLK_RSHIFT;
-        // Alternative sneak
-        case GLFW_KEY_LEFT_ALT:
-            return SDLK_LSHIFT;
-        case GLFW_KEY_RIGHT_ALT:
-            return SDLK_RSHIFT;
         // Sprint
         case GLFW_KEY_LEFT_CONTROL:
             return SDLK_LCTRL;
         case GLFW_KEY_RIGHT_CONTROL:
             return SDLK_RCTRL;
+        // Alternative sprint
+        case GLFW_KEY_LEFT_ALT:
+            return SDLK_LSHIFT;
+        case GLFW_KEY_RIGHT_ALT:
+            return SDLK_RSHIFT;
         // Inventory
         case GLFW_KEY_E:
             return SDLK_e;
@@ -172,7 +172,7 @@ static double last_mouse_y = 0;
 static void glfw_motion(__attribute__((unused)) GLFWwindow *window, double xpos, double ypos);
 
 // Pass Key Presses To SDL
-static void glfw_key(__attribute__((unused)) GLFWwindow *window, int key, int scancode, int action, int mods) {
+static void glfw_key(__attribute__((unused)) GLFWwindow *window, int key, int scancode, int action, __attribute__((unused)) int mods) {
     if (is_interactable) {
         switch (key) {
             case GLFW_KEY_DOWN: {
@@ -266,7 +266,7 @@ static void glfw_scroll(__attribute__((unused)) GLFWwindow *window, __attribute_
     }
 }
 
-#endif
+#endif // #ifndef MCPI_HEADLESS_MODE
 
 // Track Media Layer State
 static int is_running = 0;
@@ -279,7 +279,7 @@ void media_disable_vsync() {
     if (is_running) {
         glfwSwapInterval(0);
     }
-#endif
+#endif // #ifndef MCPI_HEADLESS_MODE
 }
 
 // Init Media Layer
@@ -319,9 +319,9 @@ void SDL_WM_SetCaption(const char *title, __attribute__((unused)) const char *ic
 
     // Init OpenAL
     _media_audio_init();
-#else
+#else // #ifndef MCPI_HEADLESS_MODE
     (void) title; // Mark As Used
-#endif
+#endif // #ifndef MCPI_HEADLESS_MODE
 
     // Set State
     is_running = 1;
@@ -337,7 +337,7 @@ void media_swap_buffers() {
 #ifndef MCPI_HEADLESS_MODE
     // Don't Swap Buffers In A Context-Less Window
     glfwSwapBuffers(glfw_window);
-#endif
+#endif // #ifndef MCPI_HEADLESS_MODE
 }
 
 // Fullscreen Not Needed In Headless Mode
@@ -370,10 +370,10 @@ void media_toggle_fullscreen() {
     }
     is_fullscreen = !is_fullscreen;
 }
-#else
+#else // #ifndef MCPI_HEADLESS_MODE
 void media_toggle_fullscreen() {
 }
-#endif
+#endif // #ifndef MCPI_HEADLESS_MODE
 
 // Intercept SDL Events
 void _media_handle_SDL_PollEvent() {
@@ -389,7 +389,7 @@ void _media_handle_SDL_PollEvent() {
         SDL_PushEvent(&event);
         glfwSetWindowShouldClose(glfw_window, GLFW_FALSE);
     }
-#endif
+#endif // #ifndef MCPI_HEADLESS_MODE
 }
 
 // Cleanup Media Layer
@@ -406,7 +406,7 @@ void media_cleanup() {
 
         // Cleanup OpenAL
         _media_audio_cleanup();
-#endif
+#endif // #ifndef MCPI_HEADLESS_MODE
 
         // Update State
         is_running = 0;
@@ -469,7 +469,7 @@ static void update_cursor() {
             }
         }
     }
-#endif
+#endif // #ifndef MCPI_HEADLESS_MODE
 }
 
 // Fix SDL Cursor Visibility/Grabbing
@@ -515,7 +515,7 @@ void media_get_framebuffer_size(int *width, int *height) {
         glfwGetFramebufferSize(glfw_window, width, height);
         return;
     }
-#endif
+#endif // #ifndef MCPI_HEADLESS_MODE
     *width = DEFAULT_WIDTH;
     *height = DEFAULT_HEIGHT;
 }

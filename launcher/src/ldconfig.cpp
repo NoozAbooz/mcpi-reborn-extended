@@ -2,9 +2,13 @@
 #include <string>
 #include <cstring>
 #include <cstdio>
+
 #include <sstream>
+
 #include <libreborn/libreborn.h>
+
 #include "ldconfig.h"
+
 char *get_full_library_search_path() {
     std::string processed_output;
     // Run
