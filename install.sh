@@ -100,7 +100,7 @@ echo "Applying texture size patch..."
   sudo python3 "${FIXER_PATH}"
 )
     
-mv "${FIXER_PATH}" "${MOB_TEXTURES_PATH}/char.png"
+mv "${TMP_SKIN_PATH}" "${MOB_TEXTURES_PATH}/char.png"
 
 # Finish
 echo -e "\n"
