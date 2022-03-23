@@ -59,7 +59,7 @@ sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt u
 # Nuke vanilla reborn if installed
 info "Removing vanilla reborn to resolve conflicts..."
 sudo apt-get remove -y minecraft-pi-reborn-client || warning "Could not reinstall reborn to switch to extended version! Please do it manually"
-sudo apt-get install -y minecraft-pi-reborn-client planet
+sudo apt-get install -y minecraft-pi-reborn-client planet-launcher
 
 # Install Python API
 info "Installing Python API..."
