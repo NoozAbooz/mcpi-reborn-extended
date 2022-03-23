@@ -10,7 +10,7 @@ MCPI_PY_PATH="/usr/lib/python3/dist-packages/mcpi/minecraft.py"
 SOUND_URL="https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so"
 SOUND_PATH="${MCPI_DIR}/overrides/libminecraftpe.so"
 TEXTURES_PREFIX="converted"
-TEXTURES_URL="https://cdn.discordapp.com/attachments/740287938453045401/955930538269622382/converted.zip"
+TEXTURES_URL="https://cdn.discordapp.com/attachments/896528332340998174/956268263036321842/converted.zip"
 TMP_TEXTURES_PATH="/tmp/mcpi-reborn-textures.zip"
 TEXTURES_PATH="${MCPI_DIR}/overrides/images"
 MOB_TEXTURES_PATH="${TEXTURES_PATH}/mob"
@@ -59,7 +59,7 @@ sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt u
 # Nuke vanilla reborn if installed
 info "Removing vanilla reborn to resolve conflicts..."
 sudo apt-get remove -y minecraft-pi-reborn-client || warning "Could not reinstall reborn to switch to extended version! Please do it manually"
-sudo apt-get install -y minecraft-pi-reborn-client planet
+sudo apt-get install -y minecraft-pi-reborn-client planet-launcher
 
 # Install Python API
 info "Installing Python API..."
