@@ -8,8 +8,8 @@ rm -rf out
 ./scripts/package.sh client amd64
 ./scripts/package.sh server amd64
 
-./scripts/package.sh client arm64
-./scripts/package.sh server arm64
-
 ./scripts/package.sh client armhf
 ./scripts/package.sh server armhf
+
+./scripts/package.sh client arm64
+./scripts/package.sh server arm64

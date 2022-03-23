@@ -9,4 +9,4 @@ set -e
 appimage-builder --recipe AppImageBuilder.yml
 
 # Move ZSync
-mv "./minecraft-pi-reborn-$1-$(cat VERSION)-$2.AppImage.zsync" "./out/minecraft-pi-reborn-$1-latest-$2.AppImage.zsync"
+mv "./minecraft-pi-reborn-$1-$(cat VERSION)-$2.AppImage.zsync" "./out/minecraft-pi-reborn-$1-$(cat VERSION)-$2.AppImage.zsync"
