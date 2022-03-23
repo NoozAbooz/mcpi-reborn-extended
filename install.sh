@@ -102,6 +102,11 @@ echo "Applying texture size patch..."
     
 mv "${TMP_SKIN_PATH}" "${MOB_TEXTURES_PATH}/char.png"
 
+# Link Reborn for Planet
+mkdir ~/.planet-launcher
+link /usr/bin/minecraft-pi-reborn-client ~/.planet-launcher/minecraft.AppImage
+
+
 # Finish
 echo -e "\n"
 info "Installation complete! Refer to https://github.com/mobilegmYT/mcpi-reborn-extended#user-guide for usage instructions."
