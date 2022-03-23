@@ -123,9 +123,9 @@ int main(int argc, char *argv[]) {
         command.push_back("--list");
         command.push_back("--checklist");
         command.push_back("--width");
-        command.push_back("400");
+        command.push_back("500");
         command.push_back("--height");
-        command.push_back("400");
+        command.push_back("800");
         command.push_back("--column");
         command.push_back("Enabled");
         command.push_back("--column");
@@ -152,9 +152,9 @@ int main(int argc, char *argv[]) {
         command.push_back("--list");
         command.push_back("--radiolist");
         command.push_back("--width");
-        command.push_back("400");
+        command.push_back("200");
         command.push_back("--height");
-        command.push_back("400");
+        command.push_back("200");
         command.push_back("--text");
         command.push_back("Minecraft Render Distance:");
         command.push_back("--column");
@@ -179,7 +179,7 @@ int main(int argc, char *argv[]) {
         command.push_back("--text");
         command.push_back("Minecraft Username:");
         command.push_back("--entry-text");
-        command.push_back("StevePi");
+        command.push_back("NoozPi");
         // Run
         run_zenity_and_set_env("MCPI_USERNAME", command);
     }

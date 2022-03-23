@@ -14,6 +14,7 @@
 #include "../sign/sign.h"
 #include "../chat/chat.h"
 #include "../home/home.h"
+#include "../misc/misc.h"
 
 // Custom Title
 HOOK(SDL_WM_SetCaption, void, (__attribute__((unused)) const char *title, const char *icon)) {
@@ -77,6 +78,16 @@ HOOK(SDL_PollEvent, int, (SDL_Event *event)) {
                     // Drop Item
                     input_drop((event->key.keysym.mod & KMOD_CTRL) != 0);
                     handled = 1;
+                } else if (event->key.keysym.sym == SDLK_LCTRL || event->key.keysym.sym == SDLK_RCTRL) {
+                    // Sprinting
+                    misc_set_sprinting(1);
+                }
+                break;
+            }
+            case SDL_KEYUP: {
+                if (event->key.keysym.sym == SDLK_LCTRL || event->key.keysym.sym == SDLK_RCTRL) {
+                    // Sprinting
+                    misc_set_sprinting(0);
                 }
                 break;
             }

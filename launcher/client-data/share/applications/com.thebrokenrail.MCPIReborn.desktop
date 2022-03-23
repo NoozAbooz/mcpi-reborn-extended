@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=Minecraft: Pi Edition: Reborn
-Comment=Fun with Blocks
+Name=MCPI++
+Comment=Community mod of MCPI-Reborn
 Icon=com.thebrokenrail.MCPIReborn
-StartupNotify=false
+StartupNotify=true
 StartupWMClass=Minecraft: Pi Edition: Reborn
 Exec=minecraft-pi-reborn-client
 Terminal=false

@@ -13,7 +13,7 @@
 #include "misc.h"
 
 // Maximum Username Length
-#define MAX_USERNAME_LENGTH 16
+#define MAX_USERNAME_LENGTH 32
 
 // Additional GUI Rendering
 static int hide_chat_messages = 0;
@@ -199,6 +199,28 @@ static void GameRenderer_render_injection(unsigned char *game_renderer, float pa
     }
 }
 
+// Increase Player Speed
+static int is_sprinting = 0;
+void misc_set_sprinting(int enable) {
+    is_sprinting = enable;
+}
+static float get_sprint_speed() {
+    static float speed;
+    static int speed_set = 0;
+    if (!speed_set) {
+        char *speed_str = getenv("MCPI_SPEED_HACK");
+        if (speed_str == NULL) {
+            speed_str = "1.5";
+        }
+        speed = strtof(speed_str, NULL);
+        speed_set = 1;
+    }
+    return speed;
+}
+static float Player_getWalkingSpeedModifier_injection(__attribute__((unused)) unsigned char *player) {
+    return is_sprinting ? get_sprint_speed() : 1; // Default Is 1
+}
+
 // Init
 void init_misc() {
     // Remove Invalid Item Background (A Red Background That Appears For Items That Are Not Included In The gui_blocks Atlas)
@@ -225,6 +247,9 @@ void init_misc() {
 
     // Fix Bug Where RakNetInstance Starts Pinging Potential Servers Before The "Join Game" Screen Is Opened
     overwrite_calls((void *) RakNetInstance, (void *) RakNetInstance_injection);
+
+    // Increase Player Speed
+    overwrite((void *) Player_getWalkingSpeedModifier, (void *) Player_getWalkingSpeedModifier_injection);
 
     // Close Current Screen On Death To Prevent Bugs
     if (feature_has("Close Current Screen On Death", 0)) {

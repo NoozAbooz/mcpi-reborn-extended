@@ -7,8 +7,8 @@ TRUE Disable Autojump By Default
 TRUE Display Nametags By Default
 TRUE Fix Sign Placement
 TRUE Show Block Outlines
-FALSE Expand Creative Inventory
-FALSE Remove Creative Mode Restrictions
+TRUE Expand Creative Inventory
+TRUE Remove Creative Mode Restrictions
 FALSE Peaceful Mode
 TRUE Animated Water
 TRUE Remove Invalid Item Background
@@ -29,7 +29,7 @@ TRUE External Server Support
 TRUE Load Language Files
 TRUE Implement Sound Engine
 TRUE Close Current Screen On Death
-FALSE Disable Raw Mouse Motion (Not Recommended)
+TRUE Disable Raw Mouse Motion (For WSL)
 TRUE Fix Furnace Not Checking Item Auxiliary
 FALSE Disable Hosting LAN Worlds
 TRUE Improved Cursor Rendering

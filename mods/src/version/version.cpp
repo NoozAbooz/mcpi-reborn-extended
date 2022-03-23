@@ -9,7 +9,7 @@ char *version_get() {
     static char *version = NULL;
     // Load
     if (version == NULL) {
-        safe_asprintf(&version, "%s / Reborn v" VERSION, *minecraft_pi_version);
+        safe_asprintf(&version, "MCPI %s / MCPI-Reborn Extended v%s", *minecraft_pi_version, VERSION);
     }
     // Return
     return version;
@@ -33,5 +33,5 @@ void init_version() {
     patch_address((void *) minecraft_pi_version, version_get());
 
     // Log
-    INFO("Starting Minecraft: Pi Edition (%s)", version_get());
+    INFO("Starting MCPI++ (%s)", version_get());
 }

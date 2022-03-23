@@ -1,5 +1,5 @@
-#!/bin/sh
 
+#!/bin/sh
 set -e
 
 # Generate

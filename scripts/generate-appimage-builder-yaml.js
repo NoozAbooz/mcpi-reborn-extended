@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 // Arguments
 if (process.argv.length < 4) {
     throw new Error('Invalid Arguments');
@@ -7,22 +6,23 @@ if (process.argv.length < 4) {
 const mode = process.argv[2];
 const arch = process.argv[3];
 
+// Version
+const fs = require('fs');
+const version = fs.readFileSync('VERSION', 'utf8').trim();
+
 // Data
 const id = `com.thebrokenrail.MCPIReborn${mode === 'server' ? 'Server' : ''}`;
 const name = `minecraft-pi-reborn-${mode}`;
-const updateURL = `https://jenkins.thebrokenrail.com/job/minecraft-pi-reborn/job/master/lastSuccessfulBuild/artifact/out/${name}-latest-${arch}.AppImage.zsync`;
+const updateURL = `https://github.com/mobilegmYT/mcpi-reborn-extended/releases/download/${version}/${name}-${version}-${arch}.AppImage.zsync`;
 
 // APT Data
 const apt_distribution = 'bullseye';
 const apt_key_url = 'https://ftp-master.debian.org/keys/archive-key-11.asc';
 
-// Version
-const fs = require('fs');
-const version = fs.readFileSync('VERSION', 'utf8').trim();
-
 // Packages/Dependencies
 const packages = [
     'libc6',
+    'libc-bin',
     'libstdc++6'
 ];
 if (mode === 'client') {
@@ -55,6 +55,7 @@ const packageExclusions = [
     '*systemd*',
     'dconf-service',
     'dconf-gsettings-backend',
+    'libgnutls*',
     'librest-*',
     'libcups2',
     'libcolord2',
@@ -130,9 +131,7 @@ const runtime = {
         `usr/lib/${name}/minecraft-pi`,
         `usr/lib/${name}/**/*.so`,
         'usr/arm-linux-gnueabihf/lib'
-    ] : undefined,
-    // libapprun_hooks.so Is Buggy And Unneeded
-    no_hooks: true
+    ] : undefined
 };
 
 // AppDir
