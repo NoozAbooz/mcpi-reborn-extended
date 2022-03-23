@@ -1,5 +1,8 @@
 # Changelog
 
+### **2.3.2-1**
+* test
+
 ### **2.3.2**
 * Switch To AppImage For Packaging
 * Prevent OpenAL From Crashing When Out Of Memory
