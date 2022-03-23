@@ -16,9 +16,9 @@ wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main
 ```
 
 ## Feature List (in order of awesomeness)
-- Supports all distros with glibc (everything in this [list](https://gist.github.com/wagenet/35adca1a032cec2999d47b6c40aa45b1) and everything based on them)
-- Sound support
-- Fix missing items in creative inventory
+- Supports all distros with glibc (basically most major distros except musl-based ones like Alpine)
+- Working sounds
+- Add missing items in creative inventory
 - Sprinting via `CTRL` key
 - 1.18 textures
 - Custom skins
@@ -34,12 +34,11 @@ MCPI++ has been tested with the following:
 - Raspberry Pi 3/4 running RPI OS Buster/Bullseye
 - Windows 10/11 via WSL2 and GWSL (instructions [here](https://www.youtube.com/watch?v=3l-m8O13LYk))
 - x64 PC running Debian/Ubuntu
-- - MCPI++ should also support i386, but it is not tested
 
 ## User guide
 
 ### Starting the gane
-Type `gmcpil` into terminal or find it from your start menu. You will be greeted with the launcher, from which you can configure settings like username, control which mods are enabled, and add servers. Once you are done, hit "Launch" and start the game!
+Type `planet-launcher` into terminal or find it from your start menu. You will be greeted with the launcher, from which you can configure settings like username, control which mods are enabled, and add servers. Once you are done, hit "Launch" and start the game!
 
 ### Controls
 Once you are in a world, you will be able to move with WASD and Space.  
