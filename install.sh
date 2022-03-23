@@ -104,8 +104,8 @@ mv "${TMP_SKIN_PATH}" "${MOB_TEXTURES_PATH}/char.png"
 
 # Link Reborn for Planet
 mkdir ~/.planet-launcher
-link /usr/bin/minecraft-pi-reborn-client ~/.planet-launcher/minecraft.AppImage
-
+link /usr/bin/minecraft-pi-reborn-client ~/.planet-launcher/minecraft.AppImage || warning "Unable to link executable for Planet. Please do this manually on Planet startup"
+sudo chmod 755 ~/.planet-launcher/minecraft.AppImage || warning "Failed to set link as executable."
 
 # Finish
 echo -e "\n"
