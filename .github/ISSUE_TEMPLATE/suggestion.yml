@@ -1,0 +1,12 @@
+name: Suggestion
+assignees: ["mobilegmYT"]
+description: "Have an idea for MCPI++ and it's not a bug?"
+labels: Suggestion
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Cool ideas?
+      placeholder: Tell us about your idea here
+    validations:
+      required: true
