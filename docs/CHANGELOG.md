@@ -2,7 +2,7 @@
 
 ### **2.3.2-1**
 * Fix Buster Support
-* Add Alt Key For Sneaking
+* Add Back Shift And Alt Key Sneaking Functionality
 * Remove Zenity Dependency
 * Fix Update URL
 * Internal Build Changes
