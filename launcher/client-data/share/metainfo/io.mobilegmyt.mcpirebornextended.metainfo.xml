@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.mobilegmyt.mcpirebornextended</id>
+  
+  <name>MCPI++</name>
+  <summary>Community-made MCPI-Reborn mod.</summary>
+  
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  
+  <description>
+    <p>
+      A community-made mode for MCPI-Reborn by MCPI Revival, which itself is a mod of Minecraft: Pi Edition by Mojang. The mod adds tons of cool new features, like:
+    </p>
+    <p>
+      - Working sounds - Sprinting via the [CTRL] key - 1.18 textures - Custom skins - Sneaking via both the Shift and Alt keys - A custom &quot;Cursed Chest&quot; block - Ability to look around via arrow keys instead of mouse (useful if mouse is glitched) - Coloured terminal output
+    </p>
+    <p>
+      and soooo much more! For more info, check out the github repository or drop by our support server: https://discord.gg/XJJNG9jTuh.
+    </p>
+  </description>
+  
+  <launchable type="desktop-id">com.thebrokenrail.MCPIReborn.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://i.postimg.cc/mr9j0dR5/screenshot.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://i.postimg.cc/pL4kcNNj/2022-03-23-13-41-30.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://i.postimg.cc/cHNhZQL4/2021-05-01-17-11-44.png</image>
+    </screenshot>
+  </screenshots>
+</component>

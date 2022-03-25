@@ -45,7 +45,7 @@ else()
     target_link_libraries(sign reborn-patch symbols feature input)
 
     add_library(creative SHARED src/creative/creative.cpp)
-    target_link_libraries(creative reborn-patch symbols feature my-tile)
+    target_link_libraries(creative reborn-patch symbols feature chest)
 
     add_library(touch SHARED src/touch/touch.c)
     target_link_libraries(touch reborn-patch symbols feature)
@@ -80,14 +80,14 @@ target_link_libraries(options reborn-patch symbols feature)
 add_library(home SHARED src/home/home.c)
 target_link_libraries(home reborn-patch symbols)
 
-add_library(my-tile SHARED src/my-tile/my-tile.cpp)
-target_link_libraries(my-tile reborn-patch symbols)
+add_library(chest SHARED src/chest/chest.cpp)
+target_link_libraries(chest reborn-patch symbols)
 
 add_library(test SHARED src/test/test.c)
 target_link_libraries(test reborn-patch home)
 
 add_library(init SHARED src/init/init.c)
-target_link_libraries(init compat game-mode misc death options chat home my-tile version test media-layer-core)
+target_link_libraries(init compat game-mode misc death options chat home chest version test media-layer-core)
 if(MCPI_SERVER_MODE)
     target_link_libraries(init server)
 else()
@@ -98,7 +98,7 @@ else()
 endif()
 
 ## Install Mods
-install(TARGETS init compat readdir feature game-mode misc death options chat home my-tile version test DESTINATION "${MCPI_INSTALL_DIR}/mods")
+install(TARGETS init compat readdir feature game-mode misc death options chat home chest version test DESTINATION "${MCPI_INSTALL_DIR}/mods")
 if(MCPI_SERVER_MODE)
     install(TARGETS server DESTINATION "${MCPI_INSTALL_DIR}/mods")
 else()

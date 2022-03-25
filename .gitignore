@@ -8,3 +8,4 @@ AppImageBuilder.yml
 appimage-builder-cache
 AppDir
 *.zsync
+test.sh

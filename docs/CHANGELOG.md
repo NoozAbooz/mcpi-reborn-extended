@@ -1,5 +1,12 @@
 # Changelog
 
+### **2.3.2-1**
+* Fix Buster Support
+* Add Alt Key For Sneaking
+* Remove Zenity Dependency
+* Fix Update URL
+* Internal Build Changes
+
 ### **2.3.2**
 * Switch To AppImage For Packaging
 * Prevent OpenAL From Crashing When Out Of Memory

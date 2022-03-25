@@ -1,14 +1,18 @@
 #include <cstdlib>
+#include <stdio.h>
+#include <sys/socket.h>
 
 #include <libreborn/libreborn.h>
 #include <symbols/minecraft.h>
 
 #include "../init/init.h"
-#include "my-tile.h"
+#include "chest.h"
 
 // My Tile Use
 static int32_t MyTile_use(__attribute__((unused)) unsigned char *tile, __attribute__((unused)) unsigned char *level, int32_t x, int32_t y, int32_t z, __attribute__((unused)) unsigned char *player) {
+    // Log To Console
     DEBUG("Cursed Chest location: %i %i %i", x, y, z);
+
     return 1;
 }
 

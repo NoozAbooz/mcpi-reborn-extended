@@ -62,6 +62,10 @@ static SDLKey glfw_key_to_sdl_key(int key) {
             return SDLK_LSHIFT;
         case GLFW_KEY_RIGHT_SHIFT:
             return SDLK_RSHIFT;
+        case GLFW_KEY_LEFT_ALT:
+            return SDLK_LSHIFT;
+        case GLFW_KEY_RIGHT_ALT:
+            return SDLK_RSHIFT;
         // Sprint
         case GLFW_KEY_LEFT_CONTROL:
             return SDLK_LCTRL;

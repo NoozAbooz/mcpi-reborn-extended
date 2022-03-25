@@ -13,7 +13,6 @@ const version = fs.readFileSync('VERSION', 'utf8').trim();
 // Data
 const id = `com.thebrokenrail.MCPIReborn${mode === 'server' ? 'Server' : ''}`;
 const name = `minecraft-pi-reborn-${mode}`;
-const updateURL = `https://github.com/mobilegmYT/mcpi-reborn-extended/releases/download/${version}/${name}-${version}-${arch}.AppImage.zsync`;
 
 // APT Data
 const apt_distribution = 'bullseye';
@@ -22,7 +21,6 @@ const apt_key_url = 'https://ftp-master.debian.org/keys/archive-key-11.asc';
 // Packages/Dependencies
 const packages = [
     'libc6',
-    'libc-bin',
     'libstdc++6'
 ];
 if (mode === 'client') {
@@ -55,7 +53,6 @@ const packageExclusions = [
     '*systemd*',
     'dconf-service',
     'dconf-gsettings-backend',
-    'libgnutls*',
     'librest-*',
     'libcups2',
     'libcolord2',
@@ -131,7 +128,9 @@ const runtime = {
         `usr/lib/${name}/minecraft-pi`,
         `usr/lib/${name}/**/*.so`,
         'usr/arm-linux-gnueabihf/lib'
-    ] : undefined
+    ] : undefined,
+    // libapprun_hooks.so Is Buggy And Unneeded
+    no_hooks: true
 };
 
 // AppDir
@@ -174,7 +173,7 @@ if (!appImageArch) {
 const appImage = {
     arch: appImageArch,
     file_name: `./out/${name}-${version}-${arch}.AppImage`,
-    'update-information': `zsync|${updateURL}`
+    'update-information': `gh-releases-zsync|mobilegmYT|mcpi-reborn-extended|latest|${name}-${version}-${arch}.AppImage.zsync`
 };
 
 // Root
