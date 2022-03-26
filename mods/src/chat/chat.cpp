@@ -33,7 +33,7 @@ static void send_api_command(unsigned char *minecraft, char *str) {
     }
 }
 // Send API Chat Command
-static void send_api_chat_command(unsigned char *minecraft, char *str) {
+void send_api_chat_command(unsigned char *minecraft, char *str) {
     char *command = NULL;
     safe_asprintf(&command, "chat.post(%s)\n", str);
     send_api_command(minecraft, command);

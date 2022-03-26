@@ -43,6 +43,7 @@ static unsigned char **Tile_netherReactor = (unsigned char **) 0x181dd0; // Tile
 static unsigned char **Tile_info_updateGame1 = (unsigned char **) 0x181c68; // Tile
 static unsigned char **Tile_info_updateGame2 = (unsigned char **) 0x181c6c; // Tile
 static unsigned char **Tile_bedrock = (unsigned char **) 0x181cc4; // Tile
+static unsigned char **Tile_tallgrass = (unsigned char **) 0x181d0c; // Tile
 
 static unsigned char **Tile_leaves = (unsigned char **) 0x18120c; // Tile
 static unsigned char **Tile_leaves_carried = (unsigned char **) 0x181dd8; // Tile
@@ -75,6 +76,8 @@ struct RakNet_SystemAddress {
 };
 
 // Tile
+
+static unsigned char **Tile_tiles = (unsigned char **) 0x180e08;
 
 typedef void (*Tile_initTiles_t)();
 static Tile_initTiles_t Tile_initTiles = (Tile_initTiles_t) 0xc358c;
@@ -251,6 +254,25 @@ typedef int32_t (*MouseBuildInput_tickBuild_t)(unsigned char *mouse_build_input,
 static MouseBuildInput_tickBuild_t MouseBuildInput_tickBuild = (MouseBuildInput_tickBuild_t) 0x17c98;
 static void *MouseBuildInput_tickBuild_vtable_addr = (void *) 0x102564;
 
+// Item
+
+static uint32_t Item_is_stacked_by_data_property_offset = 0x19; // unsigned char / bool
+static uint32_t Item_category_property_offset = 0x10; // int32_t
+static uint32_t Item_max_damage_property_offset = 0x8; // int32_t
+
+// TileItem
+
+typedef unsigned char *(*TileItem_t)(unsigned char *tile_item, int32_t id);
+static TileItem_t TileItem = (TileItem_t) 0xce3a4;
+
+// AuxDataTileItem
+
+#define AUX_DATA_TILE_ITEM_SIZE 0x2c
+
+static unsigned char *AuxDataTileItem_vtable = (unsigned char *) 0x114a58;
+
+static uint32_t AuxDataTileItem_icon_tile_property_offset = 0x28; // Tile *
+
 // ItemInstance
 
 typedef struct {
@@ -292,6 +314,8 @@ static uint32_t Mob_die_vtable_offset = 0x130;
 static uint32_t Mob_health_property_offset = 0xec; // int32_t
 
 // Player
+
+static uint32_t Player_is_server_property_offset = 0xc18; // unsigned char / bool
 
 typedef int (*Player_isUsingItem_t)(unsigned char *player);
 static Player_isUsingItem_t Player_isUsingItem = (Player_isUsingItem_t) 0x8f15c;

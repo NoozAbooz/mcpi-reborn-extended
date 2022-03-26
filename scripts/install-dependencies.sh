@@ -42,7 +42,8 @@ queue_pkg \
     libopenal-dev \
     qemu-user \
     libglfw3 \
-    libglfw3-dev
+    libglfw3-dev \
+    patchelf
 
 # GLFW Dependencies
 queue_pkg \

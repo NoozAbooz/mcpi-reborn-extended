@@ -6,13 +6,27 @@
 #include <symbols/minecraft.h>
 
 #include "../init/init.h"
+#include "../chat/chat.h"
 #include "chest.h"
 
 // My Tile Use
 static int32_t MyTile_use(__attribute__((unused)) unsigned char *tile, __attribute__((unused)) unsigned char *level, int32_t x, int32_t y, int32_t z, __attribute__((unused)) unsigned char *player) {
+    // Black magic to print to chat
+    unsigned char is_server_player = *(unsigned char *) (player + Player_is_server_property_offset);
+    
+    if (!is_server_player) {
+        unsigned char *minecraft = *(unsigned char **) (player + ServerPlayer_minecraft_property_offset);
+
+        char *str = NULL;
+        safe_asprintf(&str, "Cursed Chest location: %i %i %i", x, y, z);
+        send_api_chat_command(minecraft, str);
+        free(str);
+    }
+    
     // Log To Console
     DEBUG("Cursed Chest location: %i %i %i", x, y, z);
 
+    // Post to chat
     return 1;
 }
 

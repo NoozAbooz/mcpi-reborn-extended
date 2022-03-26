@@ -14,6 +14,8 @@ __attribute__((visibility("internal"))) extern int _chat_enabled;
 __attribute__((visibility("internal"))) void _chat_queue_message(char *message);
 #endif // #ifndef MCPI_SERVER_MODE
 
+void send_api_chat_command(unsigned char *minecraft, char *str);
+
 #ifdef __cplusplus
 }
 #endif

@@ -1,5 +1,14 @@
 # Changelog
 
+### **2.3.2-2**
+* Simplify Launch Sequence
+* Add More Blocks To Expanded Creative Inventory (Long Grass, All Nether Reactor Stages, Smooth Stone)
+* Fix Nether Reactor With Creative Restrictions Disabled
+* Alphabetize Feature Flags
+* Add ``Disable V-Sync`` Feature Flag (Disabled By Default)
+* Make ``Cursed Chest`` Print Coordinates To Chat When Activated
+* Change Sugar's Crafting Menu Description
+
 ### **2.3.2-1**
 * Fix Buster Support
 * Add Back Shift And Alt Key Sneaking Functionality

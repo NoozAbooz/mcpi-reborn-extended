@@ -24,6 +24,7 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     inventory_add_item(filling_container, *Item_snowball, false);
     inventory_add_item(filling_container, *Item_egg, false);
     inventory_add_item(filling_container, *Item_shears, false);
+    inventory_add_item(filling_container, *Item_camera, false);
     // Dyes
     for (int i = 0; i < 16; i++) {
         if (i == 15) {
@@ -35,7 +36,6 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
         new_item_instance = (*ItemInstance_constructor_item_extra)(new_item_instance, *Item_dye_powder, 1, i);
         (*FillingContainer_addItem)(filling_container, new_item_instance);
     }
-    inventory_add_item(filling_container, *Item_camera, false);
     // Add Tiles
     inventory_add_item(filling_container, *Tile_water, true);
     inventory_add_item(filling_container, *Tile_lava, true);
@@ -51,6 +51,29 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     
     // Add Cursed Chest item
     inventory_add_item(filling_container, my_tile, true);
+
+    // Nether Reactor
+    for (int i = 0; i < 3; i++) {
+        if (i == 0) {
+            // Default Is Already In The Creative Inventory
+            continue;
+        }
+        ItemInstance *new_item_instance = new ItemInstance;
+        ALLOC_CHECK(new_item_instance);
+        new_item_instance = (*ItemInstance_constructor_tile_extra)(new_item_instance, *Tile_netherReactor, 1, i);
+        (*FillingContainer_addItem)(filling_container, new_item_instance);
+    }
+    // Tall Grass
+    for (int i = 0; i < 4; i++) {
+        if (i == 2) {
+            // Identical To Previous Auxiliary Value
+            continue;
+        }
+        ItemInstance *new_item_instance = new ItemInstance;
+        ALLOC_CHECK(new_item_instance);
+        new_item_instance = (*ItemInstance_constructor_tile_extra)(new_item_instance, *Tile_tallgrass, 1, i);
+        (*FillingContainer_addItem)(filling_container, new_item_instance);
+    }
 
     // Add Everything Else
     ItemInstance *diamondSword_instance = new ItemInstance;
@@ -686,6 +709,22 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     return ret;
 }
 
+// Hook Specific TileItem Constructor
+static unsigned char *Tile_initTiles_TileItem_injection(unsigned char *tile_item, int32_t id) {
+    // Call Original Method
+    unsigned char *ret = (*TileItem)(tile_item, id);
+
+    // Switch VTable
+    *(unsigned char **) tile_item = AuxDataTileItem_vtable;
+    // Configure Item
+    *(bool *) (tile_item + Item_is_stacked_by_data_property_offset) = true;
+    *(int32_t *) (tile_item + Item_max_damage_property_offset) = 0;
+    *(unsigned char **) (tile_item + AuxDataTileItem_icon_tile_property_offset) = Tile_tiles[id + 0x100];
+
+    // Return
+    return ret;
+}
+
 // Check Restriction Status
 static int is_restricted = 1;
 int creative_is_restricted() {
@@ -697,6 +736,16 @@ void init_creative() {
     // Add Extra Items To Creative Inventory (Only Replace Specific Function Call)
     if (feature_has("Expand Creative Inventory", 0)) {
         overwrite_call((void *) 0x8e0fc, (void *) Inventory_setupDefault_FillingContainer_addItem_call_injection);
+
+        // Use AuxDataTileItem by default instead of TileItem, so tiles in the Creative
+        // Inventory can have arbitrary auxiliary values.
+        {
+            // Fix Size
+            unsigned char size_patch[4] = {AUX_DATA_TILE_ITEM_SIZE, 0x00, 0xa0, 0xe3}; // "mov r0, #AUX_DATA_TILE_ITEM_SIZE"
+            patch((void *) 0xc6f64, size_patch);
+            // Hook Constructor
+            overwrite_call((void *) 0xc6f74, (void *) Tile_initTiles_TileItem_injection);
+        }
     }
 
     // Remove Creative Restrictions (Opening Chests, Crafting, Etc)
@@ -729,6 +778,8 @@ void init_creative() {
         // Maximize Creative Inventory Stack Size
         unsigned char maximize_stack_patch[4] = {0xff, 0xc0, 0xa0, 0xe3}; // "mov r12, 0xff"
         patch((void *) 0x8e104, maximize_stack_patch);
+        // Allow Nether Reactor
+        patch((void *) 0xc0290, nop_patch);
         // Disable Other Restrictions
         is_restricted = 0;
     }
