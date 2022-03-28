@@ -66,3 +66,5 @@ If you are interested in making your own mods, documentation can be found [here]
 ## Credits
 - Maintained by [mobilegmYT](https://github.com/mobilegmYT).
 - Patches/mods by [bigjango13](https://github.com/bigjango13) and [TheBrokenRail](https://github.com/TheBrokenRail).
+- Vanilla Reborn by [TheBrokenRail](https://github.com/TheBrokenRail).
+- MCPI by Mojang AB.
