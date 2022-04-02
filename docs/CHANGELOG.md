@@ -1,6 +1,6 @@
 # Changelog
 
-### **2.3.2-2**
+### **2.3.3**
 * Simplify Launch Sequence
 * Add More Blocks To Expanded Creative Inventory (Long Grass, All Nether Reactor Stages, Smooth Stone)
 * Fix Nether Reactor With Creative Restrictions Disabled

@@ -2,6 +2,8 @@
 
 The `main` branch is for hosting the apt repo and debs. This branch is for the source code used to compile the modded debs.
 
+If you are concerned about the mod having malware of any kind, just don't use it :p. Feel free to compare a diff against vanilla reborn to see a full list of changes.
+
 ## Compiling
 ### Depends
 - Debian-based build enviroment (or Docker if you don't have one)

@@ -35,8 +35,8 @@ static void load_servers() {
     if (!server_list_file.good()) {
         // Write Defaults
         std::ofstream server_list_file_output(file);
-        server_list_file_output << "# External Servers File\n";
-        server_list_file_output << "thebrokenrail.com\n";
+        server_list_file_output << "# Multiplayer Servers List (Add IP and port on a new line seperated by a colon) - Default port will be used if not specified\n";
+        server_list_file_output << "pbptanarchy.tk\n";
         server_list_file_output.close();
         // Re-Open Stream
         server_list_file = std::ifstream(file);

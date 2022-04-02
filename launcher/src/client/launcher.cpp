@@ -223,7 +223,7 @@ int main(int argc, char *argv[]) {
         command.push_back("--text");
         command.push_back("Minecraft Username:");
         command.push_back("--entry-text");
-        command.push_back("NoozPi");
+        command.push_back("AlexPi");
         // Run
         run_zenity_and_set_env("MCPI_USERNAME", command);
     }

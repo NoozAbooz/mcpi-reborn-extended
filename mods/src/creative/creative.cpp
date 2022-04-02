@@ -41,16 +41,15 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     inventory_add_item(filling_container, *Tile_lava, true);
     inventory_add_item(filling_container, *Tile_calmWater, true);
     inventory_add_item(filling_container, *Tile_calmLava, true);
-    inventory_add_item(filling_container, *Tile_glowingObsidian, true);
-    inventory_add_item(filling_container, *Tile_web, true);
-    inventory_add_item(filling_container, *Tile_topSnow, true);
-    inventory_add_item(filling_container, *Tile_ice, true);
-    inventory_add_item(filling_container, *Tile_invisible_bedrock, true);
-    inventory_add_item(filling_container, *Tile_bedrock, true);
-    inventory_add_item(filling_container, *Tile_info_updateGame1, true);
+
+    ItemInstance *fire_instance = new ItemInstance;
+    ALLOC_CHECK(fire_instance);
+    fire_instance->count = 255;
+    fire_instance->auxiliary = 0;
+    fire_instance->id = 51;
+    (*FillingContainer_addItem)(filling_container, fire_instance);
     
-    // Add Cursed Chest item
-    inventory_add_item(filling_container, my_tile, true);
+    inventory_add_item(filling_container, *Tile_glowingObsidian, true);
 
     // Nether Reactor
     for (int i = 0; i < 3; i++) {
@@ -63,6 +62,18 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
         new_item_instance = (*ItemInstance_constructor_tile_extra)(new_item_instance, *Tile_netherReactor, 1, i);
         (*FillingContainer_addItem)(filling_container, new_item_instance);
     }
+
+    inventory_add_item(filling_container, *Tile_web, true);
+
+    inventory_add_item(filling_container, *Tile_topSnow, true);
+    inventory_add_item(filling_container, *Tile_ice, true);
+    inventory_add_item(filling_container, *Tile_invisible_bedrock, true);
+    inventory_add_item(filling_container, *Tile_bedrock, true);
+    inventory_add_item(filling_container, *Tile_info_updateGame1, true);
+    
+    // Add Cursed Chest item
+    inventory_add_item(filling_container, my_tile, true);
+
     // Tall Grass
     for (int i = 0; i < 4; i++) {
         if (i == 2) {
@@ -76,13 +87,6 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     }
 
     // Add Everything Else
-    ItemInstance *diamondSword_instance = new ItemInstance;
-    ALLOC_CHECK(diamondSword_instance);
-    diamondSword_instance->count = 255;
-    diamondSword_instance->auxiliary = 0;
-    diamondSword_instance->id = 276;
-    (*FillingContainer_addItem)(filling_container, diamondSword_instance);
-
     ItemInstance *mushroomStew_instance = new ItemInstance;
     ALLOC_CHECK(mushroomStew_instance);
     mushroomStew_instance->count = 255;
@@ -104,33 +108,19 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     cookedChicken_instance->id = 366;
     (*FillingContainer_addItem)(filling_container, cookedChicken_instance);
 
-    ItemInstance *diamondHelm_instance = new ItemInstance;
-    ALLOC_CHECK(diamondHelm_instance);
-    diamondHelm_instance->count = 255;
-    diamondHelm_instance->auxiliary = 0;
-    diamondHelm_instance->id = 310;
-    (*FillingContainer_addItem)(filling_container, diamondHelm_instance);
+    ItemInstance *porkCooked_instance = new ItemInstance;
+    ALLOC_CHECK(porkCooked_instance);
+    porkCooked_instance->count = 255;
+    porkCooked_instance->auxiliary = 0;
+    porkCooked_instance->id = 320;
+    (*FillingContainer_addItem)(filling_container, porkCooked_instance);
 
-    ItemInstance *diamondChest_instance = new ItemInstance;
-    ALLOC_CHECK(diamondChest_instance);
-    diamondChest_instance->count = 255;
-    diamondChest_instance->auxiliary = 0;
-    diamondChest_instance->id = 311;
-    (*FillingContainer_addItem)(filling_container, diamondChest_instance);
-
-    ItemInstance *diamondLeg_instance = new ItemInstance;
-    ALLOC_CHECK(diamondLeg_instance);
-    diamondLeg_instance->count = 255;
-    diamondLeg_instance->auxiliary = 0;
-    diamondLeg_instance->id = 312;
-    (*FillingContainer_addItem)(filling_container, diamondLeg_instance);
-
-    ItemInstance *diamondBoot_instance = new ItemInstance;
-    ALLOC_CHECK(diamondBoot_instance);
-    diamondBoot_instance->count = 255;
-    diamondBoot_instance->auxiliary = 0;
-    diamondBoot_instance->id = 313;
-    (*FillingContainer_addItem)(filling_container, diamondBoot_instance);
+    ItemInstance *apple_instance = new ItemInstance;
+    ALLOC_CHECK(apple_instance);
+    apple_instance->count = 255;
+    apple_instance->auxiliary = 0;
+    apple_instance->id = 260;
+    (*FillingContainer_addItem)(filling_container, apple_instance);
 
     ItemInstance *tallGrass_instance = new ItemInstance;
     ALLOC_CHECK(tallGrass_instance);
@@ -138,20 +128,6 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     tallGrass_instance->auxiliary = 0;
     tallGrass_instance->id = 31;
     (*FillingContainer_addItem)(filling_container, tallGrass_instance);
-
-    ItemInstance *doubleStoneSlab_instance = new ItemInstance;
-    ALLOC_CHECK(doubleStoneSlab_instance);
-    doubleStoneSlab_instance->count = 255;
-    doubleStoneSlab_instance->auxiliary = 0;
-    doubleStoneSlab_instance->id = 43;
-    (*FillingContainer_addItem)(filling_container, doubleStoneSlab_instance);
-
-    ItemInstance *fire_instance = new ItemInstance;
-    ALLOC_CHECK(fire_instance);
-    fire_instance->count = 255;
-    fire_instance->auxiliary = 0;
-    fire_instance->id = 51;
-    (*FillingContainer_addItem)(filling_container, fire_instance);
 
     ItemInstance *crops_instance = new ItemInstance;
     ALLOC_CHECK(crops_instance);
@@ -209,33 +185,20 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     reserved6_instance->id = 1;
     (*FillingContainer_addItem)(filling_container, reserved6_instance);
 
-    ItemInstance *shovelIron_instance = new ItemInstance;
-    ALLOC_CHECK(shovelIron_instance);
-    shovelIron_instance->count = 255;
-    shovelIron_instance->auxiliary = 0;
-    shovelIron_instance->id = 256;
-    (*FillingContainer_addItem)(filling_container, shovelIron_instance);
+    // Smooth Stone Slab
+    {
+        ItemInstance *new_item_instance = new ItemInstance;
+        ALLOC_CHECK(new_item_instance);
+        new_item_instance = (*ItemInstance_constructor_tile_extra)(new_item_instance, *Tile_stoneSlab, 1, 6);
+        (*FillingContainer_addItem)(filling_container, new_item_instance);
+    }
 
-    ItemInstance *ironPick_instance = new ItemInstance;
-    ALLOC_CHECK(ironPick_instance);
-    ironPick_instance->count = 255;
-    ironPick_instance->auxiliary = 0;
-    ironPick_instance->id = 257;
-    (*FillingContainer_addItem)(filling_container, ironPick_instance);
-
-    ItemInstance *ironAxe_instance = new ItemInstance;
-    ALLOC_CHECK(ironAxe_instance);
-    ironAxe_instance->count = 255;
-    ironAxe_instance->auxiliary = 0;
-    ironAxe_instance->id = 258;
-    (*FillingContainer_addItem)(filling_container, ironAxe_instance);
-
-    ItemInstance *apple_instance = new ItemInstance;
-    ALLOC_CHECK(apple_instance);
-    apple_instance->count = 255;
-    apple_instance->auxiliary = 0;
-    apple_instance->id = 260;
-    (*FillingContainer_addItem)(filling_container, apple_instance);
+    ItemInstance *doubleStoneSlab_instance = new ItemInstance;
+    ALLOC_CHECK(doubleStoneSlab_instance);
+    doubleStoneSlab_instance->count = 255;
+    doubleStoneSlab_instance->auxiliary = 0;
+    doubleStoneSlab_instance->id = 43;
+    (*FillingContainer_addItem)(filling_container, doubleStoneSlab_instance);
 
     ItemInstance *arrow_instance = new ItemInstance;
     ALLOC_CHECK(arrow_instance);
@@ -327,6 +290,34 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     stoneAxe_instance->auxiliary = 0;
     stoneAxe_instance->id = 275;
     (*FillingContainer_addItem)(filling_container, stoneAxe_instance);
+
+    ItemInstance *shovelIron_instance = new ItemInstance;
+    ALLOC_CHECK(shovelIron_instance);
+    shovelIron_instance->count = 255;
+    shovelIron_instance->auxiliary = 0;
+    shovelIron_instance->id = 256;
+    (*FillingContainer_addItem)(filling_container, shovelIron_instance);
+
+    ItemInstance *ironPick_instance = new ItemInstance;
+    ALLOC_CHECK(ironPick_instance);
+    ironPick_instance->count = 255;
+    ironPick_instance->auxiliary = 0;
+    ironPick_instance->id = 257;
+    (*FillingContainer_addItem)(filling_container, ironPick_instance);
+
+    ItemInstance *ironAxe_instance = new ItemInstance;
+    ALLOC_CHECK(ironAxe_instance);
+    ironAxe_instance->count = 255;
+    ironAxe_instance->auxiliary = 0;
+    ironAxe_instance->id = 258;
+    (*FillingContainer_addItem)(filling_container, ironAxe_instance);
+
+    ItemInstance *diamondSword_instance = new ItemInstance;
+    ALLOC_CHECK(diamondSword_instance);
+    diamondSword_instance->count = 255;
+    diamondSword_instance->auxiliary = 0;
+    diamondSword_instance->id = 276;
+    (*FillingContainer_addItem)(filling_container, diamondSword_instance);
 
     ItemInstance *diamondShovel_instance = new ItemInstance;
     ALLOC_CHECK(diamondShovel_instance);
@@ -524,34 +515,6 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     chainBoots_instance->id = 305;
     (*FillingContainer_addItem)(filling_container, chainBoots_instance);
 
-    ItemInstance *ironHelm_instance = new ItemInstance;
-    ALLOC_CHECK(ironHelm_instance);
-    ironHelm_instance->count = 255;
-    ironHelm_instance->auxiliary = 0;
-    ironHelm_instance->id = 306;
-    (*FillingContainer_addItem)(filling_container, ironHelm_instance);
-
-    ItemInstance *ironChest_instance = new ItemInstance;
-    ALLOC_CHECK(ironChest_instance);
-    ironChest_instance->count = 255;
-    ironChest_instance->auxiliary = 0;
-    ironChest_instance->id = 307;
-    (*FillingContainer_addItem)(filling_container, ironChest_instance);
-
-    ItemInstance *ironLegs_instance = new ItemInstance;
-    ALLOC_CHECK(ironLegs_instance);
-    ironLegs_instance->count = 255;
-    ironLegs_instance->auxiliary = 0;
-    ironLegs_instance->id = 308;
-    (*FillingContainer_addItem)(filling_container, ironLegs_instance);
-
-    ItemInstance *ironBoots_instance = new ItemInstance;
-    ALLOC_CHECK(ironBoots_instance);
-    ironBoots_instance->count = 255;
-    ironBoots_instance->auxiliary = 0;
-    ironBoots_instance->id = 309;
-    (*FillingContainer_addItem)(filling_container, ironBoots_instance);
-
     ItemInstance *goldHelm_instance = new ItemInstance;
     ALLOC_CHECK(goldHelm_instance);
     goldHelm_instance->count = 255;
@@ -580,6 +543,62 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     goldBoots_instance->id = 317;
     (*FillingContainer_addItem)(filling_container, goldBoots_instance);
 
+    ItemInstance *ironHelm_instance = new ItemInstance;
+    ALLOC_CHECK(ironHelm_instance);
+    ironHelm_instance->count = 255;
+    ironHelm_instance->auxiliary = 0;
+    ironHelm_instance->id = 306;
+    (*FillingContainer_addItem)(filling_container, ironHelm_instance);
+
+    ItemInstance *ironChest_instance = new ItemInstance;
+    ALLOC_CHECK(ironChest_instance);
+    ironChest_instance->count = 255;
+    ironChest_instance->auxiliary = 0;
+    ironChest_instance->id = 307;
+    (*FillingContainer_addItem)(filling_container, ironChest_instance);
+
+    ItemInstance *ironLegs_instance = new ItemInstance;
+    ALLOC_CHECK(ironLegs_instance);
+    ironLegs_instance->count = 255;
+    ironLegs_instance->auxiliary = 0;
+    ironLegs_instance->id = 308;
+    (*FillingContainer_addItem)(filling_container, ironLegs_instance);
+
+    ItemInstance *ironBoots_instance = new ItemInstance;
+    ALLOC_CHECK(ironBoots_instance);
+    ironBoots_instance->count = 255;
+    ironBoots_instance->auxiliary = 0;
+    ironBoots_instance->id = 309;
+    (*FillingContainer_addItem)(filling_container, ironBoots_instance);
+
+    ItemInstance *diamondHelm_instance = new ItemInstance;
+    ALLOC_CHECK(diamondHelm_instance);
+    diamondHelm_instance->count = 255;
+    diamondHelm_instance->auxiliary = 0;
+    diamondHelm_instance->id = 310;
+    (*FillingContainer_addItem)(filling_container, diamondHelm_instance);
+
+    ItemInstance *diamondChest_instance = new ItemInstance;
+    ALLOC_CHECK(diamondChest_instance);
+    diamondChest_instance->count = 255;
+    diamondChest_instance->auxiliary = 0;
+    diamondChest_instance->id = 311;
+    (*FillingContainer_addItem)(filling_container, diamondChest_instance);
+
+    ItemInstance *diamondLeg_instance = new ItemInstance;
+    ALLOC_CHECK(diamondLeg_instance);
+    diamondLeg_instance->count = 255;
+    diamondLeg_instance->auxiliary = 0;
+    diamondLeg_instance->id = 312;
+    (*FillingContainer_addItem)(filling_container, diamondLeg_instance);
+
+    ItemInstance *diamondBoot_instance = new ItemInstance;
+    ALLOC_CHECK(diamondBoot_instance);
+    diamondBoot_instance->count = 255;
+    diamondBoot_instance->auxiliary = 0;
+    diamondBoot_instance->id = 313;
+    (*FillingContainer_addItem)(filling_container, diamondBoot_instance);
+
     ItemInstance *flint2_instance = new ItemInstance;
     ALLOC_CHECK(flint2_instance);
     flint2_instance->count = 255;
@@ -593,13 +612,6 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     porkRaw_instance->auxiliary = 0;
     porkRaw_instance->id = 319;
     (*FillingContainer_addItem)(filling_container, porkRaw_instance);
-
-    ItemInstance *porkCooked_instance = new ItemInstance;
-    ALLOC_CHECK(porkCooked_instance);
-    porkCooked_instance->count = 255;
-    porkCooked_instance->auxiliary = 0;
-    porkCooked_instance->id = 320;
-    (*FillingContainer_addItem)(filling_container, porkCooked_instance);
 
     ItemInstance *leather_instance = new ItemInstance;
     ALLOC_CHECK(leather_instance);
@@ -698,13 +710,6 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     chickenRaw_instance->auxiliary = 0;
     chickenRaw_instance->id = 365;
     (*FillingContainer_addItem)(filling_container, chickenRaw_instance);
-
-    ItemInstance *cookedGoose_instance = new ItemInstance;
-    ALLOC_CHECK(cookedGoose_instance);
-    cookedGoose_instance->count = 255;
-    cookedGoose_instance->auxiliary = 0;
-    cookedGoose_instance->id = 366;
-    (*FillingContainer_addItem)(filling_container, cookedGoose_instance);
 
     return ret;
 }

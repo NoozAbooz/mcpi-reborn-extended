@@ -1,10 +1,10 @@
 [Desktop Entry]
-Name=MCPI++
+Name=MCPI-Reborn Extended
 Comment=Community mod of MCPI-Reborn
-Icon=com.thebrokenrail.MCPIReborn
+Icon=com.thebrokenrail.MCPIRebornClient
 StartupNotify=true
 StartupWMClass=Minecraft: Pi Edition: Reborn
 Exec=minecraft-pi-reborn-client
 Terminal=false
 Type=Application
-Categories=Application;Game;
+Categories=Game;
