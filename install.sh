@@ -79,6 +79,7 @@ info "Installing 1.18 textures..."
   cd /tmp
   wget "${TEXTURES_URL}" -O "${TMP_TEXTURES_PATH}"
   unzip "${TMP_TEXTURES_PATH}"
+  rm -rf "${TEXTURES_PATH}/*"
   mv "converted/"* "${TEXTURES_PATH}"
 )
 
