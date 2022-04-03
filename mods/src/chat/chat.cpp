@@ -9,16 +9,19 @@
 
 #include "../init/init.h"
 #include "../feature/feature.h"
+#ifndef MCPI_SERVER_MODE
 #include "../input/input.h"
+#endif
 #include "chat.h"
 
 // Store If Chat is Enabled
 int _chat_enabled = 0;
 
 // Message Limitations
-#define MAX_CHAT_MESSAGE_LENGTH 1024
+#define MAX_CHAT_MESSAGE_LENGTH 512
 
 // Send API Command
+#ifndef MCPI_SERVER_MODE
 static void send_api_command(unsigned char *minecraft, char *str) {
     struct ConnectedClient client;
     client.sock = -1;
@@ -29,7 +32,6 @@ static void send_api_command(unsigned char *minecraft, char *str) {
         (*CommandServer_parse)(command_server, client, str);
     }
 }
-
 // Send API Chat Command
 static void send_api_chat_command(unsigned char *minecraft, char *str) {
     char *command = NULL;
@@ -37,6 +39,7 @@ static void send_api_chat_command(unsigned char *minecraft, char *str) {
     send_api_command(minecraft, command);
     free(command);
 }
+#endif
 
 // Send Message To Players
 static void send_message(unsigned char *server_side_network_handler, char *username, char *message) {
