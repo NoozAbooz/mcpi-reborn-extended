@@ -134,17 +134,18 @@ Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
 Description: Modded server for Minecraft Pi Edition
 
 Package: planet-launcher
-Version: 1.0.0
+Version: 1.1.0
 Architecture: all
 Maintainer: mcpiscript <mcpiscript@gmail.com>
-Depends: python3-pyqt5, python3:any, python3-pyqt5.qtwebkit, python3-pyqt5.qtsvg, python3-pyqt5.qtwebkit, python3-pyqt5.qtmultimedia
-Recommends: minecraft-pi-reborn-client, minecraft-pi-reborn-server, python3-pyqtdarkmode, python3-mcpi, python3-minecraft-pi, python3-morpheus-mcpi
-Replaces: mcpil, mcpil-r
-Filename: ./planet-launcher_1.0.0_all.deb
-Size: 39084
-MD5sum: d42354a56bc28b346e3764121ef3a12b
-SHA1: 81417f49bfcfe6673cdefa62316ac6cf57d46572
-SHA256: a4f7203c1bc10204a308b644c9e2203151d26fa17a5b1a85795f08b7dc5bc37b
+Depends: python3-pyqt5, python3:any, python3-pyqt5.qtwebkit, python3-pyqt5.qtsvg, python3-pyqt5.qtwebkit, python3-pyqt5.qtmultimedia, gcc
+Recommends: python3-pyqtdarkmode, python3-minecraftpi
+Replaces: mcpil, mcpil-r, gmcpil, jmcpil
+Provides: pi-nbt
+Filename: ./planet.deb
+Size: 70776
+MD5sum: d43ce1784d38356fe9a05d585ecaf1d0
+SHA1: 418a3692e2444b867086aa3ad118ff982685eec6
+SHA256: 516082ea0e3f2cf1df34f098f35c3a0c68413cb6f63f32ce79927e8727299871
 Section: games
 Priority: optional
 Homepage: https://github.com/mcpiscript/Planet
