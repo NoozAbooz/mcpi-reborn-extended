@@ -1,19 +1,30 @@
 # MCPI++ (mcpi-reborn-extended)
-This is a fork of [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn) by MCPI Revival, with custom features added by community members. The apt packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from mcpi-reborn. If you like MCPI or MCPI-Reborn, you'll probably  like this too! Support: https://discord.gg/XJJNG9jTuh
+This is a fork of [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn) by MCPI Revival, with custom features added by community members. The apt packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from mcpi-reborn. If you like MCPI or MCPI-Reborn, you'll probably  like this too!
+
+[![Discord](https://badgen.net/badge/icon/discord?icon=discord&label=Get%20support%20on)](https://discord.gg/XJJNG9jTuh)
 
 ![](screenshot.png)
 
 Source code and documentation is in the [source](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/source) branch.
 
 ## Installation ([compatibility list](https://github.com/mobilegmYT/mcpi-reborn-extended#compatibility))
+
+### Method 1 - Install Script
+This script only supports debian-based distros with APT. This is also the only method that installs features like sounds or custom skins
 ```bash
 wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/install.sh | bash
 ```
 
-### Uninstall
+#### Uninstall (if you used the script)
 ```bash
 wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/uninstall.sh | bash
 ```
+
+### Method 2 - DEB Install
+Download and install the appropiate DEB for your architecture with the `client` tag from [here](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/main/debs)
+
+### Method 3 - AppImage
+Download and run the appropiate AppImage for your architecture with the `client` tag from [here](https://github.com/mobilegmYT/mcpi-reborn-extended/releases/). This is the only method that works on non-debian distros like arch or fedora.
 
 ## Feature List (in order of awesomeness)
 - Supports all distros with glibc (basically most major distros except musl-based ones like Alpine)
