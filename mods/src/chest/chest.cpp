@@ -45,7 +45,7 @@ static int32_t MyTile_use(__attribute__((unused)) unsigned char *tile, __attribu
     }
     
     // Log To Console
-    DEBUG("Cursed Chest location: %i %i %i", x, y, z);
+    INFO("Cursed Chest location: %i %i %i", x, y, z);
 
     return 1;
 }

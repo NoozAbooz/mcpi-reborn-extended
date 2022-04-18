@@ -19,8 +19,16 @@ static void Gui_addMessage_injection(unsigned char *gui, std::string const& text
         Gui_addMessage_recursing = true;
 
         // Print Log Message
-        fprintf(stderr, "\x1b[32m[CHAT]: %s\x1b[0m\n", new_message);
+        #ifdef MCPI_SERVER_MODE
 
+        // Server Mode
+        fprintf(stderr, "[CHAT]: %s\n", new_message);
+        #else
+
+        // Client Mode
+        fprintf(stderr, "\x1b[32m[CHAT]: %s\x1b[0m\n", new_message);
+        #endif
+        
         // Call Original Method
         (*Gui_addMessage)(gui, std::string(new_message));
 

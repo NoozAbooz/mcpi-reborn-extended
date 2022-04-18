@@ -459,6 +459,34 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     bread_instance->id = 297;
     (*FillingContainer_addItem)(filling_container, bread_instance);
 
+    ItemInstance *diamondHelm_instance = new ItemInstance;
+    ALLOC_CHECK(diamondHelm_instance);
+    diamondHelm_instance->count = 255;
+    diamondHelm_instance->auxiliary = 0;
+    diamondHelm_instance->id = 310;
+    (*FillingContainer_addItem)(filling_container, diamondHelm_instance);
+
+    ItemInstance *diamondChest_instance = new ItemInstance;
+    ALLOC_CHECK(diamondChest_instance);
+    diamondChest_instance->count = 255;
+    diamondChest_instance->auxiliary = 0;
+    diamondChest_instance->id = 311;
+    (*FillingContainer_addItem)(filling_container, diamondChest_instance);
+
+    ItemInstance *diamondLeg_instance = new ItemInstance;
+    ALLOC_CHECK(diamondLeg_instance);
+    diamondLeg_instance->count = 255;
+    diamondLeg_instance->auxiliary = 0;
+    diamondLeg_instance->id = 312;
+    (*FillingContainer_addItem)(filling_container, diamondLeg_instance);
+
+    ItemInstance *diamondBoot_instance = new ItemInstance;
+    ALLOC_CHECK(diamondBoot_instance);
+    diamondBoot_instance->count = 255;
+    diamondBoot_instance->auxiliary = 0;
+    diamondBoot_instance->id = 313;
+    (*FillingContainer_addItem)(filling_container, diamondBoot_instance);
+
     ItemInstance *leatherCap_instance = new ItemInstance;
     ALLOC_CHECK(leatherCap_instance);
     leatherCap_instance->count = 255;
@@ -570,34 +598,6 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     ironBoots_instance->auxiliary = 0;
     ironBoots_instance->id = 309;
     (*FillingContainer_addItem)(filling_container, ironBoots_instance);
-
-    ItemInstance *diamondHelm_instance = new ItemInstance;
-    ALLOC_CHECK(diamondHelm_instance);
-    diamondHelm_instance->count = 255;
-    diamondHelm_instance->auxiliary = 0;
-    diamondHelm_instance->id = 310;
-    (*FillingContainer_addItem)(filling_container, diamondHelm_instance);
-
-    ItemInstance *diamondChest_instance = new ItemInstance;
-    ALLOC_CHECK(diamondChest_instance);
-    diamondChest_instance->count = 255;
-    diamondChest_instance->auxiliary = 0;
-    diamondChest_instance->id = 311;
-    (*FillingContainer_addItem)(filling_container, diamondChest_instance);
-
-    ItemInstance *diamondLeg_instance = new ItemInstance;
-    ALLOC_CHECK(diamondLeg_instance);
-    diamondLeg_instance->count = 255;
-    diamondLeg_instance->auxiliary = 0;
-    diamondLeg_instance->id = 312;
-    (*FillingContainer_addItem)(filling_container, diamondLeg_instance);
-
-    ItemInstance *diamondBoot_instance = new ItemInstance;
-    ALLOC_CHECK(diamondBoot_instance);
-    diamondBoot_instance->count = 255;
-    diamondBoot_instance->auxiliary = 0;
-    diamondBoot_instance->id = 313;
-    (*FillingContainer_addItem)(filling_container, diamondBoot_instance);
 
     ItemInstance *flint2_instance = new ItemInstance;
     ALLOC_CHECK(flint2_instance);

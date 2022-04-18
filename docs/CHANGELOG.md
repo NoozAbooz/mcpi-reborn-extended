@@ -1,5 +1,8 @@
 # Changelog
 
+### **2.3.3-1**
+* Fix ``patchelf`` Launch Bug On ARM
+
 ### **2.3.3**
 * Simplify Launch Sequence
 * Add More Blocks To Expanded Creative Inventory (Long Grass, All Nether Reactor Stages, Smooth Stone)
