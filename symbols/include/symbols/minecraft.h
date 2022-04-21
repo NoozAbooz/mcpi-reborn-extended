@@ -345,6 +345,7 @@ static uint32_t Mob_die_vtable_offset = 0x130;
 static uint32_t Mob_health_property_offset = 0xec; // int32_t
 
 // Player
+static uint32_t Player_is_server_property_offset = 0xc18; // unsigned char / bool
 
 typedef int (*Player_isUsingItem_t)(unsigned char *player);
 static Player_isUsingItem_t Player_isUsingItem = (Player_isUsingItem_t) 0x8f15c;
