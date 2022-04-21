@@ -22,7 +22,7 @@ add_library(chat SHARED src/chat/chat.cpp src/chat/ui.c)
 target_link_libraries(chat reborn-patch symbols feature pthread)
 
 add_library(creative SHARED src/creative/creative.cpp)
-target_link_libraries(creative reborn-patch symbols feature)
+target_link_libraries(creative reborn-patch symbols feature chest)
 
 if(MCPI_SERVER_MODE)
     add_library(server SHARED src/server/server.cpp src/server/server_properties.cpp)

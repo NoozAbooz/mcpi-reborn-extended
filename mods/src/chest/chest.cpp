@@ -77,7 +77,7 @@ static void Tile_initTiles_injection() {
     ALLOC_CHECK(my_tile);
 
     // Construct
-    (*Tile)(my_tile, 19, 27, *Material_stone);
+    (*Tile)(my_tile, 19, 25, *Material_stone);
 
     // Set VTable
     *(unsigned char **) my_tile = get_my_tile_vtable();

@@ -73,7 +73,7 @@ static int32_t Inventory_setupDefault_FillingContainer_addItem_call_injection(un
     inventory_add_item(filling_container, *Tile_info_updateGame1, true);
     
     // Add Cursed Chest item
-    inventory_add_item(filling_container, chest true);
+    inventory_add_item(filling_container, my_tile, true);
 
     // Tall Grass
     for (int i = 0; i < 4; i++) {
