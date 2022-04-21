@@ -32,7 +32,7 @@ static void send_api_chat_command(unsigned char *minecraft, char *str) {
 static int32_t MyTile_use(__attribute__((unused)) unsigned char *tile, __attribute__((unused)) unsigned char *level, int32_t x, int32_t y, int32_t z, __attribute__((unused)) unsigned char *player) {
     
     // Black Magic To Make API Work
-    unsigned char is_server_player = *(unsigned char *) (player + Player_is_server_property_offset);
+    // unsigned char is_server_player = *(unsigned char *) (player + Player_is_server_property_offset);
     
     if (!is_server_player) {
         unsigned char *minecraft = *(unsigned char **) (player + LocalPlayer_minecraft_property_offset);
