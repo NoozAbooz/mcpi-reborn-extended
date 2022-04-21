@@ -1,0 +1,1736 @@
+Zenity 3.41.0
+    - Port to meson (Logan Rathbone)
+    - Code cleanups (Simon McVittie)
+    - Translation updates (various contributors; see git log history)
+
+Zenity 3.32.0
+    - Fix autotools warnings (Javier Jardón)
+    - Use upstream autoreconf instead deprecated gnome-autogen (Javier Jardón)
+    - Add <description> to DOAP file (Andre Klapper)
+    - Replace Bugzilla by Gitlab URL in DOAP file (Andre Klapper)
+    - help: Update all screenshots for Zenity 3.30 (Andre Klapper)
+
+Zenity 3.30.0
+    - Translation updates
+
+Zenity 3.28.1
+	- Translation updates
+
+Zenity 3.28.0
+	- Translation updates
+
+Zenity 3.27.90
+	- Several fixes for proper translations (Piotr Drąg)
+	- Translation updates
+
+Zenity 3.26.0
+    - Use GtkFileChooserNative for the file chooser (Patrick Griffins)
+
+Zenity 3.24.2
+    - No changes
+
+Zenity 3.24.1
+    - Translation updates
+    - Fix style (Arx Cruz)
+    - Adding clang-format script (Arx Cruz)
+    - Fix message dialog width and height on recent Gtk (Alan)
+    - Bug 762347: Addition of entry text width option (Arx Cruz)
+    - Fix misleading indentation (Matthias Clasen)
+
+Zenity 3.24.0
+	- Translations updates
+Zenity 3.22.0
+	- Several fixes for proper translations (Piotr Drąg)
+	- Translation updates
+
+Zenity 3.20.0
+        - Translation updates
+
+Zenity 3.18.1.1
+        - Bug #756756 fix compilation when webkitgtk is not installed (Tom Schoonjans)
+
+Zenity 3.18.1
+        - Fixing GLib-CRITICAL messages (Arx Cruz)
+        - Fixing html option being parsed to other dialogs rather then text-info (Arx Cruz)
+        - Fixing glade file. (Arx Cruz)
+        - Translation updates
+
+Zenity 3.18.0
+	- Fix Makefile files
+	- Translation updates
+
+Zenity 3.16.3
+        - Fix zenity --list (Arx Cruz)
+        - Bug #751332 - zenity --forms does not center in the screen (Arx Cruz)
+        - Bug #638582 - zenity --notification --listen can't show multi line tooltip (Arx Cruz)
+        - Add the possibility to pass title and the summary to zenity notification (Arx Cruz)
+        - Bug #672090 - Impossible to confirm --text-info (Arx Cruz)
+        - Bug #742963 - Basic notifications do not return (Arx Cruz)
+        - Fix GLib critical messages (Arx Cruz)
+        - Fixing deprecated declarations (Arx Cruz)
+        - Fix uninitialized progress_bar error (Arx Cruz)
+        - Fix typo in documentation (Anders Jonsson)
+        - Port to webkit2gtk (Hristo Venev)
+        - Translation updates
+
+Zenity 3.16.2
+        - Translation updates
+        - Bug #749359 zenity --list produces incorrect output (Arx Cruz)
+        - Do not make zenity_util_show_dialog() X11 specific (Javier Jardón)
+        - Use upstream gettext instead intltool (Javier Jardón)
+        - Improve some strings (Piotr Drąg)
+        - option.c: Fixing typo in extra-button option (Arx Cruz)
+        - Merge branch 'jjardon/no_deprecated' (Arx Cruz)
+        - ADD gchar **extra_label TO struct ZenityData (Gama Anderson)
+        - allow build if GDK_WINDOWING_X11 not set (Jason Penney)
+        - Bug #734196 (Andreas Mohr)
+
+Zenity 3.16.1
+        - No changes
+
+Zenity 3.16.0
+        - Translation updates
+        - Allow user to interact with --text-info --html WebView (Kernc)
+        - Bug #700249 - Progress dialog does not wrap (Arx Cruz)
+        - Better sollution for wrap text (Arx Cruz)
+        - Bug #734049 - zenity --text-info chokes on some UTF-8 string (Arx Cruz)
+        - Allow --text-info to load resources also from relative file:// URIs (Kernc)
+        - Bug #685051 Adding --mid-search option to --list (Arx Cruz)
+        - Fixing g_timeout_add calls (Arx Cruz)
+        - Fixing remain g_timeout_add (Arx Cruz)
+        - Allow --text-info to load resources from absolute file:// URIs (Kernc)
+        - Added time-remaining support to progress bars (Scott Pakin)
+        - Don't quit zenity when the input stream is closed (Emilio Pozuelo Monfort)
+
+Zenity 3.14.0
+        - No changes
+
+Zenity 3.13.92
+        - translation updates
+        - Bug 733870 - Segmentation fault on zenity --notification (Arx Cruz)
+
+Zenity 3.13.90
+        - Translation updates
+
+Zenity 3.12.1
+        - Translation updates
+        - doap: update URLs (Piotr Drąg)
+        - Add French screenshot (Alexandre Franke)
+        - User docs: Make page ID the same as file name (Andre Klapper)
+        - Fix FSF address commit for po/oc.po (Colin Walters)
+        - Updated FSF's address (Daniel Mustieles)
+        - Add user help for --listen, bug 711396 (Sindhu S)
+        - Bug #667711 - man page points to nonexisting doc (Arx Cruz)
+        - Bug #600533 zenity --text-info should have an auto scroll option (Arx Cruz)
+        - Bug #534935 Need hability to specify default answer in --question dialog (Berislav Kovacki)
+        - Bug #702535 - List box doesn't expand to fill window (Arx Cruz)
+
+Zenity 3.10.0
+        - Translation updates
+
+Zenity 3.9.91
+
+        - Add a runtime check for X11 (bug #705335) (Benjamin Berg)
+        - Bug #653468. Fixed by Kurt Millerr
+          <kurt@intricatesoftware.com>. Fix the broken auto-close 
+          option in progress and list dialogs.
+        - Bug 698683 - Double clicking an item or hitting enter after 
+          selecting an item returns it twice
+        - Translation updates
+
+Zenity 3.8.0
+
+        - #674881 Timeout option overriding normal exit code
+        - #687180 Replaced string 'could' to start with an Uppercase
+        - Translation updates
+
+Zenity 3.7.2
+
+        - Translation updates
+
+Zenity 3.6.0
+
+        - #684329 Add an option to set a custom dialog icon
+        - #684322 Add an option to request dialogs being modal
+        - Port to new documentation infrastructure
+        - Fix the ComboBoxText construction so the dropmenu works
+        - Fix various compiler warnings
+        - Added support to --imagelist on tree
+        - #676406 Do not crash in --forms --add-list without column values
+        - #567663 Now the --pulsate option works properly
+        - #673529 Fix segmentation fault in --list option
+        - Translation updates
+
+Zenity 3.4.0
+
+        - Add support for lists and trees with --forms
+        - Fix bug #668935 - the channel was being freed twice
+        - Translation updates (Serbian, Telugu, Turkish, Spanish,
+          French, Esperanto, German, Belarusian, Hebrew, Estonian,
+          Norwegian bokmål, Bulgarian, Persian, Galician, Slovenian,
+          Swedish, Czech, Traditional Chinese, Russian, Uyghur,
+          Lithuanian, Danish, Tamil, Hungarian, Polish, Basque,
+          Brazilian Portuguese, Japanese, Korean, Portuguese, Finnish,
+          Assamese, Italian, British English, Latvian, Punjabi,
+          Ukrainian, Catalan, Simplified Chinese)
+
+Zenity 3.2.0
+
+        - [l10n]Updated Catalan (Valencian) translation (Carles Ferrando)
+        - Updated Basque language (Inaki Larranaga Murgoitio)
+        - Updated Finnish translation (Tommi Vainikainen)
+        - Updated Korean translation (Changwoo Ryu)
+        - Updated Assamese Translations:bugzilla#659595 (Nilamdyuti Goswami)
+
+Zenity 3.1.92
+
+        - Updated Danish translation of the documentation (Joe Hansen)
+        - update Punjabi Translation (A S Alam)
+        - Updated Galician translations for doc (Fran Dieguez)
+        - Updated Danish translation (Joe Hansen)
+        - Updated Japanese translation (Jiro Matsuzawa)
+        - [l10n]Updated Catalan translation (Joan DUran)
+        - Updated Spanish translation (dmustieles)
+        - Updated Spanish translation (dmustieles)
+        - l10n: Updated Italian translation (Claudio Arseni)
+        - updated Tamil translation (Dr.T.Vasudevan)
+        - update Simplified Chinese (zh_CN) translation (Yinghua Wang)
+        - Uploaded Ukranian (Daniel Korostil)
+        - Updated Latvian translation. (Rudolfs Mazurs)
+        - Updated British English translation (Bruce Cowan)
+        - Updated Polish translation (Piotr Drąg)
+        - Updated Belarusian translation. (Ihar Hrachyshka)
+        - Updated Portuguese translation (Duarte Loreto)
+        - Updated Persian translation (Arash Mousavi)
+        - Updated Traditional Chinese translation(Hong Kong and Taiwan) (Chao-Hsiung Liao)
+        - Updated Dutch translation by Wouter Bolsterlee (Wouter Bolsterlee)
+        - Updated Russian translation (Yuri Myasoedov)
+        - Updated Brazilian Portuguese translation. (Og B. Maciel)
+        - [l10n] Updated German translation (Mario Blättermann)
+        - Updated Lithuanian translation (Aurimas Černius)
+        - Updated French translation (Claude Paroz)
+        - Added UG translation (Abduxukur Abdurixit)
+        - Updated Indonesian translation (Andika Triwidada)
+        - Update NEWS for 3.1.5. (Luis Medinas)
+        - Import Zenity 3.0.0 changes. (Luis Medinas)
+
+Zenity 3.1.5
+
+       - Updated Thai translation. (Theppitak Karoonboonyanan)
+        - Updated Bulgarian translation (Alexander Shopov)
+        - Updated Norwegian bokmål translation (Kjartan Maraas)
+        - Updated Galician translations (Fran Dieguez)
+        - Updated Hebrew translation. (Yaron Shahrabani)
+        - Updated Swedish translation (Daniel Nylander)
+        - Fix for bug #611297 Now Zenity have --ok-label and --cancel-label in all dialogs. This patch doesn't break old zenity scripts. (Arx
+        - Bug #592195. This fix made the --list mode return as soon as receive an ok or cancel response avoiding crash. (Arx Cruz)
+        - Updated Spanish translation (Daniel Mustieles)
+        - Updated Czech translation (Marek Černocký)
+        - Updated Slovenian translation (Matej Urbančič)
+        - Enable html support in --text-info option. This fix bug #598655, thanks for the work from Francis Meyvis francis.meyvis at gmail do
+        - Updated Finnish translation (Tommi Vainikainen)
+        - New translation for Afrikaans (af) (Friedel Wolff)
+        - [l10n]Added Catalan documentation (Joan Duran)
+        - Updated Czech translation (Marek Černocký)
+        - Updated Swedish translation (Daniel Nylander)
+        - Updated Hebrew translation. (Yaron Shahrabani)
+        - Updated Slovenian translation (Matej Urbančič)
+        - Updated Latvian translation. (Rudolfs Mazurs)
+        - Updated Norwegian bokmål translation (Kjartan Maraas)
+        - Fix for bug #540489 and #501001 both related to 100% use of cpu. (Arx Cruz)
+        - Updated Spanish translation (Jorge González)
+        - Forgot change one option in gtk_label (Arx Cruz)
+        - Patch for bug #621907 (Arx Cruz)
+        - Updated Galician translations (Fran Dieguez)
+        - Updated Turkish translation (Muhammet Kara)
+        - Updated Hebrew translation. (Yaron Shahrabani)
+        - Updated Spanish translation (Daniel Mustieles)
+        - Updated Swedish translation (Daniel Nylander)
+        - l10n: Updated Greek translation for zenity documentation (Marios Zindilis)
+        - Update man page to reflect new text-info options. (Arx Cruz)
+        - Updated Slovenian translation (Matej Urbančič)
+        - Updated Norwegian bokmål translation (Kjartan Maraas)
+        - This change add a new functionality to text-info: (Arx Cruz)
+        - Updated Russian translation (Yuri Kozlov)
+	- Updated Russian translation (Yuri Kozlov)
+        - man page to mention return code 5 for timeout (Carnë Draug)
+        - Now if you use --timeout option, the return code will be properly handled The default behavior will be done (ie. user click on ok b
+        - Fix the msg forms (question, warning, error) to return 5 when timeout (Arx Cruz)
+        - Bug 651948 - zenity list does not return default value when timeout is over (Arx Cruz)
+        - Fix bug 651723, don't look for libnotify.h if not requested (Nirbheek Chauhan)
+        - Updated Persian translation (Arash Mousavi)
+        - Updated Persian translation (Arash Mousavi)
+        - Added UG translation (Abduxukur Abdurixit)
+        - Added UG translation (Abduxukur Abdurixit)
+        - Updated Thai translation. (Theppitak Karoonboonyanan)
+        - Updated Turkish translation (Muhammet Kara)
+        - Updated Vietnamese translation (Lê Trường An)
+        - po/vi.po: import from Damned Lies (Nguyễn Thái Ngọc Duy)
+        - [l10n]Fixes on Catalan translation (Jordi Serratosa)
+        - Updated Danish translation (Joe Hansen)
+        - Updated Esperanto translation (Kristjan SCHMIDT)
+        - Updated Japanese translation. (Jiro Matsuzawa)
+        - Updated Assamese translations (Amitakhya Phukan)
+        - Updated Norwegian Nynorsk translation (Åsmund Skjæveland)
+        - Updated Tamil translation (Dr.T.Vasudevan)
+        - Added UG translation (Abduxukur Abdurixit)
+        - Updated Brazilian Portuguese translation (Rodrigo Padula de Oliveira)
+        - Updated Bengali India Translation (Runa Bhattacharjee)
+        - Updated Italian translation (Claudio Arseni)
+        - Updated Latvian translation. (Rudolfs Mazurs)
+        - Updated Serbian translation (Miroslav Nikolić)
+        - l10n: Updated Greek translation for zenity docs (Bakaoukas Nikolaos)
+        - Revert mistakely pushed string change (Luca Ferretti)
+        - Updated Italian translation (Claudio Arseni)
+        - Use proper case in forms dialog option values (Luca Ferretti)
+        - Updated Romanian translation (Lucian Adrian Grijincu)
+
+Zenity 3.0.0
+"Still loving you (GNOME)"
+        - Updated Danish translation (Joe Hansen)
+        - Updated Esperanto translation (Kristjan SCHMIDT)
+        - Updated Japanese translation. (Jiro Matsuzawa)
+        - Updated Assamese translations (Amitakhya Phukan)
+        - Updated Norwegian Nynorsk translation (Åsmund Skjæveland)
+        - Updated Tamil translation (Dr.T.Vasudevan)
+        - Added UG translation (Abduxukur Abdurixit)
+        - Updated Brazilian Portuguese translation (Rodrigo Padula de
+	Oliveira)
+        - Updated Bengali India Translation (Runa Bhattacharjee)
+        - Updated Italian translation (Claudio Arseni)
+        - Updated Latvian translation. (Rudolfs Mazurs)
+        - Updated Serbian translation (Miroslav Nikolić)
+        - l10n: Updated Greek translation for zenity docs (Bakaoukas Nikolaos)
+        - Revert mistakely pushed string change (Luca Ferretti)
+        - Updated Italian translation (Claudio Arseni)
+        - Use proper case in forms dialog option values (Luca Ferretti)
+        - Updated Romanian translation (Lucian Adrian Grijincu)
+        - Updated Romanian translation (Lucian Adrian Grijincu)
+        - Updated Russian translation (Yuri Myasoedov)
+        - Updated Hungarian translation (Gabor Kelemen)
+        - [l10n] Updated German translation (Mario Blättermann)
+        - Updated British English translation (Bruce Cowan)
+        - Updated Polish translation (Piotr Drąg)
+        - Updated Portuguese translation (Duarte Loreto)
+        - Updated Oriya Translation (Manoj Kumar Giri)
+        - update Punjabi Translation by A S Alam (A S Alam)
+        - [l10n]Update Simplified Chinese translation. (ben)
+        - [l10n] Updated Catalan translation (Joan Duran)
+        - Updated Latvian translation. (Rudolfs Mazurs)
+        - Updated Korean translation (Changwoo Ryu)
+        - Updated French translation (Bruno Brouard)
+        - Updated Norwegian bokmål translation. (Kjartan Maraas)
+
+Zenity 2.91.90
+
+        - Bump version and bump GTK+ 3.0 requirements to stable release. (Luis
+          Medinas)
+        - Updated Gujarati Translations (Sweta Kothari)
+        - Updated Bulgarian translation (Alexander Shopov)
+        - text.c: Fix compilation warning (Javier Jardón)
+        - Do not use deprecated separator GtkDialog property (Javier Jardón)
+        - autogen.sh: Use configure.ac instead configura.in (Javier Jardón)
+        - Use the standard configure.ac instead configure.in (Javier Jardón)
+        - Update autotools configuration (Javier Jardón)
+        - Updated Indonesian translation (Dirgita)
+        - Updated Dutch translation by Wouter Bolsterlee (Wouter Bolsterlee)
+        - Updated Basque language (Inaki Larranaga Murgoitio)
+        - Uploaded Ukranian (Daniel Korostil)
+        - Updated Arabic translation (Khaled Hosny)
+        - Updated Swedish translation (Daniel Nylander)
+        - Updated Slovenian translation (Matej Urbančič)
+        - QA of Galician translations (Fran Diéguez)
+        - Reset errors after freeing them (Matthias Clasen)
+        - Updated Czech translation (Marek Černocký)
+        - Updated Traditional Chinese translation(Hong Kong and Taiwan)
+        - (Chao-Hsiung Liao)
+        - [l10n] Updated Estonian translation (Ivar Smolin)
+        - Updated Norwegian bokmål translation (Kjartan Maraas)
+        - Updated Spanish translation (Daniel Mustieles)
+        - Updated Galician translations (Fran Diéguez)
+        - Updated Greek translation (Michael Kotsarinis)
+        - Updated Hebrew translation. (Yaron Shahrabani)
+        - Adding missed files and code for --forms option. (Arx Cruz)
+        - Updated Norwegian bokmål translation (Kjartan Maraas)
+        - Updated Czech translation (Marek Černocký)
+        - Updated Bulgarian translation (Alexander Shopov)
+
+Zenity 2.91.5
+"Wild World"
+  * Add font and no wrap mode support in text dialog (muzuiget)
+  * Fix for bug 540560. Patch by Victor Ananjevsky <ananasik at gmail dot com>
+  (Arx Cruz)
+  * Updated Hebrew translation. (Yaron Shahrabani)
+  * Updated Galician translations (Fran Diéguez)
+  * Updated Swedish translation (Daniel Nylander)
+  * Updated Slovenian translation (Matej Urbančič)
+  * Updated Spanish translation (Daniel Mustieles)
+  * [l10n] Updated Estonian translation (Ivar Smolin)
+  * Updated Indonesian translation (Andika Triwidada)
+  * Added UG translation (Gheyret T.Kenji)
+
+Zenity 2.91.4
+"Something that builds"
+  * Make libnotify support optional (Arx Cruz)
+  * Add --form option (Arx Cruz)
+  * Also return  user when --username is used with --password (Arx Cruz)
+  * Fix build with latest GTK+ 3 (Cosimo Cecchi)
+  * Updated translations
+
+Zenity 2.91.1.1
+"We are in 2010"
+   * Bump to 2.91.1.1. (Luis Medinas)
+   * Remove deprecated code for GTK+-3.0. (Luis Medinas)
+   * Fix manpage for the statusicon removal from Zenity 3.0 (Luis Medinas)
+   * Require libnotify 0.6.1 (William Jon McCann)
+   * Updated Japanese translation (Takayuki KUSANO)
+
+Zenity 2.91.1
+"Once in a while"
+   * Updated Slovenian translation (Matej Urbančič)
+   * Added sl for Slovenian translation (Matej Urbančič)
+   * Added Slovenian translation (Matej Urbančič)
+   * Updated Ukrainian translation (Maxim V. Dziumanenko)
+   * Updated Korean translation (Changwoo Ryu)
+   * Bump to 2.91.0 (Luis Medinas)
+   * Make zenity compile only with GTK+-3.0 (Luis Medinas)
+   * Remove GDK_DISPLAY() usage. Fixes build with GTK+-3.0 (Luis Medinas)
+   * Updated Lithuanian translation (Žygimantas Beručka)
+   * Add default activation on entry. (Luis Medinas)
+
+Zenity 2.32.0
+"Not too late"
+   * Bump to 2.32.0 (Luis Medinas)
+   * Updated Catalan translation (Joan Duran)
+   * Updated Czech translation (Marek Černocký)
+   * Updated Romanian translation (Lucian Adrian Grijincu)
+   * Updated Romanian translation (Daniel Șerbănescu)
+   * updated Russian translation (Leonid Kanter)
+   * Updated Japanese translation (Takayuki KUSANO)
+   * Updated Dutch translation by Reinout van Schouwen (Wouter Bolsterlee)
+   * Updated Dutch translation by Reinout van Schouwen (Wouter Bolsterlee)
+   * Updated Danish translation (Kenneth Nielsen)
+   * [l10] Updated Italian translation (Milo Casagrande)
+   * Updated Polish translation (Piotr Drąg)
+ 
+Zenity 2.31.92
+"I love translators"
+   * Bump to 2.31.92 (Luis Medinas)
+   * Updated Greek translation (Michael Kotsarinis)
+   * Updated British English translation (Bruce Cowan)
+   * Updated Serbian translation (Милош Поповић)
+   * Updated Hungarian translation (Gabor Kelemen)
+   * Updated Brazilian Portuguese translation (André Gondim)
+   * Updated French doc translation (Bruno Brouard)
+   * Update Czech translation by Marek Cernocky (Petr Kovar)
+   * Updated Bulgarian translation (Alexander Shopov)
+   * Updated Portuguese translation (Duarte Loreto)
+   * Updated Traditional Chinese translation(Hong Kong and Taiwan) 
+     (Chao-Hsiung Liao)
+   * Updated Arabic translation (Khaled Hosny)
+   * Updated French translation (Claude Paroz)
+   * Updated Bengali India Translation (Runa Bhattacharjee)
+
+Zenity 2.31.6
+" Ah it's still GTK+-2.0"
+   * Bugs and features
+    - Make zenity compile with GTK2 and GTK3 (Luis Medinas)
+    - Bug 624612 to update zenity help file (Arx Cruz)
+    - Removing X_LIBS from src/Makefile (Arx Cruz)
+    - Change cancel button messages to be capitalized (Arx Cruz)
+   * New and updated translations
+    - Updated Indonesian translation (Andika Triwidada)
+    - Updated Norwegian bokmål translation (Kjartan Maraas)
+    - [l10n] Updated Estonian translation (Mattias Põldaru)
+    - update Translation in master for Punjabi by A S Alam (A S Alam)
+    - Updated Japanese translation. (Takayuki KUSANO)
+    - Update Simplified Chinese help translation. (Yinghua Wang)
+    - [l10n] Updated Estonian translation (Ivar Smolin)
+    - Updated Spanish translation (Jorge González)
+    - [i18n] Updated German doc translation (Mario Blätterman
+    - [i18n] Updated German translation (Mario Blättermann)
+    - Updated Indonesian translation (Dirgita)
+    - Updated Galician translations (Fran Diéguez)
+    - Updated Spanish translation (Jorge González)
+    - Updated Slovenian translation (Matej Urbančič)
+    - Updated Swedish translation (Daniel Nylander)
+    - Update Simplified Chinese translation (Yinghua Wang)
+    - Updated Hebrew translation. (Yaron Shahrabani)
+    - Updated Tamil translation (drtv)
+    - Updated Slovenian translation (Matej Urbančič)
+    - Updated Galician translations (Fran Diéguez)
+    - Add Simplified Chinese help translation. (Teliute)
+    - [l10n] Updated Estonian translation (Ivar Smolin)
+    - Updated Spanish translation (Jorge González)
+    - [i18n] Updated German translation (Mario Blättermann)
+    - Updated Hebrew translation. (Yaron Shahrabani)
+    - Updated Galician translations (Fran Diéguez)
+    - Updated Norwegian bokmål translation (Kjartan Maraas)
+    - Complete Simplified Chinese translation. (Aron Xu)
+
+Zenity 2.31.5
+" Hello Sunshine "
+   * Fixed Bgo 616816  - Add new entries to Zenity's man page 
+     Patch from Carnë Draug <carandraug.ml@gmail.com>
+   * Add new password dialog (Arx Cruz)
+   * Change GTK_DIALOG(dialog)->vbox to gtk_dialog_get_content_area()
+     in order to compile with GTK 3.0 (Arx Cruz)
+   * Add password.c to be translated (Luis Medinas)
+   * Bump to 2.31.5 and use GTK+3.0 (Luis Medinas)
+   * New and updated translations
+       - Fran Diéguez (gl)
+       - Petr Kovar (cs)
+
+Zenity 2.31.3
+" Young Reborn "
+   * Use g_timeout_add_seconds instead g_timeout_add
+   * Change Maintainers
+   * New and updated documentation translations
+       - Ask H. Larsen (da)
+   * New and updated translations
+       - Adi Roiban (ro)
+       - Alexander Shopov (bg)
+       - Andika Triwidada (id)
+       - Andre Klapper (cs)
+       - Ask H. Larsen (da)
+       - Bruce Cowan (en_GB)
+       - Carles Ferrando (ca@valencia)
+       - Changwoo Ryu (ko)
+       - Chao-Hsiung Liao (zh_HK) (zh_TW)
+       - Daniel Nylander (sv)
+       - David Planella (ca)
+       - Duarte Loreto (pt)
+       - Felipe Vieira Borges (pt_BR)
+       - Francisco Diéguez (gl)
+       - Inaki Larranaga Murgoitio (eu)
+       - Ivar Smolin (et)
+       - Jamil Ahmed (bn)
+       - Jordi Serratosa (ca)
+       - Jorge González (es)
+       - Khaled Hosny (ar)
+       - Kjartan Maraas (nb)
+       - Marcel Telka (sk)
+       - Mario Blättermann (de)
+       - Matej Urbančič (sl)
+       - Maxim V. Dziumanenko (uk)
+       - Milo Casagrande (it)
+       - Nikos Bakaoukas (el)
+       - Petr Kovar (cs)
+       - Piotr Drąg (pl)
+       - Ray Wang (zh_CN)
+       - Theppitak Karoonboonyanan (th)
+       - Thomas Thurman (en@shaw)
+       - Tommi Vainikainen (fi)
+       - Torstein Adolf Winterseth (nn)
+       - vasudeven (ta)
+       - Wouter Bolsterlee (nl)
+       - Xandru Armesto Fernandez (ast)
+       - Yannig Marchegay (oc)
+       - Yaron Sharabani (he)
+
+Zenity 2.30.0
+" The Sea "
+   * New and updated documentation translations
+        - Sterios Prosiniklis, Simos Xenitellis [he]
+        - Marek Cernocky [cs]
+        - Mario Blättermann [de]
+        - Jorge González [es]
+        - Claude Paroz [fr]
+        - Tommi Vainikainen [fi]
+        - Rodolfo Ribeiro Gomes [pt_BR]
+        - Ask H. Larsen [da]
+        - Maxim V. Dziumanenko [uk]
+   * New and updated translations
+        - A S Alam [pa]
+        - Suso Baleato [gl]
+        - Djihed Afifi [ar]
+        - Rajesh Ranjan [hi]
+        - Ivar Smolin [et]
+        - Seán de Búrca [ga]
+        - Rodolfo Ribeiro Gomes [pt_BR]
+        - Petr Kovar [cs]
+        - Krishnababu K [te]
+        - Ask H. Larsen [da]
+        - Carles Ferrando [ca@valencia]
+        - Yasumichi Akahoshi [ja]
+        - Sangeeta Kumari [mai]
+        - Jorge González [es]
+        - Åsmund Skjæveland [nn]
+        - Daniel Nylander [sv]
+        - Drtvasudevan [ta]
+        - Matej Urbančič [sl]
+        - Peteris Krisjanis [lv]
+        - Thomas Thurman [en@shaw]
+        - Kjartan Maraas [nb]
+        - Yaron Shahrabani [he]
+        - Tao Wei [zh_CN]
+        - Lucian Adrian Grijincu [ro]
+        - Matej Urbančič [sl]
+        - Gabor Kelemen [hu]
+        - Xandru Armesto Fernandez [ast]
+        - Maxim V. Dziumanenko [uk]
+        - Jamil Ahmed [bn]
+
+Zenity 2.26.0
+" Crescent "
+   * disable monk easter egg in order to remove gnome-canvas
+     dependency [#571741]
+   * replace deprecated GTK+ calls (Felix Riemann) [#571869]
+   * remove deprecated/obsoleted dialog definition
+     (Felix Riemann) [#571869]
+   * New and updated documentation translations
+        - Mario Blättermann [de]
+        - Claude Paroz [fr]
+        - Daniel Nylander [sv]
+        - Inaki Larranaga Murgoitio [eu]
+        - Tommi Vainikainen [fi]
+        - Jen Ockwell [en_GB]
+   * New and updated translations
+        - Raivis Dejus [lv]
+        - Changwoo Ryu [ko]
+        - Zabeeh Khan [ps]
+        - Adi Roiban [ro]
+        - Chao-Hsiung Liao [zh_HK, zh_TW]
+        - Gabor Kelemen [hu]
+        - Manoj Kumar Giri [or]
+        - Gintautas Miliauskas [lt]
+        - Krishnababu K [te]
+        - Amitakhya Phukan [as]
+
+Zenity 2.24.1
+" Giant Steps "
+   * Document --timeout (Luca Bruno) [#565133]
+   * correctly handle --filename on file selection dialog
+     (Gilles Detillieux) [#564552]
+   * Cleanup GLib and GTK+ includes (Pedro Fragoso) [#563855]
+   * Remove deprecated GLib symbols (Frederic Peters) [#560452]
+   * Translator comments (Frederic Peters) [#547202] 
+   * New and updated documentation translations
+	- Jorge Gonzalez [es]
+   * New and updated translations
+	- Laurent Dhima [sq]
+	- Ihar Hrachyshka [bg@latin]
+	- Luca Ferretti [it]
+	- Marcel Telka [sk]
+	- Djihed Afifi [ar]
+	- Simos Xenitellis [el]
+
+Zenity 2.24.0
+   * New and updated documentation translations
+	- Mario Blättermann [de]
+	- Tommi Vainikainen [fi]
+   * New and updated translations
+	- Khaled Hosny [ar]
+	- Alexander Shopov [bg]
+	- Runa Bhattacharjee [bn_IN]
+	- Jordi Mallach [ca]
+	- Pavel Šefránek [cs]
+	- Ask Hjorth Larsen [da]
+	- Mario Blättermann [de]
+	- David Lodge [en_GB]
+	- Iñaki Larrañaga Murgoitio [eu]
+	- Ilkka Tuohela [fi]
+	- Sweta Kothari [gu]
+	- Launchpad Translations Administrators [hr]
+	- Gabor Kelemen [hu]
+	- Milo Casagrande [it]
+	- Takeshi AIHANA [ja]
+	- Shankar Prasad [kn]
+	- Changwoo Ryu [ko]
+	- Gintautas Miliauskas [lt]
+	- Arangel Angov [mk]
+	- ragsagar [ml]
+	- Sandeep Shedmake [mr]
+	- Yannig Marchegay (Kokoyaya) [oc]
+	- Manoj Kumar Giri [or]
+	- Tomasz Dominikowski [pl]
+	- Fábio Nogueira [pt_BR]
+	- Duarte Loreto [pt]
+	- Nickolay V. Shmyrev [ru]
+	- Laurent Dhima [sq]
+	- Данило Шеган [sr]
+	- Daniel Nylander [sv]
+	- Dr.T.Vasudevan [ta]
+	- Theppitak Karoonboonyanan [th]
+	- Baris Cicek [tr]
+	- Chao-Hsiung Liao [zh_HK]
+	- Chao-Hsiung Liao [zh_TW]
+
+Zenity 2.23.3.1
+" Again "
+   * Depend on intltool 0.40.0
+
+Zenity 2.23.3
+" Above & Beyond "
+   * New and updated translations
+	- Yannig Marchegay [oc]
+	- Djihed Afifi [ar]
+	- Claude Paroz [fr] 
+
+Zenity 2.23.2
+" Plus 4 "
+   * Fix the use of --width and --height on several dialogs [#529452]
+   * New and updated translations
+	- Kjartan Maraas [nb]
+	- Priit Laes [et]
+	- Gabor Kelemen [hu]
+	- Jorge Gonzalez [es]
+	- Yair Hershkovitz [he]
+	- Ignacio Casal Quinteiro [gl]
+	- Vincent van Adrighem [nl]
+	- Djihed Afifi [ar]
+	- Danishka Navin [si]
+	- Clytie Siddall [vi]
+
+Zenity 2.23.1
+" 7 years "
+   * Add support for file filter in file selection dialog through the new
+     --file-filter command line option (Ricardo Cruz) [#409843]
+   * Misc code improvements on list dialog (kraai@ftbfs.org) [#526627, #527258]
+   * Allow question dialogs to use custom button label text (Cosimo Cecchi,
+     Thomas Thurman) [#335763].
+   * Added description for --timeout option (Luca Ferretti) [#516876]
+   * Set value range before setting value in order to correctly set initial 
+     state [#521574]
+   * Added comment on a string in order clarify its meaning for 
+     translators [#520847]
+   * New and updated translations
+	- Yannig Marchegay [oc]
+	- Marcel Telka [sk]
+	- Jorge Gonzalez [es]
+	- Danilo Nylander [sv]
+	- Yair Hershkovitz [he]
+	- Priit Laes [et]
+	- Kjartan Maraas [nb]
+
+Zenity 2.22.0
+" My favourite things "
+   * New and updated documentation translations
+	- Jorge Gonzalez [es]
+   * New and updated translations
+	- Jorge Gonzalez [es]
+	- Philip Withnall [en_GB]
+	- Marcel Telka [sk]
+	- Chao-Hsiung Liao [zh_HK, zh_TW] 	
+
+Zenity 2.21.92
+" Hello "
+   * New and updated documentation translations
+	- Yannig Marchegay [oc]
+   * New and updated translations
+	- Khandakar Mujahidul Islam [bn]
+	- Yair Hershkovitz [he]
+	- Matej Urbančič [sl]
+	- Djihed Afifi [ar]
+	- Kjartan Maraas [nb]
+	- Matapathi Pramod [te]
+	- Yannig Marchegay [oc]
+	- Sandeep Shedmake [mr]
+	- Eskild Hustvedt [nn]
+	- Changwoo Ryu [ko] 
+	- Luca Ferretti [it]
+	- Gabor Kelemen [hu]
+	- Amitakhya Phukan [as]
+	- Jovan Naumovski [mk]
+	- Petr Kovar [cs]
+	- Pawan Chitrakar [ne]
+	- Ignacio Casal Quinteiro [gl]
+	- Ihar Hrachyshka [be@latin] 
+
+Zenity 2.20.0
+" The Invasion "
+   * New and updated documentation translations
+	- Danilo Nylander [sv] 
+   * New and updated translations
+	- Ankit Patel [gu]
+	- Clytie Siddall [vi]
+	- Gil Forcada [ca]
+	- Ilkka Tuohela [fi]
+	- Inaki Larranaga Murgoitio [eu]
+	- Priit Laes [et]
+	- Jorge Gonzalez [es]
+	- Nickolay V. Shmyrev [ru]
+	- Danilo Šegan [sr, sr@Latn]
+	- Duarte Loreto [pt]
+	- Kjartan Maraas [nb]
+	- Baris Cicek [tr]
+	- Gintautas Miliauskas [lt]
+	- Theppitak Karoonboonyanan [th]
+	- Mugurel Tudor [ro]
+	- Artur Flinta [pl]
+	- I. Felix [ta]
+	- Adam Weinberger [en_CA]
+	- Stéphane Raimbault [fr]
+	- Alexander Shopov [bg]
+	- Raphael Higino [pt_BR]
+	- Hendrik Richter [de]
+	- Gabor Kelemen [hu]
+	- Wouter Bolsterlee [nl]
+	- Kenneth Nielsen [da]
+	- Takeshi AIHANA [ja]
+	- Laurent Dhima [sq]
+	- Daniel Nylander [sv]
+	- Jovan Naumovski [mk]
+	- Maxim Dziumanenko [uk]
+
+Zenity 2.19.2
+" Dude, Dude, Dude "
+   * Added timeout option to all dialogs (Muthiah Annamalai) [#160654]
+   * Fixed critical warning when using checkbox and radiobox in
+     list dialog [#453713]
+   * Fixed broken handling of input from pipes in list dialog [#343684] 
+   * Correctly handle UTF-8 input text in the text info dialog [#407275]
+   * Initialize GTK+ before parsing command line options to
+     better handle errors on display setting [#410055]
+   * New and updated documentation translations
+	- David Lodge [en_GB]
+   * New and updated translations
+	- Jakub Friedl [cs]
+	- I Felix [ta]
+	- Ilkka Tuohela [fi]
+
+Zenity 2.19.1
+" Medieval Times "
+   * Update man page with new options (Sven Arvidsson) [#436187]
+   * Several build cleanups (Kjartan Maraas) [#416196]
+   * Double-clicking on calendar dialog for response (Tom Tromey)
+     [#395152]
+   * libnotify support made optional (Saleem Abdulrasool) [#346843]
+   * Fix index handling on --print-column option of list dialog 
+     (Lucas Rocha) [#420396]
+   * Fix crash when using special printf format string in textinfo
+     dialog (Mariana Suárez-Alvarez) [#405006]
+   * New and updated documentation translations
+	- Jorge Gonzalez [es]
+	- Nickolay V. Shmyrev [ru]
+   * New and updated translations
+	- Funda Wang [zh_CN]
+	- Jakub Friedl [cs] 
+
+Zenity 2.18.1
+" Moving on "
+   * New and updated translations
+	- Baris Cicek [tr]
+	- Laurent Dhima [sq]
+	- Ignacio Casal Quinteiro [gl]
+	- Inaki Larranaga Murgoitio [eu] 
+
+Zenity 2.18.0
+" We got it! "
+   * New and updated translations
+	- Fábio Nogueira [pt_BR]
+	- Gintautas Miliauskas [lt]
+	- Maxim Dziumanenko [uk]
+	- Runa Bhattacharjee [bn_IN]
+	- Peter Bach [da]
+	- Ankit Patel [gu]
+	- Thierry Randrianiriana [mg]
+	- Nickolay V. Shmyrev [ru]
+	- Takeshi Aihana [ja]
+	- Danilo Segan [sr, sr@Latn] 
+
+Zenity 2.17.92
+" Almost There Again! "
+   * New and updated translations
+	- Duarte Loreto [pt]
+	- Artur Flinta [pl]
+	- Changwoo Ryu [ko]
+	- Gabor Kelemen [hu]
+
+Zenity 2.17.91
+" Skating hurts! "
+   * New and updated translations
+	- Robert-André Mauchin [fr] 
+	- Nguyen Thái Ngoc Duy [vi]
+	- Wouter Bolsterlee [nl]
+	- Chao-Hsiung Liao [zh_HK, zh_TW]
+	- Pema Geyleg [dz]
+	- Josep Puigdemont i Casamajó [ca]
+	- Ilkka Tuohela [fi]
+
+Zenity 2.17.90
+" More Babel! "
+   * New and updated translations
+	- Alexander Shopov [bg] 
+
+Zenity 2.17.3
+" Babel "
+   * New and updated translations
+	- Yair Hershkovitz [he]
+	- Matic Žgur [sl]
+	- David Lodge [en_GB]
+	- Djihed Afifi [ar]
+	- Hendrik Brandt [de]
+	- Raivis Dejus [lv]
+
+Zenity 2.17.2
+" Sunny day, Zero Degree! "
+   * New and updated translations
+	- Kjartan Maraas [nb]
+	- Priit Laes [et]
+	- Daniel Nylander [sv]
+	- Francisco Javier F. Serrador [es]
+	- Theppitak Karoonboonyanan [th]
+	- Ales Nyakhaychyk [be]
+	- Djihed Afifi [ar] 
+
+Zenity 2.17.1
+" Fixes everywhere! "
+   * Don't show cancel button on warning dialogs (Claudio Saavedra)
+     [#324100]
+   * Don't kill parent process by default when canceling progress dialog.
+     New option --auto-kill added to activate this behavior (Diego Urrelo)
+     [#310824]
+   * Small i18n fixes (Lucas Rocha) [334361]
+   * Make dialog text selectable on message dialogs (Greg Hudson) [352910]
+   * Fix list dialog options (Glynn Foster) [#353320]
+   * New and updated documentation translations
+	* Daniel Nylander [sv]
+	* Francisco Javier F. Serrador [es]
+   * New and updated translations
+	* Baris Cicek [tr]
+	* Priit Laes [et]
+	* Kjartan Maraas [nb]
+	* Daniel Nylander [sv]
+	* Djihed Afifi [ar]
+	* Yair Hershkovitz [he]
+
+Zenity 2.16.1
+" I'm not creative enough to name releases "
+   * New and updated translations
+        - Estonian [Ivar Smolin]
+	- Turkish [Fatih Ergüven]
+
+Zenity 2.16.0
+==============
+" Sixteen! Yeah! "
+   * New and updated translations
+	- Ani Peter (ml)
+	- Ahmad Riza H Nst (id)
+	- Jordi Mas (ca)
+	- Runa Bhattacharjee (bn_IN)
+	- Khandakar Mujahidul Islam (bn)
+	- Duarte Loreto (pt)
+	- Maxim Dziumanenko (uk)
+	- Kostas Papadimas (el)
+
+Zenity 2.15.92
+==============
+" Midnight "
+   * New and updated documentation translations
+	- Christophe Bliard (fr)
+   * New and updated translations
+	- Clytie Siddall (vi)
+	- Vladimer Sichinava (ka)
+	- Leonid Kanter (ru)
+	- Gabor Kelemen (hu)
+	- Matic Žgur (sl)
+	- Artur Flinta (pl)
+	- Satoru Satoh (ja)
+	- Gintautas Miliauskas (lt)
+	- Raphael Higino (pt_BR)
+
+Zenity 2.15.91
+==============
+" So what? "
+   * New and updated translations
+	- Abel Cheung (zh_HK)
+	- Jovan Naumovski (mk)
+	- Runa Bhattacharjee (bn_IN)
+	- Inaki Larranaga (eu)
+
+Zenity 2.15.90
+==============
+" Kryptonite "
+   * About dialog update (Lucas Rocha)
+   * Text entry activation makes dialog return (Lucas Rocha) [#347340]
+   * Correctly handle stdin input on text info dialog 
+     (Lucas Rocha) [#336736]
+   * Port notification to GtkStatusIcon (Christian Persch) [#341451] 
+   * New and updated translations
+	- Marcel Telka [sk]
+	- Francisco Javier F. Serrador [es]
+	- Ankit Patel [gu]
+	- Priit Laes [et]
+	- Kjartan Maraas [nb]
+	- Hendrik Richter [de]
+	- Theppitak Karoonboonyanan [th]
+	- Rajesh Ranjan [hi]
+	- I. Felix [ta]
+	- Dzongkhalinux, DIT [dz]
+	- Raivis Dejus [lv]
+	- Ilkka Tuohela [fi]
+	- Runa Bhattacharjee [bn_IN]
+	- Inaki Larranaga [eu]
+	- Rostislav Raykov [bg]
+	- Christophe Merlet, Benoît Dejean [fr]
+	- Daniel Nylander [sv]
+	- Josep Puigdemont Casamajó [ca]
+	- Vincent van Adrighem [nl]
+
+Zenity 2.15.2
+==============
+" What are you waiting for, dude? "
+   * Build infrastructure revamp (Christian Persch) [#341056]
+   * New dropdown menu on entry dialog (Diego Urrelo) [#311038]
+
+Zenity 2.15.1
+==============
+" Nuk inda Kuk! "
+   * Implementation of "message" command on notification 
+     which pops notification bubbles. Implemented with
+     libnotify (Davyd Madeley)
+   * New --confirm-overwrite to file selection dialog to 
+     pop confirmation dialog when selection an existing
+     filename (Lucas Rocha)
+   * Quit zenity on about dialog response. Fixes bug
+     (Lucas Rocha) [#336505] 
+   * Manpage fixes (Lucas Rocha) [#336751]
+   * Small memory allocation fixes (Behdad Esfahbod)
+     [#338038]
+   * Remove xlibs dependency (Lucas Rocha) [#338102]
+   * Use of po/LINGUAS file (Lucas Rocha)
+   * New and updated documentation translations
+	- Maxim Dziumanenko [uk]
+   * New and updated translations
+	- Gora Mohanty [or]
+	- Ignacio Casal Quinteiro [gl]
+	- Åsmund Skjæveland [nn]
+	- Clytie Siddall [vi]
+	- Kjartan Maraas [no]
+
+Zenity 2.14.0
+==============
+" Acid jazz! "
+    * Fix list dialog separator option [Glynn Foster]
+    * New and updated documentation translations
+	- Alexander Shopov [bg]
+    * New and updated translations
+	- Laurent Dhima [sq]
+	- Vincent van Adrighem [nl]
+	- Kostas Papadimas [el]
+	- Miloslav Trmac [cs]
+	- Hendrik Richter [de]
+	- Yair Hershkovitz [he]
+	- Žygimantas Beručka [lt]
+	- Inaki Larranaga [eu]
+	- Duarte Loreto [pt]
+	- Leonid Kanter [ru]
+	- Jordi Mallach [ca]
+	- Maxim Dziumanenko [uk]
+	- Stefano Canepa [it]
+	- Mugurel Tudor [ro]
+	- Artur Flinta [pl]
+	- Daniel Nylander [sv]
+	- Benoît Dejean [fr]
+
+Zenity 2.13.90
+==============
+" Ca Ca Ca "
+    * New and updated documentation translations
+	- Vincent Untz [fr]
+    * New and updated translations
+	- Lasse Bang Mikkelsen [da]
+	- Priit Laes [et]
+	- Evandro Fernandes Giovanini [pt_BR]
+	- Gabor Kelemen [hu] 
+
+Zenity 2.13.5
+==============
+" Salvador "
+    * New and updated translations
+	- Takeshi Aihana [ja]
+	- Ignacio Casal Quinteiro [gl]
+	- Alexander Shopov [bg]
+	- Slobodan D. Sredojevic [sr, sr@Latn]
+
+Zenity 2.13.4
+==============
+" Arantina "
+    * New scale dialog for selecting a value from 
+      a range [Lucas]
+    * All dialogs are now HIG compliant [Christian Persch]
+    * Now use GtkAboutDialog [Lucas]
+    * New and updated translations
+	- Theppitak Karoonboonyanan [th]
+	- Ignacio Casal Quinteiro [gl]
+	- Ankit Patel [gu]
+	- Marcel Telka [sk] 
+	- Francisco Javier F. Serrador [es]
+	- Luca Ferretti [it]
+	- Takeshi Aihana [ja]
+	- Vincent van Adrighem [nl]
+	- Adam Weinberger [en_CA]
+	- Funda Wang [zh_CN] 
+	- Ilkka Tuohela [fi]
+	- Žygimantas Beručka [lt]
+	- Kjartan Maraas [nb, no] 
+
+Zenity 2.13.3
+==============
+" Lucas, do you still love me? Yeah, Zenity, Yeah! "
+    * Make it possible to add new lines and markup in calendar, 
+      progress and list dialog texts [Lucas Rocha]
+    * New and updated documentation translations
+        - Francisco Javier F. Serrador [es]
+
+Zenity 2.13.2
+==============
+" I love you, jhbuild "
+    * Make it possible to add new lines in the in the msg 
+      dialogs. Fixes bug #320787 [Lucas Rocha]
+    * New and updated translations
+	- Erdal Ronahi [ku]
+
+Zenity 2.13.1
+==============
+" Incognito "
+    * Fixes man page typos [Guilherme Pastore]
+    * Fixes bug #317033 [Lucas]
+    * Fixes bug #315020 [Lucas]
+    * Refile Zenity Manual to GNOME|Utilities. 
+      Fixes bug #318831 [Brent Smith]
+    * Manual improvements. Fixes bug #318915 [Brent Smith]
+    * Default focus is given on tree view in list
+      dialogs. Fixes bug #317263 [Aleksey Kliger]
+    * New and updated translations
+	- Inaki Larranaga [eu]
+	- Christian Rose [sv]
+	- Vincent van Adrighem [nl]
+	- Mahay Alam Khan [bn]
+
+Zenity 2.12.0
+==============
+" G12 "
+    * New and updated translations
+	- Evandro Fernandes Giovanini [pt_BR]
+	- Changwoo Ryu [ko]
+	- Telsa Gwynne [cy]
+	- Danilo Šegan, Slobodan D. Sredojevic [sr, sr@Latn]
+	- Priit Laes [et]
+	- Ignacio Casal Quinteiro [gl]
+	- Baris Cicek [tr]
+    * New documentation translations
+        - Vincent Untz [fr]
+
+Zenity 2.11.92
+==============
+" Muqueca "
+    * New and updated translations
+        - Christian Rose [sv]
+        - Žygimantas Beručka [lt]
+        - Duarte Loreto [pt]
+        - Kostas Papadimas [el]
+        - Gabor Kelemen [hu]
+        - Jordi Mallach [ca]
+        - Mugurel Tudor [ro]
+        - Maxim Dziumanenko [uk]
+    * New documentation translations
+        - Francisco Javier F. Serrador [es]
+        - Maxim Dziumanenko [uk]
+
+Zenity 2.11.91
+==============
+" All we need is love! "
+    * New and updated translations
+        - Artur Flinta [pl]
+        - Laursen Dhima [sq]
+        - Hendrik Brandt [de]
+        - Funda Wang [zh_CN]
+        - Ilkka Tuohela [fi]
+        - Chao-Hsiung Liao [zh_TW]
+
+Zenity 2.11.90
+==============
+" Almost there! "
+    * gnome-doc-utils migration [Lucas] 
+    * New and updated translations
+        - Vincent van Adrighem [nl]
+        - Yair Hershkovitz [he]
+        - Ivar Smolin [et]
+        - Ankit Patel [gu]
+        - Rostislav Raykov [bg]
+        - Clytie Siddall [vi]
+        - Kjartan Maraas [no, nb]
+        - Ilkka Tuohela [fi]
+
+Zenity 2.11.1
+=============
+" All night long "
+    * Several code cleanups [Benoît]
+    * Activate GOption --help translations [Lucas]
+    * Deactivate --help alias behavior [Lucas]
+    * New and updated translations
+        - Theppitak Karoonboonyanan [th]
+        - Ivar Smolin [et]
+        - Takeshi Aihana [ja]
+        - Adam Weinberger [en_CA]
+        - Jens Seidel [de]
+        - Benoît Dejean [fr]
+        - Francisco Javier F. Serrador [es]
+        - Marcel Telka [sk]
+        - Miloslav Trmac [cs]  
+
+Zenity 2.11.0
+=============
+" Caruru is delicious! "
+    * New --no-wrap option on info/error/warning/question 
+      dialogs [Lucas, Timo, Carlos]
+    * Fix for #171838 [Carlos]
+    * Some code improvements and cleanups [Glynn, Lucas]
+    * Single/multiple selection on list dialogs [Lucas]
+    * Double-clicking on list dialogs [Lucas, Norman]
+    * Better error handling [Lucas]
+    * --print-column option on List dialogs accepts a 
+      comma-separated list of column indexes [Lucas]
+    * New --hide-column option on List dialogs [Lucas] 
+	* New and updated translations
+        - Theppitak Karoonboonyanan [th] 
+        - Marcel Telka [sk] 
+        - Martin Hansen [da] 
+        - Ignacio Casal Quinteiro [gl] 
+        - Kjartan Maraas [nb, no] 
+        - Pawan Chitrakar [ne] 
+        - Kostas Papadimas [el] 
+        - Rajesh Ranjan [hi] 
+        - Vladimir Petkov [bg] 
+        - Francisco Javier F. Serrador [es] 
+        - Miloslav Trmac [cs] 
+        - Priit Laes [et] 
+        - Vincent van Adrighem [nl] 
+        - Gareth Owen [en_GB] 
+        - Abduxukur Abdurixit [ug] 
+        - Adi Attar [xh]
+        - Steve Murphy [rw] 
+        - Josep Puigdemont [ca]
+        - Adam Weinberger [en_CA] 
+        - Stefano Canepa [it] 
+        - Mugurel Tudor [ro] 
+
+Zenity 2.10.0
+=============
+" 10 Moves Ahead "
+	* New and updated translations
+		- Kostas Papadimas [el]
+		- Ahmad Riza H Nst [id]
+		- Vincent van Adrighem [nl]
+		- Danilo Šegan [sr, sr@Latn]
+		- Alessio Frusciante, Stefano Canepa [it]
+		- Laszlo Dvornik, Gabor Kelemen [hu]
+		- Abel Cheung [zh_TW, ar]
+
+Zenity 2.9.92
+=============
+" Perdition "
+	* Fix a few leaks [Paolo, Glynn]
+	* New and updated translations 
+		- Tommi Vainikainen [fi]
+		- Leonid Kanter [ru]
+		- Kjartan Maraas [nb, no]
+		- Miloslav Trmac [cs]
+		- Hendrik Richter [de]
+		- Francisco Javier F. Serrador [es]
+		- Jordi Mallach [ca]
+		- Alexander Shopov, Vladimir Petkov [bg]
+		- Duarte Loreto [pt]
+		- Žygimantas Beručka [lt]
+		- Marcel Telka [sk]
+		- Ole Laursen [da]
+		- Priit Laes [et]
+		- Benoît Dejean [fr]
+		- Maxim Dziumanenko [uk]
+		- Simos Xenitellis [es]
+		- Laurent Dhima [sq]
+		- Takeshi AIHANA [ja]
+		- Changwoo Ryu [ko]
+		- Raphael Higino [pt_BR]
+		- Rhys Jones [cy]
+		- Artur Flinta [pl]
+		- Ankit Patel [gu]
+		- Arafat Medini [ar]
+		- Alessio Frusciante, Stefano Canepa [it]
+
+Zenity 2.9.91
+=============
+" the L I T T L E things "
+	* Build fixes [Chris]
+	* Update docs [Glynn]
+	* Fix progress dialog with auto-close [Glynn]
+	* New and updated translations 
+		- Duarte Loreto [pt]
+		- Raphael Higino [pt_BR]
+		- Tommi Vainikainen [fi]
+		- Ole Laursen [da]
+		- Kostas Papadimas [el]
+		- Changwoo Ryu [ko]
+		- David Lodge [en_GB]
+		- Adam Weinberger [en_CA]
+		- Christian Rose [sv]
+
+Zenity 2.9.90
+=============
+" Up yer bum! "
+	* Fix stdin on the tree dialog [Ed]
+	* Misc updates [Glynn]
+	* New and updated translations 
+		- Hendrik Richter [de]
+		- Priit Laes [et]
+		- Funda Wang [zh_CN]
+		- Vincent van Adrighem [nl]
+
+Zenity 2.9.2
+============
+" New Year Zenolutions "
+	* Pre-load current dates in the calendar, because 
+	  gtk_calendar* is dumb [Glynn]
+	* Correct error message for notification icon [Glynn]
+	* New and updated translations
+		- Takeshi AIHANA [ja]
+		- Kjartan Maraas [nb, no]
+		- Adam Weinberger [en_CA]
+		- Miloslav Trmac [cs]
+		- Marcel Telka [sk]
+		- Leonid Kanter [ru]
+		- Žygimantas Beručka [lt]
+		- Francisco Javier F. Serrador [es]
+		- Christophe Merlet, Baptiste Mille-Mathias [fr]
+
+Zenity 2.9.1
+============
+" Happy Christmas, GNOME "
+	* Add code to listen for commands on stdin and update
+	  the notification area icon [James]
+	* ANSIfication [Kjartan]
+	* Fix documentation [Lucas]
+	* Check the xterm ID is valid for the current display [Ross]
+	* Add goption support [Lucas]
+	* Don't use utf-8 at the commandline [Leonardo]
+	* Miscellaneous fixes [Glynn, Christian]
+	* New and updated translations
+		- Takeshi AIHANA [ja]
+		- Roozbeh Pournader, Meelad Zakaria [fa]
+		- Dmitry G. Mastrukov, Leonid Kanter [ru]
+		- Adam Weinberger [en_CA]
+		- Miloslav Trmac [cs]
+		- Marcel Telka [sk]
+		- David Lodge [en_GB]
+		- Laurent Dhima [sq]
+		- Mohammad DAMT [id]
+		- Vincent van Adrighem [nl]
+		- Danilo Šegan [sr, sr@Latn]
+		- Francisco Javier F. Serrador [es]
+		- Hendrik Richter [de]
+		- Martin Willemoes Hansen [da]
+		- Simos Xenitellis [el]
+		- Žygimantas Beručka [lt]
+		- Alexander Shopov, Rostislav Raykov [bg]
+		- Christian Rose [sv]
+ 
+Zenity 2.9.0
+============
+" Zen Translation "
+	* Add support for save file selection [Lucas]
+	* Add support for directory-only selection [Lucas]
+	* Add support for notification area [Glynn]
+
+Zenity 2.8.0
+============
+" Zen Elimination "
+	* Add new translations [Abel]
+	* New and updated translations
+		- Takeshi AIHANA [ja]
+		- Hendrik Richter [de]
+		- Raphael Higino [pt_BR]
+		- Miloslav Trmac [cs]
+		- Kostas Papadimas [el]
+		- David Lodge [en_GB]
+		- Mugurel Tudor [ro]
+		- Vincent van Adrighem [nl]
+		- Arafat Medini [ar]
+		- Priit Laes [et]
+		- Baris Cicek [tr]
+		- Abel Cheung [zh_TW]
+		- Dafydd Harries [cy]
+
+Zenity 2.7.91
+=============
+" Here I stand, sad and free "
+
+	* Updated online documentation [Breda, Glynn]
+	* Fix translator-credits string [Christian, Glynn]
+	* Update man pages [Glynn]
+	* New and updated translations
+		- Maxim Dziumanenko [uk]
+		- Alessio Frusciante, Stefano Canepa [it]
+		- Sami Pesonen [fi]
+		- Martin Willemoes Hansen [da]
+		- Jordi Mallach [ca]
+		- Danilo Šegan [sr, sr@Latn]
+		- Kjartan Maraas [nb, no]
+		- Laurent Dhima [sq]	
+		- Hasbullah Bin Pit [ms]
+		- Laszlo Dvornik [hu]
+		- Christian Rose [sv]
+		- Christian Rose, Kemal Sanjta [bs]
+		- Metin Amiroff, Mətin Əmirov [az]
+		- Ankit Patel [gu]
+		- Francisco Javier F. Serrador [es]	
+		- Duarte Loreto [pt]
+		- Changwoo Ryu [ko]
+		- Miloslav Trmac [cs]
+		- Adam Weinberger [en_CA]
+		- Funda Wang [zh_CN]
+		- Artur Flinta [pl]
+		- Marcel Telka [sk]
+		
+Zenity 2.7.90
+============
+" Let's sit down to find out where we stand "
+
+	* New and updated translations
+		- Laurent Dhima [sq]
+		- Iñaki Larrañaga [eu]
+		- Takeshi AIHANA [ja]
+		- Alexander Winston [en_CA]
+		- Guntupalli Karunakar [hi]
+		- Miloslav Trmac [cs]
+		- Vincent van Adrighem [nl]
+		- Christian Rose [sv]
+		- Duarte Loreto [pt]
+		- Gareth Owen [en_GB]
+		- Laszlo Dvornik [hu]
+		- Kjartan Maraas [no]	
+		- Francisco Javier F. Serrador [es]
+
+Zenity 2.7.0
+============
+" You know what, I think I might stay here a little longer "
+
+	* Parsing typos [Paul Bolle]
+	* Send HUP to parent in progress dialog [Luke Suchocki]
+	* Compilation fixes [Ivan Noris]
+	* Use markup in message dialogs so that we get nice 
+	  HIG compliatn dialogs [Sebastian Heinlein]
+	* Documentation fixes [Baptiste Mille-Mathias]
+	* Remove duplicate headers [Leonardo Boshell]
+	* Add --print-column option for list dialog [Paul Bolle, Glynn]
+	* Miscellaneous cleanups [Paul Bolle]
+	* New and updated translations
+		- Rostislav Raykov, Alexander Shopov [bg]
+		- Ahmad Riza H Nst, Mohammad DAMT [id]
+		- John C Barstow [mi]
+
+Zenity 2.6.2
+============
+" Look what you've gone and done "
+
+	* Make dialogs transients of parent xterm [Sebastian Kapfer]
+	* Fix up the dialogs according to the HIG [Sebastian Heinlein]
+	* Add --text to the list dialog, it was mostly implemented 
+	  but never hooked up [Glynn]
+	* New and updated translations
+		- Adam Weinberger [en_CA]
+		- Duarte Loreto [pt]
+		- Vincent van Adrighem [nl]
+
+Zenity 2.6.1
+============
+" Okay, so I didn't get to Rottnest! "
+
+	* Fix up scrollkeeper issues [Glynn]
+	* Fix up help docs [Ross, Matt]
+	* New and updated translations
+		- David Fernandez Vaamonde, Jesus Bravo Alvarez [gl]
+		- Guntupalli Karunakar [gu]
+		- Adam Weinberger [en_CA]
+		- Yogeesh MB [kn]
+
+Zenity 2.6.0
+============
+" Roll on Rottnest! "
+
+	* Fix up dialog sizes [Darren, Glynn]
+	* Add Serbian help docs [Danilo]
+	* New and updated translations
+		- Alexander Winston [en_CA]
+		- Kostas Papadimas, Nikos Charonitakis [el]
+		- Telsa Gwynne, Dafydd Tomos [cy]
+		- Andras Timar [hu]
+		- Mugurel Tudor [ro]
+
+Zenity 2.5.91
+=============
+" Too old to die young "
+
+	* Use automake 1.7 now [Glynn]	
+	* Removed some unused code [Glynn]
+	* New and updated translations
+		- Mətin Əmirov [az]
+
+Zenity 2.5.90
+=============
+" Half drunk "
+
+	* Build fixes [Tomasz]
+	* Fix help, remove cruft [Glynn]
+	* THANKS [Glynn]
+	* New and updated translations
+		- Takeshi AIHANA [ja]
+		- Changwoo Ryu [ko]
+		- Robert Sedak [hr]
+		- Arafat Medini [ar]
+		- Danilo Šegan, Aleksandar Urosevic [sr, sr@Latn]
+		- Paisa Seeluangsawat, Supranee Thirawatthanasuk [th]
+		- Jarkko Ranta [fi]
+		- Laurent Dhima [sq]
+		- Kostas Papadimas [el]
+		- Priit Laes [et]
+		- Guntupalli Karunakar, Amanpreet Singh Alam [pa]
+
+Zenity 2.5.2
+============
+" Bottle half full or half empty? "
+
+	* Handle stdin on text dialog [Glynn]
+	* Build fixes [Glynn]	
+	* New and updated translations
+		- Duarte Loreto [pt]	
+		- Sanlig Badral [mn]
+		- Robert Sedak [hr]
+		- Christophe Merlet [fr]
+		- Roozbeh Pournader [fa]
+		- Christian Neumair [de]
+		- Kjartan Maraas [no]
+		- Laurent Dhima [sq]
+		- Åsmund Skjæveland [nn]		
+		- Andras Timar [hu]
+		- Funda Wang [zh_CN]
+		- Metin Amiroff [az]
+		- Laurent Dhima [sq]
+
+Zenity 2.5.1
+============
+" Zen beginnings "
+
+	* Use the new file selection widget [Jan]
+
+Zenity 1.8
+==========
+" Zenning into the new year "
+
+	* Fix quote and output bugs [Christian]
+	* New and updated translations 
+		- Sanlig Badral [mn]
+		- Tõivo Leedjärv, Priit Laes [et]
+		- Arafat Medini [ar]
+		- Christian Rose, Dhurba Gnawali [ne]
+		- Artur Flinta [pl]
+		- Danilo Šegan [sr, sr@Latn]
+		- Christian Rose [sv]
+		- Duarte Loreto [pt]
+		- Vincent van Adrighem [nl]
+		- Jordi Mallch [ca]
+		- Ole Laursen [da]
+		- Dafydd Harries [cy]
+		- Christophe Merlet [fr]
+		- Žygimantas Beručka, Tomas Kuliavas [lt]
+		- Pablo Gonzalo del Campo, Francisco Javier F. Serrador [es]
+		- Iñaki Larrañaga [eu]
+		- Marcel Telka [sk]
+		- Takeshi AIHANA [ja]
+		- Laurent Dhima [sq]
+		
+Zenity 1.7
+==========
+" Zen Revolutions "
+
+	* Hook up 'activate' on text entry [Glynn, raf@noduck.net]
+	* Fix up Solaris build [Damien]
+	* Fix up spec file [Glynn]
+	* Add locale header [Leonardo]
+	* Make dialogs resizable [Ingo]
+	* Unmark translation messages [Christian]
+	* Fix up gdialog wrapper [Peter]
+	* New and updated translations
+		- Fatih Demir [ta]
+		- Christian Rose [eu]
+		- Žygimantas Beručka, Tomas Kuliavas [lt]
+		- Sami Pesonen [fi]
+		- Pablo Saratxaga [vi]
+		- Andras Timar [hu]
+		- Guntupalli Karunakar [hi]
+		- Miloslav Trmac [cs]
+		- Jordi Mallach, Jordi Mas [ca]
+
+Zenity 1.6
+==========
+" Zen my ass "
+
+	* Fix up dialogs to use g_print instead of g_printerr [Mike]
+	* Put horizontal scrolling on automatic for list dialog [Glynn]
+	* Documentation updates [Nicholas]
+	* Fix gdialog wrapper [Buchan]
+	* Make i18n more zen [Toshi]
+	* New and updated translations
+		- Taneem Ahmed, Sayamindu [bn]
+		- Marcel Telka [sk]
+		- Takeshi AIHANA [ja]
+		- Dafydd Harries [cy]
+		- Francisco Javier F. Serrador [es]
+		- Andras Timar [hu]
+		- Jarkko Ranta [fi]
+		- Stefano Canepa [it]
+
+Zenity 1.5
+==========
+" Which came first, the zen or the mind. "
+
+	* Add call to setlocale to i18n --help [Mike]
+	* New and updated translations
+		- Guntupalli Karunakar [hi]
+		- Dmitry G. Mastrukov [ru]
+		- Paul Duffy [ga]
+		- Samúel Jón Gunnarsson [is]
+		- Danilo Šegan [sr, sr@Latn]
+		- Evandro Fernandes Giovanini [pt_BR]
+		- Metin Amiroff [az]
+		- Changwoo Ryu [ko]
+
+Zenity 1.4
+===========
+" There's no zen like home. "
+
+	* Implement autoclose for progress dialogs [Mike]
+	* Add --help option to gdialog wrapper [Mike]
+	* Fix up some build warnings [Ross, Glynn]
+	* Untranslate some silly strings [Kjartan, Glynn]
+	* Allow environmental variables to define return values [Mike]
+	* Allow environmental variables to define return values [Mike]
+	* Add --multiple for file selection dialogs [Mike]
+	* Update docs [Mike]
+	* Wrap gdialog with dialog if not in X window [Kevin]
+	* Allow the use of \t and \n in dialogs [Mike]
+	* Miscellaneous fixes [Glynn, Mike, Yann]
+	* New and updated translations 
+		- Changwoo Ryu [ko]
+		- Laurent Dhima [sq]
+		- Dafydd Harries [cy]
+		- Andras Timar [hu]
+		- Hasbullah Bin Pit [ms]
+		- Christophe Merlet [fr]
+		- Wang Jian [zh_CN]
+		- Dmitry G Mastrukov [be]
+		- Metin Amiroff [az]
+		- Vincent van Adrighem [nl]
+		- Jordi Mallach [ca]
+		- Christian Rose [sv]
+		- Kjartan Maraas [no]
+		- Miloslav Trmac [cs]
+		- Mike Newman [en_GB]
+		- Francisco Javier F Serrador [es]
+		- Duarte Loreto [pt]
+		- Ole Laursen [da]
+		- Artur Flinta [pl]
+		- Stefano Canepa [it]
+		- Kostas Papadimas [el]
+		- Abel Chung [zh_TW]
+		- Christian Neumair [de]
+		- Baptiste Mille-Mathias [fr]
+
+Zenity 1.3
+==========
+
+" Don't scale the mountain seeking wisdom, when the answer lies at your feet. "
+
+	* Fix support for --checklist and --radiolist in gdialog wrapper script [Mike]
+	* Add support for --menu in gdialog wrapper script [Mike]
+	* Fix support for --textbox and add support for --seperate-output in gdialog
+	  wrapper script [Mike]
+	* Correct help documentation to using --title [Dagmar]
+	* Send a SIGHUP to parent process when using the progress dialog [Glynn]
+	* Make OK button sensitive at 100% when using progress dialog [Mike]
+	* Indentation whitespace hacking [Mike]
+	* Add support for --width and --height  in gdialog wrapper script [Mike]
+	* Enable the installation of the gdialog wrapper script by default [Mike]
+	* Fix #113706 for the elastic resize in the progres dialog [Glynn]
+	* Update man page [Glynn]
+
+Zenity 1.2
+==========
+
+" Learning Zen is a phenomenon of gold and dung. Before you understand it, 
+  it's like gold; after you understand it, it's like dung. "
+
+  	* Make progress dialog handle stdin properly [Glynn]
+	* Update command line messages [Glynn]
+	* Add wrapping of text to error and info dialogs [Glynn]
+	* Miscellaneous list dialog fixes [Glynn]
+	* Updated help documentation [Glynn]
+	* Add gdialog wrapper script [Mike]
+	* New and updated translations
+		- Danilo Segan [sr, sr@Latn]
+		- KAMAGASAKO Masatoshi [ja]
+		- Miloslav Trmac [cs]
+		- Ole Laursen [da]
+		- Christian Rose [sv]
+		- Duarte Loreto [pt]
+		- Abel Cheung [zh_TW]
+		- Zbigniew Chyla [pl]
+		- Christian Neumair [de]
+		- Jordi Mallach [ca]
+
+Zenity 1.1
+==========
+
+" In life it is the not the destination that matters, but the journey."
+
+	* New spec file [Mihai, Glynn]
+	* Zen monk [Glynn]
+	* New man pages [Ross]
+	* Mass zen indentations [Glynn]
+	* Add new --width and --height options for dialogs [Glynn]
+	* Fix up radio list dialog so that it's more intuitive to use [Glynn]
+	* Make list dialog handle stdin [Glynn]
+	* New and updated translations
+		- Daniel Yacob [am]
+		- Christian Neumair [de]
+		- Yuriy Syrota [uk]
+		- Miloslav Trmac [cs]
+		- Takeshi AIHANA [ja]
+		- Duarte Loreto [pt]
+		- Zbigniew Chyla [pl]
+		- Evandro Fernandes Giovanini [pt_BR]
+		- Alessio Frusciante, Stefano Canepa [it]
+		- Jordi Mallach [ca]
+		- Duarte Loreto [pt]
+		- Zbigniew Chyla [pl]
+		- Kostas Papadimas [el]
+		- Abel Cheung [zh_TW]
+		- Francisco Javier Fernandez, Pablo Gonzalo del Campo [es]
+		- Vincent van Adrighem [nl]
+		- Ole Laursen [da]
+		- Christian Rose [sv]
+
+Zenity 1.0
+==========
+
+" The obstacle is the path. "
+
+Zen Dialogs -
+=============
+Calendar, Text Entry, Error, Informational, File Selection, List, Progress,
+Question, Text Information and Warning.
+
+See 'zenity --about' and Help for more details of how to use Zenity.
+
+Zen Thanks -
+============
+	* Mike Newman and John Fleck for their direct help.
+	* Jonathan Blandford, Anders Carlsson, James Henstridge, Havoc Pennington,
+	  Kristian Rietveld, Jakub Steiner and Tom Tromey for their indirect help.
+
+Zen Translations -
+==================
+	* Vincent van Adrighem, Pablo Gonzalo del Campo, Abel Cheung, Ole Laursen,
+	  Kjartan Maraas, Christian Rose and Pablo Saratxaga for their wonderful 
+	  translations.
