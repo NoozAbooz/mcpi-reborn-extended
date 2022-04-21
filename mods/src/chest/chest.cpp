@@ -34,18 +34,18 @@ static int32_t MyTile_use(__attribute__((unused)) unsigned char *tile, __attribu
     // Black Magic To Make API Work
     // unsigned char is_server_player = *(unsigned char *) (player + Player_is_server_property_offset);
     
-    if (!is_server_player) {
-        unsigned char *minecraft = *(unsigned char **) (player + LocalPlayer_minecraft_property_offset);
+#ifndef MCPI_SERVER_MODE
+    unsigned char *minecraft = *(unsigned char **) (player + LocalPlayer_minecraft_property_offset);
 
-        // Print Coords To Chat
-        char *str = NULL;
-        safe_asprintf(&str, "Cursed Chest Location: %i %i %i", x, y, z);
-        send_api_chat_command(minecraft, str);
-        free(str);
-    }
-    
+    // Print Coords To Chat
+    char *str = NULL;
+    safe_asprintf(&str, "Cursed Chest Location: %i %i %i", x, y, z);
+    send_api_chat_command(minecraft, str);
+    free(str);
+
     // Log To Console
     INFO("Cursed Chest location: %i %i %i", x, y, z);
+#endif
 
     return 1;
 }
