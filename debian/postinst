@@ -1,3 +1,20 @@
+info() {
+  echo -e "$(tput smul)$(tput setaf 6)$(tput bold)$1$(tput sgr0)"
+}
+
+warning() {
+  echo -e "$(tput setaf 3)$(tput bold)$1$(tput sgr0)"
+  sleep 2
+  true
+}
+
+error() {
+  echo -e "$(tput setaf 1)$(tput bold)$1$(tput sgr0)"
+  exit 1
+}
+
+info "Installing sound support..."
+
 for u in /home/*
 do
     n="`basename ${u}`"
