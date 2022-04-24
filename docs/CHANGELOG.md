@@ -1,12 +1,15 @@
 # Changelog
 
+**2.3.5-1**
+* Hotfix To Fix `postinst` On DEB Installation
+
 **2.3.5**
 * Renamed Some Feature Flags
-* Add `Improved Title Background` Feature Flag (Enabled By Default)
+* Add ``Improved Title Background`` Feature Flag (Enabled By Default)
 * Non-Touch GUI Rework
-  * Make `Full Touch GUI` Feature Flag (Enabled By Default)
-  * Add `Force Touch GUI Button Behavior` Feature Flag (Enabled By Default)
-  * Add `Improved Button Hover Behavior` Feature Flag (Enabled By Default)
+  * Make ``Full Touch GUI`` Feature Flag (Enabled By Default)
+  * Add ``Force Touch GUI Button Behavior`` Feature Flag (Enabled By Default)
+  * Add ``Improved Button Hover Behavior`` Feature Flag (Enabled By Default)
 
 **2.3.4**
 * AppImage Fixes

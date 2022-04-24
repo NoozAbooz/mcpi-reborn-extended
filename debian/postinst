@@ -1,31 +1,19 @@
-info() {
-  echo -e "$(tput smul)$(tput setaf 6)$(tput bold)$1$(tput sgr0)"
-}
-
-warning() {
-  echo -e "$(tput setaf 3)$(tput bold)$1$(tput sgr0)"
-  sleep 2
-  true
-}
-
-error() {
-  echo -e "$(tput setaf 1)$(tput bold)$1$(tput sgr0)"
-  exit 1
-}
-
-info "Installing sound support..."
+# Sound
+echo "$(tput smul)$(tput setaf 6)$(tput bold)Installing sound support...$(tput sgr0)"
 
 for u in /home/*
 do
-    n="`basename ${u}`"
-    if ! getent passwd "$n" >/dev/null
-    then
-        # not a real user, ignore
-        continue
-    fi
+  n="`basename ${u}`"
+  if ! getent passwd "$n" >/dev/null
+  then
+    # not a real user, ignore
+    continue
+  fi
 
-    mkdir -p "${u}/.minecraft-pi/"
-    mkdir -p "${u}/.minecraft-pi/overrides"
+  mkdir -p "${u}/.minecraft-pi/"
+  mkdir -p "${u}/.minecraft-pi/overrides"
 
-    mv /usr/lib/minecraft-pi-reborn-client/libminecraftpe.so "${u}/.minecraft-pi/overrides/libminecraftpe.so" || warn "Could not move sound lib! Ask for support on Discord."
+  if [ -e "/usr/lib/minecraft-pi-reborn-client/libminecraftpe.so" ]; then
+    mv /usr/lib/minecraft-pi-reborn-client/libminecraftpe.so "${u}/.minecraft-pi/overrides/libminecraftpe.so"
+  fi
 done

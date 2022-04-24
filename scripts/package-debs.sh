@@ -12,7 +12,10 @@ package() {
     rm -rf "${dir}/DEBIAN"
     mkdir -p "${dir}/DEBIAN"
     cp "debian/$1" "${dir}/DEBIAN/control"
-    cp "debian/postinst" "${dir}/DEBIAN/postinst"
+
+    if [[ $1 == *"client"* ]]; then
+        cp "debian/postinst" "${dir}/DEBIAN/postinst"
+    fi
 
     # Format DEBIAN/control
     sed -i "s/\${VERSION}/${VERSION}/g" "${dir}/DEBIAN/control"
