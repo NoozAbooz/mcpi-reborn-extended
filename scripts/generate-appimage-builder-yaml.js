@@ -11,7 +11,7 @@ const fs = require('fs');
 const version = fs.readFileSync('VERSION', 'utf8').trim();
 
 // Data
-const id = `com.mobilegmyt.mcpi-reborn-extended${mode === 'server' ? 'Server' : 'Client'}`;
+const id = `com.thebrokenrail.MCPIReborn${mode === 'server' ? 'Server' : 'Client'}`;
 const name = `minecraft-pi-reborn-${mode}`;
 
 // APT Data

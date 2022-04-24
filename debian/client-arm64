@@ -1,7 +1,9 @@
 Package: minecraft-pi-reborn-client
 Version: ${VERSION}
+Architecture: arm64
 Maintainer: Nooz <zhengm58@gmail.com>
 Description: Community mod of MCPI-Reborn
 Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
-Architecture: arm64
-Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, patchelf
+Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, patchelf, python3-minecraftpi
+Section: games
+Priority: optional
