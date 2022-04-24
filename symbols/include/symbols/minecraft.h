@@ -468,6 +468,11 @@ static uint32_t FurnaceScreen_tile_entity_property_offset = 0x1d0; // FurnaceTil
 typedef ItemInstance *(*FurnaceTileEntity_getItem_t)(unsigned char *furnace_tile_entity, int32_t slot);
 static uint32_t FurnaceTileEntity_getItem_vtable_offset = 0x2c;
 
+// GuiComponent
+
+typedef void (*GuiComponent_blit_t)(unsigned char *component, int32_t x_dest, int32_t y_dest, int32_t x_src, int32_t y_src, int32_t width_dest, int32_t height_dest, int32_t width_src, int32_t height_src);
+static GuiComponent_blit_t GuiComponent_blit = (GuiComponent_blit_t) 0x282a4;
+
 // Screen
 
 typedef void (*Screen_updateEvents_t)(unsigned char *screen);
@@ -483,11 +488,25 @@ typedef void (*Screen_init_t)(unsigned char *screen);
 
 typedef void (*Screen_tick_t)(unsigned char *screen);
 
+typedef void (*Screen_render_t)(unsigned char *screen, int32_t param_1, int32_t param_2, float param_3);
+
 typedef int32_t (*Screen_handleBackEvent_t)(unsigned char *screen, bool param_1);
 
 static uint32_t Screen_minecraft_property_offset = 0x14; // Minecraft *
 static uint32_t Screen_rendered_buttons_property_offset = 0x18; // std::vector<Button *>
 static uint32_t Screen_selectable_buttons_property_offset = 0x30; // std::vector<Button *>
+static uint32_t Screen_width_property_offset = 0x8; // int32_t
+static uint32_t Screen_height_property_offset = 0xc; // int32_t
+
+// Button
+
+typedef int32_t (*Button_hovered_t)(unsigned char *button, unsigned char *minecraft, int32_t click_x, int32_t click_y);
+static Button_hovered_t Button_hovered = (Button_hovered_t) 0x1be2c;
+
+static uint32_t Button_width_property_offset = 0x14; // int32_t
+static uint32_t Button_height_property_offset = 0x18; // int32_t
+static uint32_t Button_x_property_offset = 0xc; // int32_t
+static uint32_t Button_y_property_offset = 0x10; // int32_t
 
 // StartMenuScreen
 
@@ -756,6 +775,11 @@ static Level_addParticle_t Level_addParticle = (Level_addParticle_t) 0xa449c;
 typedef void (*Gui_addMessage_t)(unsigned char *gui, std::string const& text);
 static Gui_addMessage_t Gui_addMessage = (Gui_addMessage_t) 0x27820;
 
+// GuiComponent
+
+typedef void (*GuiComponent_drawCenteredString_t)(unsigned char *component, unsigned char *font, std::string const& text, int32_t x, int32_t y, int32_t color);
+static GuiComponent_drawCenteredString_t GuiComponent_drawCenteredString = (GuiComponent_drawCenteredString_t) 0x2821c;
+
 // ServerSideNetworkHandler
 
 typedef void (*ServerSideNetworkHandler_displayGameMessage_t)(unsigned char *server_side_network_handler, std::string const& message);
@@ -809,6 +833,11 @@ static uint32_t OptionsFile_options_txt_path_property_offset = 0x0; // std::stri
 
 typedef void (*OptionsPane_unknown_toggle_creating_function_t)(unsigned char *options_pane, unsigned char *unknown_object, std::string const& name, unsigned char *option);
 static OptionsPane_unknown_toggle_creating_function_t OptionsPane_unknown_toggle_creating_function = (OptionsPane_unknown_toggle_creating_function_t) 0x24470;
+
+// Textures
+
+typedef void (*Textures_loadAndBindTexture_t)(unsigned char *textures, std::string const& name);
+static Textures_loadAndBindTexture_t Textures_loadAndBindTexture = (Textures_loadAndBindTexture_t) 0x539cc;
 
 #endif
 
