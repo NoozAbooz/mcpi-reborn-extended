@@ -27,5 +27,5 @@ do
     mkdir -p "${u}/.minecraft-pi/"
     mkdir -p "${u}/.minecraft-pi/overrides"
 
-    mv /usr/lib/minecraft-pi-reborn-client/libminecraftpe.so "${u}/.minecraft-pi/overrides/libminecraftpe.so"
+    mv /usr/lib/minecraft-pi-reborn-client/libminecraftpe.so "${u}/.minecraft-pi/overrides/libminecraftpe.so" || warn "Could not move sound lib! Ask for support on Discord."
 done
