@@ -56,86 +56,86 @@ Vcs-Browser: https://github.com/MCPI-Revival/gMCPIL
 Vcs-Git: https://github.com/MCPI-Revival/gMCPIL.git
 
 Package: minecraft-pi-reborn-client
-Version: 2.3.5
+Version: 2.3.5-1
 Architecture: arm64
 Maintainer: Nooz <zhengm58@gmail.com>
 Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, patchelf, python3-minecraftpi
-Filename: ./minecraft-pi-reborn-client_2.3.5_arm64.deb
-Size: 6108480
-MD5sum: 201c7d835f937453c0727374de904dae
-SHA1: ff6a9337ca42382d88b02b7e006bb2c43987b04e
-SHA256: 38722e7e7c2562d96b4e3529bfc8a38c31e580c4393e5d435d3944b6bcee49b6
+Filename: ./minecraft-pi-reborn-client_2.3.5-1_arm64.deb
+Size: 6105520
+MD5sum: 70b4db346225f147c02ed5f723dbc16b
+SHA1: 55aacc5419dbe921f30a167e0d2b347783094d2e
+SHA256: d0406428e8a9bc1241f03c58f1a08ac4866f7c801184acf32125ec5dbea1c444
 Section: games
 Priority: optional
 Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
 Description: Community mod of MCPI-Reborn
 
 Package: minecraft-pi-reborn-client
-Version: 2.3.5
-Architecture: armhf
-Maintainer: Nooz <zhengm58@gmail.com>
-Depends: libc6, libstdc++6, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, patchelf, python3-minecraftpi
-Filename: ./minecraft-pi-reborn-client_2.3.5_armhf.deb
-Size: 6080280
-MD5sum: 2bd592a765034abc2434612f86cf9b67
-SHA1: 4672d1ecc27d768b6df877c4061d7afc5b12ac16
-SHA256: 38aab226c44bc48c4f76f23a14adb60b30bc00b20a7cf27685b6252f032afd19
-Section: games
-Priority: optional
-Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
-Description: Community mod of MCPI-Reborn
-
-Package: minecraft-pi-reborn-client
-Version: 2.3.5
+Version: 2.3.5-1
 Architecture: amd64
 Maintainer: Nooz <zhengm58@gmail.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, qemu-user, patchelf, python3-minecraftpi
-Filename: ./minecraft-pi-reborn-client_2.3.5_amd64.deb
-Size: 6112496
-MD5sum: c6f84b715e96711e6e3fefb6638712ab
-SHA1: 04dc02b919ee21fe5c9b49ab8cbdcbeed20d9ab2
-SHA256: 7678c9bc5f1ce867902ce8aaaecf7b9e249f7af57ba3dd376c8dc724e18c945c
+Filename: ./minecraft-pi-reborn-client_2.3.5-1_amd64.deb
+Size: 6113696
+MD5sum: cca9b73b50b38cf859699fbaa9059f4c
+SHA1: 610fa0b36e768403bc7a1533c5a1e2f50e135d5d
+SHA256: 1f99730bba68201cd702f7d42114d5e4f8e494225712b1d8b7815025c345f7c6
+Section: games
+Priority: optional
+Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
+Description: Community mod of MCPI-Reborn
+
+Package: minecraft-pi-reborn-client
+Version: 2.3.5-1
+Architecture: armhf
+Maintainer: Nooz <zhengm58@gmail.com>
+Depends: libc6, libstdc++6, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, patchelf, python3-minecraftpi
+Filename: ./minecraft-pi-reborn-client_2.3.5-1_armhf.deb
+Size: 6081816
+MD5sum: b5fe6e4897dc6d683f4177124aef10a1
+SHA1: 61230883bc9f56ba3f0fcf4d9bee8a55411c196a
+SHA256: 24815b4481b74ff8c121b5a58638c2cb0395f9bb52140065b7bc63ece4c8273f
 Section: games
 Priority: optional
 Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
 Description: Community mod of MCPI-Reborn
 
 Package: minecraft-pi-reborn-server
-Version: 2.3.5
-Architecture: armhf
-Maintainer: Nooz <zhengm58@gmail.com>
-Depends: libc6, libstdc++6, patchelf
-Filename: ./minecraft-pi-reborn-server_2.3.5_armhf.deb
-Size: 5648968
-MD5sum: 974b4cec00b288f95d536abaa3b25782
-SHA1: 38a428cd2230792dfdf56df833889fae0430471a
-SHA256: b863758927433d8d839b274a389f664f1ac5f08f83a46786aa54a2c80fdde87e
-Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
-Description: Modded server for Minecraft Pi Edition
-
-Package: minecraft-pi-reborn-server
-Version: 2.3.5
-Architecture: amd64
-Maintainer: Nooz <zhengm58@gmail.com>
-Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user, patchelf
-Filename: ./minecraft-pi-reborn-server_2.3.5_amd64.deb
-Size: 5650228
-MD5sum: 56370c72e62424dab3db449718f4a760
-SHA1: 9fdc29b16be27abb94feb53cf26ec9dd0678f9de
-SHA256: 64ad0fda84a29b0ba156eca0404292c5e236b941c3ac3e9b7eed5b2b472d3884
-Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
-Description: Modded server for Minecraft Pi Edition
-
-Package: minecraft-pi-reborn-server
-Version: 2.3.5
+Version: 2.3.5-1
 Architecture: arm64
 Maintainer: Nooz <zhengm58@gmail.com>
 Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf, patchelf
-Filename: ./minecraft-pi-reborn-server_2.3.5_arm64.deb
-Size: 5650224
-MD5sum: b5d378fa483dbcbec3c44c1c843bf331
-SHA1: 59bd2754290c0b8aab733957544265a474c95d19
-SHA256: f9c9e63b36a0c3e59e02789759e3d166ee671227aa98310bea581fae11dc18fd
+Filename: ./minecraft-pi-reborn-server_2.3.5-1_arm64.deb
+Size: 5647548
+MD5sum: b221e7ffe66a8877141c69d77f3ad8a2
+SHA1: c09474683a1c72131574a8d5db16465b191985a7
+SHA256: a533641ac3c3b31daeab33536db5c86df507c0ef4dd342387559ddd97d34c897
+Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
+Description: Modded server for Minecraft Pi Edition
+
+Package: minecraft-pi-reborn-server
+Version: 2.3.5-1
+Architecture: amd64
+Maintainer: Nooz <zhengm58@gmail.com>
+Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user, patchelf
+Filename: ./minecraft-pi-reborn-server_2.3.5-1_amd64.deb
+Size: 5647100
+MD5sum: fd2e3ac1baa7d38dde477cdd695beb2e
+SHA1: 96e276b04a8135ebddcdcc17d9b95b261f6eec32
+SHA256: 754a265d735d1a135ae28bfa07b72bf22bdf424d0f527dd56c61a0279112cd1c
+Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
+Description: Modded server for Minecraft Pi Edition
+
+Package: minecraft-pi-reborn-server
+Version: 2.3.5-1
+Architecture: armhf
+Maintainer: Nooz <zhengm58@gmail.com>
+Depends: libc6, libstdc++6, patchelf
+Filename: ./minecraft-pi-reborn-server_2.3.5-1_armhf.deb
+Size: 5646396
+MD5sum: a09b2e01f8f780ba8e10009952806d0e
+SHA1: 6f536674c086974fb83442e2c44a512b1eb36e30
+SHA256: 5dd5ff0a8fb5482df92628a4bf8eec8f4a6e4c3b30a8409f7f6e5012713c5212
 Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
 Description: Modded server for Minecraft Pi Edition
 
