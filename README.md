@@ -3,7 +3,7 @@ This is a fork of [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/mi
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label=Get%20support%20on)](https://discord.gg/XJJNG9jTuh)
 
-![](screenshot.png)
+![image](https://user-images.githubusercontent.com/44128563/165000450-98723465-8454-44e3-8789-22eb5db33947.png)
 
 Source code and documentation is in the [source](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/source) branch.
 
