@@ -449,7 +449,7 @@ static void *TextEditScreen_updateEvents_vtable_addr = (void *) 0x10531c;
 
 #define PROGRESS_SCREEN_SIZE 0x4c
 
-typedef void *(*ProgressScreen_t)(unsigned char *obj);
+typedef unsigned char *(*ProgressScreen_t)(unsigned char *obj);
 static ProgressScreen_t ProgressScreen = (ProgressScreen_t) 0x37044;
 
 // OptionsScreen
@@ -779,6 +779,11 @@ static Gui_addMessage_t Gui_addMessage = (Gui_addMessage_t) 0x27820;
 
 typedef void (*GuiComponent_drawCenteredString_t)(unsigned char *component, unsigned char *font, std::string const& text, int32_t x, int32_t y, int32_t color);
 static GuiComponent_drawCenteredString_t GuiComponent_drawCenteredString = (GuiComponent_drawCenteredString_t) 0x2821c;
+
+// Button
+
+typedef unsigned char *(*Button_t)(unsigned char *button, int32_t param_1, std::string const& text);
+static Button_t Button = (Button_t) 0x1bc54;
 
 // ServerSideNetworkHandler
 

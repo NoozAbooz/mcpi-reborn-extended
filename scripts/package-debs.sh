@@ -13,8 +13,12 @@ package() {
     mkdir -p "${dir}/DEBIAN"
     cp "debian/$1" "${dir}/DEBIAN/control"
 
-    if [[ $1 == *"client"* ]]; then
+    if [ $1 == *"client"* ]; then
         cp "debian/postinst" "${dir}/DEBIAN/postinst"
+    fi
+
+    if [ $1 == *"server"* ]; then
+        rm "${dir}/usr/lib/minecraft-pi-reborn-server/libminecraftpe.so"
     fi
 
     # Format DEBIAN/control

@@ -123,6 +123,11 @@ static void run_zenity_and_set_env(const char *env_name, std::vector<std::string
 }
 
 // Launch
+#define FEATURE_DIALOG_WIDTH "500"
+#define FEATURE_DIALOG_HEIGHT "900"
+
+#define DISTANCE_DIALOG_SIZE "200"
+
 int main(int argc, char *argv[]) {
     // Pre-Bootstrap
     pre_bootstrap();
@@ -165,9 +170,9 @@ int main(int argc, char *argv[]) {
         command.push_back("--list");
         command.push_back("--checklist");
         command.push_back("--width");
-        command.push_back("500");
+        command.push_back(FEATURE_DIALOG_WIDTH);
         command.push_back("--height");
-        command.push_back("800");
+        command.push_back(FEATURE_DIALOG_HEIGHT);
         command.push_back("--column");
         command.push_back("Enabled");
         command.push_back("--column");
@@ -196,11 +201,11 @@ int main(int argc, char *argv[]) {
         command.push_back("--list");
         command.push_back("--radiolist");
         command.push_back("--width");
-        command.push_back("200");
+        command.push_back(DISTANCE_DIALOG_SIZE);
         command.push_back("--height");
-        command.push_back("200");
+        command.push_back(DISTANCE_DIALOG_SIZE);
         command.push_back("--text");
-        command.push_back("Minecraft Render Distance:");
+        command.push_back("Select Minecraft Render Distance:");
         command.push_back("--column");
         command.push_back("Selected");
         command.push_back("--column");
@@ -221,7 +226,7 @@ int main(int argc, char *argv[]) {
         std::vector<std::string> command;
         command.push_back("--entry");
         command.push_back("--text");
-        command.push_back("Minecraft Username:");
+        command.push_back("Enter Minecraft Username:");
         command.push_back("--entry-text");
         command.push_back("AlexPi");
         // Run

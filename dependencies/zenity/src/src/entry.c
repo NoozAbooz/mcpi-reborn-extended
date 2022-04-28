@@ -21,6 +21,8 @@
  * Authors: Glynn Foster <glynn.foster@sun.com>
  */
 
+#include <ctype.h>
+
 #include "util.h"
 #include "zenity.h"
 
@@ -43,6 +45,22 @@ zenity_entry_fill_entries (GSList **entries, const gchar **args) {
 static void
 zenity_entry_combo_activate_default (GtkEntry *entry, gpointer window) {
 	gtk_window_activate_default (GTK_WINDOW (window));
+}
+
+static void
+zenity_entry_insert_text_event (GtkEditable *editable, const gchar *text,
+	gint length, gint *position, gpointer data) {
+	int i = 0;
+	if (gtk_editable_get_position (editable) == 0 && text[0] == '-' &&
+		gtk_entry_get_text (GTK_ENTRY (editable))[0] != '-') {
+		i++;
+	}
+	for (; i < length; i++) {
+		if (!isdigit (text[i])) {
+			g_signal_stop_emission_by_name (G_OBJECT (editable), "insert-text");
+			return;
+		}
+	}
 }
 
 void
@@ -133,6 +151,12 @@ zenity_entry (ZenityData *data, ZenityEntryData *entry_data) {
 			"activate",
 			G_CALLBACK (zenity_entry_combo_activate_default),
 			GTK_WINDOW (dialog));
+
+		if (entry_data->only_numerical)
+			g_signal_connect (G_OBJECT (gtk_bin_get_child (GTK_BIN (entry))),
+				"insert-text",
+				G_CALLBACK (zenity_entry_insert_text_event),
+				NULL);
 	} else {
 		entry = gtk_entry_new ();
 
@@ -143,6 +167,12 @@ zenity_entry (ZenityData *data, ZenityEntryData *entry_data) {
 
 		if (entry_data->hide_text)
 			g_object_set (G_OBJECT (entry), "visibility", FALSE, NULL);
+
+		if (entry_data->only_numerical)
+			g_signal_connect (G_OBJECT (entry),
+				"insert-text",
+				G_CALLBACK (zenity_entry_insert_text_event),
+				NULL);
 	}
 
 	gtk_widget_show (entry);

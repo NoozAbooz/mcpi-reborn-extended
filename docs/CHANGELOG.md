@@ -1,5 +1,14 @@
 # Changelog
 
+**2.3.6**
+* Fix `Invert Y-axis` Option Name
+* Improve Touch GUI Inventory In Non-Touch GUI
+* New Create World Dialog
+  * Controlled By `Implement Create World Dialog` Feature Flag (Enabled By Default)
+  * Custom World Names
+  * Game-Mode Selection
+  * Custom Seeds
+
 **2.3.5-1**
 * Hotfix To Fix `postinst` On DEB Installation
 

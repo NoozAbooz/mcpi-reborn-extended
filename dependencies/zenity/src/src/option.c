@@ -48,6 +48,7 @@ static gboolean zenity_general_modal;
 static gboolean zenity_entry_active;
 static gchar *zenity_entry_entry_text;
 static gboolean zenity_entry_hide_text;
+static gboolean zenity_entry_only_numerical;
 
 /* List Dialog Options */
 static gboolean zenity_list_active;
@@ -146,6 +147,13 @@ static GOptionEntry entry_options[] = {{"entry",
 		G_OPTION_ARG_NONE,
 		&zenity_entry_hide_text,
 		"Hide the entry text",
+		NULL},
+	{"only-numerical",
+		'\0',
+		0,
+		G_OPTION_ARG_NONE,
+		&zenity_entry_only_numerical,
+		"Only allow numerical input",
 		NULL},
 	{NULL}};
 
@@ -347,6 +355,7 @@ zenity_entry_pre_callback (GOptionContext *context, GOptionGroup *group,
 	zenity_entry_active = FALSE;
 	zenity_entry_entry_text = NULL;
 	zenity_entry_hide_text = FALSE;
+	zenity_entry_only_numerical = FALSE;
 
 	return TRUE;
 }
@@ -394,6 +403,7 @@ zenity_entry_post_callback (GOptionContext *context, GOptionGroup *group,
 		results->entry_data->dialog_text = zenity_general_dialog_text;
 		results->entry_data->entry_text = zenity_entry_entry_text;
 		results->entry_data->hide_text = zenity_entry_hide_text;
+		results->entry_data->only_numerical = zenity_entry_only_numerical;
 	} else {
 		if (zenity_entry_entry_text)
 			zenity_option_error (zenity_option_get_name (
@@ -403,6 +413,11 @@ zenity_entry_post_callback (GOptionContext *context, GOptionGroup *group,
 		if (zenity_entry_hide_text)
 			zenity_option_error (
 				zenity_option_get_name (entry_options, &zenity_entry_hide_text),
+				ERROR_SUPPORT);
+
+		if (zenity_entry_only_numerical)
+			zenity_option_error (zenity_option_get_name (entry_options,
+									 &zenity_entry_only_numerical),
 				ERROR_SUPPORT);
 	}
 
