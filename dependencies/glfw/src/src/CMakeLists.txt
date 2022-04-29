@@ -84,12 +84,12 @@ if (GLFW_BUILD_WAYLAND)
             DEPENDS "${protocol_file}"
             VERBATIM)
 
-        add_custom_command(OUTPUT "${output_file}-code.c"
-            COMMAND "${WAYLAND_SCANNER_EXECUTABLE}" private-code "${protocol_file}" "${output_file}-code.c"
+        add_custom_command(OUTPUT "${output_file}-code.h"
+            COMMAND "${WAYLAND_SCANNER_EXECUTABLE}" private-code "${protocol_file}" "${output_file}-code.h"
             DEPENDS "${protocol_file}"
             VERBATIM)
 
-        target_sources(glfw PRIVATE "${output_file}.h" "${output_file}-code.c")
+        target_sources(glfw PRIVATE "${output_file}.h" "${output_file}-code.h")
     endmacro()
 
     wayland_generate(
@@ -173,7 +173,6 @@ if (GLFW_BUILD_WAYLAND)
         xkbcommon>=0.5.0)
 
     target_include_directories(glfw PRIVATE ${Wayland_INCLUDE_DIRS})
-    target_link_libraries(glfw PRIVATE ${Wayland_LIBRARIES})
 
     if (NOT CMAKE_SYSTEM_NAME STREQUAL "Linux")
         find_package(EpollShim)

@@ -172,6 +172,8 @@ information on what to include when reporting a bug.
  - Bugfix: Gamepad mapping updates could spam `GLFW_INVALID_VALUE` due to
    incompatible controllers sharing hardware ID (#1763)
  - Bugfix: Native access functions for context handles did not check that the API matched
+ - Bugfix: `glfwMakeContextCurrent` would access TLS slot before initialization
+ - Bugfix: `glfwSetGammaRamp` could emit `GLFW_INVALID_VALUE` before initialization
  - [Win32] Added the `GLFW_WIN32_KEYBOARD_MENU` window hint for enabling access
            to the window menu
  - [Win32] Added a version info resource to the GLFW DLL
@@ -205,13 +207,17 @@ information on what to include when reporting a bug.
  - [Win32] Bugfix: Content scale queries could fail silently (#1615)
  - [Win32] Bugfix: Content scales could have garbage values if monitor was recently
    disconnected (#1615)
- - [Win32] Bugfix: Key name update modified global key state on Windows 10 1607
-   and later (#2018)
  - [Win32] Bugfix: A window created maximized and undecorated would cover the whole
    monitor (#1806)
  - [Win32] Bugfix: The default restored window position was lost when creating a maximized
    window
  - [Win32] Bugfix: `glfwMaximizeWindow` would make a hidden window visible
+ - [Win32] Bugfix: `Alt+PrtSc` would emit `GLFW_KEY_UNKNOWN` and a different
+   scancode than `PrtSc` (#1993)
+ - [Win32] Bugfix: `GLFW_KEY_PAUSE` scancode from `glfwGetKeyScancode` did not
+   match event scancode (#1993)
+ - [Win32] Bugfix: Instance-local operations used executable instance (#469,#1296,#1395)
+ - [Win32] Bugfix: The OSMesa library was not unloaded on termination
  - [Cocoa] Added support for `VK_EXT_metal_surface` (#1619)
  - [Cocoa] Added locating the Vulkan loader at runtime in an application bundle
  - [Cocoa] Moved main menu creation to GLFW initialization time (#1649)
@@ -242,6 +248,8 @@ information on what to include when reporting a bug.
    a fraction of a second (#1962)
  - [Cocoa] Bugfix: `kIOMasterPortDefault` was deprecated in macOS 12.0 (#1980)
  - [Cocoa] Bugfix: `kUTTypeURL` was deprecated in macOS 12.0 (#2003)
+ - [Cocoa] Bugfix: A connected Apple AirPlay would emit a useless error (#1791)
+ - [Cocoa] Bugfix: The EGL and OSMesa libraries were not unloaded on termination
  - [X11] Bugfix: The CMake files did not check for the XInput headers (#1480)
  - [X11] Bugfix: Key names were not updated when the keyboard layout changed
    (#1462,#1528)
@@ -281,8 +289,11 @@ information on what to include when reporting a bug.
    (#379,#1281,#1285,#2033)
  - [X11] Bugfix: Dynamic loading on NetBSD failed due to soname differences
  - [X11] Bugfix: Left shift of int constant relied on undefined behavior (#1951)
+ - [X11] Bugfix: The OSMesa libray was not unloaded on termination
+ - [X11] Bugfix: A malformed response during selection transfer could cause a segfault
  - [Wayland] Added dynamic loading of all Wayland libraries
  - [Wayland] Added support for key names via xkbcommon
+ - [Wayland] Added support for file path drop events (#2040)
  - [Wayland] Removed support for `wl_shell` (#1443)
  - [Wayland] Bugfix: The `GLFW_HAND_CURSOR` shape used the wrong image (#1432)
  - [Wayland] Bugfix: `CLOCK_MONOTONIC` was not correctly enabled
@@ -306,6 +317,15 @@ information on what to include when reporting a bug.
  - [Wayland] Bugfix: Some keys were reported as wrong key or `GLFW_KEY_UNKNOWN`
  - [Wayland] Bugfix: Text input did not repeat along with key repeat
  - [Wayland] Bugfix: `glfwPostEmptyEvent` sometimes had no effect (#1520,#1521)
+ - [Wayland] Bugfix: `glfwSetClipboardString` would fail if set to result of
+   `glfwGetClipboardString`
+ - [Wayland] Bugfix: Data source creation error would cause double free at termination
+ - [Wayland] Bugfix: Partial writes of clipboard string would cause beginning to repeat
+ - [Wayland] Bugfix: Some errors would cause clipboard string transfer to hang
+ - [Wayland] Bugfix: Drag and drop data was misinterpreted as clipboard string
+ - [Wayland] Bugfix: MIME type matching was not performed for clipboard string
+ - [Wayland] Bugfix: The OSMesa library was not unloaded on termination
+ - [Wayland] Bugfix: `glfwCreateWindow` could emit `GLFW_FEATURE_UNAVAILABLE`
  - [POSIX] Removed use of deprecated function `gettimeofday`
  - [POSIX] Bugfix: `CLOCK_MONOTONIC` was not correctly tested for or enabled
  - [WGL] Disabled the DWM swap interval hack for Windows 8 and later (#1072)

@@ -24,7 +24,6 @@ static char ***feedback_vibration_options_txt_name_1 = (char ***) 0x198a0; // fe
 static char ***feedback_vibration_options_txt_name_2 = (char ***) 0x194bc; // feedback_vibration
 
 static unsigned char **Material_stone = (unsigned char **) 0x180a9c; // Material
-
 static unsigned char *SOUND_STONE = (unsigned char *) 0x181c80; // Tile::SoundType
 
 static unsigned char **Item_flintAndSteel = (unsigned char **) 0x17ba70; // Item

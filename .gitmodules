@@ -7,3 +7,6 @@
 [submodule "dependencies/zenity/src"]
 	path = dependencies/zenity/src
 	url = https://gitea.thebrokenrail.com/TheBrokenRail/zenity.git
+[submodule "dependencies/glfw/src"]
+	path = dependencies/glfw/src
+	url = https://github.com/glfw/glfw.git

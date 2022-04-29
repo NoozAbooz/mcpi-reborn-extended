@@ -30,6 +30,7 @@ video tutorials.
  - David Carlier
  - Arturo Castro
  - Chi-kwan Chan
+ - TheChocolateOre
  - Joseph Chua
  - Ian Clarkson
  - Michał Cichoń
@@ -43,6 +44,7 @@ video tutorials.
  - Noel Cower
  - CuriouserThing
  - Jason Daly
+ - danhambleton
  - Jarrod Davis
  - Olivier Delannoy
  - Paul R. Deppe
@@ -69,6 +71,7 @@ video tutorials.
  - Ryan C. Gordon
  - Stephen Gowen
  - Kovid Goyal
+ - Kevin Grandemange
  - Eloi Marín Gratacós
  - Stefan Gustavson
  - Andrew Gutekanst
@@ -82,11 +85,14 @@ video tutorials.
  - Paul Holden
  - Warren Hu
  - Charles Huber
+ - Brent Huisman
  - illustris
  - InKryption
  - IntellectualKitty
  - Aaron Jacobs
+ - JannikGM
  - Erik S. V. Jansson
+ - jjYBdx4IL
  - Toni Jovanoski
  - Arseny Kapoulkine
  - Cem Karan
@@ -157,6 +163,7 @@ video tutorials.
  - Orson Peters
  - Emmanuel Gil Peyrot
  - Cyril Pichard
+ - Pilzschaf
  - Keith Pitt
  - Stanislav Podgorskiy
  - Konstantin Podsvirov
@@ -207,6 +214,7 @@ video tutorials.
  - Jared Tiala
  - Sergey Tikhomirov
  - Arthur Tombs
+ - TronicLabs
  - Ioannis Tsakpinis
  - Samuli Tuomola
  - Matthew Turner

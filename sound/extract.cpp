@@ -1,113 +1,5 @@
-#include <vector>
 #include <string>
-
-static std::vector<std::string> sounds = {
-    "PCM_cloth1",
-    "PCM_cloth2",
-    "PCM_cloth3",
-    "PCM_cloth4",
-    "PCM_grass1",
-    "PCM_grass2",
-    "PCM_grass3",
-    "PCM_grass4",
-    "PCM_gravel1",
-    "PCM_gravel2",
-    "PCM_gravel3",
-    "PCM_gravel4",
-    "PCM_sand1",
-    "PCM_sand2",
-    "PCM_sand3",
-    "PCM_sand4",
-    "PCM_stone1",
-    "PCM_stone2",
-    "PCM_stone3",
-    "PCM_stone4",
-    "PCM_wood1",
-    "PCM_wood2",
-    "PCM_wood3",
-    "PCM_wood4",
-    "PCM_splash",
-    "PCM_explode",
-    "PCM_click",
-    "PCM_door_open",
-    "PCM_door_close",
-    "PCM_pop",
-    "PCM_pop2",
-    "PCM_hurt",
-    "PCM_glass1",
-    "PCM_glass2",
-    "PCM_glass3",
-    "PCM_sheep1",
-    "PCM_sheep2",
-    "PCM_sheep3",
-    "PCM_pig1",
-    "PCM_pig2",
-    "PCM_pig3",
-    "PCM_pigdeath",
-    "PCM_cow1",
-    "PCM_cow2",
-    "PCM_cow3",
-    "PCM_cow4",
-    "PCM_cowhurt1",
-    "PCM_cowhurt2",
-    "PCM_cowhurt3",
-    "PCM_chicken2",
-    "PCM_chicken3",
-    "PCM_chickenhurt1",
-    "PCM_chickenhurt2",
-    "PCM_zombie1",
-    "PCM_zombie2",
-    "PCM_zombie3",
-    "PCM_zombiedeath",
-    "PCM_zombiehurt1",
-    "PCM_zombiehurt2",
-    "PCM_skeleton1",
-    "PCM_skeleton2",
-    "PCM_skeleton3",
-    "PCM_skeletonhurt1",
-    "PCM_skeletonhurt2",
-    "PCM_skeletonhurt3",
-    "PCM_skeletonhurt4",
-    "PCM_spider1",
-    "PCM_spider2",
-    "PCM_spider3",
-    "PCM_spider4",
-    "PCM_spiderdeath",
-    "PCM_zpig1",
-    "PCM_zpig2",
-    "PCM_zpig3",
-    "PCM_zpig4",
-    "PCM_zpigangry1",
-    "PCM_zpigangry2",
-    "PCM_zpigangry3",
-    "PCM_zpigangry4",
-    "PCM_zpigdeath",
-    "PCM_zpighurt1",
-    "PCM_zpighurt2",
-    "PCM_fallbig1",
-    "PCM_fallbig2",
-    "PCM_fallsmall",
-    "PCM_bow",
-    "PCM_bowhit1",
-    "PCM_bowhit2",
-    "PCM_bowhit3",
-    "PCM_bowhit4",
-    "PCM_creeper1",
-    "PCM_creeper2",
-    "PCM_creeper3",
-    "PCM_creeper4",
-    "PCM_creeperdeath",
-    "PCM_eat1",
-    "PCM_eat2",
-    "PCM_eat3",
-    "PCM_fuse",
-    "PCM_burp",
-    "PCM_fizz",
-    "PCM_drink",
-    "PCM_chestopen",
-    "PCM_chestclosed"
-};
-
+#include <unordered_map>
 #include <functional>
 #include <cstdint>
 #include <cstdio>
@@ -120,7 +12,7 @@ static std::vector<std::string> sounds = {
 #define ERR(format, ...) { fprintf(stderr, "[ERR]: (%s:%i): " format "\n", __FILE__, __LINE__, __VA_ARGS__); exit(EXIT_FAILURE); }
 
 // Load Symbol From ELF File
-static void load_symbol(const char *source, const char *name, std::function<void(unsigned char *, uint32_t)> callback) {
+static void load_symbol(const char *source, std::function<void(std::string, unsigned char *, uint32_t)> callback) {
     // File Data
     FILE *file_obj = NULL;
     unsigned char *file_map = NULL;
@@ -189,12 +81,8 @@ static void load_symbol(const char *source, const char *name, std::function<void
         }
 
         // Locate Symbol Tables
-        Elf32_Sym *symbol = NULL;
+        std::unordered_map<std::string, Elf32_Sym *> symbols;
         for (int i = 0; i < elf_section_header_count; ++i) {
-            // Exit Loop If Finished
-            if (symbol != NULL) {
-                break;
-            }
             // Get Section Header
             Elf32_Shdr header = elf_section_headers[i];
             // Check Section Type
@@ -203,29 +91,29 @@ static void load_symbol(const char *source, const char *name, std::function<void
                 Elf32_Sym *table = (Elf32_Sym *) (file_map + header.sh_offset);
                 for (int j = 0; (j * sizeof (Elf32_Sym)) < header.sh_size; j++) {
                     // Check Symbol Name
-                    char *symbol_name = (char *) (elf_strtab_p + table[j].st_name);
-                    if (strcmp(symbol_name, name) == 0) {
+                    std::string symbol_name = (char *) (elf_strtab_p + table[j].st_name);
+                    if (symbol_name.rfind("PCM_", 0) == 0) {
                         // Found
-                        symbol = &table[j];
-                        break;
+                        symbols[symbol_name] = &table[j];
                     }
                 }
             }
         }
 
-        // Check Symbol
-        if (symbol != NULL) {
-            // Convert Virtual Address To File Offset
-            Elf32_Shdr symbol_section_header = elf_section_headers[symbol->st_shndx];
-            int vaddr_to_offset = -symbol_section_header.sh_addr + symbol_section_header.sh_offset;
-            Elf32_Off symbol_offset = symbol->st_value + vaddr_to_offset;
-            // Access Symbol
-            unsigned char *value = file_map + symbol_offset;
-            uint32_t size = symbol->st_size;
-            callback(value, size);
-        } else {
-            // Unable To Find Symbol
-            WARN("Unable To Find Symbol: %s", name);
+        // Loop
+        for (auto it : symbols) {
+            // Check Symbol
+            Elf32_Sym *symbol = it.second;
+            if (symbol != NULL) {
+                // Convert Virtual Address To File Offset
+                Elf32_Shdr symbol_section_header = elf_section_headers[symbol->st_shndx];
+                int vaddr_to_offset = -symbol_section_header.sh_addr + symbol_section_header.sh_offset;
+                Elf32_Off symbol_offset = symbol->st_value + vaddr_to_offset;
+                // Access Symbol
+                unsigned char *value = file_map + symbol_offset;
+                uint32_t size = symbol->st_size;
+                callback(it.first, value, size);
+            }
         }
     }
 
@@ -244,16 +132,14 @@ int main(int argc, char *argv[]) {
     if (argc != 2) {
         ERR("%s", "Invalid Arguments");
     }
-    for (std::string sound : sounds) {
-        load_symbol(argv[1], sound.c_str(), [sound](unsigned char *symbol, uint32_t size) {
-            printf("const unsigned char %s[] = {", sound.c_str());
-            for (uint32_t i = 0; i < size; i++) {
-                printf("%u", (unsigned int) symbol[i]);
-                if (i < (size - 1)) {
-                    printf(", ");
-                }
+    load_symbol(argv[1], [](std::string sound, unsigned char *symbol, uint32_t size) {
+        printf("const unsigned char %s[] = {", sound.c_str());
+        for (uint32_t i = 0; i < size; i++) {
+            printf("%u", (unsigned int) symbol[i]);
+            if (i < (size - 1)) {
+                printf(", ");
             }
-            printf("};\n");
-        });
-    }
+        }
+        printf("};\n");
+    });
 }

@@ -1,58 +1,55 @@
+libpng 1.6.38.git
+=================
 
-Libpng 1.2.59 - September 28, 2017
+This is a development version, not intended to be a public release.
+It will be replaced by a public release, or by another development
+version, at a later time.
 
-This is a public release of libpng, intended for use in production codes.
 
-Files available for download:
+libpng 1.6.37 - April 14, 2019
+==============================
 
-Source files with LF line endings (for Unix/Linux) and with a
-"configure" script
+This is a public release of libpng, intended for use in production code.
 
-   libpng-1.2.59.tar.xz (LZMA-compressed, recommended)
-   libpng-1.2.59.tar.gz
 
-Source files with LF line endings (for Unix/Linux) without the
-"configure" script
+Files available for download
+----------------------------
 
-   libpng-1.2.59-no-config.tar.xz (LZMA-compressed, recommended)
-   libpng-1.2.59-no-config.tar.gz
+Source files with LF line endings (for Unix/Linux):
 
-Source files with CRLF line endings (for Windows), without the
-"configure" script
+ * libpng-1.6.37.tar.xz (LZMA-compressed, recommended)
+ * libpng-1.6.37.tar.gz
 
-   lpng1259.zip
-   lpng1259.7z
+Source files with CRLF line endings (for Windows):
 
-Project files
-
-   libpng-1.2.59-project-netware.zip
-   libpng-1.2.59-project-wince.zip
+ * lp1637.7z (LZMA-compressed, recommended)
+ * lp1637.zip
 
 Other information:
 
-   libpng-1.2.59-README.txt
-   libpng-1.2.59-KNOWNBUGS.txt
-   libpng-1.2.59-LICENSE.txt
-   libpng-1.2.59-Y2K-compliance.txt
-   libpng-1.2.59-[previous version]-diff.txt
-   libpng-1.2.59-*.asc (armored detached GPG signatures)
+ * README.md
+ * LICENSE.md
+ * AUTHORS.md
+ * TRADEMARK.md
 
-Changes since the last public release (1.2.58):
 
-version 1.2.59 [September 28, 2017]
-  Added PNGMINUS_UNUSED macro to contrib/pngminus/p*.c and added missing
-    parenthesis in contrib/pngminus/pnm2png.c (bug report by Christian Hesse).
-  Compute a larger limit on IDAT because some applications write a deflate
-    buffer for each row (Bug report by Andrew Church).
-  Initialize memory allocated by png_inflate to zero, using memset, to
-    stop an oss-fuzz "use of uninitialized value" detection in png_set_text_2()
-    due to truncated iTXt or zTXt chunk.
+Changes since the previous public release (version 1.6.36)
+----------------------------------------------------------
 
-Send comments/corrections/commendations to png-mng-implement at lists.sf.net
-(subscription required; visit
+ * Fixed a use-after-free vulnerability (CVE-2019-7317) in png_image_free.
+ * Fixed a memory leak in the ARM NEON implementation of png_do_expand_palette.
+ * Fixed a memory leak in pngtest.c.
+ * Fixed two vulnerabilities (CVE-2018-14048, CVE-2018-14550) in
+   contrib/pngminus; refactor.
+ * Changed the license of contrib/pngminus to MIT; refresh makefile and docs.
+   (Contributed by Willem van Schaik)
+ * Fixed a typo in the libpng license v2.
+   (Contributed by Miguel Ojeda)
+ * Added makefiles for AddressSanitizer-enabled builds.
+ * Cleaned up various makefiles.
+
+
+Send comments/corrections/commendations to png-mng-implement at lists.sf.net.
+Subscription is required; visit
 https://lists.sourceforge.net/lists/listinfo/png-mng-implement
-to subscribe)
-or to glennrp at users.sourceforge.net
-
-Glenn R-P
-#endif
+to subscribe.

@@ -1,5 +1,9 @@
 # Changelog
 
+**2.3.7**
+* Update GLFW Source
+* Don't Append Hyphens To New World Name, Only Folder Names
+
 **2.3.6**
 * Fix `Invert Y-axis` Option Name
 * Improve Touch GUI Inventory In Non-Touch GUI
