@@ -1,15 +1,15 @@
 # Changelog
 
-**2.3.8**
+### **2.3.8**
 * Switch Up Mod Loading Order
 * Fix AppImage Updating
 * Change Background Image To 1.18 Panorama
 
-**2.3.7**
+### **2.3.7**
 * Update GLFW Source
 * Don't Append Hyphens To New World Name, Only Folder Names
 
-**2.3.6**
+### **2.3.6**
 * Fix ``Invert Y-axis`` Option Name
 * Improve Touch GUI Inventory In Non-Touch GUI
 * New Create World Dialog
@@ -18,10 +18,10 @@
   * Game-Mode Selection
   * Custom Seeds
 
-**2.3.5-1**
+### **2.3.5-1**
 * Hotfix To Fix `postinst` On DEB Installation
 
-**2.3.5**
+### **2.3.5**
 * Renamed Some Feature Flags
 * Add ``Improved Title Background`` Feature Flag (Enabled By Default)
 * Non-Touch GUI Rework
@@ -29,7 +29,7 @@
   * Add ``Force Touch GUI Button Behavior`` Feature Flag (Enabled By Default)
   * Add ``Improved Button Hover Behavior`` Feature Flag (Enabled By Default)
 
-**2.3.4**
+### **2.3.4**
 * AppImage Fixes
 * Make Death Messages Customizable Server-Side
 * Fix Q-Key Behavior Behavior When Editing Signs
