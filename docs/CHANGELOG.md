@@ -1,14 +1,19 @@
 # Changelog
 
+**2.3.7-1**
+* Fix AppImage Updating
+* Load ~/.minecraft-pi/ Mods First
+* Change Background Image To 1.18 Panorama
+
 **2.3.7**
 * Update GLFW Source
 * Don't Append Hyphens To New World Name, Only Folder Names
 
 **2.3.6**
-* Fix `Invert Y-axis` Option Name
+* Fix ``Invert Y-axis`` Option Name
 * Improve Touch GUI Inventory In Non-Touch GUI
 * New Create World Dialog
-  * Controlled By `Implement Create World Dialog` Feature Flag (Enabled By Default)
+  * Controlled By ``Implement Create World Dialog`` Feature Flag (Enabled By Default)
   * Custom World Names
   * Game-Mode Selection
   * Custom Seeds

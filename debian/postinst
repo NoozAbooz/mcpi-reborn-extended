@@ -13,7 +13,7 @@ do
   mkdir -p "${u}/.minecraft-pi/"
   mkdir -p "${u}/.minecraft-pi/overrides"
 
-  if [ ! -e "${u}/.minecraft-pi/overrides/libminecraftpe.so" ]; then
+  if [ -e "/usr/lib/minecraft-pi-reborn-client/libminecraftpe.so" ]; then
     mv /usr/lib/minecraft-pi-reborn-client/libminecraftpe.so "${u}/.minecraft-pi/overrides/libminecraftpe.so"
   fi
 done

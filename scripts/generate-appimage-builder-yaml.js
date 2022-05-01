@@ -172,7 +172,7 @@ if (!appImageArch) {
 const appImage = {
     arch: appImageArch,
     file_name: `./out/${name}-${version}-${arch}.AppImage`,
-    'update-information': `gh-releases-zsync|mobilegmYT|mcpi-reborn-extended|latest|${name}-${version}-${arch}.AppImage.zsync`
+    'update-information': `gh-releases-zsync|mobilegmYT|mcpi-reborn-extended|latest|${name}-${arch}.AppImage.zsync`
 };
 
 // Root
