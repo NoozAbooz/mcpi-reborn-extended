@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -13,11 +13,11 @@ package() {
     mkdir -p "${dir}/DEBIAN"
     cp "debian/$1" "${dir}/DEBIAN/control"
 
-    if [ $1 == *"client"* ]; then
+    if [[ "$1" =~ .*"$client".* ]]; then
         cp "debian/postinst" "${dir}/DEBIAN/postinst"
     fi
 
-    if [ $1 == *"server"* ]; then
+    if [[ "$1" =~ .*"server".* ]]; then
         rm "${dir}/usr/lib/minecraft-pi-reborn-server/libminecraftpe.so"
     fi
 
@@ -36,7 +36,7 @@ for dir in out/*; do
     # Check If Directory Exists
     if [ -d "${dir}" ]; then
         # Check If Debian Package Exists
-        pkg="$(basename ${dir})"
+        pkg="$(basename "${dir}")"
         if [ -f "debian/${pkg}" ]; then
             package "${pkg}"
         fi
