@@ -1,8 +1,8 @@
 # Changelog
 
-**2.3.7-1**
+**2.3.8**
+* Switch Up Mod Loading Order
 * Fix AppImage Updating
-* Load ~/.minecraft-pi/ Mods First
 * Change Background Image To 1.18 Panorama
 
 **2.3.7**

@@ -34,6 +34,7 @@ TRUE Fix Options Screen
 TRUE Force Touch GUI Inventory
 TRUE Fix Pause Menu
 TRUE Improved Title Background
+FALSE Use Vanilla Reborn Title Background
 TRUE Force Touch GUI Button Behavior
 TRUE Improved Button Hover Behavior
 TRUE Implement Create World Dialog

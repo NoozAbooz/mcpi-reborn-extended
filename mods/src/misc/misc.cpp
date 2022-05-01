@@ -75,7 +75,15 @@ static void StartMenuScreen_render_Screen_renderBackground_injection(unsigned ch
     // Draw
     unsigned char *minecraft = *(unsigned char **) (screen + Screen_minecraft_property_offset);
     unsigned char *textures = *(unsigned char **) (minecraft + Minecraft_textures_property_offset);
-    (*Textures_loadAndBindTexture)(textures, "gui/titleBG.png");
+
+    if (feature_has("Use Vanilla Reborn Title Background", server_disabled)) {
+        // Use Vanilla Background
+        (*Textures_loadAndBindTexture)(textures, "gui/titleBG.png");
+    } else {
+        // Use 1.18 Background
+        (*Textures_loadAndBindTexture)(textures, "gui/titleBG_118.png");
+    }
+
     (*GuiComponent_blit)(screen, 0, 0, 0, 0, *(int32_t *) (screen + Screen_width_property_offset), *(int32_t *) (screen + Screen_height_property_offset), 0x100, 0x100);
 }
 
