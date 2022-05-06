@@ -1,5 +1,10 @@
 # Changelog
 
+### **2.3.9**
+* Bundle An ARM Sysroot
+  * Not Used On ARM32 Systems
+  * Based On Debian Sid
+
 ### **2.3.8**
 * Switch Up Mod Loading Order
 * Fix AppImage Updating

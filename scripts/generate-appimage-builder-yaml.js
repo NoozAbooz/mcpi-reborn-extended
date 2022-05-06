@@ -15,8 +15,7 @@ const id = `com.thebrokenrail.MCPIReborn${mode === 'server' ? 'Server' : 'Client
 const name = `minecraft-pi-reborn-${mode}`;
 
 // APT Data
-const apt_distribution = 'bullseye';
-const apt_key_url = 'https://ftp-master.debian.org/keys/archive-key-11.asc';
+const apt_distribution = 'sid';
 
 // Packages/Dependencies
 const packages = [
@@ -34,14 +33,8 @@ if (mode === 'client') {
         'libopenal1'
     );
 }
-if (arch !== 'armhf') {
-    packages.push(
-        'libc6-armhf-cross',
-        'libstdc++6-armhf-cross'
-    );
-    if (arch !== 'arm64') {
-        packages.push('qemu-user');
-    }
+if (arch !== 'armhf' && arch !== 'arm64') {
+    packages.push('qemu-user');
 }
 
 // Package Exclusions
@@ -64,14 +57,10 @@ const apt = {
     arch: arch,
     sources: [
         {
-            sourceline: `deb [arch=${arch}] http://deb.debian.org/debian/ ${apt_distribution} main`,
-            key_url: apt_key_url
-        },
-        {
-            sourceline: `deb [arch=${arch}] http://deb.debian.org/debian/ ${apt_distribution}-updates main`,
-            key_url: apt_key_url
+            sourceline: `deb [arch=${arch}] https://deb.debian.org/debian/ ${apt_distribution} main`
         }
     ],
+    allow_unauthenticated: true,
     include: packages,
     exclude: packageExclusions
 };
@@ -98,6 +87,9 @@ const files = {
         'usr/share/doc/*/NEWS.*',
         'usr/share/doc/*/TODO.*',
         'usr/include',
+        'usr/share/lintian',
+        'usr/share/gcc',
+        'usr/share/gdb',
         'usr/share/locale',
         'usr/share/help',
         'usr/bin/update-mime-database'
@@ -128,8 +120,12 @@ const runtime = {
         // to use a (usually non-existent) system linker.
         `usr/lib/${name}/minecraft-pi`,
         `usr/lib/${name}/**/*.so`,
-        'usr/arm-linux-gnueabihf/lib'
-    ] : undefined
+        `usr/lib/${name}/sysroot`
+    ] : [
+        // MCPI's license prohibits distributing a modified
+        // minecraft-pi binary.
+        `usr/lib/${name}/minecraft-pi`
+    ]
 };
 
 // AppDir

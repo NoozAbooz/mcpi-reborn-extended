@@ -1,6 +1,4 @@
 # Sound
-echo "$(tput smul)$(tput setaf 6)$(tput bold)Installing sound support...$(tput sgr0)"
-
 for u in /home/*
 do
   n="$(basename "${u}")"
@@ -13,7 +11,8 @@ do
   mkdir -p "${u}/.minecraft-pi/"
   mkdir -p "${u}/.minecraft-pi/overrides"
 
-  if [ ! -e "/usr/lib/minecraft-pi-reborn-client/libminecraftpe.so" ]; then
+  if [ ! -e "${u}/.minecraft-pi/overrides/libminecraftpe.so" ]; then
+    echo "$(tput smul)$(tput setaf 6)$(tput bold)Installing sound support...$(tput sgr0)"
     mv /usr/lib/minecraft-pi-reborn-client/libminecraftpe.so "${u}/.minecraft-pi/overrides/libminecraftpe.so"
   fi
 done
