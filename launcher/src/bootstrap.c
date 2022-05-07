@@ -264,7 +264,7 @@ void bootstrap(int argc, char *argv[]) {
         // Add Library Directory
         safe_asprintf(&new_ld_path, "%s/lib", binary_directory);
 
-        // Add ARM Sysroot Libraries (Ensure Priority) (Ignroe On Actual ARM System)
+        // Add ARM Sysroot Libraries (Ensure Priority) (Ignore On Actual ARM System)
 #ifndef __arm__
         string_append(&new_ld_path, ":%s/sysroot/lib/arm-linux-gnueabihf:%s/sysroot/usr/lib/arm-linux-gnueabihf", binary_directory, binary_directory);
 #endif

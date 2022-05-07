@@ -1,10 +1,10 @@
 project(armhf-sysroot)
 
 # Allow Custom Sysroot
-set(MCPI_CUSTOM_ARMHF_SYSROOT "" CACHE PATH "Custom ARMHF Sysroot")
-if(MCPI_CUSTOM_ARMHF_SYSROOT)
+set(MCPI_CUSTOM_BUNDLED_ARMHF_SYSROOT "" CACHE PATH "Custom Bundled ARMHF Sysroot")
+if(MCPI_CUSTOM_BUNDLED_ARMHF_SYSROOT)
     # Custom Sysroot
-    set(SYSROOT_DIR "${MCPI_CUSTOM_ARMHF_SYSROOT}")
+    set(SYSROOT_DIR "${MCPI_CUSTOM_BUNDLED_ARMHF_SYSROOT}")
 else()
     # Download From APT
     set(APT_PACKAGES "libc6" "libstdc++6")
