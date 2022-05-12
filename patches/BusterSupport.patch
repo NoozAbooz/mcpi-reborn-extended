@@ -1,0 +1,23 @@
+--- a/media-layer/core/CMakeLists.txt
++++ b/media-layer/core/CMakeLists.txt
+@@ -23,7 +23,7 @@ if(TARGET media-layer-core)
+     target_link_libraries(media-layer-core media-layer-headers reborn-headers pthread dl)
+     if(NOT MCPI_HEADLESS_MODE)
+         # Find GLFW
+-        find_package(glfw3 3.3 REQUIRED)
++        find_package(glfw3 3.2 REQUIRED)
+         # Find FreeImage
+         find_library(FREEIMAGE_LIBRARY NAMES freeimage libfreeimage.so.3 REQUIRED)
+         # OpenAL
+--- a/media-layer/core/src/media.c
++++ b/media-layer/core/src/media.c
+@@ -358,7 +358,9 @@ static void update_glfw_cursor() {
+         // Handle Cursor Lock/Unlock
+         if ((new_mode == GLFW_CURSOR_DISABLED && old_mode != GLFW_CURSOR_DISABLED) || (new_mode != GLFW_CURSOR_DISABLED && old_mode == GLFW_CURSOR_DISABLED)) {
+             // Use Raw Mouse Motion
++#ifdef GLFW_RAW_MOUSE_MOTION
+             glfwSetInputMode(glfw_window, GLFW_RAW_MOUSE_MOTION, new_mode == GLFW_CURSOR_DISABLED ? GLFW_TRUE : GLFW_FALSE);
++#endif
+ 
+             // Reset Last Mouse Position
+             ignore_relative_mouse = 1;
