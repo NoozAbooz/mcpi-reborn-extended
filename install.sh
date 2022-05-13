@@ -80,7 +80,7 @@ info "Installing 1.18 textures..."
   wget "${TEXTURES_URL}" -O "${TMP_TEXTURES_PATH}"
   unzip "${TMP_TEXTURES_PATH}"
   rm -rf "${TEXTURES_PATH}/*"
-  mv "converted/"* "${TEXTURES_PATH}"
+  sudo mv "converted/"* "${TEXTURES_PATH}"
 )
 
 # Add custom skin
@@ -90,7 +90,7 @@ pip3 install pillow
 SKIN_PATH="$(skin_dialog)"
 echo "Using skin located at '${SKIN_PATH}'"
 
-cp "${SKIN_PATH}" "${TMP_SKIN_PATH}"
+sudo cp "${SKIN_PATH}" "${TMP_SKIN_PATH}"
     
 echo "Applying texture size patch..."
 (
@@ -101,7 +101,7 @@ echo "Applying texture size patch..."
   sudo python3 "${FIXER_PATH}"
 )
     
-mv "${TMP_SKIN_PATH}" "${MOB_TEXTURES_PATH}/char.png"
+sudo mv "${TMP_SKIN_PATH}" "${MOB_TEXTURES_PATH}/char.png"
 
 # Finish
 echo -e "\n"
