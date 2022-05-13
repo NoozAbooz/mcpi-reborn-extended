@@ -66,6 +66,8 @@ info "Installing Python API..."
 sudo apt install -y python3-minecraftpi || warning "Could not install Python API"
 priv_wget "${MCPI_PY_URL}" "${MCPI_PY_PATH}"
 
+mkdir ~/.minecraft-pi/overrides/
+mkdir ~/.minecraft-pi/overrides/images/
 mkdir -p "${MOB_TEXTURES_PATH}"
 
 # Install sound
