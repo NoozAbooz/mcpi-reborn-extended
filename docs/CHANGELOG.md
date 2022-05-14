@@ -1,5 +1,10 @@
 # Changelog
 
+### **2.3.10**
+* Disable V-Sync By Default
+* Improve Build System
+  * Support For Building On Ubuntu 22.04
+
 ### **2.3.9**
 * Bundle An ARM Sysroot
   * Not Used On ARM32 Systems
