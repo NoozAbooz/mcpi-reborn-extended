@@ -275,6 +275,7 @@ static void handle_commands(unsigned char *minecraft) {
 
                 static std::string ban_command("ban ");
                 static std::string say_command("say ");
+                static std::string send_command("send ");
                 static std::string kill_command("kill ");
                 static std::string list_command("list");
                 static std::string stop_command("stop");
@@ -292,6 +293,10 @@ static void handle_commands(unsigned char *minecraft) {
                     std::string message = "[Server] " + data.substr(say_command.length());
                     // Post Message To Chat
                     (*ServerSideNetworkHandler_displayGameMessage)(server_side_network_handler, message);
+                } else if (data.rfind(send_command, 0) == 0) {
+                    std::string message = data.substr(send_command.length());
+                    // Post Message To Chat
+                    (*ServerSideNetworkHandler_displayGameMessage)(server_side_network_handler, message);
                 } else if (data == list_command) {
                     // List Players
                     INFO("Online Player List:");
@@ -306,6 +311,7 @@ static void handle_commands(unsigned char *minecraft) {
                     }
                     INFO("    kill <Username> - Kill All Players With Specifed Username");
                     INFO("    say <Message>   - Print Specified Message To Chat");
+                    INFO("    send <Message>  - Print A Message Directly To Chat");
                     INFO("    list            - List All Players");
                     INFO("    stop            - Stop Server");
                     INFO("    help            - Print This Message");
