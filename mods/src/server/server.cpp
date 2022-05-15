@@ -311,7 +311,7 @@ static void handle_commands(unsigned char *minecraft) {
                     }
                     INFO("    kill <Username> - Kill All Players With Specifed Username");
                     INFO("    say <Message>   - Print Specified Message To Chat");
-                    INFO("    send <Message>  - Print A Message Directly To Chat");
+                    INFO("    send <Message>  - Print Specified Message Directly To Chat");
                     INFO("    list            - List All Players");
                     INFO("    stop            - Stop Server");
                     INFO("    help            - Print This Message");
