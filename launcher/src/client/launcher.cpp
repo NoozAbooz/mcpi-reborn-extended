@@ -130,7 +130,7 @@ static void run_zenity_and_set_env(const char *env_name, std::vector<std::string
 
 int main(int argc, char *argv[]) {
     // Pre-Bootstrap
-    pre_bootstrap();
+    pre_bootstrap(argc, argv);
 
     // Print Features
     for (int i = 1; i < argc; i++) {

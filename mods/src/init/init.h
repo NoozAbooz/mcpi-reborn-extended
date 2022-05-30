@@ -27,7 +27,7 @@ void init_options();
 void init_chat();
 void init_home();
 void init_my_tile();
-#if !defined(MCPI_SERVER_MODE) && !defined(MCPI_HEADLESS_MODE)
+#ifndef MCPI_SERVER_MODE
 void init_benchmark();
 #endif
 

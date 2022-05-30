@@ -1,7 +1,6 @@
 #include <unistd.h>
 
 #include <SDL/SDL.h>
-#include <GLES/gl.h>
 
 #ifndef MCPI_HEADLESS_MODE
 #define GLFW_INCLUDE_NONE
@@ -269,7 +268,7 @@ static void glfw_scroll(__attribute__((unused)) GLFWwindow *window, __attribute_
 #endif
 
 // Track Media Layer State
-static int is_running = 0;
+static volatile int is_running = 0;
 
 // Track If Raw Mouse Motion Is Enabled
 static int raw_mouse_motion_enabled = 1;
@@ -297,6 +296,8 @@ void media_disable_vsync() {
 }
 
 // Init Media Layer
+#define GL_VERSION 0x1f02
+typedef const unsigned char *(*glGetString_t)(unsigned int name);
 void SDL_WM_SetCaption(const char *title, __attribute__((unused)) const char *icon) {
     // Don't Enable GLFW In Headless Mode
 #ifndef MCPI_HEADLESS_MODE
@@ -307,10 +308,15 @@ void SDL_WM_SetCaption(const char *title, __attribute__((unused)) const char *ic
         ERR("Unable To Initialize GLFW");
     }
 
-    // Create OpenGL ES 1.1 Context
+    // Create OpenGL ES Context
     glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
+#ifdef MCPI_USE_GLES1_COMPATIBILITY_LAYER
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+#else
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 1);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+#endif
     // Use EGL
     glfwWindowHint(GLFW_CONTEXT_CREATION_API, GLFW_EGL_CONTEXT_API);
     // Extra Settings
@@ -329,7 +335,12 @@ void SDL_WM_SetCaption(const char *title, __attribute__((unused)) const char *ic
     glfwSetMouseButtonCallback(glfw_window, glfw_click);
     glfwSetScrollCallback(glfw_window, glfw_scroll);
 
+    // Make Window Context Current
     glfwMakeContextCurrent(glfw_window);
+
+    // Debug
+    glGetString_t glGetString = (glGetString_t) glfwGetProcAddress("glGetString");
+    DEBUG("Using %s", (*glGetString)(GL_VERSION));
 
     // Init OpenAL
     _media_audio_init();
@@ -345,6 +356,9 @@ void SDL_WM_SetCaption(const char *title, __attribute__((unused)) const char *ic
     if (disable_vsync) {
         media_disable_vsync();
     }
+
+    // Always Cleanup Media Layer
+    atexit(media_cleanup);
 }
 
 void media_swap_buffers() {
@@ -425,10 +439,6 @@ void media_cleanup() {
         // Update State
         is_running = 0;
     }
-}
-// Always Cleanup Media Layer
-__attribute__((destructor)) static void always_cleanup() {
-    media_cleanup();
 }
 
 // Store Cursor State

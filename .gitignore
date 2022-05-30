@@ -10,3 +10,5 @@ appimage-build
 AppDir
 *.zsync
 test.sh
+core*
+qemu_*
