@@ -36,6 +36,7 @@ if (mode === 'client') {
         'libgtk-3-0',
         'libglib2.0-0',
         'libgdk-pixbuf2.0-0',
+        'librsvg2-common',
         'shared-mime-info',
         'libfreeimage3',
         'libopenal1'
@@ -57,7 +58,8 @@ const packageExclusions = [
     'librest-*',
     'libcups2',
     'libcolord2',
-    'libmount1'
+    'libmount1',
+    'libwayland-*'
 ];
 
 // APT

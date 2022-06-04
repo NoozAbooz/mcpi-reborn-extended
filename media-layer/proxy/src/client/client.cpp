@@ -8,18 +8,15 @@
 #include "../common/common.h"
 
 // Store Handlers
-__attribute__((const)) static std::vector<proxy_handler_t> &get_handlers() {
-    static std::vector<proxy_handler_t> handlers;
-    return handlers;
-}
+static std::vector<proxy_handler_t> handlers;
 void _add_handler(unsigned char unique_id, proxy_handler_t handler) {
-    if (get_handlers().size() > unique_id && get_handlers()[unique_id] != NULL) {
+    if (handlers.size() > unique_id && handlers[unique_id] != NULL) {
         PROXY_ERR("Duplicate ID: %i", (int) unique_id);
     }
-    if (get_handlers().size() <= unique_id) {
-        get_handlers().resize(unique_id + 1);
+    if (handlers.size() <= unique_id) {
+        handlers.resize(unique_id + 1);
     }
-    get_handlers()[unique_id] = handler;
+    handlers[unique_id] = handler;
 }
 
 // Store Parent PID
@@ -39,8 +36,12 @@ void _check_proxy_state() {
 
 // Main
 int main(int argc, char *argv[]) {
-    // Ignore SIGINT, Send Signal To Parent
+    // Install Signal Handlers
     signal(SIGINT, SIG_IGN);
+    struct sigaction act_sigterm;
+    memset((void *) &act_sigterm, 0, sizeof (struct sigaction));
+    act_sigterm.sa_handler = &exit_handler;
+    sigaction(SIGTERM, &act_sigterm, NULL);
 
     // Send Signal On Parent Death To Interrupt Connection Read/Write And Exit
     prctl(PR_SET_PDEATHSIG, SIGUSR1);
@@ -69,9 +70,9 @@ int main(int argc, char *argv[]) {
     int running = is_connection_open();
     while (running) {
         unsigned char unique_id = read_byte();
-        if (get_handlers().size() > unique_id && get_handlers()[unique_id] != NULL) {
+        if (handlers.size() > unique_id && handlers[unique_id] != NULL) {
             // Run Method
-            get_handlers()[unique_id]();
+            handlers[unique_id]();
             // Check If Connection Is Still Open
             if (!is_connection_open()) {
                 // Exit
