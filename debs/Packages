@@ -1,88 +1,88 @@
 Package: minecraft-pi-reborn-client
-Version: 2.3.11
-Architecture: armhf
-Maintainer: Nooz <zhengm58@gmail.com>
-Depends: libc6, libstdc++6, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, patchelf, python3-minecraftpi
-Filename: ./minecraft-pi-reborn-client_2.3.11_armhf.deb
-Size: 6116300
-MD5sum: 24c9714123518a422043af21e33832c5
-SHA1: 0190c24a8ed4a237c20b76c96f93b26b4111ddf1
-SHA256: 7a68d0a9d73a578e91ec8b4a9f6b55b36cae5df630965153adec184569941ca5
-Section: games
-Priority: optional
-Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
-Description: Community mod of MCPI-Reborn
-
-Package: minecraft-pi-reborn-client
-Version: 2.3.11
-Architecture: arm64
-Maintainer: Nooz <zhengm58@gmail.com>
-Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, patchelf, python3-minecraftpi
-Filename: ./minecraft-pi-reborn-client_2.3.11_arm64.deb
-Size: 7516964
-MD5sum: d0741876a17c1c42fa390dfaa405b00d
-SHA1: b74b328d04cc29b959ad91be01529104a6c8b26c
-SHA256: 8cabd3c51f3bed9a8cf41b97d1c15cac6d02575c2ad21359ef45f420a66a4384
-Section: games
-Priority: optional
-Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
-Description: Community mod of MCPI-Reborn
-
-Package: minecraft-pi-reborn-client
-Version: 2.3.11
+Version: 2.3.12
 Architecture: amd64
 Maintainer: Nooz <zhengm58@gmail.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, qemu-user, patchelf, python3-minecraftpi
-Filename: ./minecraft-pi-reborn-client_2.3.11_amd64.deb
-Size: 7525460
-MD5sum: 323ac843266eb8647ad8a5f8b93bf68b
-SHA1: f400d002cf6be5a3e1439315e5375cf397aaf341
-SHA256: 4e7072065a271a4bdef43ffd1a16a606580ac656cb4530bff987ed0818d5d2e7
+Filename: ./minecraft-pi-reborn-client_2.3.12_amd64.deb
+Size: 7529144
+MD5sum: 9e153a0e1862970e8223039fd2b08b3c
+SHA1: 4a655dbe97680f9ef68260c01ccfdd80c0057ead
+SHA256: 544962ecc18a0cec6c8f28955c2fda4f1a1f63979cbfe445ac007504183a6f20
+Section: games
+Priority: optional
+Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
+Description: Community mod of MCPI-Reborn
+
+Package: minecraft-pi-reborn-client
+Version: 2.3.12
+Architecture: arm64
+Maintainer: Nooz <zhengm58@gmail.com>
+Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, patchelf, python3-minecraftpi
+Filename: ./minecraft-pi-reborn-client_2.3.12_arm64.deb
+Size: 7522412
+MD5sum: 6611caed726250e4bf291633ad8c9c8d
+SHA1: 05fc7ef0e922b0dd3ca7449a593dbe7d88431560
+SHA256: 133c0ebb603ca38ac6e0fc943c2a0f972a65968a76b5b515770a5fd2f6fdc39c
+Section: games
+Priority: optional
+Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
+Description: Community mod of MCPI-Reborn
+
+Package: minecraft-pi-reborn-client
+Version: 2.3.12
+Architecture: armhf
+Maintainer: Nooz <zhengm58@gmail.com>
+Depends: libc6, libstdc++6, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, patchelf, python3-minecraftpi
+Filename: ./minecraft-pi-reborn-client_2.3.12_armhf.deb
+Size: 6113320
+MD5sum: 74b76177ad02d6d5af4c76a8268d5433
+SHA1: 944c1029669d110f86b1a3592ac8a41b56be93f5
+SHA256: 82db98d20417b236b473ea23b4cd113b74a56af604373b5fe1387b817f0f3f44
 Section: games
 Priority: optional
 Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
 Description: Community mod of MCPI-Reborn
 
 Package: minecraft-pi-reborn-server
-Version: 2.3.11
-Architecture: armhf
-Maintainer: Nooz <zhengm58@gmail.com>
-Depends: libc6, libstdc++6, patchelf
-Filename: ./minecraft-pi-reborn-server_2.3.11_armhf.deb
-Size: 1213376
-MD5sum: e9e72caa45e2badc0cd19614ac186947
-SHA1: 69cb84b845cacf7ad3aae479e4a89d4b82dfb2e0
-SHA256: 870f54fdd720af47bdda7bba81cb67e47ed9a27132f8032cedc811f33e33ca32
-Section: games
-Priority: optional
-Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
-Description: Modded server for Minecraft Pi Edition
-
-Package: minecraft-pi-reborn-server
-Version: 2.3.11
-Architecture: arm64
-Maintainer: Nooz <zhengm58@gmail.com>
-Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf, patchelf
-Filename: ./minecraft-pi-reborn-server_2.3.11_arm64.deb
-Size: 2599080
-MD5sum: 6600795b7cdd5f8347787a41ad3c4fbe
-SHA1: 7d149c74bf76423f7ae9138f16c1a6a85223deb4
-SHA256: cb77b8539c13705e2677d637718659e8215661de4b439aba245ef2d30b86f053
-Section: games
-Priority: optional
-Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
-Description: Modded server for Minecraft Pi Edition
-
-Package: minecraft-pi-reborn-server
-Version: 2.3.11
+Version: 2.3.12
 Architecture: amd64
 Maintainer: Nooz <zhengm58@gmail.com>
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross, qemu-user, patchelf
-Filename: ./minecraft-pi-reborn-server_2.3.11_amd64.deb
-Size: 2599640
-MD5sum: a112a66078857607003b19a8785712ea
-SHA1: a04dc3a7c0f9cd5934ba09fa64484bc8b2653fbd
-SHA256: 4e8e050c6f7aaba66e31bb345539d755343dee9efa4b6af05a466ea9768e2e49
+Filename: ./minecraft-pi-reborn-server_2.3.12_amd64.deb
+Size: 2600144
+MD5sum: 5319e160589db81af0dfec496795b95a
+SHA1: fe1766e26e751ad1fbf635bb32af71dc5f908c4e
+SHA256: abeeed2426635098229a87d6ececc9ba0c131164d24ceec4ffb8ea54ec7c3258
+Section: games
+Priority: optional
+Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
+Description: Modded server for Minecraft Pi Edition
+
+Package: minecraft-pi-reborn-server
+Version: 2.3.12
+Architecture: arm64
+Maintainer: Nooz <zhengm58@gmail.com>
+Depends: libc6, libstdc++6, libc6:armhf, libstdc++6:armhf, patchelf
+Filename: ./minecraft-pi-reborn-server_2.3.12_arm64.deb
+Size: 2598812
+MD5sum: ece392af2fc9e5b9f91a249256580994
+SHA1: 0f2d511db2204ddecc8abddb9929677119348990
+SHA256: c6622245031fbef2d44775feed4f2c06a7420b4356bd3f952189fe1804c53de7
+Section: games
+Priority: optional
+Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
+Description: Modded server for Minecraft Pi Edition
+
+Package: minecraft-pi-reborn-server
+Version: 2.3.12
+Architecture: armhf
+Maintainer: Nooz <zhengm58@gmail.com>
+Depends: libc6, libstdc++6, patchelf
+Filename: ./minecraft-pi-reborn-server_2.3.12_armhf.deb
+Size: 1213300
+MD5sum: b1ef8ba33e479ddfa1ab91f9cc638b2e
+SHA1: 26c6fecb6b9192d50d3c40267c6f4751edd11473
+SHA256: 68f8bfb2ca0c2ac02f38056668654f5e68dfe9893e76e3d2300ab211f76f12fb
 Section: games
 Priority: optional
 Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
