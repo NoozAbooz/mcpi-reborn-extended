@@ -1,5 +1,8 @@
 # Changelog
 
+### **2.3.13**
+* Fix Grass Block Texture Bug
+
 ### **2.3.12**
 * Media Layer Proxy Optimizations
 * Bug Fixes
