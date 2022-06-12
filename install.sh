@@ -74,37 +74,6 @@ mkdir -p "${MOB_TEXTURES_PATH}"
 info "Installing sound files..."
 wget "${SOUND_URL}" -O "${SOUND_PATH}"
 
-# Install 1.18 textures
-info "Installing 1.18 textures..."
-(
-  set -e
-  cd /tmp
-  wget "${TEXTURES_URL}" -O "${TMP_TEXTURES_PATH}"
-  unzip "${TMP_TEXTURES_PATH}"
-  rm -rf "${TEXTURES_PATH}/*"
-  sudo mv "converted/"* "${TEXTURES_PATH}"
-)
-
-# Add custom skin
-info "Enabling custom skins..."
-pip install pillow
-pip3 install pillow
-SKIN_PATH="$(skin_dialog)"
-echo "Using skin located at '${SKIN_PATH}'"
-
-sudo cp "${SKIN_PATH}" "${TMP_SKIN_PATH}"
-    
-echo "Applying texture size patch..."
-(
-  set -e
-  cd /tmp
-  wget "https://bitbucket.org/MattHawkinsUK/rpispy-misc/raw/master/minecraft/minecraft_skin_fixer.py" -O "${FIXER_PATH}"
-  sed -i "s|/opt/minecraft-pi/data/images/mob/char.png|${TMP_SKIN_PATH}|g" "${FIXER_PATH}"
-  sudo python3 "${FIXER_PATH}"
-)
-    
-sudo mv "${TMP_SKIN_PATH}" "${MOB_TEXTURES_PATH}/char.png"
-
 # Finish
 echo -e "\n"
 info "Installation complete! Refer to https://github.com/mobilegmYT/mcpi-reborn-extended#user-guide for usage instructions."
