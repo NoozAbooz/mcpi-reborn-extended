@@ -70,10 +70,6 @@ mkdir ~/.minecraft-pi/overrides/
 mkdir ~/.minecraft-pi/overrides/images/
 mkdir -p "${MOB_TEXTURES_PATH}"
 
-# Install sound
-info "Installing sound files..."
-wget "${SOUND_URL}" -O "${SOUND_PATH}"
-
 # Finish
 echo -e "\n"
 info "Installation complete! Refer to https://github.com/mobilegmYT/mcpi-reborn-extended#user-guide for usage instructions."
