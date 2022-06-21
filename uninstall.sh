@@ -6,8 +6,7 @@ sudo rm /etc/apt/sources.list.d/mcpi-reborn-extended.list
 sudo rm /etc/apt/trusted.gpg.d/mcpi-reborn-extended.gpg
 sudo apt update
 
-cd /tmp
-sudo rm mcpi-reborn-extended.gpg mcpi-reborn-textures.zip
+sudo rm /tmp/mcpi-reborn-extended.gpg
 
 read -p "Would you like to uninstall the MCPI++ application itself? You'll need to manually install vanilla reborn after. " -n 1 -r
 
