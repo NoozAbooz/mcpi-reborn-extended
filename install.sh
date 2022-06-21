@@ -1,21 +1,12 @@
 #!/bin/bash
 
 MCPI_DIR="${HOME}/.minecraft-pi"
-LIST_URL="https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list"
-LIST_PATH="/etc/apt/sources.list.d/mcpi-reborn-extended.list"
+APT_URL="https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list"
+APT_PATH="/etc/apt/sources.list.d/mcpi-reborn-extended.list"
 KEY_URL="https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/KEY.gpg"
 KEY_PATH="/tmp/mcpi-reborn-extended.gpg"
-MCPI_PY_URL="https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py"
-MCPI_PY_PATH="/usr/lib/python3/dist-packages/mcpi/minecraft.py"
-SOUND_URL="https://archive.org/download/libminecraftpe0.6.1/libminecraftpe06%2B08.so"
-SOUND_PATH="${MCPI_DIR}/overrides/libminecraftpe.so"
-TEXTURES_PREFIX="converted"
-TEXTURES_URL="https://cdn.discordapp.com/attachments/896528332340998174/956268263036321842/converted.zip"
-TMP_TEXTURES_PATH="/tmp/mcpi-reborn-textures.zip"
-TEXTURES_PATH="${MCPI_DIR}/overrides/images"
-MOB_TEXTURES_PATH="${TEXTURES_PATH}/mob"
-FIXER_PATH="/tmp/mcpi-skin-fixer.py"
-TMP_SKIN_PATH="${MCPI_DIR}/skin-mcpi.png"
+API_URL="https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py"
+API_PATH="/usr/lib/python3/dist-packages/mcpi/minecraft.py"
 
 # Define functions
 info() {
@@ -33,42 +24,52 @@ error() {
   exit 1
 }
 
-priv_wget() {
+sudo_wget() {
   sudo wget "$1" -O "$2" || error "Couldn't download '$2' from '$1'"
 }
 
-skin_dialog() {
-  zenity --file-selection --file-filter="Picture files (png) | *.png" --file-filter="All files | *" \
-    --title="Select your custom Java/Bedrock skin file (must be 4px). If you want to use the default Steve skin, close this window"
-}
-
 # Install depends
-echo -e "\e[4m\e[21m\e[5mInstalling dependencies...\e[0m\e[97m"
-sudo apt install -y wget gnupg unzip zenity || error "Failed to install dependencies, see error above"
+#echo -e "\e[4m\e[21m\e[5mInstalling dependencies...\e[0m\e[97m"
+info "Installing Dependencies..."
+sudo apt-get install -y wget gnupg unzip zenity || error "Failed to install dependencies, see error above"
 
 # Install repo
-info "Installing APT repository..."
-priv_wget "${LIST_URL}" "${LIST_PATH}"
+info "Installing APT Repository..."
+sudo_wget "${APT_URL}" "${APT_PATH}"
 
 # Install GPG key
-priv_wget "${KEY_URL}" "${KEY_PATH}"
+info "Downloading APT Repository Key..."
+sudo_wget "${KEY_URL}" "${KEY_PATH}"
 sudo apt-key add "${KEY_PATH}"
 
-sudo apt update --allow-releaseinfo-change || warning "Failed to run 'sudo apt update'! Please run that command manually"
+info "Syncing APT Sources..."
+sudo apt update --allow-releaseinfo-change || error "Failed to run 'sudo apt update'! Please check above errors"
 
-# Nuke vanilla reborn if installed
-info "Removing vanilla reborn to resolve conflicts..."
-sudo apt-get remove -y minecraft-pi-reborn-client || warning "Could not reinstall reborn to switch to extended version! Please do it manually"
-sudo apt-get install -y minecraft-pi-reborn-client planet-launcher
+# Install packages
+read -p "Do you want to install the client? SAY NO ONLY IF YOU KNOW WHAT YOU ARE DOING! [Y/n]" -n 1 -r
+echo  # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    sudo apt-get install -y minecraft-pi-reborn-client
+    info "Installed Client!"
+elif [[ $REPLY =~ ^[Nn]$ ]]
+    sudo apt-get install -y minecraft-pi-reborn-server
+    info "Installed Server! This will allow you to host a server, but the game itself is not installed. "
+fi
+
+# Install launcher
+read -p "Would you like to install a launcher? This will allow you to save your settings and configure texturepacks/custom skins (RECCOMENDED). [Y/n]" -n 1 -r
+echo  # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    info "Installing Launcher..."
+    sudo apt-get install -y planet-launcher
+fi
 
 # Install Python API
 info "Installing Python API..."
 sudo apt install -y python3-minecraftpi || warning "Could not install Python API"
-priv_wget "${MCPI_PY_URL}" "${MCPI_PY_PATH}"
-
-mkdir ~/.minecraft-pi/overrides/
-mkdir ~/.minecraft-pi/overrides/images/
-mkdir -p "${MOB_TEXTURES_PATH}"
+sudo_wget "${API_URL}" "${API_PATH}"
 
 # Finish
 echo -e "\n"
