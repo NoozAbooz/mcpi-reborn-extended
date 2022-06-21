@@ -8,9 +8,9 @@ sudo apt update
 
 sudo rm /tmp/mcpi-reborn-extended.gpg
 
-read -p "Would you like to uninstall the MCPI++ application itself? You'll need to manually install vanilla reborn after. " -n 1 -r
+echo -e "\nWould you like to uninstall the MCPI++ application itself? [Y/n]"
+read -p "> " -n 1 -r
 
-echo  # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     sudo apt-get remove -y minecraft-pi-reborn-client
