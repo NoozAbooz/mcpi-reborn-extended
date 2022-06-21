@@ -13,5 +13,6 @@ read -p "Would you like to uninstall the MCPI++ application itself? You'll need 
 echo  # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    sudo apt purge -y minecraft-pi-reborn-client
+    sudo apt-get remove -y minecraft-pi-reborn-client
+    sudo apt-get remove -y minecraft-pi-reborn-server
 fi
