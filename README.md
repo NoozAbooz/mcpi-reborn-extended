@@ -10,7 +10,7 @@ Source code and documentation is in the [source](https://github.com/mobilegmYT/m
 ## Installation ([compatibility list](https://github.com/mobilegmYT/mcpi-reborn-extended#compatibility))
 
 ### Method 1 - Install Script
-This script only supports debian-based distros with APT. This is also the only method that installs features like sounds or custom skins
+This method only supports debian-based distros with APT. This method will also add sound support. 
 ```bash
 wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/install.sh | bash
 ```
@@ -21,6 +21,7 @@ wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main
 ```
 
 ### Method 2 - DEB Install
+This script only supports debian-based distros with APT. This method will also add sound support. 
 Download and install the appropiate DEB for your architecture with the `client` tag from [here](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/main/debs)
 
 ### Method 3 - AppImage
@@ -49,9 +50,8 @@ MCPI++ has been tested with the following:
 - x64 PC running Debian/Ubuntu
 
 ## User guide
-
-### Starting the gane
-Type `planet-launcher` into terminal or find it from your start menu. You will be greeted with the launcher, from which you can configure settings like username, control which mods are enabled, and add servers. Once you are done, hit "Launch" and start the game!
+### Starting the game
+If you didn't choose to install the launcher, launch with `minecraft-pi-reborn-client` and configure your features. Otherwise, type `planet-launcher` into terminal or find `Planet Launcher` from your start menu. You will be greeted with the launcher, from which you can configure settings like username, control which mods are enabled, and add servers. Once you are done, hit "Launch" and start the game!
 
 ### Controls
 Once you are in a world, you will be able to move with WASD and Space.  
@@ -80,4 +80,4 @@ If you are interested in making your own mods, documentation can be found [here]
 - Maintained by [mobilegmYT](https://github.com/mobilegmYT).
 - Patches/mods by [Bigjango13](https://github.com/bigjango13) and [TheBrokenRail](https://github.com/TheBrokenRail).
 - Vanilla Reborn by [TheBrokenRail](https://github.com/TheBrokenRail).
-- MCPI by Mojang AB.
+- Minecraft: Pi Edition by Mojang AB.
