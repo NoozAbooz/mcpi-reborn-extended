@@ -1,6 +1,5 @@
 #!/bin/bash
 
-MCPI_DIR="${HOME}/.minecraft-pi"
 APT_URL="https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list"
 APT_PATH="/etc/apt/sources.list.d/mcpi-reborn-extended.list"
 KEY_URL="https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/KEY.gpg"
@@ -46,24 +45,32 @@ info "Syncing APT Sources..."
 sudo apt update --allow-releaseinfo-change || error "Failed to run 'sudo apt update'! Please check above errors"
 
 # Install packages
-read -p "Do you want to install the client? SAY NO ONLY IF YOU KNOW WHAT YOU ARE DOING! [Y/n]" -n 1 -r
-echo  # (optional) move to a new line
+echo -e "\nDo you want to install the client? If you choose no, then only the multiplayer server software will be installed. SAY NO ONLY IF YOU KNOW WHAT YOU ARE DOING! [Y/n]"
+read -p "> " -n 1 -r
+
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     sudo apt-get install -y minecraft-pi-reborn-client
     info "Installed Client!"
+    APP="server"
 elif [[ $REPLY =~ ^[Nn]$ ]]
+then
     sudo apt-get install -y minecraft-pi-reborn-server
     info "Installed Server! This will allow you to host a server, but the game itself is not installed. "
+    APP="server"
 fi
 
 # Install launcher
-read -p "Would you like to install a launcher? This will allow you to save your settings and configure texturepacks/custom skins (RECCOMENDED). [Y/n]" -n 1 -r
-echo  # (optional) move to a new line
-if [[ $REPLY =~ ^[Yy]$ ]]
+if [[ $APP == "client" ]]
 then
-    info "Installing Launcher..."
-    sudo apt-get install -y planet-launcher
+    echo -e "\nWould you like to install a launcher? This will allow you to save your settings and configure texturepacks/custom skins (RECCOMENDED). [Y/n]"
+    read -p "> " -n 1 -r
+
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        info "Installing Launcher..."
+        sudo apt-get install -y planet-launcher
+    fi
 fi
 
 # Install Python API
