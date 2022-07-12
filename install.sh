@@ -1,10 +1,10 @@
 #!/bin/bash
 
-APT_URL="https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list"
+APT_URL="https://github.com/NoozSBC/mcpi-reborn-extended/raw/main/debs/mcpi-reborn-extended.list"
 APT_PATH="/etc/apt/sources.list.d/mcpi-reborn-extended.list"
-KEY_URL="https://github.com/mobilegmYT/mcpi-reborn-extended/raw/main/debs/KEY.gpg"
+KEY_URL="https://github.com/NoozSBC/mcpi-reborn-extended/raw/main/debs/KEY.gpg"
 KEY_PATH="/tmp/mcpi-reborn-extended.gpg"
-API_URL="https://gist.github.com/mobilegmYT/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py"
+API_URL="https://gist.github.com/NoozSBC/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py"
 API_PATH="/usr/lib/python3/dist-packages/mcpi/minecraft.py"
 
 # Define functions
@@ -80,4 +80,4 @@ sudo_wget "${API_URL}" "${API_PATH}"
 
 # Finish
 echo -e "\n"
-info "Installation complete! Refer to https://github.com/mobilegmYT/mcpi-reborn-extended#user-guide for usage instructions."
+info "Installation complete! Refer to https://github.com/NoozSBC/mcpi-reborn-extended#user-guide for usage instructions."
