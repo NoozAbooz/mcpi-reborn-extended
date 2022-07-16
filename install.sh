@@ -4,7 +4,7 @@ APT_URL="https://github.com/NoozSBC/mcpi-reborn-extended/raw/main/debs/mcpi-rebo
 APT_PATH="/etc/apt/sources.list.d/mcpi-reborn-extended.list"
 KEY_URL="https://github.com/NoozSBC/mcpi-reborn-extended/raw/main/debs/KEY.gpg"
 KEY_PATH="/tmp/mcpi-reborn-extended.gpg"
-API_URL="https://gist.github.com/NoozSBC/78f50d3b80924d0c18ed818552254695/raw/a80ead7d30edf16327622002466f7b7e7df69aa6/minecraft.py"
+API_URL="https://github.com/martinohanlon/mcpi/blob/0c6ff49377da740c707e8c21b616f7fb21e6e85f/mcpi/minecraft.py"
 API_PATH="/usr/lib/python3/dist-packages/mcpi/minecraft.py"
 
 # Define functions
