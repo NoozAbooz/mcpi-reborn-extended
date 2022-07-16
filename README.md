@@ -1,13 +1,13 @@
 # MCPI++ (mcpi-reborn-extended)
-This is a fork of [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn) by MCPI Revival, with custom features added by community members. The apt packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from mcpi-reborn. If you like MCPI or MCPI-Reborn, you'll probably  like this too!
+This is a fork of [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn), with custom features added by community members. The apt packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from mcpi-reborn. If you like MCPI or MCPI-Reborn, you'll probably like this too!
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label=Get%20support%20on)](https://discord.gg/XJJNG9jTuh)
 
 ![image](screenshot.png)
 
-Source code and documentation is in the [source](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/source) branch.
+Source code and documentation is in the [source](https://github.com/NoozSBC/mcpi-reborn-extended/tree/source) branch.
 
-## Installation ([compatibility list](https://github.com/mobilegmYT/mcpi-reborn-extended#compatibility))
+## Installation ([compatibility list](https://github.com/NoozSBC/mcpi-reborn-extended#compatibility))
 
 ### Method 1 - Install Script
 This method only supports debian-based distros with APT. This method will also add sound support. 
@@ -28,11 +28,11 @@ Download and install the appropiate DEB for your architecture with the `client` 
 Download and run the appropiate AppImage for your architecture with the `client` tag from [here](https://github.com/mobilegmYT/mcpi-reborn-extended/releases/). This is the only method that works on non-debian distros like arch or fedora.
 
 ## Feature List (in order of awesomeness)
-- Supports all distros with glibc (basically most major distros except musl-based ones like Alpine)
+- Supports all distros with glibc (most major distros except musl-based ones like Alpine)
 - Working sound
 - Add missing items in creative inventory
 - Sprinting via `CTRL` key
-- 1.18 textures
+- Modern textures
 - Custom skins
 - Longer chat message length limit (512 characters)
 - Longer username length limit (32 characters)
