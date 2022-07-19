@@ -11,5 +11,5 @@ echo '==== Building & Packaging ===='
 ./scripts/package-all.sh
 
 # Test
-echo '==== Testing ===='
-./scripts/test.sh
+#echo '==== Testing ===='
+#./scripts/test.sh

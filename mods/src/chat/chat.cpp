@@ -26,7 +26,7 @@
 int _chat_enabled = 0;
 
 // Message Limitations
-#define MAX_CHAT_MESSAGE_LENGTH 512
+#define MAX_CHAT_MESSAGE_LENGTH 768
 
 // Send API Command
 std::string chat_send_api_command(unsigned char *minecraft, char *str) {
