@@ -34,7 +34,7 @@ if(NOT MCPI_HEADLESS_MODE)
 endif()
 
 # App ID
-set(DEFAULT_APP_ID "com.thebrokenrail.MCPIReborn")
+set(DEFAULT_APP_ID "com.nooz.MCPIRebornExtended")
 if(MCPI_SERVER_MODE)
     string(APPEND DEFAULT_APP_ID "Server")
 else()
@@ -43,7 +43,7 @@ endif()
 set(MCPI_APP_ID "${DEFAULT_APP_ID}" CACHE STRING "App ID")
 
 # App Title
-set(DEFAULT_APP_TITLE "Minecraft: Pi Edition: Reborn")
+set(DEFAULT_APP_TITLE "MCPI-Reborn Extended")
 if(MCPI_SERVER_MODE)
     string(APPEND DEFAULT_APP_TITLE " (Server)")
 else()

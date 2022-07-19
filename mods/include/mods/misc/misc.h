@@ -22,6 +22,8 @@ void Level_saveLevelData_injection(unsigned char *level);
 // Use this instead of directly calling Gui::addMessage(), it has proper logging!
 void misc_add_message(unsigned char *gui, const char *text);
 
+void misc_set_sprinting(int enable);
+
 #ifdef __cplusplus
 }
 #endif

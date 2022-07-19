@@ -142,7 +142,7 @@ static void Screen_render_injection(unsigned char *screen, int32_t param_1, int3
 }
 
 // Sanitize Username
-#define MAX_USERNAME_LENGTH 16
+#define MAX_USERNAME_LENGTH 32
 static void LoginPacket_read_injection(unsigned char *packet, unsigned char *bit_stream) {
     // Call Original Method
     (*LoginPacket_read)(packet, bit_stream);
@@ -297,6 +297,28 @@ int32_t misc_get_real_selected_slot(unsigned char *player) {
     return selected_slot;
 }
 
+// Increase Player Speed
+static int is_sprinting = 0;
+void misc_set_sprinting(int enable) {
+    is_sprinting = enable;
+}
+static float get_sprint_speed() {
+    static float speed;
+    static int speed_set = 0;
+    if (!speed_set) {
+        char *speed_str = getenv("MCPI_SPEED_HACK");
+        if (speed_str == NULL) {
+            speed_str = "1.5";
+        }
+        speed = strtof(speed_str, NULL);
+        speed_set = 1;
+    }
+    return speed;
+}
+static float Player_getWalkingSpeedModifier_injection(__attribute__((unused)) unsigned char *player) {
+    return is_sprinting ? get_sprint_speed() : 1; // Default Is 1
+}
+
 // Init
 static void nop() {
 }
@@ -345,6 +367,9 @@ void init_misc() {
     // Fix Bug Where RakNetInstance Starts Pinging Potential Servers Before The "Join Game" Screen Is Opened
     overwrite_calls((void *) RakNetInstance, (void *) RakNetInstance_injection);
 
+    // Increase Player Speed
+    overwrite((void *) Player_getWalkingSpeedModifier, (void *) Player_getWalkingSpeedModifier_injection);
+
     // Close Current Screen On Death To Prevent Bugs
     if (feature_has("Close Current Screen On Death", server_disabled)) {
         patch_address(LocalPlayer_die_vtable_addr, (void *) LocalPlayer_die_injection);
@@ -372,6 +397,7 @@ void init_misc() {
     // Force EGL
     if (feature_has("Force EGL", server_disabled)) {
         media_force_egl();
+        WARN("The EGL context is enabled! If you have a NVIDIA graphics card and experience issues, please uncheck the \"Force EGL\" option from the launcher.");
     }
 
     // Remove Forced GUI Lag

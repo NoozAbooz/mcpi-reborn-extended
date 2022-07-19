@@ -3,7 +3,7 @@ project(images)
 # Title Background
 if(NOT MCPI_HEADLESS_MODE)
     install(
-        FILES "background.png"
+        FILES "background_119.png"
         DESTINATION "${MCPI_INSTALL_DIR}/data/images/gui"
         RENAME "titleBG.png"
     )

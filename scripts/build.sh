@@ -18,13 +18,13 @@ build() {
     # Build ARM Components
     cd arm
     cmake --build .
-    DESTDIR="${prefix}" cmake --install .
+    DESTDIR="${prefix}" ninja install
     cd ../
 
     # Build Native Components
     cd native
     cmake --build .
-    DESTDIR="${prefix}" cmake --install .
+    DESTDIR="${prefix}" ninja install
     cd ../
 
     # Exit

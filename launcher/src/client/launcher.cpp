@@ -104,7 +104,7 @@ static void run_command_and_set_env(const char *env_name, const char *command[])
 }
 
 // Use Zenity To Set Environmental Variable
-#define DIALOG_TITLE "Launcher"
+#define DIALOG_TITLE "MCPI++ Launcher"
 static void run_zenity_and_set_env(const char *env_name, std::vector<std::string> command) {
     // Create Full Command
     std::vector<std::string> full_command;
@@ -135,15 +135,19 @@ static void set_env_if_unset(const char *env_name, std::function<std::string()> 
 }
 
 // Defaults
-#define DEFAULT_USERNAME "StevePi"
+#define DEFAULT_USERNAME "AlexPi"
 #define DEFAULT_RENDER_DISTANCE "Short"
 
 // Launch
-#define LIST_DIALOG_SIZE "400"
+#define FEATURE_DIALOG_WIDTH "500"
+#define FEATURE_DIALOG_HEIGHT "700"
+
+#define DISTANCE_DIALOG_SIZE "200"
+
 int main(int argc, char *argv[]) {
     // Don't Run As Root
     if (getenv("_MCPI_SKIP_ROOT_CHECK") == NULL && (getuid() == 0 || geteuid() == 0)) {
-        ERR("Don't Run As Root");
+        ERR("Please do not run MCPI++ as the root user! Switch to a non-root user or launch MCPI++ without sudo.");
     }
 
     // Pre-Bootstrap
@@ -218,9 +222,9 @@ int main(int argc, char *argv[]) {
         command.push_back("--list");
         command.push_back("--checklist");
         command.push_back("--width");
-        command.push_back(LIST_DIALOG_SIZE);
+        command.push_back(FEATURE_DIALOG_WIDTH);
         command.push_back("--height");
-        command.push_back(LIST_DIALOG_SIZE);
+        command.push_back(FEATURE_DIALOG_HEIGHT);
         command.push_back("--column");
         command.push_back("Enabled");
         command.push_back("--column");
@@ -249,11 +253,11 @@ int main(int argc, char *argv[]) {
         command.push_back("--list");
         command.push_back("--radiolist");
         command.push_back("--width");
-        command.push_back(LIST_DIALOG_SIZE);
+        command.push_back(DISTANCE_DIALOG_SIZE);
         command.push_back("--height");
-        command.push_back(LIST_DIALOG_SIZE);
+        command.push_back(DISTANCE_DIALOG_SIZE);
         command.push_back("--text");
-        command.push_back("Select Minecraft Render Distance:");
+        command.push_back("Select Render Distance:");
         command.push_back("--column");
         command.push_back("Selected");
         command.push_back("--column");

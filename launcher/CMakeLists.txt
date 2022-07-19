@@ -4,7 +4,7 @@ project(launcher)
 add_subdirectory(dependencies)
 
 # Launcher
-add_executable(launcher src/bootstrap.c src/patchelf.c src/crash-report.c)
+add_executable(launcher src/bootstrap.c src/patchelf.c)
 if(MCPI_SERVER_MODE)
     target_sources(launcher PRIVATE src/server/launcher.c)
 else()
@@ -62,13 +62,13 @@ file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/appstream.xml"
     "    <metadata_license>CC0-1.0</metadata_license>\n"
     "    <summary>Fun with Blocks</summary>\n"
     "    <description>\n"
-    "        <p>Minecraft: Pi Edition Modding Project.</p>\n"
+    "        <p>MCPI-Reborn Modding Project.</p>\n"
     "        <p>NOTE: This is not verified by, affiliated with, or supported by Mojang or Microsoft.</p>\n"
     "    </description>\n"
-    "    <url type=\"homepage\">https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn</url>\n"
+    "    <url type=\"homepage\">https://github.com/NoozSBC/mcpi-reborn-extended</url>\n"
     "    <launchable type=\"desktop-id\">${MCPI_APP_ID}.desktop</launchable>\n"
     "    <provides>\n"
-    "        <id>com.thebrokenrail.MCPIRebornClient.desktop</id>\n"
+    "        <id>com.nooz.MCPIRebornExtended.desktop</id>\n"
     "    </provides>\n"
     "    <project_license>LicenseRef-proprietary</project_license>\n"
     "    <developer_name>TheBrokenRail &amp; Mojang AB</developer_name>\n"
@@ -98,15 +98,6 @@ file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/appstream.xml"
     "        <release version=\"${MCPI_VERSION}\" date=\"${MCPI_VERSION_DATE}\"></release>\n"
     "    </releases>\n"
 )
-if(NOT MCPI_HEADLESS_MODE)
-    file(APPEND "${CMAKE_CURRENT_BINARY_DIR}/appstream.xml"
-        "    <screenshots>\n"
-        "        <screenshot type=\"default\">\n"
-        "            <image>https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn/raw/branch/master/images/start.png</image>\n"
-        "        </screenshot>\n"
-        "    </screenshots>\n"
-    )
-endif()
 file(APPEND "${CMAKE_CURRENT_BINARY_DIR}/appstream.xml"
     "</component>\n"
 )

@@ -29,6 +29,7 @@ void init_options();
 void init_chat();
 void init_bucket();
 void init_home();
+void init_cursed_chest();
 #ifndef MCPI_SERVER_MODE
 void init_benchmark();
 #endif

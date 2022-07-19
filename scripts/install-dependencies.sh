@@ -25,7 +25,10 @@ run() {
     # Build System
     queue_pkg \
         git \
+        wget \
+        ca-certificates \
         cmake \
+        file \
         ninja-build
 
     # Host Dependencies Needed For Compile
@@ -113,6 +116,9 @@ run() {
 }
 
 # Run
+apt-get update
+apt-get install -y sudo 
+
 if [ "$#" -lt 1 ]; then
     run "$(dpkg-architecture -qDEB_BUILD_ARCH)"
 else

@@ -56,10 +56,29 @@ static SDLKey glfw_key_to_sdl_key(int key) {
             return SDLK_d;
         case GLFW_KEY_SPACE:
             return SDLK_SPACE;
+        // Alternate Vim Movement
+        case GLFW_KEY_K:
+            return SDLK_w;
+        case GLFW_KEY_H:
+            return SDLK_a;
+        case GLFW_KEY_J:
+            return SDLK_s;
+        case GLFW_KEY_L:
+            return SDLK_d;
+        // Sneak
         case GLFW_KEY_LEFT_SHIFT:
             return SDLK_LSHIFT;
         case GLFW_KEY_RIGHT_SHIFT:
             return SDLK_RSHIFT;
+        case GLFW_KEY_LEFT_ALT:
+            return SDLK_LSHIFT;
+        case GLFW_KEY_RIGHT_ALT:
+            return SDLK_RSHIFT;
+        // Sprint
+        case GLFW_KEY_LEFT_CONTROL:
+            return SDLK_LCTRL;
+        case GLFW_KEY_RIGHT_CONTROL:
+            return SDLK_RCTRL;
         // Inventory
         case GLFW_KEY_E:
             return SDLK_e;
@@ -144,19 +163,47 @@ static SDLMod glfw_modifier_to_sdl_modifier(int mods) {
     return ret;
 }
 
+// Last Mouse Location
+static double last_mouse_x = 0;
+static double last_mouse_y = 0;
+
+// Pass Mouse Movement To SDL
+static void glfw_motion(__attribute__((unused)) GLFWwindow *window, double xpos, double ypos);
+
 // Pass Key Presses To SDL
 static void glfw_key(__attribute__((unused)) GLFWwindow *window, int key, int scancode, int action, int mods) {
     if (is_interactable) {
-        SDL_Event event;
-        int up = action == GLFW_RELEASE;
-        event.type = up ? SDL_KEYUP : SDL_KEYDOWN;
-        event.key.state = up ? SDL_RELEASED : SDL_PRESSED;
-        event.key.keysym.scancode = scancode;
-        event.key.keysym.mod = glfw_modifier_to_sdl_modifier(mods);
-        event.key.keysym.sym = glfw_key_to_sdl_key(key);
-        SDL_PushEvent(&event);
-        if (key == GLFW_KEY_BACKSPACE && !up) {
-            character_event((char) '\b');
+        switch (key) {
+            case GLFW_KEY_DOWN: {
+                glfw_motion(window, last_mouse_x, last_mouse_y + 25);
+                break;
+            }
+            case GLFW_KEY_UP: {
+                glfw_motion(window, last_mouse_x, last_mouse_y - 25);
+                break;
+            }
+            case GLFW_KEY_LEFT: {
+                glfw_motion(window, last_mouse_x - 25, last_mouse_y);
+                break;
+            }
+            case GLFW_KEY_RIGHT: {
+                glfw_motion(window, last_mouse_x + 25, last_mouse_y);
+                break;
+            }
+            default: {
+                SDL_Event event;
+                int up = action == GLFW_RELEASE;
+                event.type = up ? SDL_KEYUP : SDL_KEYDOWN;
+                event.key.state = up ? SDL_RELEASED : SDL_PRESSED;
+                event.key.keysym.scancode = scancode;
+                event.key.keysym.mod = glfw_modifier_to_sdl_modifier(mods);
+                event.key.keysym.sym = glfw_key_to_sdl_key(key);
+                SDL_PushEvent(&event);
+                if (key == GLFW_KEY_BACKSPACE && !up) {
+                    character_event((char) '\b');
+                }
+                break;
+            }
         }
     }
 }
@@ -168,9 +215,6 @@ static void glfw_char(__attribute__((unused)) GLFWwindow *window, unsigned int c
     }
 }
 
-// Last Mouse Location
-static double last_mouse_x = 0;
-static double last_mouse_y = 0;
 // Ignore Relative Cursor Motion
 static int ignore_relative_motion = 0;
 
@@ -236,7 +280,7 @@ void media_set_raw_mouse_motion_enabled(int enabled) {
     }
 #endif
     if (!raw_mouse_motion_enabled) {
-        WARN("Raw mouse motion has been DISABLED, this IS NOT recommended, and should only ever be used on systems that don't support or have broken raw mouse motion.");
+        WARN("Raw mouse movement is DISABLED by default. If your mouse is having sensitivity issues, please uncheck \"Disable Raw Mouse Motion (WSL)\" on launch.");
     }
 }
 

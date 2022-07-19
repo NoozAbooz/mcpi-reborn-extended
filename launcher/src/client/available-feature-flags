@@ -1,4 +1,4 @@
-FALSE Full Touch GUI
+TRUE Full Touch GUI
 TRUE Fix Bow & Arrow
 TRUE Fix Attacking
 FALSE Force Mob Spawning
@@ -6,8 +6,8 @@ TRUE Disable Autojump By Default
 TRUE Display Nametags By Default
 TRUE Fix Sign Placement
 TRUE Show Block Outlines
-FALSE Expand Creative Inventory
-FALSE Remove Creative Mode Restrictions
+TRUE Expand Creative Inventory
+TRUE Remove Creative Mode Restrictions
 TRUE Animated Water
 TRUE Remove Invalid Item Background
 TRUE Disable "gui_blocks" Atlas
@@ -26,7 +26,7 @@ TRUE External Server Support
 TRUE Load Language Files
 TRUE Implement Sound Engine
 TRUE Close Current Screen On Death
-FALSE Disable Raw Mouse Motion (Not Recommended)
+TRUE Disable Raw Mouse Motion (WSL)
 TRUE Fix Furnace Not Checking Item Auxiliary
 TRUE Improved Cursor Rendering
 TRUE Disable V-Sync
@@ -41,4 +41,4 @@ FALSE Remove Forced GUI Lag (Can Break Joining Servers)
 TRUE Add Buckets
 TRUE Classic HUD
 TRUE Translucent Toolbar
-FALSE Force EGL
+TRUE Force EGL

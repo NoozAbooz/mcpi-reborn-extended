@@ -12,7 +12,6 @@
 
 #include "bootstrap.h"
 #include "patchelf.h"
-#include "crash-report.h"
 
 // Set Environmental Variable
 static void trim(char **value) {
@@ -190,9 +189,6 @@ void pre_bootstrap(int argc, char *argv[]) {
 
     // Free Binary Directory
     free(binary_directory);
-
-    // Setup Crash Reports
-    setup_crash_report();
 
     // Install Signal Handlers
     struct sigaction act_sigint;
