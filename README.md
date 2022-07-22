@@ -1,5 +1,5 @@
 # MCPI++ (mcpi-reborn-extended)
-This is a fork of [mcpi-reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn), with custom features added by community members. The apt packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from mcpi-reborn. If you like MCPI or MCPI-Reborn, you'll probably like this too!
+This is a fork of [MCPI-Reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn), with custom features added by community members. The APT packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from MCPI-Reborn. If you like MCPI or MCPI-Reborn, you'll probably like this too!
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label=Get%20support%20on)](https://discord.gg/XJJNG9jTuh)
 
@@ -10,7 +10,7 @@ Source code and documentation is in the [source](https://github.com/NoozSBC/mcpi
 ## Installation ([compatibility list](https://github.com/NoozSBC/mcpi-reborn-extended#compatibility))
 
 ### Method 1 - Install Script
-This method only supports debian-based distros with APT. This method will also add sound support. 
+This method only supports Debian-based distros with APT. This method will also add sound support.
 ```bash
 wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/install.sh | bash
 ```
@@ -21,17 +21,17 @@ wget -qO- https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main
 ```
 
 ### Method 2 - DEB Install
-This script only supports debian-based distros with APT. This method will also add sound support. 
+This script only supports Debian-based distros with APT. This method will also add sound support.
 Download and install the appropiate DEB for your architecture with the `client` tag from [here](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/main/debs)
 
 ### Method 3 - AppImage
-Download and run the appropiate AppImage for your architecture with the `client` tag from [here](https://github.com/mobilegmYT/mcpi-reborn-extended/releases/). This is the only method that works on non-debian distros like arch or fedora.
+Download and run the appropiate AppImage for your architecture with the `client` tag from [here](https://github.com/mobilegmYT/mcpi-reborn-extended/releases/). This is the only method that works on non-Debian distros like Arch or Fedora.
 
 ## Feature List (in order of awesomeness)
 - Supports all distros with glibc (most major distros except musl-based ones like Alpine)
 - Working sound
-- Add missing items in creative inventory
-- Sprinting via `CTRL` key
+- Add missing items to creative inventory
+- Sprinting via `Ctrl` key
 - Modern textures
 - Custom skins
 - Longer chat message length limit (512 characters)
@@ -45,29 +45,29 @@ Download and run the appropiate AppImage for your architecture with the `client`
 
 ## Compatibility
 MCPI++ has been tested with the following:
-- Raspberry Pi 3/4 running RPI OS Buster/Bullseye
+- Raspberry Pi 3/4 running Raspberry Pi OS Buster/Bullseye
 - Windows 10/11 via WSL2 and GWSL (instructions [here](https://www.youtube.com/watch?v=3l-m8O13LYk))
 - x64 PC running Debian/Ubuntu
 
-## User guide
+## User Guide
 ### Starting the game
-If you didn't choose to install the launcher, launch with `minecraft-pi-reborn-client` and configure your features. Otherwise, type `planet-launcher` into terminal or find `Planet Launcher` from your start menu. You will be greeted with the launcher, from which you can configure settings like username, control which mods are enabled, and add servers. Once you are done, hit "Launch" and start the game!
+If you didn't choose to install the launcher, launch with `minecraft-pi-reborn-client` and configure your features. Otherwise, type `planet-launcher` into terminal or find `Planet Launcher` app in your start menu. You will be greeted with the launcher, from which you can configure settings like username, control which mods are enabled, and add servers. Once you are done, hit "Launch" to start the game!
 
 ### Controls
-Once you are in a world, you will be able to move with WASD and Space.  
-You can look around with the mouse or arrow keys.  
-To look in your inventory use the "E" and to scroll use the mouse to drag.  
-To pause the game press Esc.  
-To sneak press Shift or Alt.  
-To sprint hold Ctrl and move.  
+Once you are in a world, you will be able to move with WASD/HJKL and Space.
+You can look around with the mouse or arrow keys.
+To look in your inventory use the "E" and to scroll use the mouse to drag.
+To pause the game press Esc.
+To sneak press Shift or Alt.
+To sprint hold Ctrl and move.
 
-### Entering a game
-Press "Start Game", then click "Create new" to make a new world. Once you load in, you can play around and do whatever. Pause the game with ESC and you can mute sounds or return to the main menu. To enter that world again, click "Start Game" and click on the picture for that world. 
+### Entering A Game
+Press "Start Game", then click "Create new" to make a new world. Once you load in, you can play around and do whatever. Pause the game with ESC and you can mute sounds or return to the main menu. To enter that world again, click "Start Game" and click on the picture for that world.
 
-#### Joining a server
+### Joining A Server
 Press "Join Game", and you will be greeted with a list of available servers. Click on one and it will connect. Playing on servers is the exact same as playing on multiplayer, except pausing won't pause the game for other people online and of course, there will be other players online who will all have the same skin as you.
 
-### Installing extra mods.
+### Installing Extra Mods.
 MCPI mods are compiled into shared objects (also called "so files") to add them move them to `~/.minecraft-pi/mods/lib<modname>.so`.
 If you are interested in making your own mods, documentation can be found [here](https://github.com/mobilegmYT/mcpi-reborn-extended/blob/source/docs/MODDING.md).
 
