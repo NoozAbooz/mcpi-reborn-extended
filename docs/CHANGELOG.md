@@ -1,7 +1,7 @@
 # Changelog
 
 ###	**2.4.1**
-* Change DEB Executible Path From ``/bin/cd mc  `` to ``/usr/bin/``
+* Change DEB Executible Path From ``/bin/`` to ``/usr/bin/``
 
 ###	**2.4.1**
 * Allow More Characters In Usernames And Chat
