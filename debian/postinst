@@ -13,6 +13,6 @@ do
 
   if [ ! -e "${u}/.minecraft-pi/overrides/libminecraftpe.so" ]; then
     echo "$(tput smul)$(tput setaf 6)$(tput bold)Installing sound support...$(tput sgr0)"
-    mv /usr/lib/minecraft-pi-reborn-client/libminecraftpe.so "${u}/.minecraft-pi/overrides/libminecraftpe.so"
+    mv /usr/lib/minecraft-pi-reborn-client/game/libminecraftpe.so "${u}/.minecraft-pi/overrides/libminecraftpe.so"
   fi
 done

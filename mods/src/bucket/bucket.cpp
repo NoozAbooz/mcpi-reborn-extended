@@ -40,7 +40,7 @@ static int32_t BucketItem_useOn(__attribute__((unused)) unsigned char *item, Ite
         if (tile == *(int32_t *) (*Tile_calmWater + Tile_id_property_offset)) {
             new_auxiliary = *(int32_t *) (*Tile_water + Tile_id_property_offset);
         } else if (tile == *(int32_t *) (*Tile_calmLava + Tile_id_property_offset)) {
-            new_auxiliary = *(int32_t *) (*Tile_water + Tile_id_property_offset);
+            new_auxiliary = *(int32_t *) (*Tile_lava + Tile_id_property_offset);
         }
         if (new_auxiliary != 0) {
             // Valid
