@@ -62,7 +62,7 @@ if [[ "$1" =~ .*"client".* ]]; then
     ln -sf ../usr/lib/minecraft-pi-reborn-client/launcher ${outdir}/bin/minecraft-pi-reborn-client
 fi
 if [[ "$1" =~ .*"server".* ]]; then
-    rm "${outdir}/lib/minecraft-pi-reborn-server/game/libminecraftpe.so"
+    rm "${outdir}/usr/lib/minecraft-pi-reborn-server/game/libminecraftpe.so"
 
     ln -sf ../usr/lib/minecraft-pi-reborn-server/launcher ${outdir}/bin/minecraft-pi-reborn-server
 fi
