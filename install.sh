@@ -52,7 +52,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     sudo apt-get install -y minecraft-pi-reborn-client
     info "Installed Client!"
-    APP="server"
+    APP="client"
 elif [[ $REPLY =~ ^[Nn]$ ]]
 then
     sudo apt-get install -y minecraft-pi-reborn-server
