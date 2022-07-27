@@ -17,7 +17,7 @@ convertsecs() {
 
 # Run pull latest code from git
 cd ~/minecraft-pi-reborn
-#git pull || error "Couldn't merge with remote!"
+git pull || error "Couldn't merge with remote!"
 LATEST_COMMIT="$(git rev-parse HEAD)"
 git add --all
 git commit -m "$1"
@@ -26,7 +26,7 @@ git push
 # Build reborn
 if [ -z "$NOBUILD" ]; then
   ./scripts/ci/simulate.sh || error "Build failed! Not pushing debs."
-  sudo scripts/package-debs.sh || error "Package failed! Not pushing debs."
+  #sudo scripts/package-debs.sh || error "Package failed! Not pushing debs."
   sudo find ~/minecraft-pi-reborn/ -type d -exec chown mike {} \;
 else
   echo "NOBUILD specified, continuing..."
