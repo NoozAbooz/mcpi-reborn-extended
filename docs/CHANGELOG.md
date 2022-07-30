@@ -1,5 +1,10 @@
 # Changelog
 
+### **2.4.2**
+* Fix Picking Up Lava
+* Fix Wayland App ID
+* Fix Duplicate Creative Inventory Items
+
 ###	**2.4.1**
 * Change DEB Executible Path From ``/bin/cd mc  `` to ``/usr/bin/``
 

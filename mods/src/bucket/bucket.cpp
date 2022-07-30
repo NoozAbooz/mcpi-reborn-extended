@@ -108,6 +108,9 @@ static int32_t BucketItem_useOn(__attribute__((unused)) unsigned char *item, Ite
             Material_isSolid_t Material_isSolid = *(Material_isSolid_t *) (material_vtable + Material_isSolid_vtable_offset);
             valid = !(*Material_isSolid)(material);
         }
+        if (item_instance->auxiliary != *(int32_t *) (*Tile_water + Tile_id_property_offset) && item_instance->auxiliary != *(int32_t *) (*Tile_lava + Tile_id_property_offset)) {
+            valid = false;
+        }
         if (valid) {
             (*Level_setTileAndData)(level, x, y, z, item_instance->auxiliary, 0);
             item_instance->auxiliary = 0;
