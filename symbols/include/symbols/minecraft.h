@@ -327,6 +327,8 @@ static ItemInstance_getMaxStackSize_t ItemInstance_getMaxStackSize = (ItemInstan
 #define ITEM_SIZE 0x24
 #define ITEM_VTABLE_SIZE 0x98
 
+static unsigned char **Item_items = (unsigned char **) 0x17b250;
+
 static unsigned char *Item_vtable = (unsigned char *) 0x10f128;
 
 typedef void (*Item_initItems_t)();
