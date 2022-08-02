@@ -1,14 +1,19 @@
 # Changelog
+The changelog for every single MCPI v2 release is listed here. Under-the-hood modifications that don't effect the user experience are prefxied with "[INT]".
+
+### **2.4.3**
+* Fix Signs With CP-437
+* Fix Duplicate Creative Inventory Items
+* Patch Invalid Creative Inventory Items
 
 ### **2.4.2**
 * Fix Picking Up Lava
 * Fix Wayland App ID
-* Fix Duplicate Creative Inventory Items
 
-###	**2.4.1**
+### **2.4.1-1**
 * Change DEB Executible Path From ``/bin/`` to ``/usr/bin/``
 
-###	**2.4.1**
+### **2.4.1**
 * Allow More Characters In Usernames And Chat
 * Fix Running On ARMHF Debian Buster
 
