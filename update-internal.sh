@@ -40,6 +40,8 @@ rm *reborn*.deb
 
 cp ~/minecraft-pi-reborn/out/*.deb .
 
+sudo apt install -y ./minecraft-pi-reborn*amd64*.deb
+
 # Upload appimages
 cd ~/minecraft-pi-reborn/out/
 DOTLESS_VERSION=$(echo $VERSION | sed -e 's/\.//g')
@@ -60,7 +62,7 @@ gpg --batch --default-key "B3CBD723C2982EBDFEDCE197373BAC436E62C806" -abs -o - R
 gpg --batch --default-key "B3CBD723C2982EBDFEDCE197373BAC436E62C806" --clearsign -o - Release > InRelease
 
 # Push to github
-cd ~/mcpi-reborn-extended
+cd ~/mcpi-reborn-extended/
 git add --all
 if [ -z "$1" ]; then
     
