@@ -1,5 +1,8 @@
 # Changelog
-The changelog for every single MCPI v2 release is listed here. Under-the-hood modifications that don't effect the user experience are prefxied with "[INT]".
+The changelog for every single MCPI v2 release is listed here. Under-the-hood modifications that don't effect the user experience are prefixed with "[INT]".
+
+### **2.4.3-2**
+* [INT] Changes to CMake build and dependencies
 
 ### **2.4.3-1**
 * Bump Planet Version To 1.2.1

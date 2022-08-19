@@ -11,8 +11,9 @@ do
   mkdir -p "${u}/.minecraft-pi/"
   mkdir -p "${u}/.minecraft-pi/overrides"
 
-  if [ ! -e "${u}/.minecraft-pi/overrides/libminecraftpe.so" ]; then
-    echo "$(tput smul)$(tput setaf 6)$(tput bold)Installing sound support...$(tput sgr0)"
+  if [ -e "/usr/lib/minecraft-pi-reborn-client/game/libminecraftpe.so" ]; then
+    echo "$(tput smul)$(tput setaf 6)$(tput bold)Installing Sound Support...$(tput sgr0)"
     mv /usr/lib/minecraft-pi-reborn-client/game/libminecraftpe.so "${u}/.minecraft-pi/overrides/libminecraftpe.so"
+    echo "$(tput smul)$(tput setaf 6)$(tput bold)Sound Support Installed!$(tput sgr0)"
   fi
 done

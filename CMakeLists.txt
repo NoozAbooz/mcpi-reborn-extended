@@ -99,10 +99,14 @@ project(minecraft-pi-reborn)
 include(cmake/util.cmake)
 
 # Sanity Checks
-if(BUILD_NATIVE_COMPONENTS AND NOT CMAKE_SYSTEM_PROCESSOR MATCHES "^arm" AND NOT MCPI_IS_MIXED_BUILD)
+set(IS_ARM_TARGETING FALSE)
+if(CMAKE_SYSTEM_PROCESSOR STREQUAL "arm" OR CMAKE_SYSTEM_PROCESSOR STREQUAL "armv7l")
+    set(IS_ARM_TARGETING TRUE)
+endif()
+if(BUILD_NATIVE_COMPONENTS AND NOT IS_ARM_TARGETING AND NOT MCPI_IS_MIXED_BUILD)
     message(FATAL_ERROR "Project is configured as a mixed-buld, but MCPI_IS_MIXED_BUILD is disabled.")
 endif()
-if(BUILD_ARM_COMPONENTS AND NOT CMAKE_SYSTEM_PROCESSOR MATCHES "^arm")
+if(BUILD_ARM_COMPONENTS AND NOT IS_ARM_TARGETING)
     message(FATAL_ERROR "ARM-Targeting Compiler Required")
 endif()
 
@@ -195,7 +199,7 @@ endif()
 # Install SDK
 if(BUILD_ARM_COMPONENTS)
     install(EXPORT sdk DESTINATION "${MCPI_SDK_DIR}" FILE "sdk-targets.cmake" EXPORT_LINK_INTERFACE_LIBRARIES)
-    string(CONCAT SDK_SETUP
+    file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/sdk.cmake"
         # Compile Flags
         "${COMPILE_FLAGS_SETUP}\n"
         # Log
@@ -203,6 +207,5 @@ if(BUILD_ARM_COMPONENTS)
         # Include Targets
         "include(\"\${CMAKE_CURRENT_LIST_DIR}/sdk-targets.cmake\")\n"
     )
-    file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/sdk.cmake" "${SDK_SETUP}")
     install(FILES "${CMAKE_CURRENT_BINARY_DIR}/sdk.cmake" DESTINATION "${MCPI_SDK_DIR}")
 endif()
