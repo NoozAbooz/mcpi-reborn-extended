@@ -19,7 +19,7 @@ convertsecs() {
 cd ~/minecraft-pi-reborn
 git pull || error "Couldn't merge with remote!"
 LATEST_COMMIT="$(git rev-parse HEAD)"
-git add --all
+git add -A
 git commit -m "$1"
 git push
 
