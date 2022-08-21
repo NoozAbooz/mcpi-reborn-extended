@@ -30,7 +30,7 @@ sudo_wget() {
 # Install depends
 #echo -e "\e[4m\e[21m\e[5mInstalling dependencies...\e[0m\e[97m"
 info "Installing Dependencies..."
-sudo apt-get install -y wget gnupg unzip zenity || error "Failed to install dependencies, see error above"
+sudo apt-get install -y wget gnupg || error "Failed to install dependencies, see error above"
 
 # Install repo
 info "Installing APT Repository..."
