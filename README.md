@@ -12,16 +12,12 @@ Source code and documentation is in the [source](https://github.com/NoozSBC/mcpi
 ### Method 1 - Install Script
 This method only supports Debian-based distros with APT. This method will also add sound support.
 ```bash
-wget https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/install.sh
-bash install.sh
-rm install.sh
+wget https://is.gd/mcpi_install && bash install.sh
 ```
 
 #### Uninstall (if you used the script)
 ```bash
-wget https://raw.githubusercontent.com/mobilegmYT/mcpi-reborn-extended/main/uninstall.sh
-bash uninstall.sh
-rm uninstall.sh
+wget https://is.gd/mcpi_uninstall && bash uninstall.sh
 ```
 
 ### Method 2 - DEB Install
