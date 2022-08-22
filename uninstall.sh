@@ -18,3 +18,6 @@ then
 fi
 
 echo -e "\nInstallation complete! Please note that the MCPI Python API is still installed and can be removed with 'pip uninstall mcpi'. Your user data folder, '~/.minecraft-pi/' can also be removed if you want."
+
+# Self destruct
+unlink $0
