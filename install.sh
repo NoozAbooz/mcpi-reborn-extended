@@ -81,3 +81,6 @@ sudo_wget "${API_URL}" "${API_PATH}"
 # Finish
 echo -e "\n"
 info "Installation complete! Refer to https://github.com/NoozSBC/mcpi-reborn-extended#user-guide for usage instructions."
+
+# Self destruct
+unlink $0
