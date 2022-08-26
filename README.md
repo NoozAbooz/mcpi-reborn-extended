@@ -51,7 +51,7 @@ MCPI++ has been tested with the following:
 
 ## User Guide
 ### Starting the game
-If you didn't choose to install the launcher, launch with `minecraft-pi-reborn-client` and configure your features. Otherwise, type `planet-launcher` into terminal or find `Planet Launcher` app in your start menu. You will be greeted with the launcher, from which you can configure settings like username, control which mods are enabled, and add servers. Once you are done, hit "Launch" to start the game!
+Launch with `minecraft-pi-reborn-client` and configure your features.
 
 ### Controls
 Once you are in a world, you will be able to move with WASD/HJKL and Space.
@@ -65,6 +65,11 @@ To sprint hold Ctrl and move.
 Press "Start Game", then click "Create new" to make a new world. Once you load in, you can play around and do whatever. Pause the game with ESC and you can mute sounds or return to the main menu. To enter that world again, click "Start Game" and click on the picture for that world.
 
 ### Joining A Server
+Open `~/.minecraft.pi/servers.txt` and add your servers, one address per line like this:
+```
+pbptanarchy.tk
+pi-land.minecraft.pe:19132 <-- you can also specify port numbers!
+```
 Press "Join Game", and you will be greeted with a list of available servers. Click on one and it will connect. Playing on servers is the exact same as playing on multiplayer, except pausing won't pause the game for other people online and of course, there will be other players online who will all have the same skin as you.
 
 ### Installing Extra Mods.
