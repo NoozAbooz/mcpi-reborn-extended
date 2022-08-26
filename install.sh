@@ -61,17 +61,17 @@ then
 fi
 
 # Install launcher
-if [[ $APP == "client" ]]
-then
-    echo -e "\nWould you like to install a launcher? This will allow you to save your settings and configure texturepacks/custom skins (RECCOMENDED). [Y/n]"
-    read -p "> " -n 1 -r
-
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-        info "Installing Launcher..."
-        sudo apt-get install -y planet-launcher
-    fi
-fi
+#if [[ $APP == "client" ]]
+#then
+#    echo -e "\nWould you like to install a launcher? This will allow you to save your settings and configure texturepacks/custom skins (RECCOMENDED). [Y/n]"
+#    read -p "> " -n 1 -r
+#
+#    if [[ $REPLY =~ ^[Yy]$ ]]
+#    then
+#        info "Installing Launcher..."
+#        sudo apt-get install -y planet-launcher
+#    fi
+#fi
 
 # Install Python API
 info "Installing Python API..."
