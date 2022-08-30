@@ -1,4 +1,4 @@
-# Sound
+# Run commands for user
 for u in /home/*
 do
   n="$(basename "${u}")"
@@ -9,11 +9,16 @@ do
   fi
 
   mkdir -p "${u}/.minecraft-pi/"
-  mkdir -p "${u}/.minecraft-pi/overrides"
+  mkdir -p "${u}/.minecraft-pi/overrides/"
 
-  if [ -e "/usr/lib/minecraft-pi-reborn-client/game/libminecraftpe.so" ]; then
+  # Add sound support
+  if [ -e "/usr/lib/minecraft-pi-reborn-client/game/libmineminecraftpe.so" ]; then
     echo "$(tput smul)$(tput setaf 6)$(tput bold)Installing Sound Support...$(tput sgr0)"
     mv /usr/lib/minecraft-pi-reborn-client/game/libminecraftpe.so "${u}/.minecraft-pi/overrides/libminecraftpe.so"
-    echo "$(tput smul)$(tput setaf 6)$(tput bold)Sound Support Installed!$(tput sgr0)"
+    echo "$(tput smul)$(tput setaf 6)$(tput bold)Sound Support Installed Without Errors!$(tput sgr0)"
   fi
+
+  # Change owner to user
+  chown -R ${u} "${u}/.minecraft-pi/"
+  chmod -R uo+rw "${u}/.minecraft-pi/"
 done

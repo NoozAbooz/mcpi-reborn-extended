@@ -36,7 +36,7 @@ std::string _sound_get_source_file() {
         // Check If Sound Exists
         if (access(path, F_OK) == -1) {
             // Fail
-            WARN("Audio Source File Doesn't Exist: " SOURCE_FILE_BASE);
+            WARN("Sound data not found! There will be no audio unless you copy libminecraftpe.so from a MCPE apk to '~/.minecraft-pi/overrides/'.");
             source.assign("");
         } else {
             // Set
