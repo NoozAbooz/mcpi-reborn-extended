@@ -28,13 +28,4 @@ and then use this command each time you compile:
 
 `./scripts/package.sh <client|server> <amd64|arm64|armhf>`
 
-You will need to choose your architecture and if you want to build the client or the server, click [here](https://github.com/mobilegmYT/mcpi-reborn-extended/blob/source/docs/INSTALL.md#picking-a-package) for more info
-
-### Building on Windows
-If you are a windows user on WSL and want to build packages, you'll need to have Docker Desktop installed and set to the WSL backend.
-
-```
-./scripts/ci/simulate.sh
-```
-
 Build output is in the out/ folder.
