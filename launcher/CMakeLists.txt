@@ -1,7 +1,7 @@
 project(launcher)
 
 # Launcher
-add_executable(launcher src/bootstrap.c src/patchelf.cpp)
+add_executable(launcher src/bootstrap.c src/patchelf.cpp src/crash-report.c)
 if(MCPI_SERVER_MODE)
     target_sources(launcher PRIVATE src/server/launcher.c)
 else()

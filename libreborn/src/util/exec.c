@@ -37,9 +37,6 @@ __attribute__((noreturn)) void safe_execvpe(const char *const argv[], const char
     // Run
     int ret = execvpe(argv[0], (char *const *) argv, (char *const *) envp);
     if (ret == -1) {
-        if (errno == ENOENT && strcmp(argv[0], "qemu-qrm")) {
-            ERR("Cannot initialize QEMU virturalizaion! To install it on Ubuntu/Debian and derivatives, run \"sudo apt install -y qemu-user\". To install it on Arch Linux and it's derivatives, run \"sudo pacman -S qemu-user\".");
-        }
         ERR("Unable To Execute Program: %s: %s", argv[0], strerror(errno));
     } else {
         IMPOSSIBLE();
@@ -81,6 +78,9 @@ char *run_command(const char *const command[], int *exit_status) {
         ERR("Unable To Run Command: %s", strerror(errno));
     } else if (ret == 0) {
         // Child Process
+
+        // Set Debug Tag
+        reborn_debug_tag = CHILD_PROCESS_TAG;
 
         // Pipe stdout
         dup2(output_pipe[1], STDOUT_FILENO);

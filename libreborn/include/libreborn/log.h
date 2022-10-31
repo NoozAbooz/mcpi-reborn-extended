@@ -7,19 +7,17 @@
 extern "C" {
 #endif
 
-// Colors
-char *color_reset();
-char *color_info();
-char *color_warn();
-char *color_error();
-char *color_debug();
+// Debug
+extern const char *reborn_debug_tag;
+int reborn_get_debug_fd();
 
-// Server Mode
-#define INFO(format, ...) { fprintf(stderr, "%s[INFO]: " format "%s\n", color_info(), ##__VA_ARGS__, color_reset()); }
-#define WARN(format, ...) { fprintf(stderr, "%s[WARN]: " format "%s\n", color_warn(), ##__VA_ARGS__, color_reset()); }
-#define ERR(format, ...) { fprintf(stderr, "%s[ERR]: (%s:%i): " format "%s\n", color_error(), __FILE__, __LINE__, ##__VA_ARGS__, color_reset()); exit(EXIT_FAILURE); }
-#define DEBUG(format, ...) { const char *debug = getenv("MCPI_DEBUG"); if (debug != NULL && strlen(debug) > 0) { fprintf(stderr, "%s[DEBUG]: " format "%s\n", color_debug(), ##__VA_ARGS__, color_reset()); } }
-#define IMPOSSIBLE() ERR("\x1b[41mWe've reached an unreachable state. Anything is possible. The limits were in our heads all along. Follow your dreams.\x1b[0m ");
+// Logging
+#define INFO(format, ...) { fprintf(stderr, "[INFO]: " format "\n", ##__VA_ARGS__); }
+#define WARN(format, ...) { fprintf(stderr, "[WARN]: " format "\n", ##__VA_ARGS__); }
+#define RAW_DEBUG(tag, format, ...) { int debug_fd = reborn_get_debug_fd(); if (debug_fd != -1) { dprintf(debug_fd, "[DEBUG]: %s" format "\n", tag, ##__VA_ARGS__); } }
+#define DEBUG(format, ...) RAW_DEBUG(reborn_debug_tag, format, ##__VA_ARGS__)
+#define ERR(format, ...) { fprintf(stderr, "[ERR]: (%s:%i): " format "\n", __FILE__, __LINE__, ##__VA_ARGS__); exit(EXIT_FAILURE); }
+#define IMPOSSIBLE() ERR("This Should Never Be Called")
 
 #ifdef __cplusplus
 }

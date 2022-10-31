@@ -1,17 +1,23 @@
-#include <stdio.h>
 #include <unistd.h>
 
-#define COLOR(name, value) \
-    char *color_##name() { \
-        static char *out = NULL; \
-        if (out == NULL) { \
-            out = isatty(fileno(stderr)) ? "\x1b[" value "m" : ""; \
-        } \
-        return out; \
-    }
+#include <libreborn/log.h>
 
-COLOR(reset, "0")
-COLOR(info, "96")
-COLOR(warn, "93")
-COLOR(error, "91")
-COLOR(debug, "92")
+// Debug Tag
+const char *reborn_debug_tag = "";
+
+// Debug FD
+int reborn_get_debug_fd() {
+    if (getenv("MCPI_DEBUG") != NULL) {
+        return STDERR_FILENO;
+    } else {
+        static int debug_fd = -1;
+        if (debug_fd == -1) {
+            const char *log_file_fd_env = getenv("MCPI_LOG_FILE_FD");
+            if (log_file_fd_env == NULL) {
+                return -1;
+            }
+            debug_fd = atoi(log_file_fd_env);
+        }
+        return debug_fd;
+    }
+}

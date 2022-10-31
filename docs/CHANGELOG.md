@@ -1,6 +1,11 @@
 # Changelog
 The changelog for every single MCPI v2 release is listed here. Under-the-hood modifications that don't effect the user experience are prefixed with "[INT]".
 
+### **2.4.5**
+* Remove Coloured Terminal Output
+* Implemented Upstream Crash Dialog
+* Bundle QEMU
+
 ### **2.4.4**
 * Cache Previous Launcher Configuration
 * Add ``MCPI_API_PORT`` Environmental Variable

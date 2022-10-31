@@ -4,6 +4,6 @@ Architecture: armhf
 Maintainer: Nooz <zhengm58@gmail.com>
 Description: Community mod of MCPI-Reborn
 Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
-Depends: libc6, libstdc++6, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, patchelf, python3-minecraftpi
+Depends: libc6, libstdc++6, libgles1, libegl1, libglfw3 | libglfw3-wayland, libfreeimage3, libopenal1, python3-minecraftpi
 Section: games
 Priority: optional
