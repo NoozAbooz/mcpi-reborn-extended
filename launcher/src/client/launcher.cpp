@@ -10,9 +10,11 @@
 #include <libreborn/libreborn.h>
 
 #include "../bootstrap.h"
+#include "launcher.h"
+#include "cache.h"
 
 // Strip Feature Flag Default
-static std::string strip_feature_flag_default(std::string flag, bool *default_ret) {
+std::string strip_feature_flag_default(std::string flag, bool *default_ret) {
     // Valid Values
     std::string true_str = "TRUE ";
     std::string false_str = "FALSE ";
@@ -38,7 +40,7 @@ static std::string strip_feature_flag_default(std::string flag, bool *default_re
 // Load Available Feature Flags
 extern unsigned char available_feature_flags[];
 extern size_t available_feature_flags_len;
-static void load_available_feature_flags(std::function<void(std::string)> callback) {
+void load_available_feature_flags(std::function<void(std::string)> callback) {
     // Get Path
     char *binary_directory = get_binary_directory();
     std::string path = std::string(binary_directory) + "/available-feature-flags";
@@ -134,10 +136,6 @@ static void set_env_if_unset(const char *env_name, std::function<std::string()> 
     }
 }
 
-// Defaults
-#define DEFAULT_USERNAME "AlexPi"
-#define DEFAULT_RENDER_DISTANCE "Short"
-
 // Launch
 #define FEATURE_DIALOG_WIDTH "500"
 #define FEATURE_DIALOG_HEIGHT "700"
@@ -150,8 +148,10 @@ int main(int argc, char *argv[]) {
         ERR("Please do not run MCPI++ as the root user! Switch to a non-root user or launch MCPI++ without sudo.");
     }
 
-    // Pre-Bootstrap
-    pre_bootstrap(argc, argv);
+    // Ensure HOME
+    if (getenv("HOME") == NULL) {
+        ERR("$HOME Isn't Set");
+    }
 
     // Print Features
     for (int i = 1; i < argc; i++) {
@@ -165,18 +165,53 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    // Pre-Bootstrap
+    pre_bootstrap(argc, argv);
+
+    // Create ~/.minecraft-pi If Needed
+    {
+        char *minecraft_folder = NULL;
+        safe_asprintf(&minecraft_folder, "%s" HOME_SUBDIRECTORY_FOR_GAME_DATA, getenv("HOME"));
+        const char *const command[] = {"mkdir", "-p", minecraft_folder, NULL};
+        run_simple_command(command, "Unable To Create Data Directory");
+        free(minecraft_folder);
+    }
+
+    // --wipe-cache
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "--wipe-cache") == 0) {
+            wipe_cache();
+            break;
+        }
+    }
+
+    // --no-cache
+    bool no_cache = false;
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "--no-cache") == 0) {
+            no_cache = true;
+            break;
+        }
+    }
+    // Load Cache
+    launcher_cache cache = no_cache ? empty_cache : load_cache();
+
     // --default
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--default") == 0) {
             // Use Default Feature Flags
-            set_env_if_unset("MCPI_FEATURE_FLAGS", []() {
+            set_env_if_unset("MCPI_FEATURE_FLAGS", [&cache]() {
                 std::string feature_flags = "";
-                load_available_feature_flags([&feature_flags](std::string flag) {
-                    bool default_value;
+                load_available_feature_flags([&feature_flags, &cache](std::string flag) {
+                    bool value;
                     // Strip Default Value
-                    std::string stripped_flag = strip_feature_flag_default(flag, &default_value);
+                    std::string stripped_flag = strip_feature_flag_default(flag, &value);
+                    // Use Cache
+                    if (cache.feature_flags.count(stripped_flag) > 0) {
+                        value = cache.feature_flags[stripped_flag];
+                    }
                     // Specify Default Value
-                    if (default_value) {
+                    if (value) {
                         // Enabled By Default
                         feature_flags += stripped_flag + '|';
                     }
@@ -186,34 +221,14 @@ int main(int argc, char *argv[]) {
                 }
                 return feature_flags;
             });
-            set_env_if_unset("MCPI_RENDER_DISTANCE", []() {
-                return DEFAULT_RENDER_DISTANCE;
+            set_env_if_unset("MCPI_RENDER_DISTANCE", [&cache]() {
+                return cache.render_distance;
             });
-            set_env_if_unset("MCPI_USERNAME", []() {
-                return DEFAULT_USERNAME;
+            set_env_if_unset("MCPI_USERNAME", [&cache]() {
+                return cache.username;
             });
             break;
         }
-    }
-
-    // Create ~/.minecraft-pi If Needed
-    // Minecraft Folder
-    {
-        char *minecraft_folder = NULL;
-        safe_asprintf(&minecraft_folder, "%s/.minecraft-pi", getenv("HOME"));
-        {
-            // Check Minecraft Folder
-            struct stat obj;
-            if (stat(minecraft_folder, &obj) != 0 || !S_ISDIR(obj.st_mode)) {
-                // Create Minecraft Folder
-                int ret = mkdir(minecraft_folder, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
-                if (ret != 0) {
-                    // Unable To Create Folder
-                    ERR("Error Creating Directory: %s: %s", minecraft_folder, strerror(errno));
-                }
-            }
-        }
-        free(minecraft_folder);
     }
 
     // Setup MCPI_FEATURE_FLAGS
@@ -229,12 +244,16 @@ int main(int argc, char *argv[]) {
         command.push_back("Enabled");
         command.push_back("--column");
         command.push_back("Feature");
-        load_available_feature_flags([&command](std::string flag) {
-            bool default_value;
+        load_available_feature_flags([&command, &cache](std::string flag) {
+            bool value;
             // Strip Default Value
-            std::string stripped_flag = strip_feature_flag_default(flag, &default_value);
+            std::string stripped_flag = strip_feature_flag_default(flag, &value);
+            // Use Cache
+            if (cache.feature_flags.count(stripped_flag) > 0) {
+                value = cache.feature_flags[stripped_flag];
+            }
             // Specify Default Value
-            if (default_value) {
+            if (value) {
                 // Enabled By Default
                 command.push_back("TRUE");
             } else {
@@ -264,7 +283,7 @@ int main(int argc, char *argv[]) {
         command.push_back("Name");
         std::string render_distances[] = {"Far", "Normal", "Short", "Tiny"};
         for (std::string &render_distance : render_distances) {
-            command.push_back(render_distance.compare(DEFAULT_RENDER_DISTANCE) == 0 ? "TRUE" : "FALSE");
+            command.push_back(render_distance.compare(cache.render_distance) == 0 ? "TRUE" : "FALSE");
             command.push_back(render_distance);
         }
         // Run
@@ -277,9 +296,14 @@ int main(int argc, char *argv[]) {
         command.push_back("--text");
         command.push_back("Enter Minecraft Username:");
         command.push_back("--entry-text");
-        command.push_back(DEFAULT_USERNAME);
+        command.push_back(cache.username);
         // Run
         run_zenity_and_set_env("MCPI_USERNAME", command);
+    }
+
+    // Save Cache
+    if (!no_cache) {
+        save_cache();
     }
 
     // Bootstrap

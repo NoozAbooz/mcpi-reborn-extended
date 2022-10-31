@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
 
 #include <GLES/gl.h>
 
@@ -319,6 +321,38 @@ static float Player_getWalkingSpeedModifier_injection(__attribute__((unused)) un
     return is_sprinting ? get_sprint_speed() : 1; // Default Is 1
 }
 
+// Properly Generate Buffers
+static void anGenBuffers_injection(int32_t count, uint32_t *buffers) {
+    glGenBuffers(count, buffers);
+}
+
+// Fix Graphics Bug When Switching To First-Person While Sneaking
+static void HumanoidMobRenderer_render_injection(unsigned char *model_renderer, unsigned char *entity, float param_2, float param_3, float param_4, float param_5, float param_6) {
+    (*HumanoidMobRenderer_render)(model_renderer, entity, param_2, param_3, param_4, param_5, param_6);
+    unsigned char *model = *(unsigned char **) (model_renderer + HumanoidMobRenderer_model_property_offset);
+    *(bool *) (model + HumanoidModel_is_sneaking_property_offset) = 0;
+}
+
+// Custom API Port
+HOOK(bind, int, (int sockfd, const struct sockaddr *addr, socklen_t addrlen)) {
+    const struct sockaddr *new_addr = addr;
+    struct sockaddr_in in_addr;
+    if (addr->sa_family == AF_INET) {
+        in_addr = *(const struct sockaddr_in *) new_addr;
+        if (in_addr.sin_port == ntohs(4711)) {
+            const char *new_port_str = getenv("MCPI_API_PORT");
+            long int new_port;
+            if (new_port_str != NULL && (new_port = strtol(new_port_str, NULL, 0)) != 0L) {
+                in_addr.sin_port = htons(new_port);
+            }
+        }
+        new_addr = (const struct sockaddr *) &in_addr;
+    }
+    ensure_bind();
+    return (*real_bind)(sockfd, new_addr, addrlen);
+}
+
+
 // Init
 static void nop() {
 }
@@ -403,6 +437,24 @@ void init_misc() {
     // Remove Forced GUI Lag
     if (feature_has("Remove Forced GUI Lag (Can Break Joining Servers)", server_enabled)) {
         overwrite_calls((void *) sleepMs, (void *) nop);
+    }
+
+    // Properly Generate Buffers
+    overwrite((void *) anGenBuffers, (void *) anGenBuffers_injection);
+
+    // Fix Graphics Bug When Switching To First-Person While Sneaking
+    patch_address(PlayerRenderer_render_vtable_addr, (void *) HumanoidMobRenderer_render_injection);
+
+    // Disable Speed Bridging
+    if (feature_has("Disable Speed Bridging", server_disabled)) {
+        unsigned char disable_speed_bridging_patch[4] = {0x03, 0x00, 0x53, 0xe1}; // "cmp r3, r3"
+        patch((void *) 0x494b4, disable_speed_bridging_patch);
+    }
+
+    // Disable Creative Mode Mining Delay
+    if (feature_has("Disable Creative Mode Mining Delay", server_disabled)) {
+        unsigned char nop_patch[4] = {0x00, 0xf0, 0x20, 0xe3}; // "nop"
+        patch((void *) 0x19fa0, nop_patch);
     }
 
     // Init C++ And Logging

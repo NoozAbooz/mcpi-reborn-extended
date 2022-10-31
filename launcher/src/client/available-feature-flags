@@ -6,18 +6,17 @@ TRUE Disable Autojump By Default
 TRUE Display Nametags By Default
 TRUE Fix Sign Placement
 TRUE Show Block Outlines
-TRUE Expand Creative Inventory
+TRUE Expand Creative Mode Inventory
 TRUE Remove Creative Mode Restrictions
 TRUE Animated Water
 TRUE Remove Invalid Item Background
 TRUE Disable "gui_blocks" Atlas
-FALSE 3D Anaglyph
 TRUE Fix Camera Rendering
 TRUE Implement Chat
 FALSE Hide Chat Messages
 TRUE Implement Death Messages
 TRUE Implement Game-Mode Switching
-TRUE Allow Joining Survival Servers
+TRUE Allow Joining Survival Mode Servers
 TRUE Miscellaneous Input Fixes
 TRUE Bind "Q" Key To Item Dropping
 TRUE Bind Common Toggleable Options To Function Keys
@@ -33,7 +32,7 @@ TRUE Disable V-Sync
 TRUE Fix Options Screen
 TRUE Force Touch GUI Inventory
 TRUE Fix Pause Menu
-TRUE Improved Title Background
+TRUE Add Title Screen Background
 TRUE Force Touch GUI Button Behavior
 TRUE Improved Button Hover Behavior
 TRUE Implement Create World Dialog
@@ -42,3 +41,6 @@ TRUE Add Buckets
 TRUE Classic HUD
 TRUE Translucent Toolbar
 TRUE Force EGL
+TRUE Improved Classic Title Screen
+FALSE Disable Speed Bridging
+TRUE Disable Creative Mode Mining Delay

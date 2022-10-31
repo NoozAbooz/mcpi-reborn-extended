@@ -21,6 +21,9 @@ static sleepMs_t sleepMs = (sleepMs_t) 0x13cf4;
 typedef int32_t (*sdl_key_to_minecraft_key_t)(int32_t sdl_key);
 static sdl_key_to_minecraft_key_t sdl_key_to_minecraft_key = (sdl_key_to_minecraft_key_t) 0x1243c;
 
+typedef void (*anGenBuffers_t)(int32_t count, uint32_t *buffers);
+static anGenBuffers_t anGenBuffers = (anGenBuffers_t) 0x5f28c;
+
 static char **default_path = (char **) 0xe264; // /.minecraft/
 static char **default_username = (char **) 0x18fd4; // StevePi
 static char **minecraft_pi_version = (char **) 0x39d94; // v0.1.1 alpha
@@ -28,6 +31,8 @@ static char **options_txt_path = (char **) 0x19bc8; // options.txt
 static char **options_txt_fopen_mode_when_loading = (char **) 0x19d24; // w
 static char ***feedback_vibration_options_txt_name_1 = (char ***) 0x198a0; // feedback_vibration
 static char ***feedback_vibration_options_txt_name_2 = (char ***) 0x194bc; // feedback_vibration
+static char ***gfx_lowquality_options_txt_name = (char ***) 0x194c4; // gfx_lowquality
+static char **classic_create_button_text = (char **) 0x39bec; // Create
 
 static unsigned char **Material_stone = (unsigned char **) 0x180a9c; // Material
 static unsigned char **Material_wood = (unsigned char **) 0x180a98; // Material
@@ -67,6 +72,7 @@ static float *InvGuiScale = (float *) 0x135d98;
 
 static unsigned char *Options_Option_GRAPHICS = (unsigned char *) 0x136c2c; // Option
 static unsigned char *Options_Option_AMBIENT_OCCLUSION = (unsigned char *) 0x136c38; // Option
+static unsigned char *Options_Option_ANAGLYPH = (unsigned char *) 0x136c08; // Option
 
 static bool *Minecraft_useAmbientOcclusion = (bool *) 0x136b90;
 
@@ -222,6 +228,11 @@ static GameRenderer_setupCamera_t GameRenderer_setupCamera = (GameRenderer_setup
 
 static uint32_t GameRenderer_minecraft_property_offset = 0x4; // Minecraft *
 
+// ParticleEngine
+
+typedef void (*ParticleEngine_render_t)(unsigned char *particle_engine, unsigned char *entity, float param_2);
+static ParticleEngine_render_t ParticleEngine_render = (ParticleEngine_render_t) 0x43060;
+
 // Mouse
 
 typedef int (*Mouse_get_t)();
@@ -263,9 +274,26 @@ static uint32_t StartGamePacket_game_mode_property_offset = 0x14; // int32_t
 
 static uint32_t ChatPacket_message_property_offset = 0xc; // char *
 
+// Vec3
+
+typedef struct {
+    float x;
+    float y;
+    float z;
+} Vec3;
+
 // HitResult
 
-static uint32_t HitResult_type_property_offset = 0x0;
+typedef struct {
+    int32_t type;
+    int32_t x;
+    int32_t y;
+    int32_t z;
+    int32_t side;
+    Vec3 exact;
+    unsigned char *entity;
+    unsigned char unknown;
+} HitResult;
 
 // Options
 
@@ -475,7 +503,7 @@ static Level_getTile_t Level_getTile = (Level_getTile_t) 0xa3380;
 typedef unsigned char *(*Level_getMaterial_t)(unsigned char *level, int32_t x, int32_t y, int32_t z);
 static Level_getMaterial_t Level_getMaterial = (Level_getMaterial_t) 0xa27f8;
 
-typedef void (*Level_clip_t)(unsigned char *level, unsigned char *param_1, unsigned char *param_2, bool param_3, bool clip_liquids);
+typedef HitResult (*Level_clip_t)(unsigned char *level, unsigned char *param_1, unsigned char *param_2, bool clip_liquids, bool param_3);
 static Level_clip_t Level_clip = (Level_clip_t) 0xa3db0;
 
 static uint32_t Level_players_property_offset = 0x60; // std::vector<ServerPlayer *>
@@ -557,6 +585,8 @@ static Screen_render_t Screen_render = (Screen_render_t) 0x28a00;
 
 typedef int32_t (*Screen_handleBackEvent_t)(unsigned char *screen, bool param_1);
 
+typedef void (*Screen_buttonClicked_t)(unsigned char *screen, unsigned char *button);
+
 static uint32_t Screen_minecraft_property_offset = 0x14; // Minecraft *
 static uint32_t Screen_rendered_buttons_property_offset = 0x18; // std::vector<Button *>
 static uint32_t Screen_selectable_buttons_property_offset = 0x30; // std::vector<Button *>
@@ -579,7 +609,11 @@ static uint32_t Button_y_property_offset = 0x10; // int32_t
 static Screen_init_t StartMenuScreen_init = (Screen_init_t) 0x39cc0;
 static void *StartMenuScreen_init_vtable_addr = (void *) 0x105194;
 
+static Screen_buttonClicked_t StartMenuScreen_buttonClicked = (Screen_buttonClicked_t) 0x397b0;
+static void *StartMenuScreen_buttonClicked_vtable_addr = (void *) 0x1051e8;
+
 static uint32_t StartMenuScreen_options_button_property_offset = 0x98; // Button
+static uint32_t StartMenuScreen_create_button_property_offset = 0xc0; // Button
 
 // PauseScreen
 
@@ -803,6 +837,21 @@ static Recipes_t Recipes = (Recipes_t) 0x9cabc;
 // FurnaceRecipes
 
 static Recipes_t FurnaceRecipes = (Recipes_t) 0xa0778;
+
+// HumanoidMobRenderer
+
+typedef void (*HumanoidMobRenderer_render_t)(unsigned char *model_renderer, unsigned char *entity, float param_2, float param_3, float param_4, float param_5, float param_6);
+static HumanoidMobRenderer_render_t HumanoidMobRenderer_render = (HumanoidMobRenderer_render_t) 0x62b8c;
+
+static uint32_t HumanoidMobRenderer_model_property_offset = 0x14; // HumanoidModel *
+
+// HumanoidModel
+
+static uint32_t HumanoidModel_is_sneaking_property_offset = 0x236; // bool
+
+// PlayerRenderer
+
+static void *PlayerRenderer_render_vtable_addr = (void *) 0x107f08;
 
 // Method That Require C++ Types
 #ifdef __cplusplus
