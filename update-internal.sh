@@ -51,7 +51,7 @@ gh release create $VERSION --target source --notes "View the changelog for this 
 cd ~/mcpi-reborn-extended/debs
 rm *planet*.deb
 
-wget $(curl -s https://api.github.com/repos/mcpiscript/Planet/releases/latest | grep browser_download_url | cut -d '"' -f 4)
+#wget $(curl -s https://api.github.com/repos/mcpiscript/Planet/releases/latest | grep browser_download_url | cut -d '"' -f 4)
 
 # Sign debs
 dpkg-scanpackages --multiversion . > Packages
