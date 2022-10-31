@@ -2,7 +2,7 @@ Package: minecraft-pi-reborn-server
 Version: ${VERSION}
 Maintainer: Nooz <zhengm58@gmail.com>
 Description: Modded server for Minecraft Pi Edition
-Homepage: https://github.com/mobilegmYT/mcpi-reborn-extended/
+Homepage: https://github.com/NoozSBC/mcpi-reborn-extended/
 Architecture: amd64
 Depends: libc6, libstdc++6, libc6-armhf-cross, libstdc++6-armhf-cross
 Section: games

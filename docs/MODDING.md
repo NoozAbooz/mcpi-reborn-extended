@@ -25,7 +25,7 @@ __attribute__((constructor)) static void init() {
 This code will print "Helloworld" when loaded by MCPI-Reborn.
 
 ## ``libreborn.so`` API
-Header files can be download from [Github](https://github.com/mobilegmYT/mcpi-reborn-extended/tree/source/libreborn/include/libreborn).
+Header files can be download from [Github](https://github.com/NoozSBC/mcpi-reborn-extended/tree/source/libreborn/include/libreborn).
 
 ### ``void overwrite(void *start, void *target)``
 This method replaces a function with another function.
