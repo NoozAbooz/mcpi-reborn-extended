@@ -19,6 +19,6 @@ do
   fi
 
   # Change owner to user
-  chown -R ${u} "${u}/.minecraft-pi/"
+  chown -R ${n} "${u}/.minecraft-pi/"
   chmod -R uo+rw "${u}/.minecraft-pi/"
 done
