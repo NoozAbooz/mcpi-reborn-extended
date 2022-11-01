@@ -1,11 +1,10 @@
 # Changelog
 The changelog for every single MCPI v2 release is listed here. Under-the-hood modifications that don't effect the user experience are prefixed with "[INT]".
 
-### **2.4.6-1**
-* Fix Crash Report Log Saving
-
 ### **2.4.6**
-
+* Fix Crash Report Log Saving
+* Fix Holding Left-Click When Attacking
+* Fix Crashing On ARMHF
 
 ### **2.4.5**
 * Remove Coloured Terminal Output
@@ -24,7 +23,7 @@ The changelog for every single MCPI v2 release is listed here. Under-the-hood mo
   * Add Options Button (Moved From ``Fix Options Screen`` Feature Flag)
 * Add ``Disable Speed Bridging`` Feature Flag (Disabled By Default)
 * Add ``Disable Creative Mode Mining Delay`` Feature Flag (Disabled By Default)
-* Improved Feature Flag Names
+* Improved Feature Flag Namesp
 * Miscellaneous Bug Fixes
 * Improved Build System
 

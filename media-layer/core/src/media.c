@@ -85,7 +85,7 @@ static SDLKey glfw_key_to_sdl_key(int key) {
         // Drop Item
         case GLFW_KEY_Q:
             return SDLK_q;
-        // Hotbar
+        // Toolbar
         case GLFW_KEY_1:
             return SDLK_1;
         case GLFW_KEY_2:
