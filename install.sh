@@ -20,6 +20,7 @@ warning() {
 
 error() {
   echo -e "$(tput setaf 1)$(tput bold)$1$(tput sgr0)"
+  echo -e "\nAsk for support at https://discord.gg/XJJNG9jTuh"
   exit 1
 }
 
@@ -30,44 +31,37 @@ sudo_wget() {
 # Install depends
 #echo -e "\e[4m\e[21m\e[5mInstalling dependencies...\e[0m\e[97m"
 info "Installing Dependencies..."
-sudo apt-get install -y wget gnupg || error "Failed to install dependencies, see error above"
+sudo apt-get install -y wget gnupg || error "Failed to install dependencies!"
 
 # Install repo
 info "Installing APT Repository..."
-sudo_wget "${APT_URL}" "${APT_PATH}"
+sudo_wget "${APT_URL}" "${APT_PATH}" || error "Could not download repo!"
 
 # Install GPG key
-info "Downloading APT Repository Key..."
-sudo_wget "${KEY_URL}" "${KEY_PATH}"
+info "Downloading APT Repository Signing Key..."
+sudo_wget "${KEY_URL}" "${KEY_PATH}" || error "Could not download GPG key!"
 sudo apt-key add "${KEY_PATH}"
 
 info "Syncing APT Sources..."
-sudo apt update --allow-releaseinfo-change || error "Failed to run 'sudo apt update'! Please check above errors"
+sudo apt update --allow-releaseinfo-change || error "Failed to run 'sudo apt update'!"
 
 # Install packages
-echo -e "\nDo you want to install the client? If you choose no, then only the multiplayer server software will be installed. SAY NO ONLY IF YOU KNOW WHAT YOU ARE DOING! [Y/n]"
-read -p "> " -n 1 -r
-
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    sudo apt-get install -y minecraft-pi-reborn-client
-    info "Installed Client!"
-    APP="client"
-elif [[ $REPLY =~ ^[Nn]$ ]]
-then
+if [[ "$1" == "--server" ]]; then
+    info "Installing Server... This will allow you to host a server, but the game client itself is not installed. "
     sudo apt-get install -y minecraft-pi-reborn-server
-    info "Installed Server! This will allow you to host a server, but the game itself is not installed. "
     APP="server"
+else
+    info "Installing Game Client..."
+    sudo apt-get install -y minecraft-pi-reborn-client
+    APP="client"
 fi
 
 # Install launcher
-#if [[ $APP == "client" ]]
-#then
-#    echo -e "\nWould you like to install a launcher? This will allow you to save your settings and configure texturepacks/custom skins (RECCOMENDED). [Y/n]"
+#if [[ $APP == "client" ]]; then
+#    echo -e "\nWould you like to install Planet Launcher? This will allow you to customize your skin and add texturepacks. [Y/n]"
 #    read -p "> " -n 1 -r
 #
-#    if [[ $REPLY =~ ^[Yy]$ ]]
-#    then
+#    if [[ $REPLY =~ ^[Yy]$ ]]; then
 #        info "Installing Launcher..."
 #        sudo apt-get install -y planet-launcher
 #    fi
@@ -83,4 +77,4 @@ echo -e "\n"
 info "Installation complete! Refer to https://github.com/NoozSBC/mcpi-reborn-extended#user-guide for usage instructions."
 
 # Self destruct
-unlink $0
+unlink "$0"
