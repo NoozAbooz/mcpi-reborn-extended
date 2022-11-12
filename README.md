@@ -2,7 +2,7 @@
 
 The [main](https://github.com/NoozSBC/mcpi-reborn-extended/tree/main) branch is for hosting the APT repo and debs. This branch is for the source code used to compile the modded debs.
 
-If you are concerned about the mod having malware of any kind, just don't use it. Feel free to compare a diff against vanilla reborn to see a full list of what changes have been made.
+If you are concerned about the mod having malware of any kind, just don't use it. All code is made available and you can compare the source code if you are technically-knowledged.
 
 ## Compiling
 ### Depends
