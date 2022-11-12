@@ -1,0 +1,8 @@
+### Fixed
+
+- Fix Crash Report Log Saving
+- Fix Holding Left-Click When Attacking
+- Fix Crashing On ARMHF
+
+
+View the source code commit for [2.4.6](https://github.com/NoozSBC/mcpi-reborn-extended/commit/2.4.6).
