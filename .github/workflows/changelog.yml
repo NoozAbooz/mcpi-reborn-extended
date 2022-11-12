@@ -20,7 +20,7 @@ jobs:
           echo "VERSION=$VER" >> $GITHUB_ENV
       - name: Read Commit Hash
         run: |
-          TAG_COMMIT=$(git show-ref -s ${VERSION})
+          TAG_COMMIT=$(git show-ref -s ${{ env.VERSION }})
           echo "COMMIT=$TAG_COMMIT" >> $GITHUB_ENV
       - name: Get Changelog Entry
         id: changelog_reader
