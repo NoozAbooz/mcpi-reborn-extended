@@ -17,9 +17,10 @@ jobs:
       - name: Read Version
         run: |
           VER=$(cat VERSION)
-          TAG_COMMIT=$(cat VERSION)
-          
           echo "VERSION=$VER" >> $GITHUB_ENV
+      - name: Read Commit Hash
+        run: |
+          TAG_COMMIT=$(git show-ref -s ${VERSION})
           echo "COMMIT=$TAG_COMMIT" >> $GITHUB_ENV
       - name: Get Changelog Entry
         id: changelog_reader
@@ -35,15 +36,14 @@ jobs:
       - name: Generate LATEST_RELEASE
         run: |
           echo "${{ steps.changelog_reader.outputs.changes }}" > LATEST_RELEASE
-          echo -e "\n" >> LATEST_RELEASE
           echo "View the source code commit for [${{ env.VERSION }}](https://github.com/NoozSBC/mcpi-reborn-extended/commit/${{ env.COMMIT }})." >> LATEST_RELEASE
       - name: Push Changes
         run: |
-          git config --global user.name "NoozSBC"
-          git config --global user.email "zhengm58@gmail.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config pull.rebase false
           
           git pull
           git add -A
-          git commit -m "Update LATEST_RELEASE for ${{ env.VERSION }}"
+          git commit -m "[AUTO] Update LATEST_RELEASE for ${{ env.VERSION }}"
           git push
