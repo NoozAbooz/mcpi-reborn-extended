@@ -32,7 +32,6 @@ jobs:
       - name: Generate LATEST_RELEASE
         run: |
           echo "${{ steps.changelog_reader.outputs.changes }}" > LATEST_RELEASE
-          echo "View the source code commit for [${{ env.VERSION }}](https://github.com/NoozSBC/mcpi-reborn-extended/commit/${{ env.HASH }})." >> LATEST_RELEASE
       - name: Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
