@@ -1,6 +1,9 @@
 name: Update CHANGELOG
 
-on: [push]
+on:
+  push:
+    branches:    
+      - '**'
 
 jobs:
   package:
