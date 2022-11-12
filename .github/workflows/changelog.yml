@@ -1,13 +1,8 @@
-on:
-  push:
-    branches:
-      - 'source'
-
-name: Update Changelog
-
+name: Update CHANGELOG
+on: [push]
 jobs:
-  build:
-    name: Update Changelog
+  package:
+    name: Generate LATEST_CHANGELOG
     runs-on: ubuntu-latest
     steps:
       - name: Get version from tag
