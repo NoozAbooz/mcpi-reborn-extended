@@ -20,7 +20,8 @@ jobs:
           echo "VERSION=$VER" >> $GITHUB_ENV
       - name: Read Commit Hash
         run: |
-          echo $(git show-ref -s ${{ env.VERSION }})
+          HASH="$(git show-ref -s ${{ env.VERSION }})"
+          echo "COMMIT=$HASH" >> $GITHUB_ENV
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2.2.1
