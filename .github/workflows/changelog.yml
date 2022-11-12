@@ -1,0 +1,40 @@
+on:
+  push:
+    branches:
+      - 'source'
+
+name: Update Changelog
+
+jobs:
+  build:
+    name: Update Changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get version from tag
+        id: tag_name
+        run: |
+          echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
+        shell: bash
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: 'source'
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2.2.1
+        with:
+          validation_level: warn
+          version: ${{ steps.tag_name.outputs.current_version }}
+          path: ./docs/CHANGELOG.md 
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: 'main'
+      - name: Generate LATEST_CHANGELOG
+        run: |
+          echo "${{ steps.changelog_reader.outputs.changes }}" > LATEST_CHANGELOG
+      - name: push changes to remote
+        run: |
+          git add -A
+          git commit -m "Update LATEST_CHANGELOG for ${{ steps.tag_name.outputs.current_version }}"
+          git push --force
