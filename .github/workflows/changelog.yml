@@ -34,6 +34,9 @@ jobs:
           echo "${{ steps.changelog_reader.outputs.changes }}" > LATEST_CHANGELOG
       - name: Push Changes
         run: |
+          git config --global user.name "NoozSBC"
+          git config --global user.email "zhengm58@gmail.com"
+          git config pull.rebase false
           git add -A
           git commit -m "Update LATEST_CHANGELOG for ${{ steps.tag_name.outputs.current_version }}"
           git push --force
