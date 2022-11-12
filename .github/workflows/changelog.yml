@@ -1,6 +1,9 @@
 name: Generate Release Notes
 
-on: [push]
+on:
+  push:
+    branches:
+      - "**"
 
 jobs:
   package:
@@ -18,6 +21,7 @@ jobs:
           
           echo "VERSION=$VER" >> $GITHUB_ENV
           echo "COMMIT=$TAG_COMMIT" >> $GITHUB_ENV
+        shell: bash
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2.2.1
