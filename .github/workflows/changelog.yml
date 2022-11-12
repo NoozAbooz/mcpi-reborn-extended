@@ -17,12 +17,10 @@ jobs:
       - name: Read Version
         run: |
           VER=$(cat VERSION)
+          TAG_COMMIT=${git show-ref -s $VER}
+          
           echo "VERSION=$VER" >> $GITHUB_ENV
-      - name: Read Commit Hash
-        run: |
-          TAG_COMMIT=${git show-ref ${VERSION} | '{print $1}'}
           echo "COMMIT=$TAG_COMMIT" >> $GITHUB_ENV
-        shell: bash
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2.2.1
