@@ -1,10 +1,9 @@
 # Changelog
-The changes in MCPI++ v2 release starting from 2.2.11 is listed here. 
+Every new MCPI++ release starting from v2.2.11 is listed here. 
 
-- Under-the-hood modifications that don't effect the user experience are prefixed with "[INTERNAL]".
+- Under-the-hood modifications that don't effect the user experience are prefixed with "[INTERNALERNAL]".
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [2.4.6] - 2022-10-31
 
@@ -18,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Implemented Upstream Crash Dialog
-- Bundle QEMU
+- [INTERNAL] Bundle QEMU
 
 ### Removed
 - Remove Coloured Terminal Output
@@ -37,7 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Moved ``3D Anaglyph`` Feature Flag To Options Screen
 - Improved Feature Flag Namesp
-- Improved Build System
+- [INTERNAL] Improved Build System
 
 ### Fixed
 - Fix Particles In Front-Facing View
@@ -55,16 +54,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix Broken DEB Signing
 
 ## [2.4.3-2] - 2022-08-19
-- [INT] Changes to CMake build and dependencies
+- [INTERNAL] Changes to CMake build and dependencies
 
 ## [2.4.3-1] - 2022-08-03
 - Bump Planet Version To 1.2.1
-- [INT] Changes to SDK Build
+- [INTERNAL] Changes to SDK Build
 
 ## [2.4.3] - 2022-08-01
 - Fix Signs With CP-437
 - Fix Duplicate Creative Inventory Items
-- [INT] Patch Invalid Creative Inventory Items
+- [INTERNAL] Patch Invalid Creative Inventory Items
 - Fix Picking Up Lava
 - Fix Wayland App ID
 
@@ -167,7 +166,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix Nether Reactor With Creative Restrictions Disabled
 - Alphabetize Feature Flags
 - Add ``Disable V-Sync`` Feature Flag (Disabled By Default)
-- Internal Refactor Of ``libreborn``
+- INTERNALernal Refactor Of ``libreborn``
 - Remove Use Of ``/bin/sh``
 - Load Custom Mods First
 - Use Zenity Dark Mode
