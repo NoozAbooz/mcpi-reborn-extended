@@ -1,23 +1,26 @@
-name: Update CHANGELOG
+name: Generate Release Notes
 
 on:
   push:
     branches:    
-      - '**'
+      - '*source*'
 
 jobs:
   package:
-    name: Generate LATEST_CHANGELOG
+    name: Generate Release Notes
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout Source
         uses: actions/checkout@v3
         with:
           ref: 'source'
-      - name: Read Version
+      - name: Read Version And Commit
         run: |
           VER=$(cat VERSION)
+          TAG_COMMIT=${git show-ref $VER | sed 's/[[:blank:]].*//'}
+          
           echo "VERSION=$VER" >> $GITHUB_ENV
+          echo "COMMIT=$TAG_COMMIT" >> $GITHUB_ENV
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2.2.1
@@ -25,18 +28,22 @@ jobs:
           validation_level: warn
           version: ${{ env.VERSION }}
           path: ./docs/CHANGELOG.md 
-      - name: Checkout Code
+      - name: Checkout APT Repo
         uses: actions/checkout@v3
         with:
           ref: 'main'
-      - name: Generate LATEST_CHANGELOG
+      - name: Generate LATEST_RELEASE
         run: |
-          echo "${{ steps.changelog_reader.outputs.changes }}" > LATEST_CHANGELOG
+          echo "${{ steps.changelog_reader.outputs.changes }}" > LATEST_RELEASE
+          echo -e "\n" >> LATEST_RELEASE
+          echo "View the source code commit for [${{ env.VERSION }}](https://github.com/NoozSBC/mcpi-reborn-extended/commit/${{ env.COMMIT }})." >> LATEST_RELEASE
       - name: Push Changes
         run: |
           git config --global user.name "NoozSBC"
           git config --global user.email "zhengm58@gmail.com"
           git config pull.rebase false
+          
+          git pull
           git add -A
-          git commit -m "Update LATEST_CHANGELOG for ${{ steps.tag_name.outputs.current_version }}"
-          git push --force
+          git commit -m "Update LATEST_RELEASE for ${{ env.VERSION }}"
+          git push
