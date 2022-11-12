@@ -17,7 +17,7 @@ jobs:
       - name: Read Version
         run: |
           VER=$(cat VERSION)
-          TAG_COMMIT=${git show-ref -s $VER}
+          TAG_COMMIT=${git show-ref -s $(cat VERSION)}
           
           echo "VERSION=$VER" >> $GITHUB_ENV
           echo "COMMIT=$TAG_COMMIT" >> $GITHUB_ENV
