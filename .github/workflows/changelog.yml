@@ -1,9 +1,6 @@
 name: Generate Release Notes
 
-on:
-  push:
-    branches:    
-      - '*source*'
+on: [push]
 
 jobs:
   package:
