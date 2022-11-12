@@ -51,7 +51,7 @@ MCPI++ has been tested with the following:
 
 ## User Guide
 ### Starting the game
-Launch with `minecraft-pi-reborn-client` and configure your features.
+Launch with `minecraft-pi-reborn-client` and configure your settings.
 
 ### Controls
 Once you are in a world, you will be able to move with WASD/HJKL and Space.
@@ -82,7 +82,7 @@ If you are interested in making your own mods, documentation can be found [here]
 - - If on bare metal Linux --> Uncheck `Disable Raw Mouse Motion` launch flag
 
 ## Credits
-- Maintained by [mobilegmYT](https://github.com/mobilegmYT).
+- Maintained by [Nooz](https://github.com/NoozSBC).
 - Patches/mods by [Bigjango13](https://github.com/bigjango13) and [TheBrokenRail](https://github.com/TheBrokenRail).
-- Vanilla Reborn by [TheBrokenRail](https://github.com/TheBrokenRail).
+- Vanilla Reborn by [TheBrokenRail](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn).
 - Minecraft: Pi Edition by Mojang AB.
