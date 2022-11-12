@@ -14,14 +14,14 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: 'source'
-      - name: Read Version And Commit
+      - name: Read Version
         run: |
           VER=$(cat VERSION)
-          TAG_COMMIT=${git show-ref $VER | sed 's/[[:blank:]].*//'}
-          
           echo "VERSION=$VER" >> $GITHUB_ENV
+      - name: Read Commit Hash
+        run: |
+          TAG_COMMIT=${git show-ref ${VERSION} | sed 's/[[:blank:]].*//'}
           echo "COMMIT=$TAG_COMMIT" >> $GITHUB_ENV
-        shell: bash
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2.2.1
