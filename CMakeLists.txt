@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13.4)
+cmake_minimum_required(VERSION 3.16.0)
 
 # Avoid Warning About DOWNLOAD_EXTRACT_TIMESTAMP
 if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.24.0)
