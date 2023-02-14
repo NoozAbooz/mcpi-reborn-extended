@@ -5,6 +5,13 @@ Every new MCPI++ release starting from v2.2.11 is listed here.
 
 This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [2.4.6-1] - 2023-2-14
+
+### Fixed
+
+- Changed PBPT default domain
+
 ## [2.4.6] - 2022-10-31
 
 ### Fixed
