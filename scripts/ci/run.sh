@@ -8,6 +8,11 @@ set -e
 
 # Build/Package
 echo '==== Building & Packaging ===='
+
+cd /data/dependencies/qemu/src/
+./configure --with-git-submodules=validate
+cd /data/
+
 ./scripts/package-all.sh
 
 # Test
