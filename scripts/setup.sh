@@ -15,7 +15,7 @@ setup() {
     fi
 
     # Create Build Dir
-    rm -rf "build/${MODE}-${ARCH}"
+    sudo rm -rf "build/${MODE}-${ARCH}"
     mkdir -p "build/${MODE}-${ARCH}"
     cd "build/${MODE}-${ARCH}"
 
