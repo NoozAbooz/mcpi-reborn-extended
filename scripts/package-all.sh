@@ -6,7 +6,7 @@ set -e
 rm -rf out
 
 # Fix ownership
-git config --global --add safe.directory ./dependencies/*
+git config --add safe.directory ./dependencies/*
 
 # Build
 ./scripts/package.sh client amd64
