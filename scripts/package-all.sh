@@ -5,8 +5,8 @@ set -e
 # Clean Prefix
 rm -rf out
 
-# Fix ownership
-git config --add safe.directory ./dependencies/*
+# Fix ownership for poopy qemu
+git config --add safe.directory ./dependencies/qemu/src/
 
 # Build
 ./scripts/package.sh client amd64
