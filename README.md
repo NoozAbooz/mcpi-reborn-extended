@@ -48,6 +48,7 @@ MCPI++ has been tested with the following:
 - Raspberry Pi 3/4 running Raspberry Pi OS Buster/Bullseye
 - Windows 10/11 via WSL2 and GWSL (instructions [here](https://www.youtube.com/watch?v=3l-m8O13LYk))
 - x64 PC running Debian/Ubuntu
+- Chromebooks via Crostini (official support is not provided and performance may vary)
 
 ## User Guide
 ### Starting the game
