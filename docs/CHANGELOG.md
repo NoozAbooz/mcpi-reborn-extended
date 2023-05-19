@@ -5,6 +5,15 @@ Every new MCPI++ release starting from v2.2.11 is listed here.
 
 This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.7] - 2023-5-18
+
+### Added
+- Add ``Add Biome Colors To Grass`` Feature Flag (Enabled By Default)
+- Add ``Generate Caves`` Feature Flag (Enabled By Default)
+
+### Changed
+- Improve Performance for Dedicated Server Software
+- [INTERNAL] Allow Mods to Access Original GLFW Keycode
 
 ## [2.4.6-1] - 2023-2-14
 
@@ -23,7 +32,7 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 ## [2.4.5] - 2022-10-31
 
 ### Added
-- Implemented Upstream Crash Dialog
+- Implement Upstream Crash Dialog
 - [INTERNAL] Bundle QEMU
 
 ### Removed

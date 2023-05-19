@@ -265,6 +265,7 @@ static int32_t FurnaceScreen_handleAddItem_injection(unsigned char *furnace_scre
 //
 // The default behavior for Touch GUI is to only render the cursor when the mouse is clicking, this fixes that.
 // This also makes the cursor always render if the mouse is unlocked, instead of just when there is a Screen showing.
+#ifndef MCPI_HEADLESS_MODE
 static void GameRenderer_render_injection(unsigned char *game_renderer, float param_1) {
     // Call Original Method
     (*GameRenderer_render)(game_renderer, param_1);
@@ -281,6 +282,7 @@ static void GameRenderer_render_injection(unsigned char *game_renderer, float pa
         (*renderCursor)(x, y, minecraft);
     }
 }
+#endif
 
 // Get Real Selected Slot
 int32_t misc_get_real_selected_slot(unsigned char *player) {
@@ -352,6 +354,63 @@ HOOK(bind, int, (int sockfd, const struct sockaddr *addr, socklen_t addrlen)) {
     return (*real_bind)(sockfd, new_addr, addrlen);
 }
 
+// Change Grass Color
+static int32_t get_color(unsigned char *level_source, int32_t x, int32_t z) {
+    unsigned char *level_source_vtable = *(unsigned char **) level_source;
+    LevelSource_getBiome_t LevelSource_getBiome = *(LevelSource_getBiome_t *) (level_source_vtable + LevelSource_getBiome_vtable_offset);
+    unsigned char *biome = (*LevelSource_getBiome)(level_source, x, z);
+    if (biome == NULL) {
+        return 0;
+    }
+    return *(int32_t *) (biome + Biome_color_property_offset);
+}
+#define BIOME_BLEND_SIZE 7
+static int32_t GrassTile_getColor_injection(__attribute__((unused)) unsigned char *tile, unsigned char *level_source, int32_t x, __attribute__((unused)) int32_t y, int32_t z) {
+    int r_sum = 0;
+    int g_sum = 0;
+    int b_sum = 0;
+    int color_sum = 0;
+    int x_start = x - (BIOME_BLEND_SIZE / 2);
+    int z_start = z - (BIOME_BLEND_SIZE / 2);
+    for (int x_offset = 0; x_offset < BIOME_BLEND_SIZE; x_offset++) {
+        for (int z_offset = 0; z_offset < BIOME_BLEND_SIZE; z_offset++) {
+            int32_t color = get_color(level_source, x_start + x_offset, z_start + z_offset);
+            r_sum += (color >> 16) & 0xff;
+            g_sum += (color >> 8) & 0xff;
+            b_sum += color & 0xff;
+            color_sum++;
+        }
+    }
+    int r_avg = r_sum / color_sum;
+    int g_avg = g_sum / color_sum;
+    int b_avg = b_sum / color_sum;
+    return (r_avg << 16) | (g_avg << 8) | b_avg;
+}
+static int32_t TallGrass_getColor_injection(unsigned char *tile, unsigned char *level_source, int32_t x, int32_t y, int32_t z) {
+    int32_t original_color = (*TallGrass_getColor)(tile, level_source, x, y, z);
+    if (original_color == 0x339933) {
+        return GrassTile_getColor_injection(tile, level_source, x, y, z);
+    } else {
+        return original_color;
+    }
+}
+
+// Generate Caves
+static void RandomLevelSource_buildSurface_injection(unsigned char *random_level_source, int32_t chunk_x, int32_t chunk_y, unsigned char *chunk_data, unsigned char **biomes) {
+    // Call Original Method
+    (*RandomLevelSource_buildSurface)(random_level_source, chunk_x, chunk_y, chunk_data, biomes);
+
+    // Get Level
+    unsigned char *level = *(unsigned char **) (random_level_source + RandomLevelSource_level_property_offset);
+
+    // Get Cave Feature
+    unsigned char *cave_feature = random_level_source + RandomLevelSource_cave_feature_property_offset;
+    unsigned char *cave_feature_vtable = *(unsigned char **) cave_feature;
+
+    // Generate
+    LargeFeature_apply_t LargeCaveFeature_apply = *(LargeFeature_apply_t *) (cave_feature_vtable + LargeFeature_apply_vtable_offset);
+    (*LargeCaveFeature_apply)(cave_feature, random_level_source, level, chunk_x, chunk_y, chunk_data, 0);
+}
 
 // Init
 static void nop() {
@@ -414,6 +473,11 @@ void init_misc() {
         overwrite_calls((void *) FurnaceScreen_handleAddItem, (void *) FurnaceScreen_handleAddItem_injection);
     }
 
+#ifdef MCPI_HEADLESS_MODE
+    // Don't Render Game In Headless Mode
+    overwrite_calls((void *) GameRenderer_render, (void *) nop);
+#else
+
     // Improved Cursor Rendering
     if (feature_has("Improved Cursor Rendering", server_disabled)) {
         // Disable Normal Cursor Rendering
@@ -422,6 +486,7 @@ void init_misc() {
         // Add Custom Cursor Rendering
         overwrite_calls((void *) GameRenderer_render, (void *) GameRenderer_render_injection);
     }
+#endif
 
     // Disable V-Sync
     if (feature_has("Disable V-Sync", server_enabled)) {
@@ -455,6 +520,17 @@ void init_misc() {
     if (feature_has("Disable Creative Mode Mining Delay", server_disabled)) {
         unsigned char nop_patch[4] = {0x00, 0xf0, 0x20, 0xe3}; // "nop"
         patch((void *) 0x19fa0, nop_patch);
+    }
+
+    // Change Grass Color
+    if (feature_has("Add Biome Colors To Grass", server_disabled)) {
+        patch_address((void *) GrassTile_getColor_vtable_addr, (void *) GrassTile_getColor_injection);
+        patch_address((void *) TallGrass_getColor_vtable_addr, (void *) TallGrass_getColor_injection);
+    }
+
+    // Generate Caves
+    if (feature_has("Generate Caves", server_auto)) {
+        overwrite_calls((void *) RandomLevelSource_buildSurface, (void *) RandomLevelSource_buildSurface_injection);
     }
 
     // Init C++ And Logging

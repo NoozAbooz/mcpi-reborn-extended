@@ -44,3 +44,5 @@ TRUE Force EGL
 TRUE Improved Classic Title Screen
 FALSE Disable Speed Bridging
 TRUE Disable Creative Mode Mining Delay
+TRUE Add Biome Colors To Grass
+TRUE Generate Caves

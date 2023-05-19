@@ -101,6 +101,17 @@ static void Inventory_setupDefault_FillingContainer_addItem_call_injection(unsig
     ADD_ITEM(cookedChicken, 366);
     ADD_ITEM(porkCooked, 320);
     ADD_ITEM(apple, 260);
+
+    // Add cake to creative inventory
+    {
+        ItemInstance *cakeBlock_instance = new ItemInstance;
+        ALLOC_CHECK(cakeBlock_instance);
+        cakeBlock_instance->count = 255;
+        cakeBlock_instance->auxiliary = 0;
+        cakeBlock_instance->id = 92;
+        (*FillingContainer_addItem)(filling_container, cakeBlock_instance);
+    }
+    
     ADD_ITEM(crops, 59);
     ADD_ITEM(farmland, 60);
     ADD_ITEM(activeFurnace, 62);

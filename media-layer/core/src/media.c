@@ -171,7 +171,7 @@ static double last_mouse_y = 0;
 static void glfw_motion(__attribute__((unused)) GLFWwindow *window, double xpos, double ypos);
 
 // Pass Key Presses To SDL
-static void glfw_key(__attribute__((unused)) GLFWwindow *window, int key, int scancode, int action, int mods) {
+static void glfw_key(__attribute__((unused)) GLFWwindow *window, int key, __attribute__((unused)) int scancode, int action, int mods) {
     if (is_interactable) {
         switch (key) {
             case GLFW_KEY_DOWN: {
@@ -195,7 +195,7 @@ static void glfw_key(__attribute__((unused)) GLFWwindow *window, int key, int sc
                 int up = action == GLFW_RELEASE;
                 event.type = up ? SDL_KEYUP : SDL_KEYDOWN;
                 event.key.state = up ? SDL_RELEASED : SDL_PRESSED;
-                event.key.keysym.scancode = scancode;
+                event.key.keysym.scancode = key; // Allow MCPI To Access Original GLFW Keycode
                 event.key.keysym.mod = glfw_modifier_to_sdl_modifier(mods);
                 event.key.keysym.sym = glfw_key_to_sdl_key(key);
                 SDL_PushEvent(&event);

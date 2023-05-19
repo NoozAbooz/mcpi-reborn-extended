@@ -38,7 +38,7 @@ if(NOT MCPI_SERVER_MODE)
 endif()
 
 add_library(creative SHARED src/creative/creative.cpp)
-target_link_libraries(creative mods-headers reborn-patch symbols feature chest misc)
+target_link_libraries(creative mods-headers reborn-patch symbols feature chest cake misc)
 
 add_library(game-mode SHARED src/game-mode/game-mode.c src/game-mode/ui.cpp)
 target_link_libraries(game-mode mods-headers reborn-patch symbols feature)
@@ -102,6 +102,9 @@ target_link_libraries(bucket mods-headers reborn-patch symbols feature misc)
 add_library(chest SHARED src/chest/chest.cpp)
 target_link_libraries(chest mods-headers reborn-patch symbols misc)
 
+add_library(cake SHARED src/cake/cake.cpp)
+target_link_libraries(cake mods-headers reborn-patch symbols misc)
+
 if(NOT MCPI_HEADLESS_MODE)
     add_library(screenshot SHARED src/screenshot/screenshot.c)
     target_link_libraries(screenshot mods-headers reborn-util media-layer-core png12)
@@ -114,7 +117,7 @@ add_library(test SHARED src/test/test.c)
 target_link_libraries(test mods-headers reborn-patch home)
 
 add_library(init SHARED src/init/init.c)
-target_link_libraries(init mods-headers reborn-util compat game-mode misc death options chat creative bucket home chest version test media-layer-core)
+target_link_libraries(init mods-headers reborn-util compat game-mode misc death options chat creative bucket home cake version test media-layer-core)
 if(MCPI_SERVER_MODE)
     target_link_libraries(init server)
 else()
@@ -122,7 +125,7 @@ else()
 endif()
 
 ## Install Mods
-set(MODS_TO_INSTALL init compat readdir feature game-mode misc override death options chat creative bucket home chest version test)
+set(MODS_TO_INSTALL init compat readdir feature game-mode misc override death options chat creative bucket home chest cake version test)
 if(MCPI_SERVER_MODE)
     list(APPEND MODS_TO_INSTALL server)
 else()
