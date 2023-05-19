@@ -13,12 +13,12 @@ static void mcpi_callback(uchar *minecraft){
     level = *(uchar **) (minecraft + Minecraft_level_property_offset);
 }
 
-static std::string cake_getDescriptionId(uchar *tile, int id) {
+static std::string cake_getDescriptionId(__attribute__((unused)) uchar *tile, __attribute__((unused)) int id) {
     return "tile.cake";
 }
 
 // Textures
-static int cake_getTexture2(uchar *tile, int face) {
+static int cake_getTexture2(__attribute__((unused)) uchar *tile, int face) {
     if (face == 1) {
         // Top texture
         return GET_TEXTURE_POS_IN_ATLAS(9, 7);
@@ -30,7 +30,7 @@ static int cake_getTexture2(uchar *tile, int face) {
     return GET_TEXTURE_POS_IN_ATLAS(10, 7);
 }
 
-static int cake_getTexture3(uchar *tile, uchar *_level, int x, int y, int z, int face) {
+static int cake_getTexture3(uchar *tile, __attribute__((unused)) uchar *_level, int x, int y, int z, int face) {
     // Eaten face
     if (face == 3) {
         int data = (*Level_getData)(level, x, y, z);
@@ -46,12 +46,12 @@ static int cake_getTexture3(uchar *tile, uchar *_level, int x, int y, int z, int
     return cake_getTexture2(tile, face);
 }
 
-static bool cake_isSolidRender(uchar *tile) {
+static bool cake_isSolidRender(__attribute__((unused)) uchar *tile) {
     // Stop it from turning other blocks invisable
     return 0;
 }
 
-static int cake_getRenderLayer(uchar *tile) {
+static int cake_getRenderLayer(__attribute__((unused)) uchar *tile) {
     // Stop weird transparency issues
     return 1;
 }
@@ -65,7 +65,7 @@ static void cake_updateDefaultShape(uchar *tile) {
     );
 }
 
-static AABB *cake_getAABB(uchar *tile, uchar *_level, int x, int y, int z) {
+static AABB *cake_getAABB(uchar *tile, __attribute__((unused)) uchar *_level, int x, int y, int z) {
     // Get the hitbox
     AABB *aabb = (AABB *)(tile + 0x40);
 
@@ -87,7 +87,7 @@ static AABB *cake_getAABB(uchar *tile, uchar *_level, int x, int y, int z) {
     return aabb;
 }
 
-static void cake_updateShape(uchar *tile, uchar *_level, int x, int y, int z) {
+static void cake_updateShape(uchar *tile, __attribute__((unused)) uchar *_level, int x, int y, int z) {
     // Set cake
     int data = (*Level_getData)(level, x, y, z);
     if (data >= 6) data = 0;
@@ -100,7 +100,7 @@ static void cake_updateShape(uchar *tile, uchar *_level, int x, int y, int z) {
     );
 }
 
-static int cake_use(uchar *tile, uchar *level, int x, int y, int z, uchar *player) {
+static int cake_use(__attribute__((unused)) uchar *tile, __attribute__((unused)) uchar *_level, int x, int y, int z, uchar *player) {
     // Eat
     uchar *food_data = (player + 0xc00);
     SimpleFoodData_eat(food_data, 3);
@@ -144,7 +144,6 @@ static void make_cake() {
     // Get Functions
     Tile_setDestroyTime_t Tile_setDestroyTime = *(Tile_setDestroyTime_t *) (vtable + Tile_setDestroyTime_vtable_offset);
     Tile_setExplodeable_t Tile_setExplodeable = *(Tile_setExplodeable_t *) (vtable + Tile_setExplodeable_vtable_offset);
-    Tile_setSoundType_t Tile_setSoundType = *(Tile_setSoundType_t *) (vtable + Tile_setSoundType_vtable_offset);
     Tile_setDescriptionId_t Tile_setDescriptionId = *(Tile_setDescriptionId_t *) (vtable + Tile_setDescriptionId_vtable_offset);
 
     // Init
@@ -221,7 +220,6 @@ static void Recipes_injection(uchar *recipes) {
 
 __attribute__((constructor)) static void init() {
     misc_run_on_tiles_setup(Tile_initTiles_injection);
-    misc_run_on_creative_inventory_setup(Inventory_setupDefault_FillingContainer_addItem_call_injection);
     misc_run_on_recipes_setup(Recipes_injection);
     misc_run_on_tick(mcpi_callback);
 }
