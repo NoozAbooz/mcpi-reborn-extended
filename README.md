@@ -21,10 +21,7 @@ To build everything for all available architectures use this:
 ./scripts/package-all.sh
 ```
 
-If you are doing a lot of testing are you don't want to take the time to build everything then you will need to install dependencies with this command:
-`sudo bash ./scripts/install-dependencies.sh`
-
-and then use this command each time you compile:
+or use this command to compile for only the variants and archtectures you want:
 
 `./scripts/package.sh <client|server> <amd64|arm64|armhf>`
 
