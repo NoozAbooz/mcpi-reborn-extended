@@ -32,7 +32,7 @@ Download and run the appropiate AppImage for your architecture with the `client`
 - Working sound
 - Add missing items to creative inventory
 - Sprinting via `Ctrl` key
-- Modern textures
+- Modern 1.14+ Jappa textures from [BasedSkeleton](https://basedskeleton.github.io/)
 - Custom skins
 - Longer chat message length limit (512 characters)
 - Longer username length limit (32 characters)
