@@ -1,3 +1,7 @@
-### Fixed
+### Added
+- Add Add Biome Colors To Grass Feature Flag (Enabled By Default)
+- Add Generate Caves Feature Flag (Enabled By Default)
 
-- Changed PBPT default domain
+### Changed
+- Improve Performance for Dedicated Server Software
+- [INTERNAL] Allow Mods to Access Original GLFW Keycode
