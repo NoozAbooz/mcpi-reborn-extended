@@ -8,23 +8,23 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 ## [2.4.7] - 2023-5-18
 
 ### Added
-- Add ``Add Biome Colors To Grass`` Feature Flag (Enabled By Default)
+- Add ``Add Biome Colors To Grass`` Feature Flag (Disabled By Default)
 - Add ``Generate Caves`` Feature Flag (Enabled By Default)
+- Added Default Support for BigJango13's Cake Mod
 
 ### Changed
 - Improve Performance for Dedicated Server Software
+- Update Default Textures to BasedSkeleton's Jappa Texturepack
 - [INTERNAL] Allow Mods to Access Original GLFW Keycode
 
 ## [2.4.6-1] - 2023-2-14
 
 ### Fixed
-
 - Changed PBPT default domain
 
 ## [2.4.6] - 2022-10-31
 
 ### Fixed
-
 - Fix Crash Report Log Saving
 - Fix Holding Left-Click When Attacking
 - Fix Crashing On ARMHF
