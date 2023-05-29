@@ -40,7 +40,8 @@ typedef enum {
     SDLK_RSHIFT = 303,
     SDLK_LSHIFT = 304,
     SDLK_RCTRL = 305,
-    SDLK_LCTRL = 306
+    SDLK_LCTRL = 306,
+    SDLK_c = 99
 } SDLKey;
 
 typedef enum {

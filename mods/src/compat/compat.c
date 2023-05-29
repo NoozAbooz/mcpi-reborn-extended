@@ -88,11 +88,14 @@ HOOK(SDL_PollEvent, int, (SDL_Event *event)) {
                 } else if (event->key.keysym.sym == SDLK_LCTRL || event->key.keysym.sym == SDLK_RCTRL) {
                     // Sprinting
                     misc_set_sprinting(1);
+                } else if (event->key.keysym.sym == SDLK_c) {
+                    // Zoom
+                    misc_set_sprinting(-1);
                 }
                 break;
             }
             case SDL_KEYUP: {
-                if (event->key.keysym.sym == SDLK_LCTRL || event->key.keysym.sym == SDLK_RCTRL) {
+                if (event->key.keysym.sym == SDLK_LCTRL || event->key.keysym.sym == SDLK_RCTRL || event->key.keysym.sym == SDLK_c) {
                     // Sprinting
                     misc_set_sprinting(0);
                 }
@@ -110,8 +113,10 @@ HOOK(SDL_PollEvent, int, (SDL_Event *event)) {
             }
             case SDL_USEREVENT: {
                 // SDL_UserEvent Is Never Used In MCPI, So It Is Repurposed For Character Events
-                sign_key_press((char) event->user.code);
-                handled = 1;
+                if (event->user.code == USER_EVENT_CHARACTER) {
+                    sign_key_press((char) event->user.data1);
+                    handled = 1;
+                }
                 break;
             }
         }

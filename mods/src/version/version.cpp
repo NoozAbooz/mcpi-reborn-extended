@@ -9,7 +9,7 @@ char *version_get() {
     static char *version = NULL;
     // Load
     if (version == NULL) {
-        safe_asprintf(&version, "%s / MCPI++ v" MCPI_VERSION, *minecraft_pi_version);
+        safe_asprintf(&version, "MCPI++ v" MCPI_VERSION);
     }
     // Return
     return version;

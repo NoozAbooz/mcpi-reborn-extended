@@ -303,9 +303,12 @@ int32_t misc_get_real_selected_slot(unsigned char *player) {
 
 // Increase Player Speed
 static int is_sprinting = 0;
+#define ZOOM_AMOUNT -0.8 // -0.999 is too high.
+
 void misc_set_sprinting(int enable) {
     is_sprinting = enable;
 }
+
 static float get_sprint_speed() {
     static float speed;
     static int speed_set = 0;
@@ -320,6 +323,9 @@ static float get_sprint_speed() {
     return speed;
 }
 static float Player_getWalkingSpeedModifier_injection(__attribute__((unused)) unsigned char *player) {
+    // Zoom Speed
+    if (is_sprinting == -1) return ZOOM_AMOUNT;
+    // Normal/Sprint Speed
     return is_sprinting ? get_sprint_speed() : 1; // Default Is 1
 }
 

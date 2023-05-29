@@ -1,9 +1,21 @@
 # Changelog
 Every new MCPI++ release starting from v2.2.11 is listed here. 
 
-- Under-the-hood modifications that don't effect the user experience are prefixed with "[INTERNAL]".
+- Under-the-hood modifications that don't effect the user experience are prefixed with "[*INTERNAL*]".
 
 This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [2.4.8] - 2023-5-28
+
+### Added
+- Optifine-Like Zoom Feature Via ``C`` Key (Original by BigJango13)
+- Allow Mods To Access The Original GLFW Keycode For Key Events (But Better)
+
+### Changed
+- Fix Bug In ``extract_from_bl_instruction``
+- More Accurate Sound
+- Dark-Mode Inventory
+- [*INTERNAL*] Update LIEF And GLFW 
 
 ## [2.4.7] - 2023-5-18
 
@@ -15,7 +27,7 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 ### Changed
 - Improve Performance for Dedicated Server Software
 - Update Default Textures to BasedSkeleton's Jappa Texturepack
-- [INTERNAL] Allow Mods to Access Original GLFW Keycode
+- [*INTERNAL*] Allow Mods to Access Original GLFW Keycode
 
 ## [2.4.6-1] - 2023-2-14
 
@@ -33,7 +45,7 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ### Added
 - Implement Upstream Crash Dialog
-- [INTERNAL] Bundle QEMU
+- [*INTERNAL*] Bundle QEMU
 
 ### Removed
 - Remove Coloured Terminal Output
@@ -52,7 +64,7 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 ### Changed
 - Moved ``3D Anaglyph`` Feature Flag To Options Screen
 - Improved Feature Flag Namesp
-- [INTERNAL] Improved Build System
+- [*INTERNAL*] Improved Build System
 
 ### Fixed
 - Fix Particles In Front-Facing View
@@ -70,16 +82,16 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 - Fix Broken DEB Signing
 
 ## [2.4.3-2] - 2022-08-19
-- [INTERNAL] Changes to CMake build and dependencies
+- [*INTERNAL*] Changes to CMake build and dependencies
 
 ## [2.4.3-1] - 2022-08-03
 - Bump Planet Version To 1.2.1
-- [INTERNAL] Changes to SDK Build
+- [*INTERNAL*] Changes to SDK Build
 
 ## [2.4.3] - 2022-08-01
 - Fix Signs With CP-437
 - Fix Duplicate Creative Inventory Items
-- [INTERNAL] Patch Invalid Creative Inventory Items
+- [*INTERNAL*] Patch Invalid Creative Inventory Items
 - Fix Picking Up Lava
 - Fix Wayland App ID
 
