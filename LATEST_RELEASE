@@ -1,9 +1,9 @@
 ### Added
-- Add Add Biome Colors To Grass Feature Flag (Disabled By Default)
-- Add Generate Caves Feature Flag (Enabled By Default)
-- Added Default Support for BigJango13's Cake Mod
+- Optifine-Like Zoom Feature Via C Key (Original by BigJango13)
+- Allow Mods To Access The Original GLFW Keycode For Key Events (But Better)
 
 ### Changed
-- Improve Performance for Dedicated Server Software
-- Update Default Textures to BasedSkeleton's Jappa Texturepack
-- [INTERNAL] Allow Mods to Access Original GLFW Keycode
+- Fix Bug In extract_from_bl_instruction
+- More Accurate Sound
+- Dark-Mode Inventory
+- [*INTERNAL*] Update LIEF And GLFW
