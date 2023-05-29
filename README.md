@@ -3,7 +3,7 @@ This is a fork of [MCPI-Reborn](https://gitea.thebrokenrail.com/TheBrokenRail/mi
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label=Get%20support%20on)](https://discord.gg/XJJNG9jTuh)
 
-![2023-05-19_18 00 59](https://github.com/NoozSBC/mcpi-reborn-extended/assets/44128563/613799d3-286b-4cc5-8287-5bf424be68a1)
+![2023-05-28_20 10 40](https://github.com/NoozSBC/mcpi-reborn-extended/assets/44128563/bcfab15a-ef0b-4601-b614-81e203945bcd)
 
 Source code and documentation is in the [source](https://github.com/NoozSBC/mcpi-reborn-extended/tree/source) branch.
 
@@ -28,20 +28,21 @@ Download and install the appropiate DEB for your architecture with the `client` 
 Download and run the appropiate AppImage for your architecture with the `client` tag from [here](https://github.com/mobilegmYT/mcpi-reborn-extended/releases/). This is the only method that works on non-Debian distros like Arch or Fedora.
 
 ## Feature List (in order of awesomeness)
-- Supports all distros with glibc (most major distros except musl-based ones like Alpine)
-- Working sound
+- Supports distros with glibc (most major distros except musl-based ones like Alpine)
+- Out-of-box sound support
 - Add missing items to creative inventory
 - Sprinting via `Ctrl` key
+- Optifine-like zoom feature via `C` key
 - Modern 1.14+ Jappa textures from [BasedSkeleton](https://basedskeleton.github.io/)
 - Custom skins
 - Longer chat message length limit (512 characters)
 - Longer username length limit (32 characters)
-- Add item names for some hidden items (like the camera)
+- Add item names fo hidden items
 - Sneaking via both the `Shift` and `Alt` keys
 - A custom "[Cursed Chest](https://media.discordapp.net/attachments/761048906242981948/903080546182242344/2021-10-27_20.39.05.png)" block for debugging
 - Ability to look around via arrow keys instead of mouse (useful if mouse is glitched)
 - [Colored](https://upww.screenrec.com/images/f_PX5iWMcfs6KLjEyqvmtU10Ozwogl4r3C.png) terminal output
-- Use basic Vim keybindings for movement (hjkl)
+- Ability to also use Vim keybindings for movement (hjkl)
 
 ## Compatibility
 MCPI++ has been tested with the following:
