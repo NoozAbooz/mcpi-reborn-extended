@@ -1,5 +1,6 @@
 ### Added
 - Optifine-Like Zoom Feature Via C Key (Original by BigJango13)
+- Send Message To Chat When Screenshot Is Taken
 - Allow Mods To Access The Original GLFW Keycode For Key Events (But Better)
 
 ### Changed
