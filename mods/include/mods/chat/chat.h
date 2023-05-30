@@ -6,8 +6,6 @@
 #include <string>
 // Send API Command
 std::string chat_send_api_command(unsigned char *minecraft, char *str);
-// Send Chat Message
-static void send_api_chat_command(unsigned char *minecraft, char *str);
 #endif
 
 #ifdef __cplusplus
