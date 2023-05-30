@@ -107,7 +107,7 @@ target_link_libraries(cake mods-headers reborn-patch symbols misc)
 
 if(NOT MCPI_HEADLESS_MODE)
     add_library(screenshot SHARED src/screenshot/screenshot.c)
-    target_link_libraries(screenshot mods-headers reborn-util media-layer-core png12)
+    target_link_libraries(screenshot mods-headers reborn-util misc media-layer-core png12)
 endif()
 
 add_library(home SHARED src/home/home.c)

@@ -17,6 +17,8 @@ void misc_run_on_creative_inventory_setup(misc_update_function_t function); // o
 void misc_run_on_tiles_setup(misc_update_function_t function); // obj == NULL
 void misc_run_on_items_setup(misc_update_function_t function); // obj == NULL
 
+void misc_append_to_chat_queue(const char *msg);
+
 void Level_saveLevelData_injection(unsigned char *level);
 
 // Use this instead of directly calling Gui::addMessage(), it has proper logging!

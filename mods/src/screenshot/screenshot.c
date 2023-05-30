@@ -7,10 +7,13 @@
 #include <sys/stat.h>
 
 #include <png.h>
+#include <GLES/gl.h>
 
 #include <libreborn/libreborn.h>
-#include <GLES/gl.h>
+#include <symbols/minecraft.h>
+
 #include <mods/screenshot/screenshot.h>
+#include <mods/misc/misc.h>
 
 // Ensure Screenshots Folder Exists
 static void ensure_screenshots_folder(char *screenshots) {
@@ -153,6 +156,9 @@ void screenshot_take(char *home) {
     } else {
         INFO("Screenshot Saved: %s", file);
     }
+
+    // Post Chat Message
+    misc_append_to_chat_queue(file);
 
     // Free
     free(file);

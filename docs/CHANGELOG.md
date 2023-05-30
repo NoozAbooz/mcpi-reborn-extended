@@ -3,12 +3,13 @@ Every new MCPI++ release starting from v2.2.11 is listed here.
 
 - Under-the-hood modifications that don't effect the user experience are prefixed with "[*INTERNAL*]".
 
-This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres To [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [2.4.8] - 2023-5-28
 
 ### Added
 - Optifine-Like Zoom Feature Via ``C`` Key (Original by BigJango13)
+- Send Message To Chat When Screenshot Is Taken
 - Allow Mods To Access The Original GLFW Keycode For Key Events (But Better)
 
 ### Changed
@@ -26,8 +27,8 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ### Changed
 - Improve Performance for Dedicated Server Software
-- Update Default Textures to BasedSkeleton's Jappa Texturepack
-- [*INTERNAL*] Allow Mods to Access Original GLFW Keycode
+- Update Default Textures To BasedSkeleton's Jappa Texturepack
+- [*INTERNAL*] Allow Mods To Access Original GLFW Keycode
 
 ## [2.4.6-1] - 2023-2-14
 
@@ -82,11 +83,11 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 - Fix Broken DEB Signing
 
 ## [2.4.3-2] - 2022-08-19
-- [*INTERNAL*] Changes to CMake build and dependencies
+- [*INTERNAL*] Changes To CMake build and dependencies
 
 ## [2.4.3-1] - 2022-08-03
 - Bump Planet Version To 1.2.1
-- [*INTERNAL*] Changes to SDK Build
+- [*INTERNAL*] Changes To SDK Build
 
 ## [2.4.3] - 2022-08-01
 - Fix Signs With CP-437

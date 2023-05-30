@@ -50,6 +50,20 @@ static void PauseScreen_init_injection(unsigned char *screen) {
     }
 }
 
+// API Chat Magic
+static std::vector<std::string> queue;
+void misc_append_to_chat_queue(const char *msg) {
+    queue.push_back(std::string(msg));
+}
+
+static void mcpi_callback(unsigned char *minecraft) {
+    unsigned char *gui = minecraft + Minecraft_gui_property_offset;
+    for (auto const &msg : queue) {
+        misc_add_message(gui, msg.c_str());
+    }
+    queue.clear();
+}
+
 // Init
 void _init_misc_cpp() {
     // Implement AppPlatform::readAssetFile So Translations Work
@@ -62,4 +76,9 @@ void _init_misc_cpp() {
         // Add Missing Buttons To Pause Menu
         patch_address(PauseScreen_init_vtable_addr, (void *) PauseScreen_init_injection);
     }
+}
+
+// Callback for API Chat
+__attribute__((constructor)) static void init() {
+    misc_run_on_update(mcpi_callback);
 }
