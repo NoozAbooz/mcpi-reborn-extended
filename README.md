@@ -1,5 +1,5 @@
 # MCPI++ (mcpi-reborn-extended)
-This is a fork of [MCPI-Reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn), with custom features added by community members. The APT packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from MCPI-Reborn. If you like MCPI or MCPI-Reborn, you'll probably like this too!
+This is a fork of [MCPI-Reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn), with custom features added by community members. The APT packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from MCPI-Reborn. If you like MCPI or MCPI-Reborn, you'll probably love this more!
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label=Get%20support%20on)](https://discord.gg/XJJNG9jTuh)
 
