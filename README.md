@@ -1,10 +1,11 @@
 # MCPI++ (mcpi-reborn-extended)
-This is a fork of [MCPI-Reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn), with custom features added by community members. The APT packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from MCPI-Reborn. If you like MCPI or MCPI-Reborn, you'll probably love this more!
+The enthusiast's `Minecraft: Pi Edition` mod, with custom QOL modifications and graphical changes. The APT packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from MCPI-Reborn. If you like MCPI or MCPI-Reborn, you'll probably love this more!
 
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label=Get%20support%20on)](https://discord.gg/XJJNG9jTuh)
 
 ![2023-05-28_20 10 40](https://github.com/NoozSBC/mcpi-reborn-extended/assets/44128563/bcfab15a-ef0b-4601-b614-81e203945bcd)
 
+Fork of [MCPI-Reborn](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn),
 Source code and documentation is in the [source](https://github.com/NoozSBC/mcpi-reborn-extended/tree/source) branch.
 
 ## Installation ([compatibility list](https://github.com/NoozSBC/mcpi-reborn-extended#compatibility))
