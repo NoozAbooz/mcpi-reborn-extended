@@ -17,7 +17,7 @@ then
     sudo apt-get remove -y minecraft-pi-reborn-server
 fi
 
-echo -e "\nInstallation complete! Please note that the MCPI Python API is still installed and can be removed with 'pip uninstall mcpi'. Your user data folder, '~/.minecraft-pi/' can also be removed if you want."
+echo -e "\nUninstall complete! Please note that the MCPI Python API is still installed and can be removed with 'pip uninstall mcpi'. Your user data folder, '~/.minecraft-pi/' can also be removed if you want."
 
 # Self destruct
 unlink $0
