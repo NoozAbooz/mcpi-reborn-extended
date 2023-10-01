@@ -390,6 +390,12 @@ void SDL_WM_SetCaption(const char *title, __attribute__((unused)) const char *ic
     // Make Window Context Current
     glfwMakeContextCurrent(glfw_window);
 
+    // Setup Compatibility Layer
+#ifdef MCPI_USE_GLES1_COMPATIBILITY_LAYER
+    extern void init_gles_compatibility_layer();
+    init_gles_compatibility_layer();
+#endif
+
     // Debug
     glGetString_t glGetString = (glGetString_t) glfwGetProcAddress("glGetString");
     DEBUG("Using %s", (*glGetString)(GL_VERSION));
