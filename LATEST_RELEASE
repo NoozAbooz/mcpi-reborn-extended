@@ -1,10 +1,8 @@
 ### Added
-- Optifine-Like Zoom Feature Via C Key (Original by BigJango13)
-- Send Message To Chat When Screenshot Is Taken
-- Allow Mods To Access The Original GLFW Keycode For Key Events (But Better)
+- Allow Overriding GUI Scale With MCPI_GUI_SCALE Environmental Variable
+- Add Disable Block Tinting Feature Flag (Disabled By Default)
+- Add Disable Hostile AI In Creative Mode Feature Flag (Enabled By Default)
 
 ### Changed
-- Fix Bug In extract_from_bl_instruction
-- More Accurate Sound
-- Dark-Mode Inventory
-- [*INTERNAL*] Update LIEF And GLFW
+- Better Fog Shader
+- Allow Accessing Configuration At Runtime (Useful For Mods That Need To Support Multiple Versions)
