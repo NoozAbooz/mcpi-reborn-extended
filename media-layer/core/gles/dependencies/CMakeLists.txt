@@ -8,4 +8,4 @@ if(NOT MCPI_HEADLESS_MODE AND MCPI_USE_GLES1_COMPATIBILITY_LAYER)
     set(GLES_COMPATIBILITY_LAYER_DEPENDENCY glfw CACHE STRING "" FORCE)
     add_subdirectory(gles-compatibility-layer)
     target_link_libraries(gles-compatibility-layer media-layer-headers)
-endif()1
+endif()
