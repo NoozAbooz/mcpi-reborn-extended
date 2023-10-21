@@ -65,6 +65,9 @@ else()
     string(APPEND MCPI_VARIANT_NAME "-client")
 endif()
 
+# Skin Server
+set(MCPI_SKIN_SERVER "https://raw.githubusercontent.com/MCPI-Revival/Skins/data" CACHE STRING "Skin Server")
+
 # Specify Installation Paths
 set(MCPI_INSTALL_DIR "lib/${MCPI_VARIANT_NAME}")
 set(MCPI_BIN_DIR "${MCPI_INSTALL_DIR}/bin")

@@ -5,6 +5,11 @@ Every new MCPI++ release starting from v2.2.11 is listed here.
 
 This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres To [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.0] - 2023-10-20
+
+### Added
+- Add ``Load Custom Skins`` Feature Flag (Enabled By Default)
+
 ## [2.4.9] - 2023-10-01
 
 ### Added
