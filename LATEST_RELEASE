@@ -1,2 +1,2 @@
 ### Added
-- Add Load Custom Skins Feature Flag (Enabled By Default)
+- Allow Overriidng Custom Skin Server Using MCPI_SKIN_SERVER Environmental Variable
