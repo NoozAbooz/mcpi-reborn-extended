@@ -10,9 +10,6 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 ### Added
 - Allow Overriidng Custom Skin Server Using ``MCPI_SKIN_SERVER`` Environmental Variable
 
-### Fixed
-- Fixed Bug With SDK Generation
-
 ## [2.5.0] - 2023-10-20
 
 ### Added
