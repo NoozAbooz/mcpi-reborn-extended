@@ -5,6 +5,14 @@ Every new MCPI++ release starting from v2.2.11 is listed here.
 
 This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres To [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.1] - 2023-10-21
+
+### Added
+- Allow Overriidng Custom Skin Server Using ``MCPI_SKIN_SERVER`` Environmental Variable
+
+### Fixed
+- Fixed Bug With SDK Generation
+
 ## [2.5.0] - 2023-10-20
 
 ### Added
@@ -29,10 +37,12 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 - Allow Mods To Access The Original GLFW Keycode For Key Events (But Better)
 
 ### Changed
-- Fix Bug In ``extract_from_bl_instruction``
 - More Accurate Sound
 - Dark-Mode Inventory
 - [*INTERNAL*] Update LIEF And GLFW 
+
+### Fixed
+- Fixed Bug In ``extract_from_bl_instruction``
 
 ## [2.4.7] - 2023-5-18
 
