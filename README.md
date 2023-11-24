@@ -87,7 +87,7 @@ If you are interested in making your own mods, documentation can be found [here]
 - - If on bare metal Linux --> Uncheck `Disable Raw Mouse Motion` launch flag
 
 ## Credits
-- Maintained by [Nooz](https://github.com/NoozSBC).
+- Maintained by [Nooz](https://github.com/NoozAbooz).
 - Patches/mods by [Bigjango13](https://github.com/bigjango13) and [TheBrokenRail](https://github.com/TheBrokenRail).
 - Vanilla Reborn by [TheBrokenRail](https://gitea.thebrokenrail.com/TheBrokenRail/minecraft-pi-reborn).
 - Minecraft: Pi Edition by Mojang AB.
