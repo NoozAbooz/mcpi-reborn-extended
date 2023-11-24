@@ -5,6 +5,15 @@ Every new MCPI++ release starting from v2.2.11 is listed here.
 
 This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres To [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.2] - 2023-11-24
+
+### Added
+- Add ``3D Chest Model`` Feature Flag (Enabled By Default)
+
+### Changed
+- [*INTERNAL*] Replace ``iconv``
+- [*INTERNAL*] Replace ``LibPNG``
+
 ## [2.5.1] - 2023-10-21
 
 ### Added

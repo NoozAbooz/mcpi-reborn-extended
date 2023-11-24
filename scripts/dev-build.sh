@@ -9,6 +9,6 @@ function error {
 
 docker rm -f $(docker ps -a -q) || true
 
-docker run --rm -v "$(pwd):/data" -w '/data' noozsbc/mcpi-reborn-extended-build:buster ./scripts/package.sh client amd64
+docker run --rm -v "$(pwd):/data" -w '/data' noozsbc/mcpi-reborn-extended-build:busterv2 ./scripts/package.sh client amd64
 
 #./out/minecraft-pi-reborn-client-*-amd64.AppImage

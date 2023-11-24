@@ -22,7 +22,6 @@ void set_and_print_env(const char *name, const char *value);
 // Safe execvpe()
 #define for_each_special_environmental_variable(handle) \
     handle("LD_LIBRARY_PATH"); \
-    handle("GCONV_PATH"); \
     handle("LD_PRELOAD");
 void setup_exec_environment(int is_arm_component);
 __attribute__((noreturn)) void safe_execvpe(const char *const argv[], const char *const envp[]);
@@ -36,7 +35,7 @@ char *get_binary_directory();
 #define CHILD_PROCESS_TAG "(Child Process) "
 
 // Run Command And Get Output
-char *run_command(const char *const command[], int *exit_status);
+char *run_command(const char *const command[], int *exit_status, size_t *output_size);
 #define is_exit_status_success(status) (WIFEXITED(status) && WEXITSTATUS(status) == 0)
 
 // Get Exit Status String

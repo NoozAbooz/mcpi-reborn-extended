@@ -47,6 +47,7 @@ static unsigned char **Item_egg = (unsigned char **) 0x17bbd0; // Item
 static unsigned char **Item_dye_powder = (unsigned char **) 0x17bbe0; // Item
 static unsigned char **Item_camera = (unsigned char **) 0x17bc14; // Item
 
+static unsigned char **Tile_chest = (unsigned char **) 0x181d60; // Tile
 static unsigned char **Tile_water = (unsigned char **) 0x181b3c; // Tile
 static unsigned char **Tile_lava = (unsigned char **) 0x181cc8; // Tile
 static unsigned char **Tile_calmWater = (unsigned char **) 0x181b40; // Tile
@@ -133,6 +134,9 @@ static uint32_t Tile_use_vtable_offset = 0x98;
 
 typedef int32_t (*Tile_getColor_t)(unsigned char *tile, unsigned char *level_source, int32_t x, int32_t y, int32_t z);
 static uint32_t Tile_getColor_vtable_offset = 0xb8;
+
+typedef int32_t (*Tile_getRenderShape_t)(unsigned char *tile);
+static uint32_t Tile_getRenderShape_vtable_offset = 0xc;
 
 static uint32_t Tile_id_property_offset = 0x8; // int32_t
 static uint32_t Tile_category_property_offset = 0x3c; // int32_t
@@ -835,6 +839,17 @@ static EntityRenderDispatcher_assign_t EntityRenderDispatcher_assign = (EntityRe
 // TileEntity
 
 static uint32_t TileEntity_id_property_offset = 0x18; // int32_t
+static uint32_t TileEntity_renderer_id_property_offset = 0x24; // int32_t
+
+// ChestTileEntity
+
+typedef unsigned char *(*ChestTileEntity_t)(unsigned char *tile_entity);
+static ChestTileEntity_t ChestTileEntity = (ChestTileEntity_t) 0xcfa78;
+
+// ModelPart
+
+typedef void (*ModelPart_render_t)(unsigned char *model_part, float scale);
+static ModelPart_render_t ModelPart_render = (ModelPart_render_t) 0x416dc;
 
 // ItemRenderer
 
@@ -857,6 +872,9 @@ static Tesselator_colorABGR_t Tesselator_colorABGR = (Tesselator_colorABGR_t) 0x
 
 typedef void (*Tesselator_color_t)(unsigned char *tesselator, int32_t r, int32_t g, int32_t b, int32_t a);
 static Tesselator_color_t Tesselator_color = (Tesselator_color_t) 0x52a48;
+
+typedef void (*Tesselator_vertexUV_t)(unsigned char *tesselator, float x, float y, float z, float u, float v);
+static Tesselator_vertexUV_t Tesselator_vertexUV = (Tesselator_vertexUV_t) 0x52d40;
 
 // SoundEngine
 
@@ -951,6 +969,22 @@ struct ConnectedClient {
     std::string str;
     long time;
 };
+
+struct Texture {
+    int32_t width = 0;
+    int32_t height = 0;
+    unsigned char *data = NULL;
+    int32_t field3_0xc = 0;
+    bool field4_0x10 = true;
+    bool field5_0x11 = false;
+    int32_t field6_0x14 = 0;
+    int32_t field7_0x18 = -1;
+};
+
+// AppPlatform_linux
+
+typedef Texture (*AppPlatform_linux_loadTexture_t)(unsigned char *app_platform, std::string const& path, bool b);
+static AppPlatform_linux_loadTexture_t AppPlatform_linux_loadTexture = (AppPlatform_linux_loadTexture_t) 0x12c20;
 
 // Tile
 

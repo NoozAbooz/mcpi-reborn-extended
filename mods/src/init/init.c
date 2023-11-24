@@ -13,16 +13,18 @@ __attribute__((constructor)) static void init() {
     init_server();
 #else
     init_multiplayer();
+#endif
+#ifndef MCPI_HEADLESS_MODE
     init_sound();
     init_input();
     init_sign();
     init_camera();
     init_touch();
-    init_textures();
     init_atlas();
     init_title_screen();
     init_skin();
 #endif
+    init_textures();
     init_creative();
     init_game_mode();
     init_misc();
