@@ -1,6 +1,3 @@
-[submodule "dependencies/glfw/src"]
-	path = dependencies/glfw/src
-	url = https://github.com/glfw/glfw.git
 [submodule "dependencies/zenity/src"]
 	path = dependencies/zenity/src
 	url = https://gitea.thebrokenrail.com/minecraft-pi-reborn/zenity.git
@@ -19,3 +16,6 @@
 [submodule "archives"]
 	path = archives
 	url = https://gitea.thebrokenrail.com/minecraft-pi-reborn/archives.git
+[submodule "dependencies/glfw/src"]
+	path = dependencies/glfw/src
+	url = https://github.com/glfw/glfw.git

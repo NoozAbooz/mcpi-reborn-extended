@@ -30,7 +30,7 @@ case "$2" in
     'amd64') APPIMAGE_ARCH='x86_64';;
 esac
 ARCH="${APPIMAGE_ARCH}" appimagetool \
-    --updateinformation "gh-releases-zsync|NoozSBC|mcpi-reborn-extended|latest|${NAME}-$1-$2.AppImage.zsync" \
+    --updateinformation "gh-releases-zsync|NoozAbooz|mcpi-reborn-extended|latest|${NAME}-$1-$2.AppImage.zsync" \
     --runtime-file "build/appimage/runtime-$2" \
     --comp xz \
     "./out/$1-$2" \
