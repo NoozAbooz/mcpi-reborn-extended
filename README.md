@@ -3,6 +3,7 @@ The enthusiast's `Minecraft: Pi Edition` mod, with custom QOL modifications and 
 
 MCPI++ IS NOT AFFILIATED, APPROVED BY OR ASSOCIATED WITH MOJANG/MICROSOFT
 
+[![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FNoozAbooz%2Fmcpi-reborn-extended&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label=Get%20support%20on)](https://discord.gg/XJJNG9jTuh)
 
 ![2023-05-28_20 10 40](https://github.com/NoozSBC/mcpi-reborn-extended/assets/44128563/bcfab15a-ef0b-4601-b614-81e203945bcd)
