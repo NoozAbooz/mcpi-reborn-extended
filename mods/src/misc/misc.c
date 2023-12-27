@@ -4,7 +4,9 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
+#ifndef MCPI_HEADLESS_MODE
 #include <GLES/gl.h>
+#endif
 
 #include <libreborn/libreborn.h>
 #include <symbols/minecraft.h>
@@ -329,10 +331,12 @@ static float Player_getWalkingSpeedModifier_injection(__attribute__((unused)) un
     return is_sprinting ? get_sprint_speed() : 1; // Default Is 1
 }
 
+#ifndef MCPI_HEADLESS_MODE
 // Properly Generate Buffers
 static void anGenBuffers_injection(int32_t count, uint32_t *buffers) {
     glGenBuffers(count, buffers);
 }
+#endif
 
 // Fix Graphics Bug When Switching To First-Person While Sneaking
 static void HumanoidMobRenderer_render_injection(unsigned char *model_renderer, unsigned char *entity, float param_2, float param_3, float param_4, float param_5, float param_6) {
@@ -489,6 +493,35 @@ static bool ChestTileEntity_shouldSave_injection(__attribute__((unused)) unsigne
     return 1;
 }
 
+#ifndef MCPI_HEADLESS_MODE
+// Custom Outline Color
+static void glColor4f_injection(__attribute__((unused)) GLfloat red, __attribute__((unused)) GLfloat green, __attribute__((unused)) GLfloat blue, __attribute__((unused)) GLfloat alpha) {
+    // Set Color
+    glColor4f(0, 0, 0, 0.4);
+
+    // Find Line Width
+    char *custom_line_width = getenv("MCPI_BLOCK_OUTLINE_WIDTH");
+    float line_width;
+    if (custom_line_width != NULL) {
+        // Custom
+        line_width = strtof(custom_line_width, NULL);
+    } else {
+        // Guess
+        line_width = 2 / (*InvGuiScale);
+    }
+    // Clamp Line Width
+    float range[2];
+    glGetFloatv(GL_ALIASED_LINE_WIDTH_RANGE, range);
+    if (range[1] < line_width) {
+        line_width = range[1];
+    } else if (range[0] > line_width) {
+        line_width = range[0];
+    }
+    // Set Line Width
+    glLineWidth(line_width);
+}
+#endif
+
 // Init
 static void nop() {
 }
@@ -553,6 +586,9 @@ void init_misc() {
 #ifdef MCPI_HEADLESS_MODE
     // Don't Render Game In Headless Mode
     overwrite_calls((void *) GameRenderer_render, (void *) nop);
+    overwrite_calls((void *) NinecraftApp_initGLStates, (void *) nop);
+    overwrite_calls((void *) Gui_onConfigChanged, (void *) nop);
+    overwrite_calls((void *) LevelRenderer_generateSky, (void *) nop);
 #else
 
     // Improved Cursor Rendering
@@ -581,8 +617,10 @@ void init_misc() {
         overwrite_calls((void *) sleepMs, (void *) nop);
     }
 
+#ifndef MCPI_HEADLESS_MODE
     // Properly Generate Buffers
     overwrite((void *) anGenBuffers, (void *) anGenBuffers_injection);
+#endif
 
     // Fix Graphics Bug When Switching To First-Person While Sneaking
     patch_address(PlayerRenderer_render_vtable_addr, (void *) HumanoidMobRenderer_render_injection);
@@ -650,6 +688,16 @@ void init_misc() {
         patch((void *) 0x66404, chest_color_patch);
     }
     patch_address((void *) 0x115b48, (void *) ChestTileEntity_shouldSave_injection);
+
+#ifndef MCPI_HEADLESS_MODE
+    // Replace Block Highlight With Outline
+    if (feature_has("Replace Block Highlight With Outline", server_disabled)) {
+        overwrite((void *) LevelRenderer_renderHitSelect, (void *) LevelRenderer_renderHitOutline);
+        unsigned char fix_outline_patch[4] = {0x00, 0xf0, 0x20, 0xe3}; // "nop"
+        patch((void *) 0x4d830, fix_outline_patch);
+        overwrite_call((void *) 0x4d764, (void *) glColor4f_injection);
+    }
+#endif
 
     // Init C++ And Logging
     _init_misc_cpp();

@@ -5,6 +5,14 @@ Every new MCPI++ release starting from v2.2.11 is listed here.
 
 This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres To [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.3] - 2023-12-26
+
+### Added
+- Add ``Replace Block Highlight With Outline`` Feature Flag (Enabled By Default)
+  * By Default, The Outline Width Is Set Using The GUI Scale
+  * This Can Be Overridden Using The ``MCPI_BLOCK_OUTLINE_WIDTH`` Environmental Variable
+- Added ``overwrite_calls_within`` Function
+
 ## [2.5.2] - 2023-11-24
 
 ### Added
@@ -17,7 +25,7 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 ## [2.5.1] - 2023-10-21
 
 ### Added
-- Allow Overriidng Custom Skin Server Using ``MCPI_SKIN_SERVER`` Environmental Variable
+- Allow Overriding Custom Skin Server Using ``MCPI_SKIN_SERVER`` Environmental Variable
 
 ## [2.5.0] - 2023-10-20
 
