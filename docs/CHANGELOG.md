@@ -12,7 +12,7 @@ This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ### Fixed
 - Bug Casuing Blocks to Not Appear In Multiplayer
-  * 
+  * See https://github.com/NoozAbooz/mcpi-reborn-extended/issues/39
 
 ## [2.5.3] - 2023-12-26
 
