@@ -5,6 +5,15 @@ Every new MCPI++ release starting from v2.2.11 is listed here.
 
 This changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres To [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.3-1] - 2024-1-05
+
+### Changed
+- Updated app icon
+
+### Fixed
+- Bug Casuing Blocks to Not Appear In Multiplayer
+  * 
+
 ## [2.5.3] - 2023-12-26
 
 ### Added

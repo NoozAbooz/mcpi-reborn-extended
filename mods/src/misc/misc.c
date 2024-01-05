@@ -689,6 +689,15 @@ void init_misc() {
     }
     patch_address((void *) 0x115b48, (void *) ChestTileEntity_shouldSave_injection);
 
+    // Disable chunk compression in multiplayer; https://github.com/NoozAbooz/mcpi-reborn-extended/issues/39
+    if (feature_has("Disable Multiplayer Chunk Compression", server_auto)) {
+        unsigned char nop[4] = {0x00, 0xf0, 0x20, 0xe3}; // "nop"
+        patch((void *) 0x717c4, nop);
+
+        unsigned char mv_r3_ff[4] = {0xff, 0x30, 0xa0, 0xe3}; // "mov r3, #0xff"
+        patch((void *) 0x7178c, mv_r3_ff);
+    }
+
 #ifndef MCPI_HEADLESS_MODE
     // Replace Block Highlight With Outline
     if (feature_has("Replace Block Highlight With Outline", server_disabled)) {

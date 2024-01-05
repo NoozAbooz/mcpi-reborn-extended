@@ -62,6 +62,7 @@ static ServerProperties &get_server_properties() {
 #define DEFAULT_WHITELIST "false"
 #define DEFAULT_DEATH_MESSAGES "true"
 #define DEFAULT_GENERATE_CAVES "true"
+#define DEFAULT_DISABLE_COMPRESSION "true"
 
 // Get World Name
 static std::string get_world_name() {
@@ -497,6 +498,9 @@ static const char *get_features() {
         if (get_server_properties().get_bool("generate-caves", DEFAULT_GENERATE_CAVES)) {
             features += "Generate Caves|";
         }
+        if (get_server_properties().get_bool("disable-compression", DEFAULT_DISABLE_COMPRESSION)) {
+            features += "Disable Multiplayer Chunk Compression|";
+        }
     }
     return features.c_str();
 }
@@ -548,6 +552,8 @@ static void server_init() {
         properties_file_output << "death-messages=" DEFAULT_DEATH_MESSAGES "\n";
         properties_file_output << "# Generate Caves\n";
         properties_file_output << "generate-caves=" DEFAULT_GENERATE_CAVES "\n";
+        properties_file_output << "# Disable Chunk Compression (helpful if blocks are missing)\n";
+        properties_file_output << "disable-compression=" DEFAULT_DISABLE_COMPRESSION "\n";
         properties_file_output.close();
         // Re-Open File
         properties_file = std::ifstream(file);
