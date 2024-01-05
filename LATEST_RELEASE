@@ -1,5 +1,6 @@
-### Added
-- Add Replace Block Highlight With Outline Feature Flag (Enabled By Default)
-  * By Default, The Outline Width Is Set Using The GUI Scale
-  * This Can Be Overridden Using The MCPI_BLOCK_OUTLINE_WIDTH Environmental Variable
-- Added overwrite_calls_within Function
+### Changed
+- Updated app icon
+
+### Fixed
+- Bug Casuing Blocks to Not Appear In Multiplayer
+  * See https://github.com/NoozAbooz/mcpi-reborn-extended/issues/39
