@@ -28,6 +28,17 @@ sudo_wget() {
   sudo wget "$1" -O "$2" || error "Couldn't download '$2' from '$1'"
 }
 
+PAGE_SIZE="$(getconf PAGE_SIZE)"
+if [[ "$PAGE_SIZE" == "16384" ]]; then
+    #switch to 4K pagesize kernel
+    if [ -f /boot/config.txt ]; then
+        error "Raspberry Pi 5 PiOS images ship by default with a 16K PageSize Linux Kernel.
+        This kernel causes incompatibilities with some software including MCPI++ https://github.com/raspberrypi/bookworm-feedback/issues/107
+
+        To use it, you must switch to a 4K PageSize Linux Kernel. Enable it by adding 'kernel=kernel8.img' to /boot/config.txt. Reboot afterwards."
+    fi
+fi
+
 # Install depends
 #echo -e "\e[4m\e[21m\e[5mInstalling dependencies...\e[0m\e[97m"
 info "Installing Dependencies..."
