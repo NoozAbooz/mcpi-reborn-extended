@@ -41,7 +41,7 @@ Download and run the appropiate AppImage for your architecture with the `client`
 - Custom skins
 - Longer chat message length limit (512 characters)
 - Longer username length limit (32 characters)
-- Add item names fo hidden items
+- Add item names for hidden items
 - Sneaking via both the `Shift` and `Alt` keys
 - A custom "[Cursed Chest](https://media.discordapp.net/attachments/761048906242981948/903080546182242344/2021-10-27_20.39.05.png)" block for debugging
 - Ability to look around via arrow keys instead of mouse (useful if mouse is glitched)
