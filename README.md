@@ -1,9 +1,11 @@
 # MCPI++ (mcpi-reborn-extended)
 The enthusiast's `Minecraft: Pi Edition` mod, with custom QOL modifications and graphical changes. The APT packages and repo info are stored in the [debs](debs/) folder. The project is UNOFFICIAL from MCPI-Reborn. If you like MCPI or MCPI-Reborn, you'll probably love this more!
 
+> [!CAUTION]
+> MCPI++ is now UNSUPPORTED and will not be receiving updates. Please check out the vanilla project [MCPI-Reborn](https://gitea.thebrokenrail.com/minecraft-pi-reborn/minecraft-pi-reborn) which has implemented many MCPI++ features. Thanks to everyone who's supported the project all these years!
+
 MCPI++ IS NOT AFFILIATED, APPROVED BY OR ASSOCIATED WITH MOJANG/MICROSOFT
 
-[![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FNoozAbooz%2Fmcpi-reborn-extended&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label=Get%20support%20on)](https://discord.gg/XJJNG9jTuh)
 
 ![2023-05-28_20 10 40](https://github.com/NoozSBC/mcpi-reborn-extended/assets/44128563/bcfab15a-ef0b-4601-b614-81e203945bcd)
